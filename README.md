@@ -5,6 +5,8 @@ The specs are pinned to a commit; the tools are installed at their latest releas
 The benchmark is the [GitHub Actions workflow](.github/workflows/benchmark.yml) itself: one step per tool and spec, each a shell loop of `time`, the lint command, and `sleep 5`.
 **Note**: Spectral is the one exception to "default rules": it has none, and without a config it exits with "No ruleset has been found", so it got a one-line `.spectral.yaml` that extends `spectral:oas`.
 
+The write-up that goes with these numbers: [OpenAPI linters: which one is the best in a real test?](https://dev.to/albinator/openapi-linters-which-one-is-the-best-in-a-real-test-1n2j)
+
 | Tool | Language | Notes |
 | --- | --- | --- |
 | [Redocly CLI](https://github.com/Redocly/redocly-cli) | TypeScript | Default `recommended` ruleset |
