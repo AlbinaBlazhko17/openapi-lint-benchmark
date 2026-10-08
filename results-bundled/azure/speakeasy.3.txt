@@ -1,6 +1,6 @@
 Linting OpenAPI document...
                            
-Lint report written to: /home/runner/.speakeasy/temp/lint-report-18dbf5b77e5fa50910be1ff36c7efb32-645899530.html
+Lint report written to: /home/runner/.speakeasy/temp/lint-report-27bcd999768ee4aa2d248044ab69e595-4107063643.html
 INFO    validation hint: [line 1:1] generator-retries - retries should be configured - consider adding x-speakeasy-retries[0m extension globally or per-operation
 INFO    validation hint: [line 1:1] generator-validate-servers - no servers found in document, either add servers to the document or set a baseServerUrl[0m in the gen.yaml[0m config file
 INFO    validation hint: [line 51:5] generator-validate-servers - no servers found for operation get[0m /providers/Microsoft.Compute/operations[0m either locally, on the path or globally

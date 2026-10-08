@@ -25,8 +25,8 @@
  no-$ref-siblings                          301           ██████████                                        
  oas2-unused-definition                    13                                                              
  oas2-parameter-description                10                                                              
- circular-references                       1                                                               
  no-http-verbs-in-path                     1                                                               
+ circular-references                       1                                                               
  ────────────────────────────────────────  ────────────  ──────────────────────────────────────────────────
  total                                     1,695       
 

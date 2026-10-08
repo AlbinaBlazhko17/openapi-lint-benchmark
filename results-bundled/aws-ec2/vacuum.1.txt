@@ -29,8 +29,8 @@
  oas3-parameter-description                2,383         ██████████████                                    
  component-description                     2,217         █████████████                                     
  operation-tags                            1,188         ███████                                           
- operation-description                     594           ███                                               
  paths-kebab-case                          594           ███                                               
+ operation-description                     594           ███                                               
  oas3-valid-schema-example                 3                                                               
  ────────────────────────────────────────  ────────────  ──────────────────────────────────────────────────
  total                                     26,400      

@@ -32,7 +32,7 @@
  no-unnecessary-combinator                 32                                                              
  oas-schema-check                          13                                                              
  no-request-body                           11                                                              
- oas3-valid-schema-example                 9                                                               
+ nullable-enum-contains-null               9                                                               
  ────────────────────────────────────────  ────────────  ──────────────────────────────────────────────────
  total                                     4,407       
  ... and 7 more rules

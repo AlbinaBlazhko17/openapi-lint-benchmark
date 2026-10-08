@@ -24,7 +24,7 @@ The workflow is [`benchmark-bundled.yml`](.github/workflows/benchmark-bundled.ym
 ## Results
 
 <!-- BENCHMARK:START -->
-Generated 2026-10-08 13:50 UTC by [this workflow run](https://github.com/AlbinaBlazhko17/openapi-lint-benchmark/actions/runs/37787491745) on AMD EPYC 7763 64-Core Processor, 4 cores, 15 GB RAM, Linux 6.17.0-1022-azure, Node v24.21.0
+Generated 2026-10-08 16:18 UTC by [this workflow run](https://github.com/AlbinaBlazhko17/openapi-lint-benchmark/actions/runs/37807615154) on AMD EPYC 7763 64-Core Processor, 4 cores, 15 GB RAM, Linux 6.17.0-1022-azure, Node v24.21.0
 Latest releases at run time: vacuum 0.32.0, Spectral 6.17.0, Redocly CLI 2.60.0, Scalar CLI 2.10.0, Speakeasy CLI 1.801.0.
 Each command ran 5 times, one after another, after a 5 s pause; the time is wall-clock from process start to exit, as `time` reports it, and the table shows the median. A command that did not finish within 5 minutes was killed and not repeated. 💥 marks a command that crashed; its output has the error.
 
@@ -34,10 +34,10 @@ Input: `specs/bundled/stripe.yaml`, bundled from `specs/stripe-split/openapi.yam
 
 | Tool | Time (median) | Errors | Warnings<br>+ info |
 | --- | --- | ---: | ---: |
-| [Redocly CLI](results-bundled/stripe/redocly.1.txt) | 1.53 s<br>▓ | 641 | 1,012 |
+| [Redocly CLI](results-bundled/stripe/redocly.1.txt) | 1.87 s<br>▓ | 641 | 1,012 |
 | [vacuum](results-bundled/stripe/vacuum.1.txt) | 2.26 s<br>▓ | 1 | 23,086 |
-| [Speakeasy CLI](results-bundled/stripe/speakeasy.1.txt) | 4.73 s<br>▓ | 2 | 5,873 |
-| [Spectral](results-bundled/stripe/spectral.1.txt) | 12.71 s<br>▓▓▓ | 75 | 600 |
+| [Speakeasy CLI](results-bundled/stripe/speakeasy.1.txt) | 4.77 s<br>▓ | 2 | 5,873 |
+| [Spectral](results-bundled/stripe/spectral.1.txt) | 12.97 s<br>▓▓▓ | 75 | 600 |
 | [Scalar CLI](results-bundled/stripe/scalar.1.txt) | 💥 crashed |  |  |
 
 ### DigitalOcean
@@ -46,11 +46,11 @@ Input: `specs/bundled/digitalocean.yaml`, bundled from `specs/digitalocean/Digit
 
 | Tool | Time (median) | Errors | Warnings<br>+ info |
 | --- | --- | ---: | ---: |
-| [Redocly CLI](results-bundled/digitalocean/redocly.1.txt) | 2.31 s<br>▓ | 7 | 118 |
-| [Speakeasy CLI](results-bundled/digitalocean/speakeasy.1.txt) | 2.35 s<br>▓ | 2 | 1,347 |
-| [vacuum](results-bundled/digitalocean/vacuum.1.txt) | 2.55 s<br>▓ | 14 | 4,393 |
-| [Spectral](results-bundled/digitalocean/spectral.1.txt) | 38.61 s<br>▓▓▓▓▓▓▓▓▓ | 0 | 682 |
-| [Scalar CLI](results-bundled/digitalocean/scalar.1.txt) | 163.39 s<br>▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ | 14 | 3,568 |
+| [Speakeasy CLI](results-bundled/digitalocean/speakeasy.1.txt) | 2.36 s<br>▓ | 2 | 1,347 |
+| [vacuum](results-bundled/digitalocean/vacuum.1.txt) | 2.56 s<br>▓ | 14 | 4,393 |
+| [Redocly CLI](results-bundled/digitalocean/redocly.1.txt) | 2.56 s<br>▓ | 7 | 118 |
+| [Spectral](results-bundled/digitalocean/spectral.1.txt) | 38.96 s<br>▓▓▓▓▓▓▓▓▓ | 0 | 682 |
+| [Scalar CLI](results-bundled/digitalocean/scalar.1.txt) | 177.41 s<br>▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ | 14 | 3,568 |
 
 ### Azure Compute (Swagger 2.0)
 
@@ -59,10 +59,10 @@ Input: `specs/bundled/azure.yaml`, bundled from `specs/azure/.../ComputeRP.json 
 | Tool | Time (median) | Errors | Warnings<br>+ info |
 | --- | --- | ---: | ---: |
 | [vacuum](results-bundled/azure/vacuum.1.txt) | 0.41 s<br>▓ | 301 | 1,394 |
-| [Redocly CLI](results-bundled/azure/redocly.1.txt) | 0.91 s<br>▓ | 205 | 893 |
-| [Speakeasy CLI](results-bundled/azure/speakeasy.1.txt) | 1.01 s<br>▓ | 216 | 1,277 |
-| [Spectral](results-bundled/azure/spectral.1.txt) | 4.34 s<br>▓ | 661 | 17 |
-| [Scalar CLI](results-bundled/azure/scalar.1.txt) | 21.36 s<br>▓▓▓▓▓ | 301 | 25 |
+| [Speakeasy CLI](results-bundled/azure/speakeasy.1.txt) | 1.00 s<br>▓ | 216 | 1,277 |
+| [Redocly CLI](results-bundled/azure/redocly.1.txt) | 1.14 s<br>▓ | 205 | 893 |
+| [Spectral](results-bundled/azure/spectral.1.txt) | 4.32 s<br>▓ | 661 | 17 |
+| [Scalar CLI](results-bundled/azure/scalar.1.txt) | 21.51 s<br>▓▓▓▓▓ | 301 | 25 |
 
 ### GitHub
 
@@ -70,10 +70,10 @@ Input: `specs/bundled/github.yaml`, bundled from `specs/github/api.github.com.ya
 
 | Tool | Time (median) | Errors | Warnings<br>+ info |
 | --- | --- | ---: | ---: |
-| [Redocly CLI](results-bundled/github/redocly.1.txt) | 4.45 s<br>▓ | 1,648 | 2,268 |
-| [vacuum](results-bundled/github/vacuum.1.txt) | 6.84 s<br>▓▓ | 1 | 33,339 |
-| [Speakeasy CLI](results-bundled/github/speakeasy.1.txt) | 8.18 s<br>▓▓ | 0 | 3,498 |
-| [Spectral](results-bundled/github/spectral.1.txt) | 71.89 s<br>▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ | 795 | 51 |
+| [Redocly CLI](results-bundled/github/redocly.1.txt) | 4.74 s<br>▓ | 1,648 | 2,268 |
+| [vacuum](results-bundled/github/vacuum.1.txt) | 6.94 s<br>▓▓ | 1 | 33,339 |
+| [Speakeasy CLI](results-bundled/github/speakeasy.1.txt) | 8.43 s<br>▓▓ | 0 | 3,498 |
+| [Spectral](results-bundled/github/spectral.1.txt) | 73.72 s<br>▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ | 795 | 51 |
 | [Scalar CLI](results-bundled/github/scalar.1.txt) | ☠️ > 5 min |  |  |
 
 ### Cloudflare
@@ -82,10 +82,10 @@ Input: `specs/bundled/cloudflare.yaml`, bundled from `specs/cloudflare/openapi.y
 
 | Tool | Time (median) | Errors | Warnings<br>+ info |
 | --- | --- | ---: | ---: |
-| [Redocly CLI](results-bundled/cloudflare/redocly.1.txt) | 8.10 s<br>▓▓ | 16 | 4,995 |
-| [vacuum](results-bundled/cloudflare/vacuum.1.txt) | 9.50 s<br>▓▓ | 397 | 62,463 |
-| [Speakeasy CLI](results-bundled/cloudflare/speakeasy.1.txt) | 13.35 s<br>▓▓▓ | 43 | 24,217 |
-| [Spectral](results-bundled/cloudflare/spectral.1.txt) | 108.00 s<br>▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ | 2,257 | 3,797 |
+| [Redocly CLI](results-bundled/cloudflare/redocly.1.txt) | 8.30 s<br>▓▓ | 16 | 4,995 |
+| [vacuum](results-bundled/cloudflare/vacuum.1.txt) | 9.88 s<br>▓▓ | 397 | 62,463 |
+| [Speakeasy CLI](results-bundled/cloudflare/speakeasy.1.txt) | 13.49 s<br>▓▓▓ | 43 | 24,217 |
+| [Spectral](results-bundled/cloudflare/spectral.1.txt) | 109.47 s<br>▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ | 2,257 | 3,797 |
 | [Scalar CLI](results-bundled/cloudflare/scalar.1.txt) | ☠️ > 5 min |  |  |
 
 ### AWS EC2
@@ -94,10 +94,10 @@ Input: `specs/bundled/aws-ec2.yaml`, bundled from `specs/aws-ec2/openapi.yaml (1
 
 | Tool | Time (median) | Errors | Warnings<br>+ info |
 | --- | --- | ---: | ---: |
-| [Redocly CLI](results-bundled/aws-ec2/redocly.1.txt) | 2.38 s<br>▓ | 1,188 | 1,191 |
-| [vacuum](results-bundled/aws-ec2/vacuum.1.txt) | 2.82 s<br>▓ | 0 | 26,400 |
-| [Spectral](results-bundled/aws-ec2/spectral.1.txt) | 8.65 s<br>▓▓ | 3 | 1,188 |
-| [Speakeasy CLI](results-bundled/aws-ec2/speakeasy.1.txt) | 10.90 s<br>▓▓▓ | 0 | 12,312 |
+| [Redocly CLI](results-bundled/aws-ec2/redocly.1.txt) | 2.57 s<br>▓ | 1,188 | 1,191 |
+| [vacuum](results-bundled/aws-ec2/vacuum.1.txt) | 2.88 s<br>▓ | 0 | 26,400 |
+| [Spectral](results-bundled/aws-ec2/spectral.1.txt) | 8.66 s<br>▓▓ | 3 | 1,188 |
+| [Speakeasy CLI](results-bundled/aws-ec2/speakeasy.1.txt) | 10.95 s<br>▓▓ | 0 | 12,312 |
 | [Scalar CLI](results-bundled/aws-ec2/scalar.1.txt) | ☠️ > 5 min |  |  |
 
 <!-- BENCHMARK:END -->
