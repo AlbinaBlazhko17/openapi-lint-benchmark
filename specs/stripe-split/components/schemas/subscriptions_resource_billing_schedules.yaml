@@ -1,0 +1,22 @@
+description: Sets the billing schedule for the subscription.
+properties:
+  applies_to:
+    description: Specifies which subscription items the billing schedule applies to.
+    items:
+      $ref: ./subscriptions_resource_billing_schedules_applies_to.yaml
+    nullable: true
+    type: array
+  bill_until:
+    $ref: ./subscriptions_resource_billing_schedules_bill_until.yaml
+  key:
+    description: Unique identifier for the billing schedule.
+    maxLength: 5000
+    type: string
+required:
+  - bill_until
+  - key
+title: SubscriptionsResourceBillingSchedules
+type: object
+x-expandableFields:
+  - applies_to
+  - bill_until

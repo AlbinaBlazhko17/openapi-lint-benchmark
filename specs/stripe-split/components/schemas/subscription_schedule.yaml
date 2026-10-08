@@ -1,0 +1,181 @@
+description: >-
+  A subscription schedule allows you to create and manage the lifecycle of a
+  subscription by predefining expected changes.
+
+
+  Related guide: [Subscription
+  schedules](https://docs.stripe.com/billing/subscriptions/subscription-schedules)
+properties:
+  application:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./application.yaml
+      - $ref: ./deleted_application.yaml
+    description: ID of the Connect Application that created the schedule.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./application.yaml
+        - $ref: ./deleted_application.yaml
+  billing_mode:
+    $ref: ./subscriptions_resource_billing_mode.yaml
+  canceled_at:
+    description: >-
+      Time at which the subscription schedule was canceled. Measured in seconds
+      since the Unix epoch.
+    format: unix-time
+    nullable: true
+    type: integer
+  completed_at:
+    description: >-
+      Time at which the subscription schedule was completed. Measured in seconds
+      since the Unix epoch.
+    format: unix-time
+    nullable: true
+    type: integer
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  current_phase:
+    anyOf:
+      - $ref: ./subscription_schedule_current_phase.yaml
+    description: >-
+      Object representing the start and end dates for the current phase of the
+      subscription schedule, if it is `active`.
+    nullable: true
+  customer:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./customer.yaml
+      - $ref: ./deleted_customer.yaml
+    description: ID of the customer who owns the subscription schedule.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./customer.yaml
+        - $ref: ./deleted_customer.yaml
+  customer_account:
+    description: ID of the account who owns the subscription schedule.
+    maxLength: 5000
+    nullable: true
+    type: string
+  default_settings:
+    $ref: ./subscription_schedules_resource_default_settings.yaml
+  end_behavior:
+    description: >-
+      Behavior of the subscription schedule and underlying subscription when it
+      ends. Possible values are `release` or `cancel` with the default being
+      `release`. `release` will end the subscription schedule and keep the
+      underlying subscription running. `cancel` will end the subscription
+      schedule and cancel the underlying subscription.
+    enum:
+      - cancel
+      - none
+      - release
+      - renew
+    type: string
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    nullable: true
+    type: object
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - subscription_schedule
+    type: string
+  phases:
+    description: Configuration for the subscription schedule's phases.
+    items:
+      $ref: ./subscription_schedule_phase_configuration.yaml
+    type: array
+  released_at:
+    description: >-
+      Time at which the subscription schedule was released. Measured in seconds
+      since the Unix epoch.
+    format: unix-time
+    nullable: true
+    type: integer
+  released_subscription:
+    description: >-
+      ID of the subscription once managed by the subscription schedule (if it is
+      released).
+    maxLength: 5000
+    nullable: true
+    type: string
+  status:
+    description: >-
+      The present status of the subscription schedule. Possible values are
+      `not_started`, `active`, `completed`, `released`, and `canceled`. You can
+      read more about the different states in our [behavior
+      guide](https://docs.stripe.com/billing/subscriptions/subscription-schedules).
+    enum:
+      - active
+      - canceled
+      - completed
+      - not_started
+      - released
+    type: string
+  subscription:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./subscription.yaml
+    description: ID of the subscription managed by the subscription schedule.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./subscription.yaml
+  test_clock:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./test_helpers.test_clock.yaml
+    description: ID of the test clock this subscription schedule belongs to.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./test_helpers.test_clock.yaml
+required:
+  - billing_mode
+  - created
+  - customer
+  - default_settings
+  - end_behavior
+  - id
+  - livemode
+  - object
+  - phases
+  - status
+title: Subscription Schedule
+type: object
+x-expandableFields:
+  - application
+  - billing_mode
+  - current_phase
+  - customer
+  - default_settings
+  - phases
+  - subscription
+  - test_clock
+x-resourceId: subscription_schedule

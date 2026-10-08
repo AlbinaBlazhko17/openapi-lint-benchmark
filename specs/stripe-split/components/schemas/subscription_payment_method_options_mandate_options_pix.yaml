@@ -1,0 +1,33 @@
+description: ''
+properties:
+  amount:
+    description: Amount to be charged for future payments.
+    nullable: true
+    type: integer
+  amount_includes_iof:
+    description: Determines if the amount includes the IOF tax.
+    enum:
+      - always
+      - never
+    nullable: true
+    type: string
+  end_date:
+    description: >-
+      Date when the mandate expires and no further payments will be charged, in
+      `YYYY-MM-DD`.
+    maxLength: 5000
+    nullable: true
+    type: string
+  payment_schedule:
+    description: Schedule at which the future payments will be charged.
+    enum:
+      - halfyearly
+      - monthly
+      - quarterly
+      - weekly
+      - yearly
+    nullable: true
+    type: string
+title: subscription_payment_method_options_mandate_options_pix
+type: object
+x-expandableFields: []

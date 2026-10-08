@@ -1,0 +1,10 @@
+description: ''
+properties:
+  commodity_code:
+    maxLength: 5000
+    nullable: true
+    type: string
+title: >-
+  PaymentFlowsPrivatePaymentMethodsCardPaymentIntentAmountDetailsLineItemPaymentMethodOptions
+type: object
+x-expandableFields: []

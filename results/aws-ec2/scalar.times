@@ -1,0 +1,2 @@
+/home/runner/work/_temp/641faa59-0cba-4e36-a9bd-68b5e987bff5.sh: line 3:  5195 Killed                  timeout -s KILL 300 scalar document lint openapi.yaml > $RESULTS/aws-ec2/scalar.$run.txt 2>&1
+300.002

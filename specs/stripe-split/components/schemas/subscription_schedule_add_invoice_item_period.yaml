@@ -1,0 +1,16 @@
+description: ''
+properties:
+  end:
+    $ref: >-
+      ./subscription_schedules_resource_invoice_item_period_resource_period_end.yaml
+  start:
+    $ref: >-
+      ./subscription_schedules_resource_invoice_item_period_resource_period_start.yaml
+required:
+  - end
+  - start
+title: SubscriptionScheduleAddInvoiceItemPeriod
+type: object
+x-expandableFields:
+  - end
+  - start

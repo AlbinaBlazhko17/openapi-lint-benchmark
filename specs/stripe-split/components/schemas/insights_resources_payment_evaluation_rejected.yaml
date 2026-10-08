@@ -1,0 +1,8 @@
+description: Details of an rejected outcome attached to this payment evaluation.
+properties:
+  card:
+    $ref: ./insights_resources_payment_evaluation_rejected_card.yaml
+title: InsightsResourcesPaymentEvaluationRejected
+type: object
+x-expandableFields:
+  - card

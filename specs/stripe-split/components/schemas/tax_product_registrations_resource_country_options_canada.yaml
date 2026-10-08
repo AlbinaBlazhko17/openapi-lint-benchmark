@@ -1,0 +1,18 @@
+description: ''
+properties:
+  province_standard:
+    $ref: >-
+      ./tax_product_registrations_resource_country_options_ca_province_standard.yaml
+  type:
+    description: Type of registration in Canada.
+    enum:
+      - province_standard
+      - simplified
+      - standard
+    type: string
+required:
+  - type
+title: TaxProductRegistrationsResourceCountryOptionsCanada
+type: object
+x-expandableFields:
+  - province_standard

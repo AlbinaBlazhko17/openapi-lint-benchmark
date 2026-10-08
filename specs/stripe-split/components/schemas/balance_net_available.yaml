@@ -1,0 +1,18 @@
+description: ''
+properties:
+  amount:
+    description: Net balance amount, subtracting fees from platform-set pricing.
+    type: integer
+  destination:
+    description: ID of the external account for this net balance (not expandable).
+    maxLength: 5000
+    type: string
+  source_types:
+    $ref: ./balance_amount_by_source_type.yaml
+required:
+  - amount
+  - destination
+title: BalanceNetAvailable
+type: object
+x-expandableFields:
+  - source_types

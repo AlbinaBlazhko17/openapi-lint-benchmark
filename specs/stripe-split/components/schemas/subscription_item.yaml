@@ -1,0 +1,100 @@
+description: |-
+  Subscription items allow you to create customer subscriptions with more than
+  one plan, making it easy to represent complex billing relationships.
+properties:
+  billed_until:
+    description: The time period the subscription item has been billed for.
+    format: unix-time
+    type: integer
+  billing_thresholds:
+    anyOf:
+      - $ref: ./subscription_item_billing_thresholds.yaml
+    description: >-
+      Define thresholds at which an invoice will be sent, and the related
+      subscription advanced to a new billing period
+    nullable: true
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    type: integer
+  current_period_end:
+    description: The end time of this subscription item's current billing period.
+    format: unix-time
+    type: integer
+  current_period_start:
+    description: The start time of this subscription item's current billing period.
+    format: unix-time
+    type: integer
+  discounts:
+    description: >-
+      The discounts applied to the subscription item. Subscription item
+      discounts are applied before subscription discounts. Use
+      `expand[]=discounts` to expand each discount.
+    items:
+      anyOf:
+        - maxLength: 5000
+          type: string
+        - $ref: ./discount.yaml
+      x-expansionResources:
+        oneOf:
+          - $ref: ./discount.yaml
+    type: array
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    type: object
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - subscription_item
+    type: string
+  price:
+    $ref: ./price.yaml
+  quantity:
+    description: >-
+      The [quantity](https://docs.stripe.com/subscriptions/quantities) of the
+      plan to which the customer should be subscribed.
+    type: integer
+  subscription:
+    description: The `subscription` this `subscription_item` belongs to.
+    maxLength: 5000
+    type: string
+  tax_rates:
+    description: >-
+      The tax rates which apply to this `subscription_item`. When set, the
+      `default_tax_rates` on the subscription do not apply to this
+      `subscription_item`.
+    items:
+      $ref: ./tax_rate.yaml
+    nullable: true
+    type: array
+required:
+  - created
+  - current_period_end
+  - current_period_start
+  - discounts
+  - id
+  - metadata
+  - object
+  - price
+  - subscription
+title: Subscription Item
+type: object
+x-expandableFields:
+  - billing_thresholds
+  - discounts
+  - price
+  - tax_rates
+x-resourceId: subscription_item

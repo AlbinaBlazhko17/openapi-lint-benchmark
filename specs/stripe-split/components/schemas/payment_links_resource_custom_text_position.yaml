@@ -1,0 +1,11 @@
+description: ''
+properties:
+  message:
+    description: Text can be up to 1200 characters in length.
+    maxLength: 1200
+    type: string
+required:
+  - message
+title: PaymentLinksResourceCustomTextPosition
+type: object
+x-expandableFields: []

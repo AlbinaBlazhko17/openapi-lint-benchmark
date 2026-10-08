@@ -1,0 +1,23 @@
+description: Represents a reader action to collect customer inputs
+properties:
+  inputs:
+    description: List of inputs to be collected.
+    items:
+      $ref: ./terminal_reader_reader_resource_input.yaml
+    type: array
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    nullable: true
+    type: object
+required:
+  - inputs
+title: TerminalReaderReaderResourceCollectInputsAction
+type: object
+x-expandableFields:
+  - inputs

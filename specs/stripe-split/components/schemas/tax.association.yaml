@@ -1,0 +1,43 @@
+description: >-
+  A Tax Association exposes the Tax Transactions that Stripe attempted to create
+  on your behalf based on the PaymentIntent input
+properties:
+  calculation:
+    description: >-
+      The [Tax Calculation](https://docs.stripe.com/api/tax/calculations/object)
+      that was included in PaymentIntent.
+    maxLength: 5000
+    type: string
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - tax.association
+    type: string
+  payment_intent:
+    description: >-
+      The [PaymentIntent](https://docs.stripe.com/api/payment_intents/object)
+      that this Tax Association is tracking.
+    maxLength: 5000
+    type: string
+  tax_transaction_attempts:
+    description: Information about the tax transactions linked to this payment intent
+    items:
+      $ref: ./tax_product_resource_tax_association_transaction_attempts.yaml
+    nullable: true
+    type: array
+required:
+  - calculation
+  - id
+  - object
+  - payment_intent
+title: Tax Association
+type: object
+x-expandableFields:
+  - tax_transaction_attempts
+x-resourceId: tax.association

@@ -1,0 +1,55 @@
+post:
+  description: >-
+    <p>Cancels a Climate order. You can cancel an order within 24 hours of
+    creation. Stripe refunds the
+
+    reservation <code>amount_subtotal</code>, but not the
+    <code>amount_fees</code> for user-triggered cancellations. Frontier
+
+    might cancel reservations if suppliers fail to deliver. If Frontier cancels
+    the reservation, Stripe
+
+    provides 90 days advance notice and refunds the
+    <code>amount_total</code>.</p>
+  operationId: PostClimateOrdersOrderCancel
+  parameters:
+    - description: Unique identifier of the order.
+      in: path
+      name: order
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/climate.order.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Cancel an order

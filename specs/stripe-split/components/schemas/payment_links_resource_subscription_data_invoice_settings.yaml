@@ -1,0 +1,10 @@
+description: ''
+properties:
+  issuer:
+    $ref: ./connect_account_reference.yaml
+required:
+  - issuer
+title: PaymentLinksResourceSubscriptionDataInvoiceSettings
+type: object
+x-expandableFields:
+  - issuer

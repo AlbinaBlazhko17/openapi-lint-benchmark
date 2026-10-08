@@ -1,0 +1,24 @@
+description: ''
+properties:
+  enabled:
+    description: >-
+      If `true`, a shareable `url` will be generated that will take your
+      customers to a hosted login page for the customer portal.
+
+
+      If `false`, the previously generated `url`, if any, will be deactivated.
+    type: boolean
+  url:
+    description: >-
+      A shareable URL to the hosted portal login page. Your customers will be
+      able to log in with their
+      [email](https://docs.stripe.com/api/customers/object#customer_object-email)
+      and receive a link to their customer portal.
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - enabled
+title: PortalLoginPage
+type: object
+x-expandableFields: []

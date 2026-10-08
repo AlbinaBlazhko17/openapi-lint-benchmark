@@ -1,0 +1,58 @@
+description: ''
+properties:
+  customer_account_id:
+    description: >-
+      User Account ID used to log into business platform. Must be recognizable
+      by the user.
+    maxLength: 5000
+    nullable: true
+    type: string
+  customer_device_fingerprint:
+    description: >-
+      Unique identifier of the cardholder’s device derived from a combination of
+      at least two hardware and software attributes. Must be at least 20
+      characters.
+    maxLength: 5000
+    nullable: true
+    type: string
+  customer_device_id:
+    description: >-
+      Unique identifier of the cardholder’s device such as a device serial
+      number (e.g., International Mobile Equipment Identity [IMEI]). Must be at
+      least 15 characters.
+    maxLength: 5000
+    nullable: true
+    type: string
+  customer_email_address:
+    description: The email address of the customer.
+    maxLength: 5000
+    nullable: true
+    type: string
+  customer_purchase_ip:
+    description: The IP address that the customer used when making the purchase.
+    maxLength: 5000
+    nullable: true
+    type: string
+  merchandise_or_services:
+    description: Categorization of disputed payment.
+    enum:
+      - merchandise
+      - services
+    nullable: true
+    type: string
+  product_description:
+    description: A description of the product or service that was sold.
+    maxLength: 150000
+    nullable: true
+    type: string
+  shipping_address:
+    anyOf:
+      - $ref: ./dispute_transaction_shipping_address.yaml
+    description: >-
+      The address to which a physical product was shipped. All fields are
+      required for Visa Compelling Evidence 3.0 evidence submission.
+    nullable: true
+title: DisputeVisaCompellingEvidence3DisputedTransaction
+type: object
+x-expandableFields:
+  - shipping_address

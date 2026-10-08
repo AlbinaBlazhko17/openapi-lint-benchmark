@@ -1,0 +1,45 @@
+description: ''
+properties:
+  local_amusement_tax:
+    $ref: >-
+      ./tax_product_registrations_resource_country_options_us_local_amusement_tax.yaml
+  local_lease_tax:
+    $ref: >-
+      ./tax_product_registrations_resource_country_options_us_local_lease_tax.yaml
+  mass_transit_parking_tax:
+    $ref: >-
+      ./tax_product_registrations_resource_country_options_us_mass_transit_parking_tax.yaml
+  parking_tax:
+    $ref: ./tax_product_registrations_resource_country_options_us_parking_tax.yaml
+  state:
+    description: >-
+      Two-letter US state code ([ISO
+      3166-2](https://en.wikipedia.org/wiki/ISO_3166-2)).
+    maxLength: 5000
+    type: string
+  state_sales_tax:
+    $ref: >-
+      ./tax_product_registrations_resource_country_options_us_state_sales_tax.yaml
+  type:
+    description: Type of registration in the US.
+    enum:
+      - local_amusement_tax
+      - local_lease_tax
+      - mass_transit_parking_tax
+      - parking_tax
+      - state_communications_tax
+      - state_retail_delivery_fee
+      - state_sales_tax
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - state
+  - type
+title: TaxProductRegistrationsResourceCountryOptionsUnitedStates
+type: object
+x-expandableFields:
+  - local_amusement_tax
+  - local_lease_tax
+  - mass_transit_parking_tax
+  - parking_tax
+  - state_sales_tax

@@ -1,0 +1,17 @@
+description: ''
+properties:
+  presentment_amount:
+    description: >-
+      Amount intended to be collected by this payment, denominated in
+      `presentment_currency`.
+    type: integer
+  presentment_currency:
+    description: Currency presented to the customer during payment.
+    maxLength: 5000
+    type: string
+required:
+  - presentment_amount
+  - presentment_currency
+title: PaymentFlowsPaymentIntentPresentmentDetails
+type: object
+x-expandableFields: []

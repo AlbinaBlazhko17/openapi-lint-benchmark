@@ -1,0 +1,39 @@
+description: SWIFT Records contain U.S. bank account details per the SWIFT format.
+properties:
+  account_holder_address:
+    $ref: ./address.yaml
+  account_holder_name:
+    description: The account holder name
+    maxLength: 5000
+    type: string
+  account_number:
+    description: The account number
+    maxLength: 5000
+    type: string
+  account_type:
+    description: The account type
+    maxLength: 5000
+    type: string
+  bank_address:
+    $ref: ./address.yaml
+  bank_name:
+    description: The bank name
+    maxLength: 5000
+    type: string
+  swift_code:
+    description: The SWIFT code
+    maxLength: 5000
+    type: string
+required:
+  - account_holder_address
+  - account_holder_name
+  - account_number
+  - account_type
+  - bank_address
+  - bank_name
+  - swift_code
+title: FundingInstructionsBankTransferSwiftRecord
+type: object
+x-expandableFields:
+  - account_holder_address
+  - bank_address

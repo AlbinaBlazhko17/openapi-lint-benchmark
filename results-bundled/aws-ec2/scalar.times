@@ -1,0 +1,2 @@
+/home/runner/work/_temp/13aafc3d-a7d3-4e84-bdf4-b7d7f99cfc2d.sh: line 3:  5262 Killed                  timeout -s KILL 300 scalar document lint aws-ec2.yaml > $RESULTS/aws-ec2/scalar.$run.txt 2>&1
+300.002

@@ -1,0 +1,5 @@
+description: ''
+properties: {}
+title: payment_method_twint
+type: object
+x-expandableFields: []

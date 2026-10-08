@@ -1,0 +1,10 @@
+description: ''
+properties:
+  address:
+    $ref: ./address.yaml
+required:
+  - address
+title: IssuingCardholderAddress
+type: object
+x-expandableFields:
+  - address

@@ -1,0 +1,21 @@
+description: ''
+properties:
+  code:
+    description: >-
+      A short machine-readable string giving the reason for the verification
+      failure.
+    enum:
+      - phone_unverified_other
+      - phone_verification_declined
+    nullable: true
+    type: string
+  reason:
+    description: >-
+      A human-readable message giving the reason for the failure. These messages
+      can be shown to your users.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: GelatoPhoneReportError
+type: object
+x-expandableFields: []

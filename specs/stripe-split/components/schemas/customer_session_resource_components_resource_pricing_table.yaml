@@ -1,0 +1,10 @@
+description: This hash contains whether the pricing table is enabled.
+properties:
+  enabled:
+    description: Whether the pricing table is enabled.
+    type: boolean
+required:
+  - enabled
+title: CustomerSessionResourceComponentsResourcePricingTable
+type: object
+x-expandableFields: []

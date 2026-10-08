@@ -1,0 +1,15 @@
+description: ''
+properties:
+  posted_at:
+    description: Timestamp describing when the Transaction changed status to `posted`.
+    format: unix-time
+    nullable: true
+    type: integer
+  void_at:
+    description: Timestamp describing when the Transaction changed status to `void`.
+    format: unix-time
+    nullable: true
+    type: integer
+title: TreasuryTransactionsResourceAbstractTransactionResourceStatusTransitions
+type: object
+x-expandableFields: []

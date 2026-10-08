@@ -1,0 +1,83 @@
+description: ''
+properties:
+  brand:
+    description: >-
+      Card brand. Can be `amex`, `cartes_bancaires`, `diners`, `discover`,
+      `eftpos_au`, `jcb`, `link`, `mastercard`, `unionpay`, `visa` or `unknown`.
+    maxLength: 5000
+    nullable: true
+    type: string
+  checks:
+    anyOf:
+      - $ref: ./setup_attempt_payment_method_details_card_checks.yaml
+    description: >-
+      Check results by Card networks on Card address and CVC at the time of
+      authorization
+    nullable: true
+  country:
+    description: >-
+      Two-letter ISO code representing the country of the card. You could use
+      this attribute to get a sense of the international breakdown of cards
+      you've collected.
+    maxLength: 5000
+    nullable: true
+    type: string
+  exp_month:
+    description: Two-digit number representing the card's expiration month.
+    nullable: true
+    type: integer
+  exp_year:
+    description: Four-digit number representing the card's expiration year.
+    nullable: true
+    type: integer
+  fingerprint:
+    description: >-
+      Uniquely identifies this particular card number. You can use this
+      attribute to check whether two customers who’ve signed up with you are
+      using the same card number, for example. For payment methods that tokenize
+      card information (Apple Pay, Google Pay), the tokenized number might be
+      provided instead of the underlying card number.
+
+
+      *As of May 1, 2021, card fingerprint in India for Connect changed to allow
+      two fingerprints for the same card---one for India and one for the rest of
+      the world.*
+    maxLength: 5000
+    nullable: true
+    type: string
+  funding:
+    description: Card funding type. Can be `credit`, `debit`, `prepaid`, or `unknown`.
+    maxLength: 5000
+    nullable: true
+    type: string
+  last4:
+    description: The last four digits of the card.
+    maxLength: 5000
+    nullable: true
+    type: string
+  network:
+    description: >-
+      Identifies which network this charge was processed on. Can be `amex`,
+      `cartes_bancaires`, `diners`, `discover`, `eftpos_au`, `interac`, `jcb`,
+      `link`, `mastercard`, `unionpay`, `visa`, or `unknown`.
+    maxLength: 5000
+    nullable: true
+    type: string
+  three_d_secure:
+    anyOf:
+      - $ref: ./three_d_secure_details.yaml
+    description: Populated if this authorization used 3D Secure authentication.
+    nullable: true
+  wallet:
+    anyOf:
+      - $ref: ./setup_attempt_payment_method_details_card_wallet.yaml
+    description: >-
+      If this Card is part of a card wallet, this contains the details of the
+      card wallet.
+    nullable: true
+title: setup_attempt_payment_method_details_card
+type: object
+x-expandableFields:
+  - checks
+  - three_d_secure
+  - wallet

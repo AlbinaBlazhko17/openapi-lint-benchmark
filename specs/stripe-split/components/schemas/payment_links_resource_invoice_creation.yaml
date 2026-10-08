@@ -1,0 +1,18 @@
+description: ''
+properties:
+  enabled:
+    description: Enable creating an invoice on successful payment.
+    type: boolean
+  invoice_data:
+    anyOf:
+      - $ref: ./payment_links_resource_invoice_settings.yaml
+    description: >-
+      Configuration for the invoice. Default invoice values will be used if
+      unspecified.
+    nullable: true
+required:
+  - enabled
+title: PaymentLinksResourceInvoiceCreation
+type: object
+x-expandableFields:
+  - invoice_data

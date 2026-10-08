@@ -1,0 +1,28 @@
+description: Toggle settings for enabling/disabling the ABA address feature
+properties:
+  requested:
+    description: Whether the FinancialAccount should have the Feature.
+    type: boolean
+  status:
+    description: Whether the Feature is operational.
+    enum:
+      - active
+      - pending
+      - restricted
+    type: string
+  status_details:
+    description: >-
+      Additional details; includes at least one entry when the status is not
+      `active`.
+    items:
+      $ref: >-
+        ./treasury_financial_accounts_resource_toggles_setting_status_details.yaml
+    type: array
+required:
+  - requested
+  - status
+  - status_details
+title: TreasuryFinancialAccountsResourceAbaToggleSettings
+type: object
+x-expandableFields:
+  - status_details

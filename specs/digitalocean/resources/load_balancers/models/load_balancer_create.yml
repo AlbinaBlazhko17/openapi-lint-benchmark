@@ -1,0 +1,11 @@
+description: >-
+  The request schema for creating a load balancer. This is the same as the
+  update schema with the addition of the create-only `ip` field, which assigns
+  a Bring Your Own IP (BYOIP) address to the load balancer.
+
+allOf:
+  - $ref: 'load_balancer_update.yml'
+
+  - type: object
+    properties:
+      $ref: 'attributes.yml#/load_balancer_ip'

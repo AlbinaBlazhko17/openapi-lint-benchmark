@@ -1,0 +1,48 @@
+description: ''
+properties:
+  amount:
+    description: Amount transferred, in cents (or local equivalent).
+    type: integer
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    format: currency
+    type: string
+  destination:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./account.yaml
+    description: ID of the account that funds are being collected for.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./account.yaml
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - connect_collection_transfer
+    type: string
+required:
+  - amount
+  - currency
+  - destination
+  - id
+  - livemode
+  - object
+title: ConnectCollectionTransfer
+type: object
+x-expandableFields:
+  - destination

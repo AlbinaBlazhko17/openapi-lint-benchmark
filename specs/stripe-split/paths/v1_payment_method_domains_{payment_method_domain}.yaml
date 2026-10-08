@@ -1,0 +1,94 @@
+get:
+  description: <p>Retrieves the details of an existing payment method domain.</p>
+  operationId: GetPaymentMethodDomainsPaymentMethodDomain
+  parameters:
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+    - in: path
+      name: payment_method_domain
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/payment_method_domain.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Retrieve a payment method domain
+post:
+  description: <p>Updates an existing payment method domain.</p>
+  operationId: PostPaymentMethodDomainsPaymentMethodDomain
+  parameters:
+    - in: path
+      name: payment_method_domain
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            enabled:
+              description: >-
+                Whether this payment method domain is enabled. If the domain is
+                not enabled, payment methods that require a payment method
+                domain will not appear in Elements or Embedded Checkout.
+              type: boolean
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/payment_method_domain.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Update a payment method domain

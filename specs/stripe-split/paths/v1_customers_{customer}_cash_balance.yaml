@@ -1,0 +1,102 @@
+get:
+  description: <p>Retrieves a customer’s cash balance.</p>
+  operationId: GetCustomersCustomerCashBalance
+  parameters:
+    - in: path
+      name: customer
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/cash_balance.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Retrieve a cash balance
+post:
+  description: <p>Changes the settings on a customer’s cash balance.</p>
+  operationId: PostCustomersCustomerCashBalance
+  parameters:
+    - in: path
+      name: customer
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+          settings:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            settings:
+              description: A hash of settings for this cash balance.
+              properties:
+                reconciliation_mode:
+                  enum:
+                    - automatic
+                    - manual
+                    - merchant_default
+                  type: string
+              title: balance_settings_param
+              type: object
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/cash_balance.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Update a cash balance's settings

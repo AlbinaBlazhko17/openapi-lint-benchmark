@@ -1,0 +1,94 @@
+description: ''
+properties:
+  account_management:
+    $ref: ./connect_embedded_account_config_claim.yaml
+  account_onboarding:
+    $ref: ./connect_embedded_account_config_claim.yaml
+  balance_report:
+    $ref: ./connect_embedded_base_config_claim.yaml
+  balances:
+    $ref: ./connect_embedded_payouts_config.yaml
+  disputes_list:
+    $ref: ./connect_embedded_disputes_list_config.yaml
+  documents:
+    $ref: ./connect_embedded_base_config_claim.yaml
+  financial_account:
+    $ref: ./connect_embedded_financial_account_config_claim.yaml
+  financial_account_transactions:
+    $ref: ./connect_embedded_financial_account_transactions_config_claim.yaml
+  instant_payouts_promotion:
+    $ref: ./connect_embedded_instant_payouts_promotion_config.yaml
+  issuing_card:
+    $ref: ./connect_embedded_issuing_card_config_claim.yaml
+  issuing_cards_list:
+    $ref: ./connect_embedded_issuing_cards_list_config_claim.yaml
+  notification_banner:
+    $ref: ./connect_embedded_account_config_claim.yaml
+  payment_details:
+    $ref: ./connect_embedded_payments_config_claim.yaml
+  payment_disputes:
+    $ref: ./connect_embedded_payment_disputes_config.yaml
+  payment_method_settings:
+    $ref: ./connect_embedded_payment_method_settings_config_claim.yaml
+  payments:
+    $ref: ./connect_embedded_payments_config_claim.yaml
+  payout_details:
+    $ref: ./connect_embedded_base_config_claim.yaml
+  payout_reconciliation_report:
+    $ref: ./connect_embedded_base_config_claim.yaml
+  payouts:
+    $ref: ./connect_embedded_payouts_config.yaml
+  payouts_list:
+    $ref: ./connect_embedded_base_config_claim.yaml
+  tax_registrations:
+    $ref: ./connect_embedded_base_config_claim.yaml
+  tax_settings:
+    $ref: ./connect_embedded_base_config_claim.yaml
+required:
+  - account_management
+  - account_onboarding
+  - balance_report
+  - balances
+  - disputes_list
+  - documents
+  - financial_account
+  - financial_account_transactions
+  - instant_payouts_promotion
+  - issuing_card
+  - issuing_cards_list
+  - notification_banner
+  - payment_details
+  - payment_disputes
+  - payment_method_settings
+  - payments
+  - payout_details
+  - payout_reconciliation_report
+  - payouts
+  - payouts_list
+  - tax_registrations
+  - tax_settings
+title: ConnectEmbeddedAccountSessionCreateComponents
+type: object
+x-expandableFields:
+  - account_management
+  - account_onboarding
+  - balance_report
+  - balances
+  - disputes_list
+  - documents
+  - financial_account
+  - financial_account_transactions
+  - instant_payouts_promotion
+  - issuing_card
+  - issuing_cards_list
+  - notification_banner
+  - payment_details
+  - payment_disputes
+  - payment_method_settings
+  - payments
+  - payout_details
+  - payout_reconciliation_report
+  - payouts
+  - payouts_list
+  - tax_registrations
+  - tax_settings

@@ -1,0 +1,26 @@
+description: ''
+properties:
+  amount:
+    $ref: ./billing_credit_grants_resource_amount.yaml
+  credits_applied:
+    anyOf:
+      - $ref: ./billing_credit_grants_resource_balance_credits_applied.yaml
+    description: >-
+      Details of how the billing credits were applied to an invoice. Only
+      present if `type` is `credits_applied`.
+    nullable: true
+  type:
+    description: The type of debit transaction.
+    enum:
+      - credits_applied
+      - credits_expired
+      - credits_voided
+    type: string
+required:
+  - amount
+  - type
+title: BillingCreditGrantsResourceBalanceDebit
+type: object
+x-expandableFields:
+  - amount
+  - credits_applied

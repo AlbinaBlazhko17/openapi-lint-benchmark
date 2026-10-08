@@ -1,0 +1,12 @@
+description: ''
+properties:
+  reference:
+    description: >-
+      The order reference that will be displayed to customers in the Swish
+      application. Defaults to the `id` of the Payment Intent.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: CheckoutSwishPaymentMethodOptions
+type: object
+x-expandableFields: []

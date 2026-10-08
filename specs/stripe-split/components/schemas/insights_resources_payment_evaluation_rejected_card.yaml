@@ -1,0 +1,53 @@
+description: Details of an rejected card outcome attached to this payment evaluation.
+properties:
+  address_line1_check:
+    description: Result of the address line 1 check.
+    enum:
+      - fail
+      - pass
+      - unavailable
+      - unchecked
+    type: string
+  address_postal_code_check:
+    description: >-
+      Indicates whether the cardholder provided a postal code and if it matched
+      the cardholder’s billing address.
+    enum:
+      - fail
+      - pass
+      - unavailable
+      - unchecked
+    type: string
+  cvc_check:
+    description: Result of the CVC check.
+    enum:
+      - fail
+      - pass
+      - unavailable
+      - unchecked
+    type: string
+  reason:
+    description: Card issuer's reason for the network decline.
+    enum:
+      - authentication_failed
+      - do_not_honor
+      - expired
+      - incorrect_cvc
+      - incorrect_number
+      - incorrect_postal_code
+      - insufficient_funds
+      - invalid_account
+      - lost_card
+      - other
+      - processing_error
+      - reported_stolen
+      - try_again_later
+    type: string
+required:
+  - address_line1_check
+  - address_postal_code_check
+  - cvc_check
+  - reason
+title: InsightsResourcesPaymentEvaluationRejectedCard
+type: object
+x-expandableFields: []

@@ -1,0 +1,34 @@
+delete:
+  description: <p>Removes the currently applied discount on a subscription.</p>
+  operationId: DeleteSubscriptionsSubscriptionExposedIdDiscount
+  parameters:
+    - in: path
+      name: subscription_exposed_id
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/deleted_discount.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Delete a subscription discount

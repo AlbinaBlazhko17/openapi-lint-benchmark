@@ -1,0 +1,91 @@
+get:
+  description: <p>Retrieves a feedback options object given an ID.</p>
+  operationId: GetBillingFeedbackOptionsId
+  parameters:
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+    - in: path
+      name: id
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/billing.feedback_option.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Retrieve a feedback option
+post:
+  description: <p>Updates the description of an existing feedback option.</p>
+  operationId: PostBillingFeedbackOptionsId
+  parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            description:
+              maxLength: 100
+              type: string
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/billing.feedback_option.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Update a feedback option

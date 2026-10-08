@@ -1,0 +1,24 @@
+description: ''
+properties:
+  claimed_by:
+    description: >-
+      The entity that requested the exemption, either the acquiring merchant or
+      the Issuing user.
+    enum:
+      - acquirer
+      - issuer
+    type: string
+  type:
+    description: The specific exemption claimed for this authorization.
+    enum:
+      - low_value_transaction
+      - transaction_risk_analysis
+      - unknown
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - claimed_by
+  - type
+title: IssuingAuthorizationAuthenticationExemption
+type: object
+x-expandableFields: []

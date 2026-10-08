@@ -1,0 +1,26 @@
+description: ''
+properties:
+  amount:
+    $ref: ./billing_credit_grants_resource_amount.yaml
+  credits_application_invoice_voided:
+    anyOf:
+      - $ref: >-
+          ./billing_credit_grants_resource_balance_credits_application_invoice_voided.yaml
+    description: >-
+      Details of the invoice to which the reinstated credits were originally
+      applied. Only present if `type` is `credits_application_invoice_voided`.
+    nullable: true
+  type:
+    description: The type of credit transaction.
+    enum:
+      - credits_application_invoice_voided
+      - credits_granted
+    type: string
+required:
+  - amount
+  - type
+title: BillingCreditGrantsResourceBalanceCredit
+type: object
+x-expandableFields:
+  - amount
+  - credits_application_invoice_voided

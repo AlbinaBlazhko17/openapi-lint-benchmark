@@ -1,0 +1,21 @@
+description: Represents a line item to be displayed on the reader
+properties:
+  amount:
+    description: >-
+      The amount of the line item. A positive integer in the [smallest currency
+      unit](https://docs.stripe.com/currencies#zero-decimal).
+    type: integer
+  description:
+    description: Description of the line item.
+    maxLength: 5000
+    type: string
+  quantity:
+    description: The quantity of the line item.
+    type: integer
+required:
+  - amount
+  - description
+  - quantity
+title: TerminalReaderReaderResourceLineItem
+type: object
+x-expandableFields: []

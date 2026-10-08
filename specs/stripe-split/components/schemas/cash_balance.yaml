@@ -1,0 +1,50 @@
+description: >-
+  A customer's `Cash balance` represents real funds. Customers can add funds to
+  their cash balance by sending a bank transfer. These funds can be used for
+  payment and can eventually be paid out to your bank account.
+properties:
+  available:
+    additionalProperties:
+      type: integer
+    description: >-
+      A hash of all cash balances available to this customer. You cannot delete
+      a customer with any cash balances, even if the balance is 0. Amounts are
+      represented in the [smallest currency
+      unit](https://docs.stripe.com/currencies#zero-decimal).
+    nullable: true
+    type: object
+  customer:
+    description: The ID of the customer whose cash balance this object represents.
+    maxLength: 5000
+    type: string
+  customer_account:
+    description: >-
+      The ID of an Account representing a customer whose cash balance this
+      object represents.
+    maxLength: 5000
+    nullable: true
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - cash_balance
+    type: string
+  settings:
+    $ref: ./customer_balance_customer_balance_settings.yaml
+required:
+  - customer
+  - livemode
+  - object
+  - settings
+title: Cash balance
+type: object
+x-expandableFields:
+  - settings
+x-resourceId: cash_balance

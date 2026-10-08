@@ -1,0 +1,15 @@
+description: ''
+properties:
+  formula:
+    description: Specifies how events are aggregated.
+    enum:
+      - count
+      - last
+      - sum
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - formula
+title: BillingMeterResourceAggregationSettings
+type: object
+x-expandableFields: []

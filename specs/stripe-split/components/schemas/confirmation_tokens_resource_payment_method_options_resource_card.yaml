@@ -1,0 +1,14 @@
+description: This hash contains the card payment method options.
+properties:
+  cvc_token:
+    description: The `cvc_update` Token collected from the Payment Element.
+    maxLength: 5000
+    nullable: true
+    type: string
+  installments:
+    $ref: >-
+      ./confirmation_tokens_resource_payment_method_options_resource_card_resource_installment.yaml
+title: ConfirmationTokensResourcePaymentMethodOptionsResourceCard
+type: object
+x-expandableFields:
+  - installments

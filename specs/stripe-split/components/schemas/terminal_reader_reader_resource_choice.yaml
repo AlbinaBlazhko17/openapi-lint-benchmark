@@ -1,0 +1,23 @@
+description: Choice to be selected on a Reader
+properties:
+  id:
+    description: The identifier for the selected choice. Maximum 50 characters.
+    maxLength: 5000
+    nullable: true
+    type: string
+  style:
+    description: The button style for the choice. Can be `primary` or `secondary`.
+    enum:
+      - primary
+      - secondary
+    nullable: true
+    type: string
+  text:
+    description: The text to be selected. Maximum 30 characters.
+    maxLength: 5000
+    type: string
+required:
+  - text
+title: TerminalReaderReaderResourceChoice
+type: object
+x-expandableFields: []

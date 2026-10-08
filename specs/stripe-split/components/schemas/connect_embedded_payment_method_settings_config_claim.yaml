@@ -1,0 +1,14 @@
+description: ''
+properties:
+  enabled:
+    description: Whether the embedded component is enabled.
+    type: boolean
+  features:
+    $ref: ./connect_embedded_payment_method_settings_features.yaml
+required:
+  - enabled
+  - features
+title: ConnectEmbeddedPaymentMethodSettingsConfigClaim
+type: object
+x-expandableFields:
+  - features

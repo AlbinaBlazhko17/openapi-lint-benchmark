@@ -1,0 +1,41 @@
+description: ''
+properties:
+  automatic_tax:
+    description: >-
+      Surfaces if automatic tax computation is possible given the current
+      customer location information.
+    enum:
+      - failed
+      - not_collecting
+      - supported
+      - unrecognized_location
+    type: string
+  ip_address:
+    description: >-
+      A recent IP address of the customer used for tax reporting and tax
+      location inference.
+    maxLength: 5000
+    nullable: true
+    type: string
+  location:
+    anyOf:
+      - $ref: ./customer_tax_location.yaml
+    description: The identified tax location of the customer.
+    nullable: true
+  provider:
+    description: >-
+      The tax calculation provider used for location resolution. Defaults to
+      `stripe` when not using a [third-party provider](/tax/third-party-apps).
+    enum:
+      - anrok
+      - avalara
+      - sphere
+      - stripe
+    type: string
+required:
+  - automatic_tax
+  - provider
+title: CustomerTax
+type: object
+x-expandableFields:
+  - location

@@ -1,0 +1,25 @@
+description: Metadata of an uploaded file
+properties:
+  created_at:
+    description: Creation time of the object (in seconds since the Unix epoch).
+    format: unix-time
+    type: integer
+  filename:
+    description: The original name of the uploaded file (e.g. `receipt.png`).
+    maxLength: 5000
+    type: string
+  size:
+    description: The size (in bytes) of the uploaded file.
+    type: integer
+  type:
+    description: The format of the uploaded file.
+    maxLength: 5000
+    type: string
+required:
+  - created_at
+  - filename
+  - size
+  - type
+title: TerminalReaderReaderResourceFileMetadata
+type: object
+x-expandableFields: []

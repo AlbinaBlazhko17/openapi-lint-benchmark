@@ -1,0 +1,33 @@
+description: The delivery of a specified quantity of carbon for an order.
+properties:
+  delivered_at:
+    description: >-
+      Time at which the delivery occurred. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  location:
+    anyOf:
+      - $ref: ./climate_removals_location.yaml
+    description: Specific location of this delivery.
+    nullable: true
+  metric_tons:
+    description: Quantity of carbon removal supplied by this delivery.
+    maxLength: 5000
+    type: string
+  registry_url:
+    description: Once retired, a URL to the registry entry for the tons from this delivery.
+    maxLength: 5000
+    nullable: true
+    type: string
+  supplier:
+    $ref: ./climate.supplier.yaml
+required:
+  - delivered_at
+  - metric_tons
+  - supplier
+title: ClimateRemovalsOrderDeliveries
+type: object
+x-expandableFields:
+  - location
+  - supplier

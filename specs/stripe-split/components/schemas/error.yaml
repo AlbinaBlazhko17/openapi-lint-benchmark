@@ -1,0 +1,7 @@
+description: An error response from the Stripe API
+properties:
+  error:
+    $ref: ./api_errors.yaml
+required:
+  - error
+type: object

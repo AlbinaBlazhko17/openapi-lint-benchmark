@@ -1,0 +1,13 @@
+description: ''
+properties:
+  used:
+    description: >-
+      Indicates if Stripe used a network token, either user provided or Stripe
+      managed when processing the transaction.
+    type: boolean
+required:
+  - used
+title: >-
+  PaymentsPrimitivesPaymentRecordsResourcePaymentMethodCardDetailsResourceNetworkToken
+type: object
+x-expandableFields: []

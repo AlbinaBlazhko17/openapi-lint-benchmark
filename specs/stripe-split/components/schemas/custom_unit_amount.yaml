@@ -1,0 +1,19 @@
+description: ''
+properties:
+  maximum:
+    description: The maximum unit amount the customer can specify for this item.
+    nullable: true
+    type: integer
+  minimum:
+    description: >-
+      The minimum unit amount the customer can specify for this item. Must be at
+      least the minimum charge amount.
+    nullable: true
+    type: integer
+  preset:
+    description: The starting unit amount which can be updated by the customer.
+    nullable: true
+    type: integer
+title: CustomUnitAmount
+type: object
+x-expandableFields: []

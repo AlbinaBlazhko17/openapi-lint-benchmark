@@ -1,0 +1,103 @@
+description: >-
+  A VerificationReport is the result of an attempt to collect and verify data
+  from a user.
+
+  The collection of verification checks performed is determined from the `type`
+  and `options`
+
+  parameters used. You can find the result of each verification check performed
+  in the
+
+  appropriate sub-resource: `document`, `id_number`, `selfie`.
+
+
+  Each VerificationReport contains a copy of any data collected by the user as
+  well as
+
+  reference IDs which can be used to access collected images through the
+  [FileUpload](https://docs.stripe.com/api/files)
+
+  API. To configure and create VerificationReports, use the
+
+  [VerificationSession](https://docs.stripe.com/api/identity/verification_sessions)
+  API.
+
+
+  Related guide: [Accessing verification
+  results](https://docs.stripe.com/identity/verification-sessions#results).
+properties:
+  client_reference_id:
+    description: >-
+      A string to reference this user. This can be a customer ID, a session ID,
+      or similar, and can be used to reconcile this verification with your
+      internal systems.
+    maxLength: 5000
+    nullable: true
+    type: string
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  document:
+    $ref: ./gelato_document_report.yaml
+  email:
+    $ref: ./gelato_email_report.yaml
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  id_number:
+    $ref: ./gelato_id_number_report.yaml
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - identity.verification_report
+    type: string
+  options:
+    $ref: ./gelato_verification_report_options.yaml
+  phone:
+    $ref: ./gelato_phone_report.yaml
+  selfie:
+    $ref: ./gelato_selfie_report.yaml
+  type:
+    description: Type of report.
+    enum:
+      - document
+      - id_number
+      - verification_flow
+    type: string
+    x-stripeBypassValidation: true
+  verification_flow:
+    description: The configuration token of a verification flow from the dashboard.
+    maxLength: 5000
+    type: string
+  verification_session:
+    description: ID of the VerificationSession that created this report.
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - created
+  - id
+  - livemode
+  - object
+  - type
+title: VerificationReport
+type: object
+x-expandableFields:
+  - document
+  - email
+  - id_number
+  - options
+  - phone
+  - selfie
+x-resourceId: identity.verification_report

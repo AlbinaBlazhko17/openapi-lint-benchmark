@@ -1,0 +1,63 @@
+description: >-
+  This is an object representing a capability for a Stripe account.
+
+
+  Related guide: [Account
+  capabilities](https://docs.stripe.com/connect/account-capabilities)
+properties:
+  account:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./account.yaml
+    description: The account for which the capability enables functionality.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./account.yaml
+  future_requirements:
+    $ref: ./account_capability_future_requirements.yaml
+  id:
+    description: The identifier for the capability.
+    maxLength: 5000
+    type: string
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - capability
+    type: string
+  requested:
+    description: Whether the capability has been requested.
+    type: boolean
+  requested_at:
+    description: >-
+      Time at which the capability was requested. Measured in seconds since the
+      Unix epoch.
+    format: unix-time
+    nullable: true
+    type: integer
+  requirements:
+    $ref: ./account_capability_requirements.yaml
+  status:
+    description: The status of the capability.
+    enum:
+      - active
+      - inactive
+      - pending
+      - unrequested
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - account
+  - id
+  - object
+  - requested
+  - status
+title: Capability
+type: object
+x-expandableFields:
+  - account
+  - future_requirements
+  - requirements
+x-resourceId: capability

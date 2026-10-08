@@ -1,0 +1,19 @@
+description: ''
+properties:
+  adjustable_quantity:
+    anyOf:
+      - $ref: >-
+          ./payment_pages_checkout_session_optional_item_adjustable_quantity.yaml
+    nullable: true
+  price:
+    maxLength: 5000
+    type: string
+  quantity:
+    type: integer
+required:
+  - price
+  - quantity
+title: PaymentPagesCheckoutSessionOptionalItem
+type: object
+x-expandableFields:
+  - adjustable_quantity

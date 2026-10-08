@@ -1,0 +1,23 @@
+description: ''
+properties:
+  additional_documentation:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./file.yaml
+    description: >-
+      (ID of a [file upload](https://stripe.com/docs/guides/file-upload))
+      Additional documentation supporting the dispute.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./file.yaml
+  explanation:
+    description: Explanation of why the cardholder is disputing this transaction.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: IssuingDisputeFraudulentEvidence
+type: object
+x-expandableFields:
+  - additional_documentation

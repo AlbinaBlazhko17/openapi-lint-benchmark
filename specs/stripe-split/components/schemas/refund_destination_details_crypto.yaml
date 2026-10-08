@@ -1,0 +1,10 @@
+description: ''
+properties:
+  reference:
+    description: The transaction hash of the refund.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: refund_destination_details_crypto
+type: object
+x-expandableFields: []

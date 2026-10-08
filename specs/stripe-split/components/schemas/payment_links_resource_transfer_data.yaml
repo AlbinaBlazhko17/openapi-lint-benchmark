@@ -1,0 +1,24 @@
+description: ''
+properties:
+  amount:
+    description: >-
+      The amount in cents (or local equivalent) that will be transferred to the
+      destination account. By default, the entire amount is transferred to the
+      destination.
+    nullable: true
+    type: integer
+  destination:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./account.yaml
+    description: The connected account receiving the transfer.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./account.yaml
+required:
+  - destination
+title: PaymentLinksResourceTransferData
+type: object
+x-expandableFields:
+  - destination

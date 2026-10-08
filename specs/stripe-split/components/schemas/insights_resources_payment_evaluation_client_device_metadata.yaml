@@ -1,0 +1,15 @@
+description: Client device metadata attached to this payment evaluation.
+properties:
+  radar_session:
+    description: >-
+      ID for the Radar Session associated with the payment evaluation. A [Radar
+      Session](https://docs.stripe.com/radar/radar-session) is a snapshot of the
+      browser metadata and device details that help Radar make more accurate
+      predictions on your payments.
+    maxLength: 5000
+    type: string
+required:
+  - radar_session
+title: InsightsResourcesPaymentEvaluationClientDeviceMetadata
+type: object
+x-expandableFields: []

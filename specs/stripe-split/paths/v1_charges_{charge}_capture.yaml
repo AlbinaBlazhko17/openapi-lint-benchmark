@@ -1,0 +1,120 @@
+post:
+  description: >-
+    <p>Capture the payment of an existing, uncaptured charge that was created
+    with the <code>capture</code> option set to false.</p>
+
+
+    <p>Uncaptured payments expire a set number of days after they are created
+    (<a href="/docs/charges/placing-a-hold">7 by default</a>), after which they
+    are marked as refunded and capture attempts will fail.</p>
+
+
+    <p>Don’t use this method to capture a PaymentIntent-initiated charge. Use <a
+    href="/docs/api/payment_intents/capture">Capture a PaymentIntent</a>.</p>
+  operationId: PostChargesChargeCapture
+  parameters:
+    - in: path
+      name: charge
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+          transfer_data:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            amount:
+              description: >-
+                The amount to capture, which must be less than or equal to the
+                original amount.
+              type: integer
+            application_fee:
+              description: An application fee to add on to this charge.
+              type: integer
+            application_fee_amount:
+              description: >-
+                An application fee amount to add on to this charge, which must
+                be less than or equal to the original amount.
+              type: integer
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            receipt_email:
+              description: >-
+                The email address to send this charge's receipt to. This will
+                override the previously-specified email address for this charge,
+                if one was set. Receipts will not be sent in test mode.
+              type: string
+            statement_descriptor:
+              description: >-
+                For a non-card charge, text that appears on the customer's
+                statement as the statement descriptor. This value overrides the
+                account's default statement descriptor. For information about
+                requirements, including the 22-character limit, see [the
+                Statement Descriptor
+                docs](https://docs.stripe.com/get-started/account/statement-descriptors).
+
+
+                For a card charge, this value is ignored unless you don't
+                specify a `statement_descriptor_suffix`, in which case this
+                value is used as the suffix.
+              maxLength: 22
+              type: string
+            statement_descriptor_suffix:
+              description: >-
+                Provides information about a card charge. Concatenated to the
+                account's [statement descriptor
+                prefix](https://docs.stripe.com/get-started/account/statement-descriptors#static)
+                to form the complete statement descriptor that appears on the
+                customer's statement. If the account has no prefix value, the
+                suffix is concatenated to the account's statement descriptor.
+              maxLength: 22
+              type: string
+            transfer_data:
+              description: >-
+                An optional dictionary including the account to automatically
+                transfer to as part of a destination charge. [See the Connect
+                documentation](https://docs.stripe.com/connect/destination-charges)
+                for details.
+              properties:
+                amount:
+                  type: integer
+              title: transfer_data_specs
+              type: object
+            transfer_group:
+              description: >-
+                A string that identifies this transaction as part of a group.
+                `transfer_group` may only be provided if it has not been set.
+                See the [Connect
+                documentation](https://docs.stripe.com/connect/separate-charges-and-transfers#transfer-options)
+                for details.
+              type: string
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/charge.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Capture a charge

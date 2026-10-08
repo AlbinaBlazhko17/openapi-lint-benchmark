@@ -1,0 +1,19 @@
+description: ''
+properties:
+  id:
+    description: The FinancialAccount ID.
+    maxLength: 5000
+    type: string
+  network:
+    description: >-
+      The rails the ReceivedCredit was sent over. A FinancialAccount can only
+      send funds over `stripe`.
+    enum:
+      - stripe
+    type: string
+required:
+  - id
+  - network
+title: received_payment_method_details_financial_account
+type: object
+x-expandableFields: []

@@ -1,0 +1,48 @@
+post:
+  description: >-
+    <p>Updates the status of an invoice rendering template to ‘archived’ so no
+    new Stripe objects (customers, invoices, etc.) can reference it. The
+    template can also no longer be updated. However, if the template is already
+    set on a Stripe object, it will continue to be applied on invoices generated
+    by it.</p>
+  operationId: PostInvoiceRenderingTemplatesTemplateArchive
+  parameters:
+    - in: path
+      name: template
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/invoice_rendering_template.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Archive an invoice rendering template

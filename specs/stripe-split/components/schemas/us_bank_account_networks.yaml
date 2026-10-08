@@ -1,0 +1,20 @@
+description: ''
+properties:
+  preferred:
+    description: The preferred network.
+    maxLength: 5000
+    nullable: true
+    type: string
+  supported:
+    description: All supported networks.
+    items:
+      enum:
+        - ach
+        - us_domestic_wire
+      type: string
+    type: array
+required:
+  - supported
+title: us_bank_account_networks
+type: object
+x-expandableFields: []

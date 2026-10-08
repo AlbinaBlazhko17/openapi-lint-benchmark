@@ -1,0 +1,20 @@
+description: ''
+properties:
+  subscription_details:
+    anyOf:
+      - $ref: >-
+          ./billing_bill_resource_invoice_item_parents_invoice_item_subscription_parent.yaml
+    description: Details about the subscription that generated this invoice item
+    nullable: true
+  type:
+    description: The type of parent that generated this invoice item
+    enum:
+      - subscription_details
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - type
+title: BillingBillResourceInvoiceItemParentsInvoiceItemParent
+type: object
+x-expandableFields:
+  - subscription_details

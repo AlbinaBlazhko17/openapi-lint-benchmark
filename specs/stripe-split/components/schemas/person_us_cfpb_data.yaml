@@ -1,0 +1,22 @@
+description: ''
+properties:
+  ethnicity_details:
+    anyOf:
+      - $ref: ./person_ethnicity_details.yaml
+    description: The persons ethnicity details
+    nullable: true
+  race_details:
+    anyOf:
+      - $ref: ./person_race_details.yaml
+    description: The persons race details
+    nullable: true
+  self_identified_gender:
+    description: The persons self-identified gender
+    maxLength: 5000
+    nullable: true
+    type: string
+title: PersonUSCfpbData
+type: object
+x-expandableFields:
+  - ethnicity_details
+  - race_details

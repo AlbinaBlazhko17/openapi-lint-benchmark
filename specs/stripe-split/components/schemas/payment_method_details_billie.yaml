@@ -1,0 +1,10 @@
+description: ''
+properties:
+  transaction_id:
+    description: The Billie transaction ID associated with this payment.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: payment_method_details_billie
+type: object
+x-expandableFields: []

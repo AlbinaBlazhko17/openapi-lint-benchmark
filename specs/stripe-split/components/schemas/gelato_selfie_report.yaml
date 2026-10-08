@@ -1,0 +1,34 @@
+description: Result from a selfie check
+properties:
+  document:
+    description: >-
+      ID of the [File](https://docs.stripe.com/api/files) holding the image of
+      the identity document used in this check.
+    maxLength: 5000
+    nullable: true
+    type: string
+  error:
+    anyOf:
+      - $ref: ./gelato_selfie_report_error.yaml
+    description: Details on the verification error. Present when status is `unverified`.
+    nullable: true
+  selfie:
+    description: >-
+      ID of the [File](https://docs.stripe.com/api/files) holding the image of
+      the selfie used in this check.
+    maxLength: 5000
+    nullable: true
+    type: string
+  status:
+    description: Status of this `selfie` check.
+    enum:
+      - unverified
+      - verified
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - status
+title: GelatoSelfieReport
+type: object
+x-expandableFields:
+  - error

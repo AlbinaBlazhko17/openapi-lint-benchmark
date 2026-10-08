@@ -1,0 +1,21 @@
+description: ''
+properties:
+  amount_discount:
+    description: This is the sum of all the discounts.
+    type: integer
+  amount_shipping:
+    description: This is the sum of all the shipping amounts.
+    nullable: true
+    type: integer
+  amount_tax:
+    description: This is the sum of all the tax amounts.
+    type: integer
+  breakdown:
+    $ref: ./payment_pages_checkout_session_total_details_resource_breakdown.yaml
+required:
+  - amount_discount
+  - amount_tax
+title: PaymentPagesCheckoutSessionTotalDetails
+type: object
+x-expandableFields:
+  - breakdown

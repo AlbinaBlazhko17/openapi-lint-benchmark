@@ -1,0 +1,153 @@
+get:
+  description: <p>An API method for listing the feedback options model</p>
+  operationId: GetBillingFeedbackOptions
+  parameters:
+    - description: >-
+        A cursor for use in pagination. `ending_before` is an object ID that
+        defines your place in the list. For instance, if you make a list request
+        and receive 100 objects, starting with `obj_bar`, your subsequent call
+        can include `ending_before=obj_bar` in order to fetch the previous page
+        of the list.
+      in: query
+      name: ending_before
+      required: false
+      schema:
+        maxLength: 5000
+        type: string
+      style: form
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+    - description: >-
+        A limit on the number of objects to be returned. Limit can range between
+        1 and 100, and the default is 10.
+      in: query
+      name: limit
+      required: false
+      schema:
+        type: integer
+      style: form
+    - description: >-
+        A cursor for use in pagination. `starting_after` is an object ID that
+        defines your place in the list. For instance, if you make a list request
+        and receive 100 objects, ending with `obj_foo`, your subsequent call can
+        include `starting_after=obj_foo` in order to fetch the next page of the
+        list.
+      in: query
+      name: starting_after
+      required: false
+      schema:
+        maxLength: 5000
+        type: string
+      style: form
+    - description: Filter results to only include feedback options with the given status.
+      in: query
+      name: status
+      required: false
+      schema:
+        enum:
+          - active
+          - inactive
+        type: string
+      style: form
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            description: Resource for the List Endpoint of Feedback Option.
+            properties:
+              data:
+                items:
+                  $ref: ../components/schemas/billing.feedback_option.yaml
+                type: array
+              has_more:
+                description: >-
+                  True if this list has another page of items after this one
+                  that can be fetched.
+                type: boolean
+              object:
+                description: >-
+                  String representing the object's type. Objects of the same
+                  type share the same value. Always has the value `list`.
+                enum:
+                  - list
+                type: string
+              url:
+                description: The URL where this list can be accessed.
+                maxLength: 5000
+                type: string
+            required:
+              - data
+              - has_more
+              - object
+              - url
+            title: FeedbackOptionsList
+            type: object
+            x-expandableFields:
+              - data
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Feedback Options List API Method
+post:
+  description: <p>Creates a new feedback option.</p>
+  operationId: PostBillingFeedbackOptions
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            description:
+              maxLength: 100
+              type: string
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+          required:
+            - description
+          type: object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/billing.feedback_option.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Create a feedback option

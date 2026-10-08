@@ -1,0 +1,16 @@
+description: ''
+properties:
+  password:
+    description: Password for connecting to the WiFi network
+    maxLength: 5000
+    type: string
+  ssid:
+    description: Name of the WiFi network
+    maxLength: 5000
+    type: string
+required:
+  - password
+  - ssid
+title: TerminalConfigurationConfigurationResourcePersonalPSKWifi
+type: object
+x-expandableFields: []

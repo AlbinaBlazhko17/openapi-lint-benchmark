@@ -1,0 +1,11 @@
+description: ''
+properties:
+  recovery:
+    anyOf:
+      - $ref: ./payment_pages_checkout_session_after_expiration_recovery.yaml
+    description: When set, configuration used to recover the Checkout Session on expiry.
+    nullable: true
+title: PaymentPagesCheckoutSessionAfterExpiration
+type: object
+x-expandableFields:
+  - recovery

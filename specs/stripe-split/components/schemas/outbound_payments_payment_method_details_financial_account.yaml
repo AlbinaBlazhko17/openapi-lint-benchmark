@@ -1,0 +1,17 @@
+description: ''
+properties:
+  id:
+    description: Token of the FinancialAccount.
+    maxLength: 5000
+    type: string
+  network:
+    description: The rails used to send funds.
+    enum:
+      - stripe
+    type: string
+required:
+  - id
+  - network
+title: outbound_payments_payment_method_details_financial_account
+type: object
+x-expandableFields: []

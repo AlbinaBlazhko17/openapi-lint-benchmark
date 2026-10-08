@@ -1,0 +1,51 @@
+post:
+  description: >-
+    <p>Use this endpoint to trigger a successful input collection on a simulated
+    reader.</p>
+  operationId: PostTestHelpersTerminalReadersReaderSucceedInputCollection
+  parameters:
+    - in: path
+      name: reader
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            skip_non_required_inputs:
+              description: This parameter defines the skip behavior for input collection.
+              enum:
+                - all
+                - none
+              type: string
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/terminal.reader.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Simulate a successful input collection

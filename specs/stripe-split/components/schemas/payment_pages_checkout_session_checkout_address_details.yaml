@@ -1,0 +1,15 @@
+description: ''
+properties:
+  address:
+    $ref: ./address.yaml
+  name:
+    description: Customer name.
+    maxLength: 5000
+    type: string
+required:
+  - address
+  - name
+title: PaymentPagesCheckoutSessionCheckoutAddressDetails
+type: object
+x-expandableFields:
+  - address

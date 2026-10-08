@@ -1,0 +1,43 @@
+description: ''
+properties:
+  amount:
+    description: The amount, in cents (or local equivalent), of the pretax credit amount.
+    type: integer
+  credit_balance_transaction:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./billing.credit_balance_transaction.yaml
+    description: >-
+      The credit balance transaction that was applied to get this pretax credit
+      amount.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./billing.credit_balance_transaction.yaml
+  discount:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./discount.yaml
+      - $ref: ./deleted_discount.yaml
+    description: The discount that was applied to get this pretax credit amount.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./discount.yaml
+        - $ref: ./deleted_discount.yaml
+  type:
+    description: Type of the pretax credit amount referenced.
+    enum:
+      - credit_balance_transaction
+      - discount
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - amount
+  - type
+title: InvoicesResourcePretaxCreditAmount
+type: object
+x-expandableFields:
+  - credit_balance_transaction
+  - discount

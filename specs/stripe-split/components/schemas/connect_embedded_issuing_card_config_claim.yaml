@@ -1,0 +1,14 @@
+description: ''
+properties:
+  enabled:
+    description: Whether the embedded component is enabled.
+    type: boolean
+  features:
+    $ref: ./connect_embedded_issuing_card_features.yaml
+required:
+  - enabled
+  - features
+title: ConnectEmbeddedIssuingCardConfigClaim
+type: object
+x-expandableFields:
+  - features

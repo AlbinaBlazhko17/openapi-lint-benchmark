@@ -1,0 +1,25 @@
+description: ''
+properties:
+  footer_body:
+    description: The footer body text of the carrier letter.
+    maxLength: 5000
+    nullable: true
+    type: string
+  footer_title:
+    description: The footer title text of the carrier letter.
+    maxLength: 5000
+    nullable: true
+    type: string
+  header_body:
+    description: The header body text of the carrier letter.
+    maxLength: 5000
+    nullable: true
+    type: string
+  header_title:
+    description: The header title text of the carrier letter.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: IssuingPersonalizationDesignCarrierText
+type: object
+x-expandableFields: []

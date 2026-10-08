@@ -1,0 +1,15 @@
+description: ''
+properties:
+  enabled:
+    type: boolean
+  maximum:
+    nullable: true
+    type: integer
+  minimum:
+    nullable: true
+    type: integer
+required:
+  - enabled
+title: LineItemsAdjustableQuantity
+type: object
+x-expandableFields: []

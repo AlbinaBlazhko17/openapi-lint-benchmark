@@ -1,0 +1,33 @@
+description: ''
+properties:
+  filters:
+    $ref: >-
+      ./invoice_payment_method_options_us_bank_account_linked_account_options_filters.yaml
+  permissions:
+    description: >-
+      The list of permissions to request. The `payment_method` permission must
+      be included.
+    items:
+      enum:
+        - balances
+        - ownership
+        - payment_method
+        - transactions
+      type: string
+      x-stripeBypassValidation: true
+    type: array
+  prefetch:
+    description: Data features requested to be retrieved upon account creation.
+    items:
+      enum:
+        - balances
+        - ownership
+        - transactions
+      type: string
+      x-stripeBypassValidation: true
+    nullable: true
+    type: array
+title: invoice_payment_method_options_us_bank_account_linked_account_options
+type: object
+x-expandableFields:
+  - filters

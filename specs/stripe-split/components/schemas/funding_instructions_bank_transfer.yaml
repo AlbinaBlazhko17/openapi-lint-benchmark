@@ -1,0 +1,28 @@
+description: ''
+properties:
+  country:
+    description: The country of the bank account to fund
+    maxLength: 5000
+    type: string
+  financial_addresses:
+    description: >-
+      A list of financial addresses that can be used to fund a particular
+      balance
+    items:
+      $ref: ./funding_instructions_bank_transfer_financial_address.yaml
+    type: array
+  type:
+    description: The bank_transfer type
+    enum:
+      - eu_bank_transfer
+      - jp_bank_transfer
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - country
+  - financial_addresses
+  - type
+title: FundingInstructionsBankTransfer
+type: object
+x-expandableFields:
+  - financial_addresses

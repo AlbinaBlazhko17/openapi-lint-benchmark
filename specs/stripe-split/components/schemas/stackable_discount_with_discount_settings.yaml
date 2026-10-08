@@ -1,0 +1,40 @@
+description: ''
+properties:
+  coupon:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./coupon.yaml
+    description: ID of the coupon to create a new discount for.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./coupon.yaml
+  discount:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./discount.yaml
+    description: >-
+      ID of an existing discount on the object (or one of its ancestors) to
+      reuse.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./discount.yaml
+  promotion_code:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./promotion_code.yaml
+    description: ID of the promotion code to create a new discount for.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./promotion_code.yaml
+title: StackableDiscountWithDiscountSettings
+type: object
+x-expandableFields:
+  - coupon
+  - discount
+  - promotion_code

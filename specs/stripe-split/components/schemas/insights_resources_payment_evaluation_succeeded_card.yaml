@@ -1,0 +1,35 @@
+description: Details of an succeeded card outcome attached to this payment evaluation.
+properties:
+  address_line1_check:
+    description: Result of the address line 1 check.
+    enum:
+      - fail
+      - pass
+      - unavailable
+      - unchecked
+    type: string
+  address_postal_code_check:
+    description: >-
+      Indicates whether the cardholder provided a postal code and if it matched
+      the cardholder’s billing address.
+    enum:
+      - fail
+      - pass
+      - unavailable
+      - unchecked
+    type: string
+  cvc_check:
+    description: Result of the CVC check.
+    enum:
+      - fail
+      - pass
+      - unavailable
+      - unchecked
+    type: string
+required:
+  - address_line1_check
+  - address_postal_code_check
+  - cvc_check
+title: InsightsResourcesPaymentEvaluationSucceededCard
+type: object
+x-expandableFields: []

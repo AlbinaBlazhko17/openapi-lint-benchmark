@@ -1,0 +1,29 @@
+description: Information about an input's toggle
+properties:
+  default_value:
+    description: The toggle's default value. Can be `enabled` or `disabled`.
+    enum:
+      - disabled
+      - enabled
+    nullable: true
+    type: string
+  description:
+    description: The toggle's description text. Maximum 50 characters.
+    maxLength: 5000
+    nullable: true
+    type: string
+  title:
+    description: The toggle's title text. Maximum 50 characters.
+    maxLength: 5000
+    nullable: true
+    type: string
+  value:
+    description: The toggle's collected value. Can be `enabled` or `disabled`.
+    enum:
+      - disabled
+      - enabled
+    nullable: true
+    type: string
+title: TerminalReaderReaderResourceToggle
+type: object
+x-expandableFields: []

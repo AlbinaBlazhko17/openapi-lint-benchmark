@@ -1,0 +1,26 @@
+description: ''
+properties:
+  action:
+    description: The action (if any) to proactively relink the Account.
+    enum:
+      - none
+      - relink_required
+    type: string
+  cause:
+    description: The underlying cause of the Account becoming inactive.
+    enum:
+      - access_expired
+      - institution_requirement
+      - unspecified
+    type: string
+  expected_deactivation_date:
+    description: When the Account is expected to become inactive, if applicable.
+    format: unix-time
+    type: integer
+required:
+  - action
+  - cause
+  - expected_deactivation_date
+title: BankConnectionsResourceAccountStatusDetailsAPIResourceActiveStatusDetails
+type: object
+x-expandableFields: []

@@ -1,0 +1,24 @@
+description: ''
+properties:
+  bsb_number:
+    description: Bank-State-Branch number of the bank account.
+    maxLength: 5000
+    nullable: true
+    type: string
+  last4:
+    description: Last four digits of the bank account number.
+    maxLength: 5000
+    nullable: true
+    type: string
+  mandate:
+    description: ID of the mandate used to make this payment.
+    maxLength: 5000
+    type: string
+  pay_id:
+    description: The PayID alias for the bank account.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: payment_method_details_payto
+type: object
+x-expandableFields: []

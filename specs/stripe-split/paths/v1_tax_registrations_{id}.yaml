@@ -1,0 +1,127 @@
+get:
+  description: <p>Returns a Tax <code>Registration</code> object.</p>
+  operationId: GetTaxRegistrationsId
+  parameters:
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+    - in: path
+      name: id
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/tax.registration.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Retrieve a registration
+post:
+  description: >-
+    <p>Updates an existing Tax <code>Registration</code> object.</p>
+
+
+    <p>A registration cannot be deleted after it has been created. If you wish
+    to end a registration you may do so by setting <code>expires_at</code>.</p>
+  operationId: PostTaxRegistrationsId
+  parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          active_from:
+            explode: true
+            style: deepObject
+          expand:
+            explode: true
+            style: deepObject
+          expires_at:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            active_from:
+              anyOf:
+                - enum:
+                    - now
+                  maxLength: 5000
+                  type: string
+                - format: unix-time
+                  type: integer
+              description: >-
+                Time at which the registration becomes active. It can be either
+                `now` to indicate the current time, or a timestamp measured in
+                seconds since the Unix epoch.
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            expires_at:
+              anyOf:
+                - enum:
+                    - now
+                  maxLength: 5000
+                  type: string
+                - format: unix-time
+                  type: integer
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                If set, the registration stops being active at this time. If not
+                set, the registration will be active indefinitely. It can be
+                either `now` to indicate the current time, or a timestamp
+                measured in seconds since the Unix epoch.
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/tax.registration.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Update a registration

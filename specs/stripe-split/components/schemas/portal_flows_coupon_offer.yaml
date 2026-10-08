@@ -1,0 +1,11 @@
+description: ''
+properties:
+  coupon:
+    description: The ID of the coupon to be offered.
+    maxLength: 5000
+    type: string
+required:
+  - coupon
+title: PortalFlowsCouponOffer
+type: object
+x-expandableFields: []

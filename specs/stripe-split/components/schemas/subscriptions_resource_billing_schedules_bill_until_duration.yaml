@@ -1,0 +1,21 @@
+description: >-
+  Configures the `bill_until` date based on the provided `interval` and
+  `interval_count`.
+properties:
+  interval:
+    description: Specifies billing duration. Either `day`, `week`, `month` or `year`.
+    enum:
+      - day
+      - month
+      - week
+      - year
+    type: string
+  interval_count:
+    description: The multiplier applied to the interval.
+    nullable: true
+    type: integer
+required:
+  - interval
+title: SubscriptionsResourceBillingSchedulesBillUntilDuration
+type: object
+x-expandableFields: []

@@ -1,0 +1,116 @@
+description: >-
+  Snapshot events allow you to track and react to activity in your Stripe
+  integration. When
+
+  the state of another API resource changes, Stripe creates an `Event` object
+  that contains
+
+  all the relevant information associated with that action, including the
+  affected API
+
+  resource. For example, a successful payment triggers a `charge.succeeded`
+  event, which
+
+  contains the `Charge` in the event's data property. Some actions trigger
+  multiple events.
+
+  For example, if you create a new subscription for a customer, it triggers both
+  a
+
+  `customer.subscription.created` event and a `charge.succeeded` event.
+
+
+  Configure an event destination in your account to listen for events that
+  represent actions
+
+  your integration needs to respond to. Additionally, you can retrieve an
+  individual event or
+
+  a list of events from the API.
+
+
+  [Connect](https://docs.stripe.com/connect) platforms can also receive event
+  notifications
+
+  that occur in their connected accounts. These events include an account
+  attribute that
+
+  identifies the relevant connected account.
+
+
+  You can access events through the [Retrieve Event
+  API](https://docs.stripe.com/api/events#retrieve_event)
+
+  for 30 days.
+properties:
+  account:
+    description: The connected account that originates the event.
+    maxLength: 5000
+    type: string
+  api_version:
+    description: >-
+      The Stripe API version used to render `data` when the event was created.
+      The contents of `data` never change, so this value remains static
+      regardless of the API version currently in use. This property is populated
+      only for events created on or after October 31, 2014.
+    maxLength: 5000
+    nullable: true
+    type: string
+  context:
+    description: Authentication context needed to fetch the event or related object.
+    maxLength: 5000
+    type: string
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  data:
+    $ref: ./notification_event_data.yaml
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - event
+    type: string
+  pending_webhooks:
+    description: >-
+      Number of webhooks that haven't been successfully delivered (for example,
+      to return a 20x response) to the URLs you specify.
+    type: integer
+  request:
+    anyOf:
+      - $ref: ./notification_event_request.yaml
+    description: Information on the API request that triggers the event.
+    nullable: true
+  type:
+    description: >-
+      Description of the event (for example, `invoice.created` or
+      `charge.refunded`).
+    maxLength: 5000
+    type: string
+required:
+  - created
+  - data
+  - id
+  - livemode
+  - object
+  - pending_webhooks
+  - type
+title: Event
+type: object
+x-expandableFields:
+  - data
+  - request
+x-resourceId: event

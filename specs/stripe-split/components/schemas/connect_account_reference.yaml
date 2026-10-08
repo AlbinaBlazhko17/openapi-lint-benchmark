@@ -1,0 +1,24 @@
+description: ''
+properties:
+  account:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./account.yaml
+    description: The connected account being referenced when `type` is `account`.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./account.yaml
+  type:
+    description: Type of the account referenced.
+    enum:
+      - account
+      - self
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - type
+title: ConnectAccountReference
+type: object
+x-expandableFields:
+  - account

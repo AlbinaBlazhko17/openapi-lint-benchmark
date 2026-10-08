@@ -1,0 +1,36 @@
+description: ''
+properties:
+  amount_refunded:
+    description: >-
+      Amount of the refund that applies to this credit note, in cents (or local
+      equivalent).
+    type: integer
+  payment_record_refund:
+    anyOf:
+      - $ref: ./credit_notes_payment_record_refund.yaml
+    description: The PaymentRecord refund details associated with this credit note refund.
+    nullable: true
+  refund:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./refund.yaml
+    description: ID of the refund.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./refund.yaml
+  type:
+    description: Type of the refund, one of `refund` or `payment_record_refund`.
+    enum:
+      - payment_record_refund
+      - refund
+    nullable: true
+    type: string
+required:
+  - amount_refunded
+  - refund
+title: CreditNoteRefund
+type: object
+x-expandableFields:
+  - payment_record_refund
+  - refund

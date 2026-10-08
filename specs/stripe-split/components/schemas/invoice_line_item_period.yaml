@@ -1,0 +1,18 @@
+description: ''
+properties:
+  end:
+    description: >-
+      The end of the period, which must be greater than or equal to the start.
+      This value is inclusive.
+    format: unix-time
+    type: integer
+  start:
+    description: The start of the period. This value is inclusive.
+    format: unix-time
+    type: integer
+required:
+  - end
+  - start
+title: InvoiceLineItemPeriod
+type: object
+x-expandableFields: []

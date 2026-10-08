@@ -1,0 +1,28 @@
+description: ''
+properties:
+  committed:
+    $ref: >-
+      ./tax_product_resource_tax_association_transaction_attempts_resource_committed.yaml
+  errored:
+    $ref: >-
+      ./tax_product_resource_tax_association_transaction_attempts_resource_errored.yaml
+  source:
+    description: >-
+      The source of the tax transaction attempt. This is either a refund or a
+      payment intent.
+    maxLength: 5000
+    type: string
+  status:
+    description: >-
+      The status of the transaction attempt. This can be `errored` or
+      `committed`.
+    maxLength: 5000
+    type: string
+required:
+  - source
+  - status
+title: TaxProductResourceTaxAssociationTransactionAttempts
+type: object
+x-expandableFields:
+  - committed
+  - errored

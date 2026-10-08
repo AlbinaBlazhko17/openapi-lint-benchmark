@@ -1,0 +1,60 @@
+post:
+  description: >-
+    <p>Unsubscribes from periodic refreshes of data associated with a Financial
+    Connections <code>Account</code>.</p>
+  operationId: PostFinancialConnectionsAccountsAccountUnsubscribe
+  parameters:
+    - in: path
+      name: account
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+          features:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            features:
+              description: >-
+                The list of account features from which you would like to
+                unsubscribe.
+              items:
+                enum:
+                  - transactions
+                type: string
+                x-stripeBypassValidation: true
+              type: array
+          required:
+            - features
+          type: object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/financial_connections.account.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Unsubscribe from data refreshes for an Account

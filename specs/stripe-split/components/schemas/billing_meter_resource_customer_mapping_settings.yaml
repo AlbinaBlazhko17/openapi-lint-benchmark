@@ -1,0 +1,19 @@
+description: ''
+properties:
+  event_payload_key:
+    description: >-
+      The key in the meter event payload to use for mapping the event to a
+      customer.
+    maxLength: 5000
+    type: string
+  type:
+    description: The method for mapping a meter event to a customer.
+    enum:
+      - by_id
+    type: string
+required:
+  - event_payload_key
+  - type
+title: BillingMeterResourceCustomerMappingSettings
+type: object
+x-expandableFields: []

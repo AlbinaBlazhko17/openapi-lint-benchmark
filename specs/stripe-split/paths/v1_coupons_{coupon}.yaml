@@ -1,0 +1,172 @@
+delete:
+  description: >-
+    <p>You can delete coupons via the <a
+    href="https://dashboard.stripe.com/coupons">coupon management</a> page of
+    the Stripe dashboard. However, deleting a coupon does not affect any
+    customers who have already applied the coupon; it means that new customers
+    can’t redeem the coupon. You can also delete coupons via the API.</p>
+  operationId: DeleteCouponsCoupon
+  parameters:
+    - in: path
+      name: coupon
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/deleted_coupon.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Delete a coupon
+get:
+  description: <p>Retrieves the coupon with the given ID.</p>
+  operationId: GetCouponsCoupon
+  parameters:
+    - in: path
+      name: coupon
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/coupon.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Retrieve a coupon
+post:
+  description: >-
+    <p>Updates the metadata of a coupon. Other coupon details (currency,
+    duration, amount_off) are, by design, not editable.</p>
+  operationId: PostCouponsCoupon
+  parameters:
+    - in: path
+      name: coupon
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          currency_options:
+            explode: true
+            style: deepObject
+          expand:
+            explode: true
+            style: deepObject
+          metadata:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            currency_options:
+              additionalProperties:
+                properties:
+                  amount_off:
+                    type: integer
+                required:
+                  - amount_off
+                title: currency_option
+                type: object
+              description: >-
+                Coupons defined in each available currency option (only
+                supported if the coupon is amount-based). Each key must be a
+                three-letter [ISO currency
+                code](https://www.iso.org/iso-4217-currency-codes.html) and a
+                [supported currency](https://stripe.com/docs/currencies).
+              type: object
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            metadata:
+              anyOf:
+                - additionalProperties:
+                    type: string
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                Set of [key-value pairs](https://docs.stripe.com/api/metadata)
+                that you can attach to an object. This can be useful for storing
+                additional information about the object in a structured format.
+                Individual keys can be unset by posting an empty value to them.
+                All keys can be unset by posting an empty value to `metadata`.
+            name:
+              description: >-
+                Name of the coupon displayed to customers on, for instance
+                invoices, or receipts. By default the `id` is shown if `name` is
+                not set.
+              maxLength: 40
+              type: string
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/coupon.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Update a coupon

@@ -1,0 +1,11 @@
+description: ''
+properties:
+  enabled:
+    description: >-
+      Determines whether to allow transactions to be collected while reader is
+      offline. Defaults to false.
+    nullable: true
+    type: boolean
+title: TerminalConfigurationConfigurationResourceOfflineConfig
+type: object
+x-expandableFields: []

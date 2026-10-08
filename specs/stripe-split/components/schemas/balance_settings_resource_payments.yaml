@@ -1,0 +1,26 @@
+description: ''
+properties:
+  debit_negative_balances:
+    description: >-
+      A Boolean indicating if Stripe should try to reclaim negative balances
+      from an attached bank account. See [Understanding Connect account
+      balances](/connect/account-balances) for details. The default value is
+      `false` when
+      [controller.requirement_collection](/api/accounts/object#account_object-controller-requirement_collection)
+      is `application`, which includes Custom accounts, otherwise `true`.
+    nullable: true
+    type: boolean
+  payouts:
+    anyOf:
+      - $ref: ./balance_settings_resource_payouts.yaml
+    description: Settings specific to the account's payouts.
+    nullable: true
+  settlement_timing:
+    $ref: ./balance_settings_resource_settlement_timing.yaml
+required:
+  - settlement_timing
+title: BalanceSettingsResourcePayments
+type: object
+x-expandableFields:
+  - payouts
+  - settlement_timing

@@ -1,0 +1,19 @@
+description: ''
+properties:
+  brands_blocked:
+    description: >-
+      The card brands to block. If a customer enters or selects a card belonging
+      to a blocked brand, they can't complete the payment.
+    items:
+      enum:
+        - american_express
+        - discover_global_network
+        - mastercard
+        - visa
+      type: string
+    type: array
+required:
+  - brands_blocked
+title: PaymentLinksResourceCardRestrictions
+type: object
+x-expandableFields: []

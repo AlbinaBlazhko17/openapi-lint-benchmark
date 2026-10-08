@@ -1,0 +1,6 @@
+anyOf:
+  - $ref: ./bank_account.yaml
+  - $ref: ./card.yaml
+title: Polymorphic
+x-resourceId: external_account
+x-stripeBypassValidation: true

@@ -1,0 +1,21 @@
+description: ''
+properties:
+  amount:
+    description: Balance amount.
+    type: integer
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    format: currency
+    type: string
+  source_types:
+    $ref: ./balance_amount_by_source_type.yaml
+required:
+  - amount
+  - currency
+title: BalanceAmount
+type: object
+x-expandableFields:
+  - source_types

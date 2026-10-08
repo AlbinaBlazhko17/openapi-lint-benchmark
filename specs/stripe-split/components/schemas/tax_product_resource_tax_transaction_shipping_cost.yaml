@@ -1,0 +1,42 @@
+description: ''
+properties:
+  amount:
+    description: >-
+      The shipping amount in the [smallest currency
+      unit](https://docs.stripe.com/currencies#minor-units). If
+      `tax_behavior=inclusive`, then this amount includes taxes. Otherwise,
+      taxes were calculated on top of this amount.
+    type: integer
+  amount_tax:
+    description: >-
+      The amount of tax calculated for shipping, in the [smallest currency
+      unit](https://docs.stripe.com/currencies#minor-units).
+    type: integer
+  shipping_rate:
+    description: >-
+      The ID of an existing
+      [ShippingRate](https://docs.stripe.com/api/shipping_rates/object).
+    maxLength: 5000
+    type: string
+  tax_behavior:
+    description: >-
+      Specifies whether the `amount` includes taxes. If
+      `tax_behavior=inclusive`, then the amount includes taxes.
+    enum:
+      - exclusive
+      - inclusive
+    type: string
+  tax_code:
+    description: >-
+      The [tax code](https://docs.stripe.com/tax/tax-categories) ID used for
+      shipping.
+    maxLength: 5000
+    type: string
+required:
+  - amount
+  - amount_tax
+  - tax_behavior
+  - tax_code
+title: TaxProductResourceTaxTransactionShippingCost
+type: object
+x-expandableFields: []

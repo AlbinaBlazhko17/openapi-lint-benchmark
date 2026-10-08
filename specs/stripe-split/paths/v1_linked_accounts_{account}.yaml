@@ -1,0 +1,47 @@
+get:
+  description: >-
+    <p>Retrieves the details of an Financial Connections
+    <code>Account</code>.</p>
+  operationId: GetLinkedAccountsAccount
+  parameters:
+    - in: path
+      name: account
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/financial_connections.account.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Retrieve an Account

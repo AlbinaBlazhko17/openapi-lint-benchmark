@@ -1,0 +1,28 @@
+description: ''
+properties:
+  data:
+    description: >-
+      The raw data string used to generate QR code, it should be used together
+      with QR code library.
+    maxLength: 5000
+    type: string
+  expires_at:
+    description: The date (unix timestamp) when the PIX expires.
+    type: integer
+  hosted_instructions_url:
+    description: >-
+      The URL to the hosted pix instructions page, which allows customers to
+      view the pix QR code.
+    maxLength: 5000
+    type: string
+  image_url_png:
+    description: The image_url_png string used to render png QR code
+    maxLength: 5000
+    type: string
+  image_url_svg:
+    description: The image_url_svg string used to render svg QR code
+    maxLength: 5000
+    type: string
+title: PaymentIntentNextActionPixDisplayQrCode
+type: object
+x-expandableFields: []

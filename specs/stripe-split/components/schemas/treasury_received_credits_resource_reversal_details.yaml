@@ -1,0 +1,20 @@
+description: ''
+properties:
+  deadline:
+    description: Time before which a ReceivedCredit can be reversed.
+    format: unix-time
+    nullable: true
+    type: integer
+  restricted_reason:
+    description: Set if a ReceivedCredit cannot be reversed.
+    enum:
+      - already_reversed
+      - deadline_passed
+      - network_restricted
+      - other
+      - source_flow_restricted
+    nullable: true
+    type: string
+title: TreasuryReceivedCreditsResourceReversalDetails
+type: object
+x-expandableFields: []

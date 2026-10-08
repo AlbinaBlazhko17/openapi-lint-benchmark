@@ -1,0 +1,20 @@
+description: ''
+properties:
+  refund:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./refund.yaml
+    description: >-
+      The [Refund](https://docs.stripe.com/api/refunds/object) that moved these
+      funds into the customer's cash balance.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./refund.yaml
+required:
+  - refund
+title: >-
+  CustomerBalanceResourceCashBalanceTransactionResourceRefundedFromPaymentTransaction
+type: object
+x-expandableFields:
+  - refund

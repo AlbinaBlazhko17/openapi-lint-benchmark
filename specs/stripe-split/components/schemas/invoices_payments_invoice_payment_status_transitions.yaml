@@ -1,0 +1,15 @@
+description: ''
+properties:
+  canceled_at:
+    description: The time that the payment was canceled.
+    format: unix-time
+    nullable: true
+    type: integer
+  paid_at:
+    description: The time that the payment succeeded.
+    format: unix-time
+    nullable: true
+    type: integer
+title: InvoicesPaymentsInvoicePaymentStatusTransitions
+type: object
+x-expandableFields: []

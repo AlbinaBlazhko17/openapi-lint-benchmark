@@ -1,0 +1,74 @@
+description: ''
+properties:
+  acss_debit:
+    $ref: ./mandate_acss_debit.yaml
+  amazon_pay:
+    $ref: ./mandate_amazon_pay.yaml
+  au_becs_debit:
+    $ref: ./mandate_au_becs_debit.yaml
+  bacs_debit:
+    $ref: ./mandate_bacs_debit.yaml
+  card:
+    $ref: ./card_mandate_payment_method_details.yaml
+  cashapp:
+    $ref: ./mandate_cashapp.yaml
+  kakao_pay:
+    $ref: ./mandate_kakao_pay.yaml
+  klarna:
+    $ref: ./mandate_klarna.yaml
+  kr_card:
+    $ref: ./mandate_kr_card.yaml
+  link:
+    $ref: ./mandate_link.yaml
+  naver_pay:
+    $ref: ./mandate_naver_pay.yaml
+  nz_bank_account:
+    $ref: ./mandate_nz_bank_account.yaml
+  paypal:
+    $ref: ./mandate_paypal.yaml
+  payto:
+    $ref: ./mandate_payto.yaml
+  pix:
+    $ref: ./mandate_pix.yaml
+  revolut_pay:
+    $ref: ./mandate_revolut_pay.yaml
+  sepa_debit:
+    $ref: ./mandate_sepa_debit.yaml
+  twint:
+    $ref: ./mandate_twint.yaml
+  type:
+    description: >-
+      This mandate corresponds with a specific payment method type. The
+      `payment_method_details` includes an additional hash with the same name
+      and contains mandate information that's specific to that payment method.
+    maxLength: 5000
+    type: string
+  upi:
+    $ref: ./mandate_upi.yaml
+  us_bank_account:
+    $ref: ./mandate_us_bank_account.yaml
+required:
+  - type
+title: mandate_payment_method_details
+type: object
+x-expandableFields:
+  - acss_debit
+  - amazon_pay
+  - au_becs_debit
+  - bacs_debit
+  - card
+  - cashapp
+  - kakao_pay
+  - klarna
+  - kr_card
+  - link
+  - naver_pay
+  - nz_bank_account
+  - paypal
+  - payto
+  - pix
+  - revolut_pay
+  - sepa_debit
+  - twint
+  - upi
+  - us_bank_account

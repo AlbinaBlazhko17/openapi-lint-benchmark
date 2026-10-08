@@ -1,0 +1,10 @@
+description: ''
+properties:
+  completed_sessions:
+    $ref: ./payment_links_resource_completed_sessions.yaml
+required:
+  - completed_sessions
+title: PaymentLinksResourceRestrictions
+type: object
+x-expandableFields:
+  - completed_sessions

@@ -1,0 +1,152 @@
+description: >-
+  A Tax Transaction records the tax collected from or refunded to your customer.
+
+
+  Related guide: [Calculate tax in your custom payment
+  flow](https://docs.stripe.com/tax/custom#tax-transaction)
+properties:
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    maxLength: 5000
+    type: string
+  customer:
+    description: >-
+      The ID of an existing
+      [Customer](https://docs.stripe.com/api/customers/object) used for the
+      resource.
+    maxLength: 5000
+    nullable: true
+    type: string
+  customer_details:
+    $ref: ./tax_product_resource_customer_details.yaml
+  id:
+    description: Unique identifier for the transaction.
+    maxLength: 5000
+    type: string
+  line_items:
+    description: The tax collected or refunded, by line item.
+    nullable: true
+    properties:
+      data:
+        description: Details about each object.
+        items:
+          $ref: ./tax.transaction_line_item.yaml
+        type: array
+      has_more:
+        description: >-
+          True if this list has another page of items after this one that can be
+          fetched.
+        type: boolean
+      object:
+        description: >-
+          String representing the object's type. Objects of the same type share
+          the same value. Always has the value `list`.
+        enum:
+          - list
+        type: string
+      url:
+        description: The URL where this list can be accessed.
+        maxLength: 5000
+        pattern: ^/v1/tax/transactions/[^/]+/line_items
+        type: string
+    required:
+      - data
+      - has_more
+      - object
+      - url
+    title: TaxProductResourceTaxTransactionLineItemList
+    type: object
+    x-expandableFields:
+      - data
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    nullable: true
+    type: object
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - tax.transaction
+    type: string
+  posted_at:
+    description: >-
+      The Unix timestamp representing when the tax liability is assumed or
+      reduced.
+    format: unix-time
+    type: integer
+  reference:
+    description: A custom unique identifier, such as 'myOrder_123'.
+    maxLength: 5000
+    type: string
+  reversal:
+    anyOf:
+      - $ref: ./tax_product_resource_tax_transaction_resource_reversal.yaml
+    description: If `type=reversal`, contains information about what was reversed.
+    nullable: true
+  ship_from_details:
+    anyOf:
+      - $ref: ./tax_product_resource_ship_from_details.yaml
+    description: The details of the ship from location, such as the address.
+    nullable: true
+  shipping_cost:
+    anyOf:
+      - $ref: ./tax_product_resource_tax_transaction_shipping_cost.yaml
+    description: The shipping cost details for the transaction.
+    nullable: true
+  tax_date:
+    description: >-
+      The calculation uses the tax rules and rates that are in effect at this
+      timestamp. You can use a date up to 31 days in the past or up to 31 days
+      in the future. If you use a future date, Stripe doesn't guarantee that the
+      expected tax rules and rate being used match the actual rules and rate
+      that will be in effect on that date. We deploy tax changes before their
+      effective date, but not within a fixed window.
+    format: unix-time
+    type: integer
+  type:
+    description: If `reversal`, this transaction reverses an earlier transaction.
+    enum:
+      - reversal
+      - transaction
+    type: string
+required:
+  - created
+  - currency
+  - customer_details
+  - id
+  - livemode
+  - object
+  - posted_at
+  - reference
+  - tax_date
+  - type
+title: Tax Transaction
+type: object
+x-expandableFields:
+  - customer_details
+  - line_items
+  - reversal
+  - ship_from_details
+  - shipping_cost
+x-resourceId: tax.transaction

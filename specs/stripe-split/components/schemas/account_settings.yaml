@@ -1,0 +1,40 @@
+description: ''
+properties:
+  bacs_debit_payments:
+    $ref: ./account_bacs_debit_payments_settings.yaml
+  branding:
+    $ref: ./account_branding_settings.yaml
+  card_issuing:
+    $ref: ./account_card_issuing_settings.yaml
+  card_payments:
+    $ref: ./account_card_payments_settings.yaml
+  dashboard:
+    $ref: ./account_dashboard_settings.yaml
+  invoices:
+    $ref: ./account_invoices_settings.yaml
+  payments:
+    $ref: ./account_payments_settings.yaml
+  payouts:
+    $ref: ./account_payout_settings.yaml
+  sepa_debit_payments:
+    $ref: ./account_sepa_debit_payments_settings.yaml
+  treasury:
+    $ref: ./account_treasury_settings.yaml
+required:
+  - branding
+  - card_payments
+  - dashboard
+  - payments
+title: AccountSettings
+type: object
+x-expandableFields:
+  - bacs_debit_payments
+  - branding
+  - card_issuing
+  - card_payments
+  - dashboard
+  - invoices
+  - payments
+  - payouts
+  - sepa_debit_payments
+  - treasury

@@ -1,0 +1,10 @@
+description: Collection of signals for this payment evaluation.
+properties:
+  fraudulent_payment:
+    $ref: ./insights_resources_payment_evaluation_signal_v2.yaml
+required:
+  - fraudulent_payment
+title: InsightsResourcesPaymentEvaluationSignals
+type: object
+x-expandableFields:
+  - fraudulent_payment

@@ -1,0 +1,15 @@
+description: ''
+properties:
+  ip_address:
+    description: The customer accepts the mandate from this IP address.
+    maxLength: 5000
+    nullable: true
+    type: string
+  user_agent:
+    description: The customer accepts the mandate using the user agent of the browser.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: online_acceptance
+type: object
+x-expandableFields: []

@@ -1,0 +1,21 @@
+description: ''
+properties:
+  business_name:
+    description: Customer’s business name for this Checkout Session
+    maxLength: 5000
+    nullable: true
+    type: string
+  individual_name:
+    description: Customer’s individual name for this Checkout Session
+    maxLength: 5000
+    nullable: true
+    type: string
+  shipping_details:
+    anyOf:
+      - $ref: ./payment_pages_checkout_session_checkout_address_details.yaml
+    description: Shipping information for this Checkout Session.
+    nullable: true
+title: PaymentPagesCheckoutSessionCollectedInformation
+type: object
+x-expandableFields:
+  - shipping_details

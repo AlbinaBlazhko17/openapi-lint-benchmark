@@ -1,0 +1,11 @@
+description: ''
+properties:
+  presentment_currency:
+    description: Currency used for customer payments.
+    maxLength: 5000
+    type: string
+required:
+  - presentment_currency
+title: SubscriptionsResourceSubscriptionPresentmentDetails
+type: object
+x-expandableFields: []

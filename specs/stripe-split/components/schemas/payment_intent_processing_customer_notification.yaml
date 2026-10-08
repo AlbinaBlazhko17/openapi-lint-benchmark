@@ -1,0 +1,19 @@
+description: ''
+properties:
+  approval_requested:
+    description: >-
+      Whether customer approval has been requested for this payment. For
+      payments greater than INR 15000 or mandate amount, the customer must
+      provide explicit approval of the payment with their bank.
+    nullable: true
+    type: boolean
+  completes_at:
+    description: >-
+      If customer approval is required, they need to provide approval before
+      this time.
+    format: unix-time
+    nullable: true
+    type: integer
+title: PaymentIntentProcessingCustomerNotification
+type: object
+x-expandableFields: []

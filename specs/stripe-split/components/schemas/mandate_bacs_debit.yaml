@@ -1,0 +1,49 @@
+description: ''
+properties:
+  display_name:
+    description: The display name for the account on this mandate.
+    maxLength: 5000
+    nullable: true
+    type: string
+  network_status:
+    description: >-
+      The status of the mandate on the Bacs network. Can be one of `pending`,
+      `revoked`, `refused`, or `accepted`.
+    enum:
+      - accepted
+      - pending
+      - refused
+      - revoked
+    type: string
+  reference:
+    description: The unique reference identifying the mandate on the Bacs network.
+    maxLength: 5000
+    type: string
+  revocation_reason:
+    description: >-
+      When the mandate is revoked on the Bacs network this field displays the
+      reason for the revocation.
+    enum:
+      - account_closed
+      - bank_account_restricted
+      - bank_ownership_changed
+      - could_not_process
+      - debit_not_authorized
+    nullable: true
+    type: string
+  service_user_number:
+    description: The service user number for the account on this mandate.
+    maxLength: 5000
+    nullable: true
+    type: string
+  url:
+    description: The URL that will contain the mandate that the customer has signed.
+    maxLength: 5000
+    type: string
+required:
+  - network_status
+  - reference
+  - url
+title: mandate_bacs_debit
+type: object
+x-expandableFields: []

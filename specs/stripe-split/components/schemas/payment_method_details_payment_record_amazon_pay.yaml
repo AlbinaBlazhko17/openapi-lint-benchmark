@@ -1,0 +1,14 @@
+description: ''
+properties:
+  funding:
+    $ref: >-
+      ./payments_primitives_payment_records_resource_payment_method_amazon_pay_details_resource_funding.yaml
+  transaction_id:
+    description: The Amazon Pay transaction ID associated with this payment.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: payment_method_details_payment_record_amazon_pay
+type: object
+x-expandableFields:
+  - funding

@@ -1,0 +1,31 @@
+description: ABA Records contain U.S. bank account details per the ABA format.
+properties:
+  account_holder_name:
+    description: The name of the person or business that owns the bank account.
+    maxLength: 5000
+    type: string
+  account_number:
+    description: The account number.
+    maxLength: 5000
+    nullable: true
+    type: string
+  account_number_last4:
+    description: The last four characters of the account number.
+    maxLength: 5000
+    type: string
+  bank_name:
+    description: Name of the bank.
+    maxLength: 5000
+    type: string
+  routing_number:
+    description: Routing number for the account.
+    maxLength: 5000
+    type: string
+required:
+  - account_holder_name
+  - account_number_last4
+  - bank_name
+  - routing_number
+title: TreasuryFinancialAccountsResourceABARecord
+type: object
+x-expandableFields: []

@@ -1,0 +1,19 @@
+description: ''
+properties:
+  hosted_confirmation:
+    $ref: ./payment_links_resource_completion_behavior_confirmation_page.yaml
+  redirect:
+    $ref: ./payment_links_resource_completion_behavior_redirect.yaml
+  type:
+    description: The specified behavior after the purchase is complete.
+    enum:
+      - hosted_confirmation
+      - redirect
+    type: string
+required:
+  - type
+title: PaymentLinksResourceAfterCompletion
+type: object
+x-expandableFields:
+  - hosted_confirmation
+  - redirect

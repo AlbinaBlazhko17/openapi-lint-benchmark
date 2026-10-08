@@ -1,0 +1,8 @@
+description: ''
+properties:
+  mandate_options:
+    $ref: ./payment_method_options_mandate_options_upi.yaml
+title: setup_intent_payment_method_options_upi
+type: object
+x-expandableFields:
+  - mandate_options

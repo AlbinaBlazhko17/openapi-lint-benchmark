@@ -1,0 +1,32 @@
+description: Refunded Event details attached to this payment evaluation.
+properties:
+  amount:
+    description: >-
+      Amount refunded for this payment. A positive integer representing how much
+      to charge in [the smallest currency
+      unit](https://docs.stripe.com/currencies#zero-decimal) (for example, 100
+      cents to charge 1.00 USD or 100 to charge 100 Yen, a zero-decimal
+      currency).
+    type: integer
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    format: currency
+    type: string
+  reason:
+    description: Indicates the reason for the refund.
+    enum:
+      - duplicate
+      - fraudulent
+      - other
+      - requested_by_customer
+    type: string
+required:
+  - amount
+  - currency
+  - reason
+title: InsightsResourcesPaymentEvaluationRefunded
+type: object
+x-expandableFields: []

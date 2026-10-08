@@ -1,0 +1,16 @@
+description: ''
+properties:
+  reason:
+    description: Details on why we couldn't commit the tax transaction.
+    enum:
+      - another_payment_associated_with_calculation
+      - calculation_expired
+      - currency_mismatch
+      - original_transaction_voided
+      - unique_reference_violation
+    type: string
+required:
+  - reason
+title: TaxProductResourceTaxAssociationTransactionAttemptsResourceErrored
+type: object
+x-expandableFields: []

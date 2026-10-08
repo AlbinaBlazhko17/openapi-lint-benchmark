@@ -1,0 +1,20 @@
+description: ''
+properties:
+  invoice:
+    description: The invoice id for the debited line item(s).
+    maxLength: 5000
+    type: string
+  invoice_line_items:
+    description: >-
+      IDs of the debited invoice line item(s) on the invoice that correspond to
+      the credit proration.
+    items:
+      maxLength: 5000
+      type: string
+    type: array
+required:
+  - invoice
+  - invoice_line_items
+title: CreditedItemsInvoiceLineItems
+type: object
+x-expandableFields: []

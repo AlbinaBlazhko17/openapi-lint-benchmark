@@ -1,0 +1,50 @@
+description: ''
+properties:
+  comment:
+    description: >-
+      Additional comments about why the user canceled the subscription, if the
+      subscription was canceled explicitly by the user.
+    maxLength: 5000
+    nullable: true
+    type: string
+  feedback:
+    description: >-
+      The customer submitted reason for why they canceled, if the subscription
+      was canceled explicitly by the user.
+    enum:
+      - customer_service
+      - low_quality
+      - missing_features
+      - other
+      - switched_service
+      - too_complex
+      - too_expensive
+      - unused
+    nullable: true
+    type: string
+  feedback_option:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./billing.feedback_option.yaml
+    description: >-
+      Customized feedback options that provide deeper insight into why the
+      subscription was canceled, if the subscription was canceled explicitly by
+      the user.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./billing.feedback_option.yaml
+  reason:
+    description: Why this subscription was canceled.
+    enum:
+      - canceled_by_retention_policy
+      - cancellation_requested
+      - payment_disputed
+      - payment_failed
+    nullable: true
+    type: string
+title: CancellationDetails
+type: object
+x-expandableFields:
+  - feedback_option

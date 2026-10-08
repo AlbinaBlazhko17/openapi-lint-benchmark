@@ -1,0 +1,26 @@
+description: ''
+properties:
+  date:
+    description: >-
+      The Unix timestamp marking when the cardholder accepted the Authorized
+      User Terms.
+    format: unix-time
+    nullable: true
+    type: integer
+  ip:
+    description: >-
+      The IP address from which the cardholder accepted the Authorized User
+      Terms.
+    maxLength: 5000
+    nullable: true
+    type: string
+  user_agent:
+    description: >-
+      The user agent of the browser from which the cardholder accepted the
+      Authorized User Terms.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: IssuingCardholderUserTermsAcceptance
+type: object
+x-expandableFields: []

@@ -1,0 +1,16 @@
+description: ''
+properties:
+  reasons:
+    description: The array that contains reasons for a FinancialAccount closure.
+    items:
+      enum:
+        - account_rejected
+        - closed_by_platform
+        - other
+      type: string
+    type: array
+required:
+  - reasons
+title: TreasuryFinancialAccountsResourceClosedStatusDetails
+type: object
+x-expandableFields: []

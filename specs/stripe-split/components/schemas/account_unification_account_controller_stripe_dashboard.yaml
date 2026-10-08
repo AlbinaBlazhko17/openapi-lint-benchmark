@@ -1,0 +1,16 @@
+description: ''
+properties:
+  type:
+    description: >-
+      A value indicating the Stripe dashboard this account has access to
+      independent of the Connect application.
+    enum:
+      - express
+      - full
+      - none
+    type: string
+required:
+  - type
+title: AccountUnificationAccountControllerStripeDashboard
+type: object
+x-expandableFields: []

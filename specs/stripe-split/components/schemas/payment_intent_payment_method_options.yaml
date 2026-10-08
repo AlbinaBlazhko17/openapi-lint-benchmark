@@ -1,0 +1,289 @@
+description: ''
+properties:
+  acss_debit:
+    anyOf:
+      - $ref: ./payment_intent_payment_method_options_acss_debit.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  affirm:
+    anyOf:
+      - $ref: ./payment_method_options_affirm.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  afterpay_clearpay:
+    anyOf:
+      - $ref: ./payment_method_options_afterpay_clearpay.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  alipay:
+    anyOf:
+      - $ref: ./payment_method_options_alipay.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  alma:
+    anyOf:
+      - $ref: ./payment_method_options_alma.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  amazon_pay:
+    anyOf:
+      - $ref: ./payment_method_options_amazon_pay.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  au_becs_debit:
+    anyOf:
+      - $ref: ./payment_intent_payment_method_options_au_becs_debit.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  bacs_debit:
+    anyOf:
+      - $ref: ./payment_intent_payment_method_options_bacs_debit.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  bancontact:
+    anyOf:
+      - $ref: ./payment_method_options_bancontact.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  billie:
+    anyOf:
+      - $ref: ./payment_method_options_billie.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  bizum:
+    anyOf:
+      - $ref: ./payment_method_options_bizum.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  blik:
+    anyOf:
+      - $ref: ./payment_intent_payment_method_options_blik.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  boleto:
+    anyOf:
+      - $ref: ./payment_method_options_boleto.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  card:
+    anyOf:
+      - $ref: ./payment_intent_payment_method_options_card.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  card_present:
+    anyOf:
+      - $ref: ./payment_method_options_card_present.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  cashapp:
+    anyOf:
+      - $ref: ./payment_method_options_cashapp.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  crypto:
+    anyOf:
+      - $ref: ./payment_method_options_crypto.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  customer_balance:
+    anyOf:
+      - $ref: ./payment_method_options_customer_balance.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  eps:
+    anyOf:
+      - $ref: ./payment_intent_payment_method_options_eps.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  fpx:
+    anyOf:
+      - $ref: ./payment_method_options_fpx.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  giropay:
+    anyOf:
+      - $ref: ./payment_method_options_giropay.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  grabpay:
+    anyOf:
+      - $ref: ./payment_method_options_grabpay.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  ideal:
+    anyOf:
+      - $ref: ./payment_method_options_ideal.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  interac_present:
+    anyOf:
+      - $ref: ./payment_method_options_interac_present.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  kakao_pay:
+    anyOf:
+      - $ref: >-
+          ./payment_flows_private_payment_methods_kakao_pay_payment_method_options.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  klarna:
+    anyOf:
+      - $ref: ./payment_method_options_klarna.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  konbini:
+    anyOf:
+      - $ref: ./payment_method_options_konbini.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  kr_card:
+    anyOf:
+      - $ref: ./payment_method_options_kr_card.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  link:
+    anyOf:
+      - $ref: ./payment_intent_payment_method_options_link.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  mb_way:
+    anyOf:
+      - $ref: ./payment_method_options_mb_way.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  mobilepay:
+    anyOf:
+      - $ref: ./payment_intent_payment_method_options_mobilepay.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  multibanco:
+    anyOf:
+      - $ref: ./payment_method_options_multibanco.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  naver_pay:
+    anyOf:
+      - $ref: >-
+          ./payment_flows_private_payment_methods_naver_pay_payment_method_options.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  nz_bank_account:
+    anyOf:
+      - $ref: ./payment_intent_payment_method_options_nz_bank_account.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  oxxo:
+    anyOf:
+      - $ref: ./payment_method_options_oxxo.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  p24:
+    anyOf:
+      - $ref: ./payment_method_options_p24.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  pay_by_bank:
+    anyOf:
+      - $ref: ./payment_method_options_pay_by_bank.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  payco:
+    anyOf:
+      - $ref: >-
+          ./payment_flows_private_payment_methods_payco_payment_method_options.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  paynow:
+    anyOf:
+      - $ref: ./payment_method_options_paynow.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  paypal:
+    anyOf:
+      - $ref: ./payment_method_options_paypal.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  payto:
+    anyOf:
+      - $ref: ./payment_intent_payment_method_options_payto.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  pix:
+    anyOf:
+      - $ref: ./payment_method_options_pix.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  promptpay:
+    anyOf:
+      - $ref: ./payment_method_options_promptpay.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  revolut_pay:
+    anyOf:
+      - $ref: ./payment_method_options_revolut_pay.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  samsung_pay:
+    anyOf:
+      - $ref: >-
+          ./payment_flows_private_payment_methods_samsung_pay_payment_method_options.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  satispay:
+    anyOf:
+      - $ref: ./payment_method_options_satispay.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  scalapay:
+    anyOf:
+      - $ref: ./payment_method_options_scalapay.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  sepa_debit:
+    anyOf:
+      - $ref: ./payment_intent_payment_method_options_sepa_debit.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  sofort:
+    anyOf:
+      - $ref: ./payment_method_options_sofort.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  sunbit:
+    anyOf:
+      - $ref: ./payment_method_options_sunbit.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  swish:
+    anyOf:
+      - $ref: ./payment_intent_payment_method_options_swish.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  twint:
+    anyOf:
+      - $ref: ./payment_method_options_twint.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  upi:
+    anyOf:
+      - $ref: ./payment_method_options_upi.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  us_bank_account:
+    anyOf:
+      - $ref: ./payment_intent_payment_method_options_us_bank_account.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  wechat_pay:
+    anyOf:
+      - $ref: ./payment_method_options_wechat_pay.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+  zip:
+    anyOf:
+      - $ref: ./payment_method_options_zip.yaml
+      - $ref: ./payment_intent_type_specific_payment_method_options_client.yaml
+title: PaymentIntentPaymentMethodOptions
+type: object
+x-expandableFields:
+  - acss_debit
+  - affirm
+  - afterpay_clearpay
+  - alipay
+  - alma
+  - amazon_pay
+  - au_becs_debit
+  - bacs_debit
+  - bancontact
+  - billie
+  - bizum
+  - blik
+  - boleto
+  - card
+  - card_present
+  - cashapp
+  - crypto
+  - customer_balance
+  - eps
+  - fpx
+  - giropay
+  - grabpay
+  - ideal
+  - interac_present
+  - kakao_pay
+  - klarna
+  - konbini
+  - kr_card
+  - link
+  - mb_way
+  - mobilepay
+  - multibanco
+  - naver_pay
+  - nz_bank_account
+  - oxxo
+  - p24
+  - pay_by_bank
+  - payco
+  - paynow
+  - paypal
+  - payto
+  - pix
+  - promptpay
+  - revolut_pay
+  - samsung_pay
+  - satispay
+  - scalapay
+  - sepa_debit
+  - sofort
+  - sunbit
+  - swish
+  - twint
+  - upi
+  - us_bank_account
+  - wechat_pay
+  - zip

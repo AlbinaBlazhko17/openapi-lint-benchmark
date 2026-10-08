@@ -1,0 +1,148 @@
+post:
+  description: >-
+    <p>Initiates an <a href="/docs/terminal/features/collect-inputs">input
+    collection flow</a> on a Reader to display input forms and collect
+    information from your customers.</p>
+  operationId: PostTerminalReadersReaderCollectInputs
+  parameters:
+    - in: path
+      name: reader
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+          inputs:
+            explode: true
+            style: deepObject
+          metadata:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            inputs:
+              description: >-
+                List of inputs to be collected from the customer using the
+                Reader. Maximum 5 inputs.
+              items:
+                properties:
+                  custom_text:
+                    properties:
+                      description:
+                        maxLength: 500
+                        type: string
+                      skip_button:
+                        maxLength: 14
+                        type: string
+                      submit_button:
+                        maxLength: 30
+                        type: string
+                      title:
+                        maxLength: 40
+                        type: string
+                    required:
+                      - title
+                    title: custom_text_params
+                    type: object
+                  required:
+                    type: boolean
+                  selection:
+                    properties:
+                      choices:
+                        items:
+                          properties:
+                            id:
+                              maxLength: 50
+                              type: string
+                            style:
+                              enum:
+                                - primary
+                                - secondary
+                              type: string
+                            text:
+                              maxLength: 30
+                              type: string
+                          required:
+                            - id
+                            - text
+                          title: choice_params
+                          type: object
+                        type: array
+                    required:
+                      - choices
+                    title: selection_params
+                    type: object
+                  toggles:
+                    items:
+                      properties:
+                        default_value:
+                          enum:
+                            - disabled
+                            - enabled
+                          type: string
+                        description:
+                          maxLength: 50
+                          type: string
+                        title:
+                          maxLength: 50
+                          type: string
+                      title: toggle_params
+                      type: object
+                    type: array
+                  type:
+                    enum:
+                      - email
+                      - numeric
+                      - phone
+                      - selection
+                      - signature
+                      - text
+                    type: string
+                required:
+                  - custom_text
+                  - type
+                title: input_params
+                type: object
+              type: array
+            metadata:
+              additionalProperties:
+                type: string
+              description: >-
+                Set of [key-value pairs](https://docs.stripe.com/api/metadata)
+                that you can attach to an object. This can be useful for storing
+                additional information about the object in a structured format.
+                Individual keys can be unset by posting an empty value to them.
+                All keys can be unset by posting an empty value to `metadata`.
+              type: object
+          required:
+            - inputs
+          type: object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/terminal.reader.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Collect inputs using a Reader

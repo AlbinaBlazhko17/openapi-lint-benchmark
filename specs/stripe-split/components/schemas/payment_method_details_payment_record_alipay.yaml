@@ -1,0 +1,23 @@
+description: ''
+properties:
+  buyer_id:
+    description: >-
+      Uniquely identifies this particular Alipay account. You can use this
+      attribute to check whether two Alipay accounts are the same.
+    maxLength: 5000
+    type: string
+  fingerprint:
+    description: >-
+      Uniquely identifies this particular Alipay account. You can use this
+      attribute to check whether two Alipay accounts are the same.
+    maxLength: 5000
+    nullable: true
+    type: string
+  transaction_id:
+    description: Transaction ID of this particular Alipay transaction.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: payment_method_details_payment_record_alipay
+type: object
+x-expandableFields: []

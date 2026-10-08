@@ -1,0 +1,10 @@
+description: This hash contains whether the active entitlements is enabled.
+properties:
+  enabled:
+    description: Whether the active entitlements is enabled.
+    type: boolean
+required:
+  - enabled
+title: CustomerSessionResourceComponentsResourceActiveEntitlements
+type: object
+x-expandableFields: []

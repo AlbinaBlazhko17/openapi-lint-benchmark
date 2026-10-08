@@ -1,0 +1,30 @@
+description: ''
+properties:
+  amount_subtotal:
+    description: >-
+      Total of all items in source currency before discounts or taxes are
+      applied.
+    type: integer
+  amount_total:
+    description: >-
+      Total of all items in source currency after discounts and taxes are
+      applied.
+    type: integer
+  fx_rate:
+    description: >-
+      Exchange rate used to convert source currency amounts to customer currency
+      amounts
+    format: decimal
+    type: string
+  source_currency:
+    description: Creation currency of the CheckoutSession before localization
+    maxLength: 5000
+    type: string
+required:
+  - amount_subtotal
+  - amount_total
+  - fx_rate
+  - source_currency
+title: PaymentPagesCheckoutSessionCurrencyConversion
+type: object
+x-expandableFields: []

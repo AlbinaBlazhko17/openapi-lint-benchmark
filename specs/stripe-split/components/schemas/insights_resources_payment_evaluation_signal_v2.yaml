@@ -1,0 +1,31 @@
+description: A payment evaluation signal with evaluated_at, risk_level, and score fields.
+properties:
+  evaluated_at:
+    description: The time when this signal was evaluated.
+    format: unix-time
+    type: integer
+  risk_level:
+    description: Risk level of this signal, based on the score.
+    enum:
+      - elevated
+      - highest
+      - low
+      - normal
+      - not_assessed
+      - unknown
+    type: string
+  score:
+    description: >-
+      Score for this signal. Possible values for evaluated payments are between
+      0 and 100. The value is returned with two decimal places and higher scores
+      indicate a higher likelihood of the signal being true. A score of -1 is
+      returned when a model evaluation was not performed, such as requests from
+      incomplete integrations.
+    type: number
+required:
+  - evaluated_at
+  - risk_level
+  - score
+title: InsightsResourcesPaymentEvaluationSignalV2
+type: object
+x-expandableFields: []

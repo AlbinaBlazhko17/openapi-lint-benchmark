@@ -1,0 +1,34 @@
+description: ''
+properties:
+  card_logo:
+    description: The reason(s) the card logo was rejected.
+    items:
+      enum:
+        - geographic_location
+        - inappropriate
+        - network_name
+        - non_binary_image
+        - non_fiat_currency
+        - other
+        - other_entity
+        - promotional_material
+      type: string
+    nullable: true
+    type: array
+  carrier_text:
+    description: The reason(s) the carrier text was rejected.
+    items:
+      enum:
+        - geographic_location
+        - inappropriate
+        - network_name
+        - non_fiat_currency
+        - other
+        - other_entity
+        - promotional_material
+      type: string
+    nullable: true
+    type: array
+title: IssuingPersonalizationDesignRejectionReasons
+type: object
+x-expandableFields: []

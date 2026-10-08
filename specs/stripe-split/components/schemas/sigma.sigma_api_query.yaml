@@ -1,0 +1,42 @@
+description: A saved query object represents a query that can be executed for a run.
+properties:
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    type: integer
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  name:
+    description: The name of the query.
+    maxLength: 5000
+    type: string
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - sigma.sigma_api_query
+    type: string
+  sql:
+    description: The sql statement for the query.
+    maxLength: 5000
+    type: string
+required:
+  - created
+  - id
+  - livemode
+  - name
+  - object
+  - sql
+title: Saved Query
+type: object
+x-expandableFields: []
+x-resourceId: sigma.sigma_api_query

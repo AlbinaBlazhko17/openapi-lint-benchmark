@@ -1,0 +1,27 @@
+description: ''
+properties:
+  overridable:
+    description: >-
+      For child configs, whether or not the account's preference will be
+      observed. If `false`, the parent configuration's default is used.
+    nullable: true
+    type: boolean
+  preference:
+    description: The account's display preference.
+    enum:
+      - none
+      - 'off'
+      - 'on'
+    type: string
+  value:
+    description: The effective display preference value.
+    enum:
+      - 'off'
+      - 'on'
+    type: string
+required:
+  - preference
+  - value
+title: PaymentMethodConfigResourceDisplayPreference
+type: object
+x-expandableFields: []

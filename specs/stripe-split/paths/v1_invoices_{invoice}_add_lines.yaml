@@ -1,0 +1,287 @@
+post:
+  description: >-
+    <p>Adds multiple line items to an invoice. This is only possible when an
+    invoice is still a draft.</p>
+  operationId: PostInvoicesInvoiceAddLines
+  parameters:
+    - in: path
+      name: invoice
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+          invoice_metadata:
+            explode: true
+            style: deepObject
+          lines:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            invoice_metadata:
+              anyOf:
+                - additionalProperties:
+                    type: string
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                Set of [key-value pairs](https://docs.stripe.com/api/metadata)
+                that you can attach to an object. This can be useful for storing
+                additional information about the object in a structured format.
+                Individual keys can be unset by posting an empty value to them.
+                All keys can be unset by posting an empty value to `metadata`.
+            lines:
+              description: The line items to add.
+              items:
+                properties:
+                  amount:
+                    type: integer
+                  description:
+                    maxLength: 5000
+                    type: string
+                  discountable:
+                    type: boolean
+                  discounts:
+                    anyOf:
+                      - items:
+                          properties:
+                            coupon:
+                              maxLength: 5000
+                              type: string
+                            discount:
+                              maxLength: 5000
+                              type: string
+                            promotion_code:
+                              maxLength: 5000
+                              type: string
+                          title: discounts_data_param
+                          type: object
+                        type: array
+                      - enum:
+                          - ''
+                        type: string
+                  invoice_item:
+                    maxLength: 5000
+                    type: string
+                  metadata:
+                    anyOf:
+                      - additionalProperties:
+                          type: string
+                        type: object
+                      - enum:
+                          - ''
+                        type: string
+                  period:
+                    properties:
+                      end:
+                        format: unix-time
+                        type: integer
+                      start:
+                        format: unix-time
+                        type: integer
+                    required:
+                      - end
+                      - start
+                    title: period
+                    type: object
+                  price_data:
+                    properties:
+                      currency:
+                        format: currency
+                        type: string
+                      product:
+                        maxLength: 5000
+                        type: string
+                      product_data:
+                        properties:
+                          description:
+                            maxLength: 40000
+                            type: string
+                          images:
+                            items:
+                              type: string
+                            type: array
+                          metadata:
+                            additionalProperties:
+                              type: string
+                            type: object
+                          name:
+                            maxLength: 5000
+                            type: string
+                          tax_code:
+                            maxLength: 5000
+                            type: string
+                          unit_label:
+                            maxLength: 12
+                            type: string
+                        required:
+                          - name
+                        title: product_data
+                        type: object
+                      tax_behavior:
+                        enum:
+                          - exclusive
+                          - inclusive
+                          - unspecified
+                        type: string
+                      unit_amount:
+                        type: integer
+                      unit_amount_decimal:
+                        format: decimal
+                        type: string
+                    required:
+                      - currency
+                    title: one_time_price_data_with_product_data
+                    type: object
+                  pricing:
+                    properties:
+                      price:
+                        maxLength: 5000
+                        type: string
+                    title: pricing_param
+                    type: object
+                  quantity:
+                    type: integer
+                  quantity_decimal:
+                    format: decimal
+                    type: string
+                  tax_amounts:
+                    anyOf:
+                      - items:
+                          properties:
+                            amount:
+                              type: integer
+                            tax_rate_data:
+                              properties:
+                                country:
+                                  maxLength: 5000
+                                  type: string
+                                description:
+                                  maxLength: 5000
+                                  type: string
+                                display_name:
+                                  maxLength: 200
+                                  type: string
+                                inclusive:
+                                  type: boolean
+                                jurisdiction:
+                                  maxLength: 200
+                                  type: string
+                                jurisdiction_level:
+                                  enum:
+                                    - city
+                                    - country
+                                    - county
+                                    - district
+                                    - multiple
+                                    - state
+                                  type: string
+                                percentage:
+                                  type: number
+                                state:
+                                  maxLength: 5000
+                                  type: string
+                                tax_type:
+                                  enum:
+                                    - amusement_tax
+                                    - communications_tax
+                                    - gst
+                                    - hst
+                                    - igst
+                                    - jct
+                                    - lease_tax
+                                    - mass_transit_parking_tax
+                                    - parking_tax
+                                    - pst
+                                    - qst
+                                    - retail_delivery_fee
+                                    - rst
+                                    - sales_tax
+                                    - service_tax
+                                    - vat
+                                  type: string
+                                  x-stripeBypassValidation: true
+                              required:
+                                - display_name
+                                - inclusive
+                                - percentage
+                              title: tax_rate_data_param
+                              type: object
+                            taxability_reason:
+                              enum:
+                                - customer_exempt
+                                - not_collecting
+                                - not_subject_to_tax
+                                - not_supported
+                                - portion_product_exempt
+                                - portion_reduced_rated
+                                - portion_standard_rated
+                                - product_exempt
+                                - product_exempt_holiday
+                                - proportionally_rated
+                                - reduced_rated
+                                - reverse_charge
+                                - standard_rated
+                                - taxable_basis_reduced
+                                - zero_rated
+                              type: string
+                              x-stripeBypassValidation: true
+                            taxable_amount:
+                              type: integer
+                          required:
+                            - amount
+                            - tax_rate_data
+                            - taxable_amount
+                          title: tax_amount_param
+                          type: object
+                        type: array
+                      - enum:
+                          - ''
+                        type: string
+                  tax_rates:
+                    anyOf:
+                      - items:
+                          maxLength: 5000
+                          type: string
+                        type: array
+                      - enum:
+                          - ''
+                        type: string
+                title: lines_data_param
+                type: object
+              type: array
+          required:
+            - lines
+          type: object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/invoice.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Bulk add invoice line items

@@ -1,0 +1,34 @@
+description: ''
+properties:
+  capture_payments:
+    description: >-
+      Whether to allow capturing and cancelling payment intents. This is `true`
+      by default.
+    type: boolean
+  destination_on_behalf_of_charge_management:
+    description: >-
+      Whether connected accounts can manage destination charges that are created
+      on behalf of them. This is `false` by default.
+    type: boolean
+  dispute_management:
+    description: >-
+      Whether responding to disputes is enabled, including submitting evidence
+      and accepting disputes. This is `true` by default.
+    type: boolean
+  refund_management:
+    description: Whether sending refunds is enabled. This is `true` by default.
+    type: boolean
+  smart_disputes_management:
+    description: >-
+      Whether to allow connected accounts to submit disputes using Smart
+      Disputes. Defaults to the value of `dispute_management`.
+    type: boolean
+required:
+  - capture_payments
+  - destination_on_behalf_of_charge_management
+  - dispute_management
+  - refund_management
+  - smart_disputes_management
+title: ConnectEmbeddedPaymentsFeatures
+type: object
+x-expandableFields: []

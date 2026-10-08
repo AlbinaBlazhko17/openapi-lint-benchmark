@@ -1,0 +1,50 @@
+post:
+  description: >-
+    <p>Closing the dispute for a charge indicates that you do not have any
+    evidence to submit and are essentially dismissing the dispute (accepting
+    it), acknowledging it as lost.</p>
+
+
+    <p>The status of the dispute will change from <code>needs_response</code> to
+    <code>lost</code>. <em>Closing a dispute is irreversible</em>.</p>
+  operationId: PostDisputesDisputeClose
+  parameters:
+    - in: path
+      name: dispute
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/dispute.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Close a dispute

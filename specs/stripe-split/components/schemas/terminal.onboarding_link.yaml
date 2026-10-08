@@ -1,0 +1,32 @@
+description: Returns redirect links used for onboarding onto Tap to Pay on iPhone.
+properties:
+  link_options:
+    $ref: ./terminal_onboarding_link_link_options.yaml
+  link_type:
+    description: The type of link being generated.
+    enum:
+      - apple_terms_and_conditions
+    type: string
+  object:
+    enum:
+      - terminal.onboarding_link
+    type: string
+  on_behalf_of:
+    description: Stripe account ID to generate the link for.
+    maxLength: 5000
+    nullable: true
+    type: string
+  redirect_url:
+    description: The link passed back to the user for their onboarding.
+    maxLength: 5000
+    type: string
+required:
+  - link_options
+  - link_type
+  - object
+  - redirect_url
+title: Onboarding Link
+type: object
+x-expandableFields:
+  - link_options
+x-resourceId: terminal.onboarding_link

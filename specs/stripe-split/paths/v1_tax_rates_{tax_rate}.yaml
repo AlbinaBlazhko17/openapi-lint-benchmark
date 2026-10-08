@@ -1,0 +1,163 @@
+get:
+  description: <p>Retrieves a tax rate with the given ID</p>
+  operationId: GetTaxRatesTaxRate
+  parameters:
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+    - in: path
+      name: tax_rate
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/tax_rate.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Retrieve a tax rate
+post:
+  description: <p>Updates an existing tax rate.</p>
+  operationId: PostTaxRatesTaxRate
+  parameters:
+    - in: path
+      name: tax_rate
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+          metadata:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            active:
+              description: >-
+                Flag determining whether the tax rate is active or inactive
+                (archived). Inactive tax rates cannot be used with new
+                applications or Checkout Sessions, but will still work for
+                subscriptions and invoices that already have it set.
+              type: boolean
+            country:
+              description: >-
+                Two-letter country code ([ISO 3166-1
+                alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)).
+              maxLength: 5000
+              type: string
+            description:
+              description: >-
+                An arbitrary string attached to the tax rate for your internal
+                use only. It will not be visible to your customers.
+              maxLength: 5000
+              type: string
+            display_name:
+              description: The display name of the tax rate, which will be shown to users.
+              maxLength: 50
+              type: string
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            jurisdiction:
+              description: >-
+                The jurisdiction for the tax rate. You can use this label field
+                for tax reporting purposes. It also appears on your customer’s
+                invoice.
+              maxLength: 50
+              type: string
+            metadata:
+              anyOf:
+                - additionalProperties:
+                    type: string
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                Set of [key-value pairs](https://docs.stripe.com/api/metadata)
+                that you can attach to an object. This can be useful for storing
+                additional information about the object in a structured format.
+                Individual keys can be unset by posting an empty value to them.
+                All keys can be unset by posting an empty value to `metadata`.
+            state:
+              description: >-
+                [ISO 3166-2 subdivision
+                code](https://en.wikipedia.org/wiki/ISO_3166-2), without country
+                prefix. For example, "NY" for New York, United States.
+              maxLength: 5000
+              type: string
+            tax_type:
+              description: The high-level tax type, such as `vat` or `sales_tax`.
+              enum:
+                - amusement_tax
+                - communications_tax
+                - gst
+                - hst
+                - igst
+                - jct
+                - lease_tax
+                - mass_transit_parking_tax
+                - parking_tax
+                - pst
+                - qst
+                - retail_delivery_fee
+                - rst
+                - sales_tax
+                - service_tax
+                - vat
+              type: string
+              x-stripeBypassValidation: true
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/tax_rate.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Update a tax rate

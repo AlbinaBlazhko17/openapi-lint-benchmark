@@ -1,0 +1,224 @@
+get:
+  description: <p>Lists all ForwardingRequest objects.</p>
+  operationId: GetForwardingRequests
+  parameters:
+    - description: >-
+        Similar to other List endpoints, filters results based on created
+        timestamp. You can pass gt, gte, lt, and lte timestamp values.
+      explode: true
+      in: query
+      name: created
+      required: false
+      schema:
+        properties:
+          gt:
+            type: integer
+          gte:
+            type: integer
+          lt:
+            type: integer
+          lte:
+            type: integer
+        title: created_param
+        type: object
+      style: deepObject
+    - description: >-
+        A pagination cursor to fetch the previous page of the list. The value
+        must be a ForwardingRequest ID.
+      in: query
+      name: ending_before
+      required: false
+      schema:
+        maxLength: 5000
+        type: string
+      style: form
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+    - description: >-
+        A limit on the number of objects to be returned. Limit can range between
+        1 and 100, and the default is 10.
+      in: query
+      name: limit
+      required: false
+      schema:
+        type: integer
+      style: form
+    - description: >-
+        A pagination cursor to fetch the next page of the list. The value must
+        be a ForwardingRequest ID.
+      in: query
+      name: starting_after
+      required: false
+      schema:
+        maxLength: 5000
+        type: string
+      style: form
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            description: List of ForwardingRequest data.
+            properties:
+              data:
+                items:
+                  $ref: ../components/schemas/forwarding.request.yaml
+                type: array
+              has_more:
+                description: >-
+                  True if this list has another page of items after this one
+                  that can be fetched.
+                type: boolean
+              object:
+                description: >-
+                  String representing the object's type. Objects of the same
+                  type share the same value. Always has the value `list`.
+                enum:
+                  - list
+                type: string
+              url:
+                description: The URL where this list can be accessed.
+                maxLength: 5000
+                type: string
+            required:
+              - data
+              - has_more
+              - object
+              - url
+            title: ForwardingRequestList
+            type: object
+            x-expandableFields:
+              - data
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: List all ForwardingRequests
+post:
+  description: <p>Creates a ForwardingRequest object.</p>
+  operationId: PostForwardingRequests
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+          metadata:
+            explode: true
+            style: deepObject
+          replacements:
+            explode: true
+            style: deepObject
+          request:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            metadata:
+              additionalProperties:
+                type: string
+              description: >-
+                Set of [key-value pairs](https://docs.stripe.com/api/metadata)
+                that you can attach to an object. This can be useful for storing
+                additional information about the object in a structured format.
+                Individual keys can be unset by posting an empty value to them.
+                All keys can be unset by posting an empty value to `metadata`.
+              type: object
+            payment_method:
+              description: >-
+                The PaymentMethod to insert into the forwarded request.
+                Forwarding previously consumed PaymentMethods is allowed.
+              maxLength: 5000
+              type: string
+            replacements:
+              description: The field kinds to be replaced in the forwarded request.
+              items:
+                enum:
+                  - card_cvc
+                  - card_expiry
+                  - card_number
+                  - cardholder_name
+                  - request_signature
+                type: string
+                x-stripeBypassValidation: true
+              type: array
+            request:
+              description: >-
+                The request body and headers to be sent to the destination
+                endpoint.
+              properties:
+                body:
+                  maxLength: 5000
+                  type: string
+                headers:
+                  items:
+                    properties:
+                      name:
+                        maxLength: 5000
+                        type: string
+                      value:
+                        maxLength: 5000
+                        type: string
+                    required:
+                      - name
+                      - value
+                    title: header_param
+                    type: object
+                  type: array
+              title: request_param
+              type: object
+            url:
+              description: >-
+                The destination URL for the forwarded request. Must be supported
+                by the config.
+              maxLength: 5000
+              type: string
+          required:
+            - payment_method
+            - replacements
+            - url
+          type: object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/forwarding.request.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Create a ForwardingRequest

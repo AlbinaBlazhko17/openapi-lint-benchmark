@@ -1,0 +1,213 @@
+post:
+  description: >-
+    <p>Request a Radar API fraud risk score from Stripe for a payment before
+    sending it for external processor authorization.</p>
+  operationId: PostRadarPaymentEvaluations
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          client_device_metadata_details:
+            explode: true
+            style: deepObject
+          customer_details:
+            explode: true
+            style: deepObject
+          expand:
+            explode: true
+            style: deepObject
+          metadata:
+            explode: true
+            style: deepObject
+          payment_details:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            client_device_metadata_details:
+              description: >-
+                Details about the Client Device Metadata to associate with the
+                payment evaluation.
+              properties:
+                radar_session:
+                  maxLength: 5000
+                  type: string
+              required:
+                - radar_session
+              title: client_device_metadata_wrapper
+              type: object
+            customer_details:
+              description: >-
+                Details about the customer associated with the payment
+                evaluation.
+              properties:
+                customer:
+                  maxLength: 5000
+                  type: string
+                customer_account:
+                  maxLength: 5000
+                  type: string
+                email:
+                  type: string
+                name:
+                  maxLength: 5000
+                  type: string
+                phone:
+                  type: string
+              title: customer_details
+              type: object
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            metadata:
+              additionalProperties:
+                type: string
+              description: >-
+                Set of [key-value pairs](https://docs.stripe.com/api/metadata)
+                that you can attach to an object. This can be useful for storing
+                additional information about the object in a structured format.
+                Individual keys can be unset by posting an empty value to them.
+                All keys can be unset by posting an empty value to `metadata`.
+              type: object
+            payment_details:
+              description: Details about the payment.
+              properties:
+                amount:
+                  type: integer
+                currency:
+                  format: currency
+                  type: string
+                description:
+                  maxLength: 5000
+                  type: string
+                money_movement_details:
+                  properties:
+                    card:
+                      properties:
+                        customer_presence:
+                          enum:
+                            - off_session
+                            - on_session
+                          type: string
+                        payment_type:
+                          enum:
+                            - one_off
+                            - recurring
+                            - setup_one_off
+                            - setup_recurring
+                          type: string
+                      title: money_movement_card_additional_data
+                      type: object
+                    money_movement_type:
+                      enum:
+                        - card
+                      type: string
+                  required:
+                    - money_movement_type
+                  title: money_movement_details
+                  type: object
+                payment_method_details:
+                  properties:
+                    billing_details:
+                      properties:
+                        address:
+                          properties:
+                            city:
+                              maxLength: 5000
+                              type: string
+                            country:
+                              maxLength: 5000
+                              type: string
+                            line1:
+                              maxLength: 5000
+                              type: string
+                            line2:
+                              maxLength: 5000
+                              type: string
+                            postal_code:
+                              maxLength: 5000
+                              type: string
+                            state:
+                              maxLength: 5000
+                              type: string
+                          title: address
+                          type: object
+                        email:
+                          type: string
+                        name:
+                          maxLength: 5000
+                          type: string
+                        phone:
+                          type: string
+                      title: billing_details
+                      type: object
+                    payment_method:
+                      maxLength: 5000
+                      type: string
+                  required:
+                    - payment_method
+                  title: payment_method_details
+                  type: object
+                shipping_details:
+                  properties:
+                    address:
+                      properties:
+                        city:
+                          maxLength: 5000
+                          type: string
+                        country:
+                          maxLength: 5000
+                          type: string
+                        line1:
+                          maxLength: 5000
+                          type: string
+                        line2:
+                          maxLength: 5000
+                          type: string
+                        postal_code:
+                          maxLength: 5000
+                          type: string
+                        state:
+                          maxLength: 5000
+                          type: string
+                      title: address
+                      type: object
+                    name:
+                      maxLength: 5000
+                      type: string
+                    phone:
+                      type: string
+                  title: shipping_details
+                  type: object
+                statement_descriptor:
+                  maxLength: 5000
+                  type: string
+              required:
+                - amount
+                - currency
+                - payment_method_details
+              title: payment_details
+              type: object
+          required:
+            - customer_details
+            - payment_details
+          type: object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/radar.payment_evaluation.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Create a Payment Evaluation

@@ -1,0 +1,24 @@
+description: ''
+properties:
+  category:
+    description: Type of the line item.
+    enum:
+      - digital_goods
+      - donation
+      - physical_goods
+    type: string
+  description:
+    description: Description of the line item.
+    maxLength: 5000
+    type: string
+  sold_by:
+    description: >-
+      The Stripe account ID of the connected account that sells the item. This
+      is only needed when using [Separate Charges and
+      Transfers](https://docs.stripe.com/connect/separate-charges-and-transfers).
+    maxLength: 5000
+    type: string
+title: >-
+  PaymentFlowsPrivatePaymentMethodsPaypalAmountDetailsLineItemPaymentMethodOptions
+type: object
+x-expandableFields: []

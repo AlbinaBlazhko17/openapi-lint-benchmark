@@ -1,0 +1,22 @@
+description: ''
+properties:
+  igic:
+    $ref: ./tax_product_registrations_resource_country_options_igic.yaml
+  standard:
+    $ref: ./tax_product_registrations_resource_country_options_eu_standard.yaml
+  type:
+    description: Type of registration in an EU country.
+    enum:
+      - ioss
+      - oss_non_union
+      - oss_union
+      - standard
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - type
+title: TaxProductRegistrationsResourceCountryOptionsEurope
+type: object
+x-expandableFields:
+  - igic
+  - standard

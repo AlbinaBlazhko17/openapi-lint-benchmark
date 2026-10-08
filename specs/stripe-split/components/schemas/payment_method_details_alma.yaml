@@ -1,0 +1,14 @@
+description: ''
+properties:
+  installments:
+    $ref: >-
+      ./payment_flows_private_payment_methods_alma_details_resource_installments.yaml
+  transaction_id:
+    description: The Alma transaction ID associated with this payment.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: payment_method_details_alma
+type: object
+x-expandableFields:
+  - installments

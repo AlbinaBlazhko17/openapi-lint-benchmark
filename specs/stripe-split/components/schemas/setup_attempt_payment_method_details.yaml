@@ -1,0 +1,94 @@
+description: ''
+properties:
+  acss_debit:
+    $ref: ./setup_attempt_payment_method_details_acss_debit.yaml
+  amazon_pay:
+    $ref: ./setup_attempt_payment_method_details_amazon_pay.yaml
+  au_becs_debit:
+    $ref: ./setup_attempt_payment_method_details_au_becs_debit.yaml
+  bacs_debit:
+    $ref: ./setup_attempt_payment_method_details_bacs_debit.yaml
+  bancontact:
+    $ref: ./setup_attempt_payment_method_details_bancontact.yaml
+  boleto:
+    $ref: ./setup_attempt_payment_method_details_boleto.yaml
+  card:
+    $ref: ./setup_attempt_payment_method_details_card.yaml
+  card_present:
+    $ref: ./setup_attempt_payment_method_details_card_present.yaml
+  cashapp:
+    $ref: ./setup_attempt_payment_method_details_cashapp.yaml
+  ideal:
+    $ref: ./setup_attempt_payment_method_details_ideal.yaml
+  kakao_pay:
+    $ref: ./setup_attempt_payment_method_details_kakao_pay.yaml
+  klarna:
+    $ref: ./setup_attempt_payment_method_details_klarna.yaml
+  kr_card:
+    $ref: ./setup_attempt_payment_method_details_kr_card.yaml
+  link:
+    $ref: ./setup_attempt_payment_method_details_link.yaml
+  naver_pay:
+    $ref: ./setup_attempt_payment_method_details_naver_pay.yaml
+  nz_bank_account:
+    $ref: ./setup_attempt_payment_method_details_nz_bank_account.yaml
+  paypal:
+    $ref: ./setup_attempt_payment_method_details_paypal.yaml
+  payto:
+    $ref: ./setup_attempt_payment_method_details_payto.yaml
+  pix:
+    $ref: ./setup_attempt_payment_method_details_pix.yaml
+  revolut_pay:
+    $ref: ./setup_attempt_payment_method_details_revolut_pay.yaml
+  satispay:
+    $ref: >-
+      ./payment_flows_private_payment_methods_satispay_setup_attempt_details.yaml
+  sepa_debit:
+    $ref: ./setup_attempt_payment_method_details_sepa_debit.yaml
+  sofort:
+    $ref: ./setup_attempt_payment_method_details_sofort.yaml
+  twint:
+    $ref: ./setup_attempt_payment_method_details_twint.yaml
+  type:
+    description: >-
+      The type of the payment method used in the SetupIntent (e.g., `card`). An
+      additional hash is included on `payment_method_details` with a name
+      matching this value. It contains confirmation-specific information for the
+      payment method.
+    maxLength: 5000
+    type: string
+  upi:
+    $ref: ./setup_attempt_payment_method_details_upi.yaml
+  us_bank_account:
+    $ref: ./setup_attempt_payment_method_details_us_bank_account.yaml
+required:
+  - type
+title: SetupAttemptPaymentMethodDetails
+type: object
+x-expandableFields:
+  - acss_debit
+  - amazon_pay
+  - au_becs_debit
+  - bacs_debit
+  - bancontact
+  - boleto
+  - card
+  - card_present
+  - cashapp
+  - ideal
+  - kakao_pay
+  - klarna
+  - kr_card
+  - link
+  - naver_pay
+  - nz_bank_account
+  - paypal
+  - payto
+  - pix
+  - revolut_pay
+  - satispay
+  - sepa_debit
+  - sofort
+  - twint
+  - upi
+  - us_bank_account

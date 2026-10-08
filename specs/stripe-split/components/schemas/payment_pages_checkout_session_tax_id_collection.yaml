@@ -1,0 +1,17 @@
+description: ''
+properties:
+  enabled:
+    description: Indicates whether tax ID collection is enabled for the session
+    type: boolean
+  required:
+    description: Indicates whether a tax ID is required on the payment page
+    enum:
+      - if_supported
+      - never
+    type: string
+required:
+  - enabled
+  - required
+title: PaymentPagesCheckoutSessionTaxIDCollection
+type: object
+x-expandableFields: []

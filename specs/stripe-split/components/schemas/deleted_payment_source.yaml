@@ -1,0 +1,6 @@
+anyOf:
+  - $ref: ./deleted_bank_account.yaml
+  - $ref: ./deleted_card.yaml
+title: Polymorphic
+x-resourceId: deleted_payment_source
+x-stripeBypassValidation: true

@@ -1,0 +1,16 @@
+description: Header data.
+properties:
+  name:
+    description: The header name.
+    maxLength: 5000
+    type: string
+  value:
+    description: The header value.
+    maxLength: 5000
+    type: string
+required:
+  - name
+  - value
+title: ForwardedRequestHeader
+type: object
+x-expandableFields: []

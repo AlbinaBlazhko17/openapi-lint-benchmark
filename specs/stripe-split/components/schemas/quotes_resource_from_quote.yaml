@@ -1,0 +1,21 @@
+description: ''
+properties:
+  is_revision:
+    description: Whether this quote is a revision of a different quote.
+    type: boolean
+  quote:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./quote.yaml
+    description: The quote that was cloned.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./quote.yaml
+required:
+  - is_revision
+  - quote
+title: QuotesResourceFromQuote
+type: object
+x-expandableFields:
+  - quote

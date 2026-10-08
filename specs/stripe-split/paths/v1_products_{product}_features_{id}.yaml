@@ -1,0 +1,97 @@
+delete:
+  description: <p>Deletes the feature attachment to a product</p>
+  operationId: DeleteProductsProductFeaturesId
+  parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+    - in: path
+      name: product
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/deleted_product_feature.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Remove a feature from a product
+get:
+  description: >-
+    <p>Retrieves a product_feature, which represents a feature attachment to a
+    product</p>
+  operationId: GetProductsProductFeaturesId
+  parameters:
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+    - description: The ID of the product_feature.
+      in: path
+      name: id
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+    - description: The ID of the product.
+      in: path
+      name: product
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/product_feature.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Retrieve a product_feature

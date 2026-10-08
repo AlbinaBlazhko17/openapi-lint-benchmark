@@ -1,0 +1,123 @@
+description: ''
+properties:
+  affirm:
+    $ref: ./destination_details_unimplemented.yaml
+  afterpay_clearpay:
+    $ref: ./destination_details_unimplemented.yaml
+  alipay:
+    $ref: ./destination_details_unimplemented.yaml
+  alma:
+    $ref: ./destination_details_unimplemented.yaml
+  amazon_pay:
+    $ref: ./destination_details_unimplemented.yaml
+  au_bank_transfer:
+    $ref: ./destination_details_unimplemented.yaml
+  blik:
+    $ref: ./refund_destination_details_blik.yaml
+  br_bank_transfer:
+    $ref: ./refund_destination_details_br_bank_transfer.yaml
+  card:
+    $ref: ./refund_destination_details_card.yaml
+  cashapp:
+    $ref: ./destination_details_unimplemented.yaml
+  crypto:
+    $ref: ./refund_destination_details_crypto.yaml
+  customer_cash_balance:
+    $ref: ./destination_details_unimplemented.yaml
+  eps:
+    $ref: ./destination_details_unimplemented.yaml
+  eu_bank_transfer:
+    $ref: ./refund_destination_details_eu_bank_transfer.yaml
+  gb_bank_transfer:
+    $ref: ./refund_destination_details_gb_bank_transfer.yaml
+  giropay:
+    $ref: ./destination_details_unimplemented.yaml
+  grabpay:
+    $ref: ./destination_details_unimplemented.yaml
+  jp_bank_transfer:
+    $ref: ./refund_destination_details_jp_bank_transfer.yaml
+  klarna:
+    $ref: ./destination_details_unimplemented.yaml
+  mb_way:
+    $ref: ./refund_destination_details_mb_way.yaml
+  multibanco:
+    $ref: ./refund_destination_details_multibanco.yaml
+  mx_bank_transfer:
+    $ref: ./refund_destination_details_mx_bank_transfer.yaml
+  nz_bank_transfer:
+    $ref: ./destination_details_unimplemented.yaml
+  p24:
+    $ref: ./refund_destination_details_p24.yaml
+  paynow:
+    $ref: ./destination_details_unimplemented.yaml
+  paypal:
+    $ref: ./refund_destination_details_paypal.yaml
+  pix:
+    $ref: ./destination_details_unimplemented.yaml
+  revolut:
+    $ref: ./destination_details_unimplemented.yaml
+  scalapay:
+    $ref: ./destination_details_unimplemented.yaml
+  sofort:
+    $ref: ./destination_details_unimplemented.yaml
+  swish:
+    $ref: ./refund_destination_details_swish.yaml
+  th_bank_transfer:
+    $ref: ./refund_destination_details_th_bank_transfer.yaml
+  twint:
+    $ref: ./destination_details_unimplemented.yaml
+  type:
+    description: >-
+      The type of transaction-specific details of the payment method used in the
+      refund (e.g., `card`). An additional hash is included on
+      `destination_details` with a name matching this value. It contains
+      information specific to the refund transaction.
+    maxLength: 5000
+    type: string
+  us_bank_transfer:
+    $ref: ./refund_destination_details_us_bank_transfer.yaml
+  wechat_pay:
+    $ref: ./destination_details_unimplemented.yaml
+  zip:
+    $ref: ./destination_details_unimplemented.yaml
+required:
+  - type
+title: refund_destination_details
+type: object
+x-expandableFields:
+  - affirm
+  - afterpay_clearpay
+  - alipay
+  - alma
+  - amazon_pay
+  - au_bank_transfer
+  - blik
+  - br_bank_transfer
+  - card
+  - cashapp
+  - crypto
+  - customer_cash_balance
+  - eps
+  - eu_bank_transfer
+  - gb_bank_transfer
+  - giropay
+  - grabpay
+  - jp_bank_transfer
+  - klarna
+  - mb_way
+  - multibanco
+  - mx_bank_transfer
+  - nz_bank_transfer
+  - p24
+  - paynow
+  - paypal
+  - pix
+  - revolut
+  - scalapay
+  - sofort
+  - swish
+  - th_bank_transfer
+  - twint
+  - us_bank_transfer
+  - wechat_pay
+  - zip

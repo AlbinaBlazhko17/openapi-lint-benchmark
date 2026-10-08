@@ -1,0 +1,11 @@
+description: ''
+properties:
+  dob:
+    anyOf:
+      - $ref: ./payment_flows_private_payment_methods_klarna_dob.yaml
+    description: The customer's date of birth, if provided.
+    nullable: true
+title: payment_method_klarna
+type: object
+x-expandableFields:
+  - dob

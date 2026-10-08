@@ -1,0 +1,25 @@
+description: Result from a phone check
+properties:
+  error:
+    anyOf:
+      - $ref: ./gelato_phone_report_error.yaml
+    description: Details on the verification error. Present when status is `unverified`.
+    nullable: true
+  phone:
+    description: Phone to be verified.
+    maxLength: 5000
+    nullable: true
+    type: string
+  status:
+    description: Status of this `phone` check.
+    enum:
+      - unverified
+      - verified
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - status
+title: GelatoPhoneReport
+type: object
+x-expandableFields:
+  - error

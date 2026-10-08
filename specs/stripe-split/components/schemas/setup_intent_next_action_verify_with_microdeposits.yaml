@@ -1,0 +1,27 @@
+description: ''
+properties:
+  arrival_date:
+    description: The timestamp when the microdeposits are expected to land.
+    format: unix-time
+    type: integer
+  hosted_verification_url:
+    description: >-
+      The URL for the hosted verification page, which allows customers to verify
+      their bank account.
+    maxLength: 5000
+    type: string
+  microdeposit_type:
+    description: >-
+      The type of the microdeposit sent to the customer. Used to distinguish
+      between different verification methods.
+    enum:
+      - amounts
+      - descriptor_code
+    nullable: true
+    type: string
+required:
+  - arrival_date
+  - hosted_verification_url
+title: SetupIntentNextActionVerifyWithMicrodeposits
+type: object
+x-expandableFields: []

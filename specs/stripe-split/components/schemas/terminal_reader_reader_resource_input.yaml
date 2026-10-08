@@ -1,0 +1,57 @@
+description: Represents an input to be collected using the reader
+properties:
+  custom_text:
+    anyOf:
+      - $ref: ./terminal_reader_reader_resource_custom_text.yaml
+    description: Default text of input being collected.
+    nullable: true
+  email:
+    $ref: ./terminal_reader_reader_resource_email.yaml
+  numeric:
+    $ref: ./terminal_reader_reader_resource_numeric.yaml
+  phone:
+    $ref: ./terminal_reader_reader_resource_phone.yaml
+  required:
+    description: Indicate that this input is required, disabling the skip button.
+    nullable: true
+    type: boolean
+  selection:
+    $ref: ./terminal_reader_reader_resource_selection.yaml
+  signature:
+    $ref: ./terminal_reader_reader_resource_signature.yaml
+  skipped:
+    description: Indicate that this input was skipped by the user.
+    type: boolean
+  text:
+    $ref: ./terminal_reader_reader_resource_text.yaml
+  toggles:
+    description: >-
+      List of toggles being collected. Values are present if collection is
+      complete.
+    items:
+      $ref: ./terminal_reader_reader_resource_toggle.yaml
+    nullable: true
+    type: array
+  type:
+    description: Type of input being collected.
+    enum:
+      - email
+      - numeric
+      - phone
+      - selection
+      - signature
+      - text
+    type: string
+required:
+  - type
+title: TerminalReaderReaderResourceInput
+type: object
+x-expandableFields:
+  - custom_text
+  - email
+  - numeric
+  - phone
+  - selection
+  - signature
+  - text
+  - toggles

@@ -1,0 +1,14 @@
+description: Represents a per-transaction override of a reader configuration
+properties:
+  enable_customer_cancellation:
+    description: Enable customer-initiated cancellation when processing this payment.
+    type: boolean
+  skip_tipping:
+    description: Override showing a tipping selection screen on this transaction.
+    type: boolean
+  tipping:
+    $ref: ./terminal_reader_reader_resource_tipping_config.yaml
+title: TerminalReaderReaderResourceCollectConfig
+type: object
+x-expandableFields:
+  - tipping

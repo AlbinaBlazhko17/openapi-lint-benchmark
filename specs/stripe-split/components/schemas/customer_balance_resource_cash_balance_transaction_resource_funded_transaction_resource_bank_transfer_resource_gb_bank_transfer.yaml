@@ -1,0 +1,21 @@
+description: ''
+properties:
+  account_number_last4:
+    description: The last 4 digits of the account number of the sender of the funding.
+    maxLength: 5000
+    nullable: true
+    type: string
+  sender_name:
+    description: The full name of the sender, as supplied by the sending bank.
+    maxLength: 5000
+    nullable: true
+    type: string
+  sort_code:
+    description: The sort code of the bank of the sender of the funding
+    maxLength: 5000
+    nullable: true
+    type: string
+title: >-
+  CustomerBalanceResourceCashBalanceTransactionResourceFundedTransactionResourceBankTransferResourceGbBankTransfer
+type: object
+x-expandableFields: []

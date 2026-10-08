@@ -1,0 +1,23 @@
+description: ''
+properties:
+  coupon:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./coupon.yaml
+    description: The coupon that was redeemed to create this discount.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./coupon.yaml
+  type:
+    description: The source type of the discount.
+    enum:
+      - coupon
+    type: string
+required:
+  - type
+title: DiscountSource
+type: object
+x-expandableFields:
+  - coupon

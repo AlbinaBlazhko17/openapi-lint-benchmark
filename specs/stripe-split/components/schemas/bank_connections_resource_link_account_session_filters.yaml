@@ -1,0 +1,41 @@
+description: ''
+properties:
+  account_subcategories:
+    description: >-
+      Restricts the Session to subcategories of accounts that can be linked.
+      Valid subcategories are: `checking`, `savings`, `mortgage`,
+      `line_of_credit`, `credit_card`.
+    items:
+      enum:
+        - checking
+        - credit_card
+        - line_of_credit
+        - mortgage
+        - savings
+      type: string
+    nullable: true
+    type: array
+  countries:
+    description: List of countries from which to filter accounts.
+    items:
+      maxLength: 5000
+      type: string
+    nullable: true
+    type: array
+  country:
+    description: Country from which to filter accounts.
+    maxLength: 5000
+    nullable: true
+    type: string
+  require_payment_method_support:
+    description: >-
+      Whether the Session should require that linked accounts support payments
+      and retrieve account numbers before completion.
+    enum:
+      - all
+      - at_least_one
+      - none
+    type: string
+title: BankConnectionsResourceLinkAccountSessionFilters
+type: object
+x-expandableFields: []

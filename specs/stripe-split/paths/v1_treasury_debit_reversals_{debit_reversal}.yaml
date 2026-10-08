@@ -1,0 +1,45 @@
+get:
+  description: <p>Retrieves a DebitReversal object.</p>
+  operationId: GetTreasuryDebitReversalsDebitReversal
+  parameters:
+    - in: path
+      name: debit_reversal
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/treasury.debit_reversal.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Retrieve a DebitReversal

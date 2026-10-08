@@ -1,0 +1,18 @@
+description: ''
+properties:
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    maxLength: 5000
+    type: string
+  value:
+    description: A positive integer representing the amount.
+    type: integer
+required:
+  - currency
+  - value
+title: BillingCreditGrantsResourceMonetaryAmount
+type: object
+x-expandableFields: []

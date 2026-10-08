@@ -1,0 +1,166 @@
+description: >-
+  Invoice Line Items represent the individual lines within an
+  [invoice](https://docs.stripe.com/api/invoices) and only exist within the
+  context of an invoice.
+
+
+  Each line item is backed by either an [invoice
+  item](https://docs.stripe.com/api/invoiceitems) or a [subscription
+  item](https://docs.stripe.com/api/subscription_items).
+properties:
+  amount:
+    description: The amount, in cents (or local equivalent).
+    type: integer
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    format: currency
+    type: string
+  description:
+    description: >-
+      An arbitrary string attached to the object. Often useful for displaying to
+      users.
+    maxLength: 5000
+    nullable: true
+    type: string
+  discount_amounts:
+    description: The amount of discount calculated per discount for this line item.
+    items:
+      $ref: ./discounts_resource_discount_amount.yaml
+    nullable: true
+    type: array
+  discountable:
+    description: >-
+      If true, discounts will apply to this line item. Always false for
+      prorations.
+    type: boolean
+  discounts:
+    description: >-
+      The discounts applied to the invoice line item. Line item discounts are
+      applied before invoice discounts. Use `expand[]=discounts` to expand each
+      discount.
+    items:
+      anyOf:
+        - maxLength: 5000
+          type: string
+        - $ref: ./discount.yaml
+      x-expansionResources:
+        oneOf:
+          - $ref: ./discount.yaml
+    type: array
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  invoice:
+    description: The ID of the invoice that contains this line item.
+    maxLength: 5000
+    nullable: true
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format. Note that for line
+      items with `type=subscription`, `metadata` reflects the current metadata
+      from the subscription associated with the line item, unless the invoice
+      line was directly updated with different metadata after creation.
+    type: object
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - line_item
+    type: string
+  parent:
+    anyOf:
+      - $ref: >-
+          ./billing_bill_resource_invoicing_lines_parents_invoice_line_item_parent.yaml
+    description: The parent that generated this line item.
+    nullable: true
+  period:
+    $ref: ./invoice_line_item_period.yaml
+  pretax_credit_amounts:
+    description: >-
+      Contains pretax credit amounts (ex: discount, credit grants, etc) that
+      apply to this line item.
+    items:
+      $ref: ./invoices_resource_pretax_credit_amount.yaml
+    nullable: true
+    type: array
+  pricing:
+    anyOf:
+      - $ref: ./billing_bill_resource_invoicing_pricing_pricing.yaml
+    description: The pricing information of the line item.
+    nullable: true
+  quantity:
+    description: >-
+      Quantity of units for the invoice line item in integer format, with any
+      decimal precision truncated. For the line item's full-precision decimal
+      quantity, use `quantity_decimal`. This field will be deprecated in favor
+      of `quantity_decimal` in a future version. If the line item is a proration
+      or subscription, the quantity of the subscription that the proration was
+      computed for.
+    nullable: true
+    type: integer
+  quantity_decimal:
+    description: >-
+      Non-negative decimal with at most 12 decimal places. The quantity of units
+      for the line item.
+    format: decimal
+    nullable: true
+    type: string
+  subscription:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./subscription.yaml
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./subscription.yaml
+  subtotal:
+    description: >-
+      The subtotal of the line item, in cents (or local equivalent), before any
+      discounts or taxes.
+    type: integer
+  taxes:
+    description: The tax information of the line item.
+    items:
+      $ref: ./billing_bill_resource_invoicing_taxes_tax.yaml
+    nullable: true
+    type: array
+required:
+  - amount
+  - currency
+  - discountable
+  - discounts
+  - id
+  - livemode
+  - metadata
+  - object
+  - period
+  - subtotal
+title: Invoice Line Item
+type: object
+x-expandableFields:
+  - discount_amounts
+  - discounts
+  - parent
+  - period
+  - pretax_credit_amounts
+  - pricing
+  - subscription
+  - taxes
+x-resourceId: line_item

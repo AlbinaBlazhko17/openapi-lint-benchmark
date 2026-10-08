@@ -1,0 +1,8 @@
+description: Installment configuration for payments.
+properties:
+  plan:
+    $ref: ./payment_method_details_card_installments_plan.yaml
+title: ConfirmationTokensResourcePaymentMethodOptionsResourceCardResourceInstallment
+type: object
+x-expandableFields:
+  - plan

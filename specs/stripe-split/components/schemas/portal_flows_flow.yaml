@@ -1,0 +1,45 @@
+description: ''
+properties:
+  after_completion:
+    $ref: ./portal_flows_flow_after_completion.yaml
+  customer_update:
+    anyOf:
+      - $ref: ./portal_flows_flow_customer_update.yaml
+    description: Configuration when `flow.type=customer_update`.
+    nullable: true
+  subscription_cancel:
+    anyOf:
+      - $ref: ./portal_flows_flow_subscription_cancel.yaml
+    description: Configuration when `flow.type=subscription_cancel`.
+    nullable: true
+  subscription_update:
+    anyOf:
+      - $ref: ./portal_flows_flow_subscription_update.yaml
+    description: Configuration when `flow.type=subscription_update`.
+    nullable: true
+  subscription_update_confirm:
+    anyOf:
+      - $ref: ./portal_flows_flow_subscription_update_confirm.yaml
+    description: Configuration when `flow.type=subscription_update_confirm`.
+    nullable: true
+  type:
+    description: Type of flow that the customer will go through.
+    enum:
+      - customer_update
+      - payment_method_update
+      - subscription_cancel
+      - subscription_update
+      - subscription_update_confirm
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - after_completion
+  - type
+title: PortalFlowsFlow
+type: object
+x-expandableFields:
+  - after_completion
+  - customer_update
+  - subscription_cancel
+  - subscription_update
+  - subscription_update_confirm

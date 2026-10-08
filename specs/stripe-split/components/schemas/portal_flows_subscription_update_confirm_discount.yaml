@@ -1,0 +1,15 @@
+description: ''
+properties:
+  coupon:
+    description: The ID of the coupon to apply to this subscription update.
+    maxLength: 5000
+    nullable: true
+    type: string
+  promotion_code:
+    description: The ID of a promotion code to apply to this subscription update.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: PortalFlowsSubscriptionUpdateConfirmDiscount
+type: object
+x-expandableFields: []

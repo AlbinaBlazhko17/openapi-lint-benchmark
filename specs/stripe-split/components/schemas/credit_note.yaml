@@ -1,0 +1,291 @@
+description: >-
+  Issue a credit note to adjust an invoice's amount after the invoice is
+  finalized.
+
+
+  Related guide: [Credit
+  notes](https://docs.stripe.com/billing/invoices/credit-notes)
+properties:
+  amount:
+    description: >-
+      The integer amount in cents (or local equivalent) representing the total
+      amount of the credit note, including tax.
+    type: integer
+  amount_shipping:
+    description: This is the sum of all the shipping amounts.
+    type: integer
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    format: currency
+    type: string
+  customer:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./customer.yaml
+      - $ref: ./deleted_customer.yaml
+    description: ID of the customer.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./customer.yaml
+        - $ref: ./deleted_customer.yaml
+  customer_account:
+    description: ID of the account representing the customer.
+    maxLength: 5000
+    nullable: true
+    type: string
+  customer_balance_transaction:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./customer_balance_transaction.yaml
+    description: Customer balance transaction related to this credit note.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./customer_balance_transaction.yaml
+  discount_amount:
+    description: >-
+      The integer amount in cents (or local equivalent) representing the total
+      amount of discount that was credited.
+    type: integer
+  discount_amounts:
+    description: The aggregate amounts calculated per discount for all line items.
+    items:
+      $ref: ./discounts_resource_discount_amount.yaml
+    type: array
+  effective_at:
+    description: >-
+      The date when this credit note is in effect. Same as `created` unless
+      overwritten. When defined, this value replaces the system-generated 'Date
+      of issue' printed on the credit note PDF.
+    format: unix-time
+    nullable: true
+    type: integer
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  invoice:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./invoice.yaml
+    description: ID of the invoice.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./invoice.yaml
+  lines:
+    description: Line items that make up the credit note
+    properties:
+      data:
+        description: Details about each object.
+        items:
+          $ref: ./credit_note_line_item.yaml
+        type: array
+      has_more:
+        description: >-
+          True if this list has another page of items after this one that can be
+          fetched.
+        type: boolean
+      object:
+        description: >-
+          String representing the object's type. Objects of the same type share
+          the same value. Always has the value `list`.
+        enum:
+          - list
+        type: string
+      url:
+        description: The URL where this list can be accessed.
+        maxLength: 5000
+        type: string
+    required:
+      - data
+      - has_more
+      - object
+      - url
+    title: CreditNoteLinesList
+    type: object
+    x-expandableFields:
+      - data
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  memo:
+    description: Customer-facing text that appears on the credit note PDF.
+    maxLength: 5000
+    nullable: true
+    type: string
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    nullable: true
+    type: object
+  number:
+    description: >-
+      A unique number that identifies this particular credit note and appears on
+      the PDF of the credit note and its associated invoice.
+    maxLength: 5000
+    type: string
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - credit_note
+    type: string
+  out_of_band_amount:
+    description: Amount that was credited outside of Stripe.
+    nullable: true
+    type: integer
+  pdf:
+    description: The link to download the PDF of the credit note.
+    maxLength: 5000
+    type: string
+  post_payment_amount:
+    description: >-
+      The amount of the credit note that was refunded to the customer, credited
+      to the customer's balance, credited outside of Stripe, or any combination
+      thereof.
+    type: integer
+  pre_payment_amount:
+    description: >-
+      The amount of the credit note by which the invoice's `amount_remaining`
+      and `amount_due` were reduced.
+    type: integer
+  pretax_credit_amounts:
+    description: >-
+      The pretax credit amounts (ex: discount, credit grants, etc) for all line
+      items.
+    items:
+      $ref: ./credit_notes_pretax_credit_amount.yaml
+    type: array
+  reason:
+    description: >-
+      Reason for issuing this credit note, one of `duplicate`, `fraudulent`,
+      `order_change`, or `product_unsatisfactory`
+    enum:
+      - duplicate
+      - fraudulent
+      - order_change
+      - product_unsatisfactory
+    nullable: true
+    type: string
+    x-stripeBypassValidation: true
+  refunds:
+    description: Refunds related to this credit note.
+    items:
+      $ref: ./credit_note_refund.yaml
+    type: array
+  shipping_cost:
+    anyOf:
+      - $ref: ./invoices_resource_shipping_cost.yaml
+    description: >-
+      The details of the cost of shipping, including the ShippingRate applied to
+      the invoice.
+    nullable: true
+  status:
+    description: >-
+      Status of this credit note, one of `issued` or `void`. Learn more about
+      [voiding credit
+      notes](https://docs.stripe.com/billing/invoices/credit-notes#voiding).
+    enum:
+      - issued
+      - void
+    type: string
+    x-stripeBypassValidation: true
+  subtotal:
+    description: >-
+      The integer amount in cents (or local equivalent) representing the amount
+      of the credit note, excluding exclusive tax and invoice level discounts.
+    type: integer
+  subtotal_excluding_tax:
+    description: >-
+      The integer amount in cents (or local equivalent) representing the amount
+      of the credit note, excluding all tax and invoice level discounts.
+    nullable: true
+    type: integer
+  total:
+    description: >-
+      The integer amount in cents (or local equivalent) representing the total
+      amount of the credit note, including tax and all discount.
+    type: integer
+  total_excluding_tax:
+    description: >-
+      The integer amount in cents (or local equivalent) representing the total
+      amount of the credit note, excluding tax, but including discounts.
+    nullable: true
+    type: integer
+  total_taxes:
+    description: The aggregate tax information for all line items.
+    items:
+      $ref: ./billing_bill_resource_invoicing_taxes_tax.yaml
+    nullable: true
+    type: array
+  type:
+    description: >-
+      Type of this credit note, one of `pre_payment` or `post_payment`. A
+      `pre_payment` credit note means it was issued when the invoice was open. A
+      `post_payment` credit note means it was issued when the invoice was paid.
+    enum:
+      - mixed
+      - post_payment
+      - pre_payment
+    type: string
+  voided_at:
+    description: The time that the credit note was voided.
+    format: unix-time
+    nullable: true
+    type: integer
+required:
+  - amount
+  - amount_shipping
+  - created
+  - currency
+  - customer
+  - discount_amount
+  - discount_amounts
+  - id
+  - invoice
+  - lines
+  - livemode
+  - number
+  - object
+  - pdf
+  - post_payment_amount
+  - pre_payment_amount
+  - pretax_credit_amounts
+  - refunds
+  - status
+  - subtotal
+  - total
+  - type
+title: Credit Note
+type: object
+x-expandableFields:
+  - customer
+  - customer_balance_transaction
+  - discount_amounts
+  - invoice
+  - lines
+  - pretax_credit_amounts
+  - refunds
+  - shipping_cost
+  - total_taxes
+x-resourceId: credit_note

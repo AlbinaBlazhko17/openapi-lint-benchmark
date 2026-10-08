@@ -1,0 +1,79 @@
+post:
+  description: >-
+    <p>Initiates a payment flow on a Reader and updates the PaymentIntent with
+    card details before manual confirmation. See <a
+    href="/docs/terminal/payments/collect-card-payment?terminal-sdk-platform=server-driven&process=inspect#collect-a-paymentmethod">Collecting
+    a Payment method</a> for more details.</p>
+  operationId: PostTerminalReadersReaderCollectPaymentMethod
+  parameters:
+    - in: path
+      name: reader
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          collect_config:
+            explode: true
+            style: deepObject
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            collect_config:
+              description: >-
+                Configuration overrides for this collection, such as tipping,
+                surcharging, and customer cancellation settings.
+              properties:
+                allow_redisplay:
+                  enum:
+                    - always
+                    - limited
+                    - unspecified
+                  type: string
+                enable_customer_cancellation:
+                  type: boolean
+                skip_tipping:
+                  type: boolean
+                tipping:
+                  properties:
+                    amount_eligible:
+                      type: integer
+                  title: tipping_config
+                  type: object
+              title: collect_config
+              type: object
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            payment_intent:
+              description: The ID of the PaymentIntent to collect a payment method for.
+              maxLength: 5000
+              type: string
+          required:
+            - payment_intent
+          type: object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/terminal.reader.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Hand off a PaymentIntent to a Reader and collect card details

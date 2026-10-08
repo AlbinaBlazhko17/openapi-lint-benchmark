@@ -1,0 +1,11 @@
+description: ''
+properties:
+  subscription:
+    description: The ID of the subscription to be updated.
+    maxLength: 5000
+    type: string
+required:
+  - subscription
+title: PortalFlowsFlowSubscriptionUpdate
+type: object
+x-expandableFields: []

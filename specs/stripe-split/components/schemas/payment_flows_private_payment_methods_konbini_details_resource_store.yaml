@@ -1,0 +1,15 @@
+description: ''
+properties:
+  chain:
+    description: The name of the convenience store chain where the payment was completed.
+    enum:
+      - familymart
+      - lawson
+      - ministop
+      - seicomart
+    nullable: true
+    type: string
+    x-stripeBypassValidation: true
+title: PaymentFlowsPrivatePaymentMethodsKonbiniDetailsResourceStore
+type: object
+x-expandableFields: []

@@ -1,0 +1,26 @@
+description: ''
+properties:
+  date:
+    description: >-
+      The Unix timestamp marking when the legal guardian accepted the service
+      agreement.
+    format: unix-time
+    nullable: true
+    type: integer
+  ip:
+    description: >-
+      The IP address from which the legal guardian accepted the service
+      agreement.
+    maxLength: 5000
+    nullable: true
+    type: string
+  user_agent:
+    description: >-
+      The user agent of the browser from which the legal guardian accepted the
+      service agreement.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: PersonAdditionalTOSAcceptance
+type: object
+x-expandableFields: []

@@ -1,0 +1,21 @@
+description: ''
+properties:
+  ip_address:
+    description: >-
+      IP address of the user initiating the OutboundPayment. Set if `present` is
+      set to `true`. IP address collection is required for risk and compliance
+      reasons. This will be used to help determine if the OutboundPayment is
+      authorized or should be blocked.
+    maxLength: 5000
+    nullable: true
+    type: string
+  present:
+    description: >-
+      `true` if the OutboundPayment creation request is being made on behalf of
+      an end user by a platform. Otherwise, `false`.
+    type: boolean
+required:
+  - present
+title: TreasuryOutboundPaymentsResourceOutboundPaymentResourceEndUserDetails
+type: object
+x-expandableFields: []

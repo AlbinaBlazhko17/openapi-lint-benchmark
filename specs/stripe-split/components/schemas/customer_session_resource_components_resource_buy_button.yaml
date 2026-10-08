@@ -1,0 +1,10 @@
+description: This hash contains whether the buy button is enabled.
+properties:
+  enabled:
+    description: Whether the buy button is enabled.
+    type: boolean
+required:
+  - enabled
+title: CustomerSessionResourceComponentsResourceBuyButton
+type: object
+x-expandableFields: []

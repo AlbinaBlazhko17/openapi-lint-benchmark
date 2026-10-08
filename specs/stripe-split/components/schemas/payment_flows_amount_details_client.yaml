@@ -1,0 +1,8 @@
+description: ''
+properties:
+  tip:
+    $ref: ./payment_flows_amount_details_client_resource_tip.yaml
+title: PaymentFlowsAmountDetailsClient
+type: object
+x-expandableFields:
+  - tip

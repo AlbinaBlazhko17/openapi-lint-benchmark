@@ -1,0 +1,8 @@
+description: Details of a succeeded outcome attached to this payment evaluation.
+properties:
+  card:
+    $ref: ./insights_resources_payment_evaluation_succeeded_card.yaml
+title: InsightsResourcesPaymentEvaluationSucceeded
+type: object
+x-expandableFields:
+  - card

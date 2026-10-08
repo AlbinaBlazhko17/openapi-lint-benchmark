@@ -1,0 +1,17 @@
+description: ''
+properties:
+  card_present:
+    $ref: ./payment_method_details_card_present.yaml
+  type:
+    description: >-
+      The type of payment method transaction-specific details from the
+      transaction that generated this `card` payment method. Always
+      `card_present`.
+    maxLength: 5000
+    type: string
+required:
+  - type
+title: card_generated_from_payment_method_details
+type: object
+x-expandableFields:
+  - card_present

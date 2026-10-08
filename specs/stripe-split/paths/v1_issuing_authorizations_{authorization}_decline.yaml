@@ -1,0 +1,69 @@
+post:
+  deprecated: true
+  description: >-
+    <p>[Deprecated] Declines a pending Issuing <code>Authorization</code>
+    object. This request should be made within the timeout window of the <a
+    href="/docs/issuing/controls/real-time-authorizations">real time
+    authorization</a> flow.
+
+    This method is deprecated. Instead, <a
+    href="/docs/issuing/controls/real-time-authorizations#authorization-handling">respond
+    directly to the webhook request to decline an authorization</a>.</p>
+  operationId: PostIssuingAuthorizationsAuthorizationDecline
+  parameters:
+    - in: path
+      name: authorization
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+          metadata:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            metadata:
+              anyOf:
+                - additionalProperties:
+                    type: string
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                Set of [key-value pairs](https://docs.stripe.com/api/metadata)
+                that you can attach to an object. This can be useful for storing
+                additional information about the object in a structured format.
+                Individual keys can be unset by posting an empty value to them.
+                All keys can be unset by posting an empty value to `metadata`.
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/issuing.authorization.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Decline an authorization

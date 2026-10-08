@@ -1,0 +1,40 @@
+description: ''
+properties:
+  account:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./account.yaml
+    description: >-
+      The ID of the Stripe account that this account belongs to. Only available
+      when `account_holder.type` is `account`.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./account.yaml
+  customer:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./customer.yaml
+    description: >-
+      The ID for an Account representing a customer that this account belongs
+      to. Only available when `account_holder.type` is `customer`.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./customer.yaml
+  customer_account:
+    maxLength: 5000
+    type: string
+  type:
+    description: Type of account holder that this account belongs to.
+    enum:
+      - account
+      - customer
+    type: string
+required:
+  - type
+title: BankConnectionsResourceAccountholder
+type: object
+x-expandableFields:
+  - account
+  - customer

@@ -1,0 +1,35 @@
+description: ''
+properties:
+  country:
+    description: >-
+      Two-letter country code ([ISO 3166-1
+      alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)).
+    maxLength: 5000
+    type: string
+  display_name:
+    description: A human-readable name for the jurisdiction imposing the tax.
+    maxLength: 5000
+    type: string
+  level:
+    description: Indicates the level of the jurisdiction imposing the tax.
+    enum:
+      - city
+      - country
+      - county
+      - district
+      - state
+    type: string
+  state:
+    description: >-
+      [ISO 3166-2 subdivision code](https://en.wikipedia.org/wiki/ISO_3166-2),
+      without country prefix. For example, "NY" for New York, United States.
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - country
+  - display_name
+  - level
+title: TaxProductResourceJurisdiction
+type: object
+x-expandableFields: []

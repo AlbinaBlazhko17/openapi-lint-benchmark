@@ -1,0 +1,10 @@
+description: Configures how this subscription behaves during the trial period.
+properties:
+  end_behavior:
+    $ref: ./subscriptions_trials_resource_end_behavior.yaml
+required:
+  - end_behavior
+title: SubscriptionsTrialsResourceTrialSettings
+type: object
+x-expandableFields:
+  - end_behavior

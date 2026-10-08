@@ -1,0 +1,9 @@
+description: ''
+properties:
+  active:
+    $ref: >-
+      ./bank_connections_resource_account_status_details_api_resource_active_status_details.yaml
+title: BankConnectionsResourceAccountStatusDetails
+type: object
+x-expandableFields:
+  - active

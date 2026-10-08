@@ -1,0 +1,14 @@
+description: ''
+properties:
+  company:
+    $ref: ./country_spec_verification_field_details.yaml
+  individual:
+    $ref: ./country_spec_verification_field_details.yaml
+required:
+  - company
+  - individual
+title: CountrySpecVerificationFields
+type: object
+x-expandableFields:
+  - company
+  - individual

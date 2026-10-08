@@ -1,0 +1,11 @@
+description: ''
+properties:
+  display:
+    description: Describes whether Checkout should display Link. Defaults to `auto`.
+    enum:
+      - auto
+      - never
+    type: string
+title: CheckoutLinkWalletOptions
+type: object
+x-expandableFields: []

@@ -1,0 +1,40 @@
+description: >-
+  Encodes whether a FinancialAccount has access to a particular Feature, with a
+  `status` enum and associated `status_details`.
+
+  Stripe or the platform can control Features via the requested field.
+properties:
+  card_issuing:
+    $ref: ./treasury_financial_accounts_resource_toggle_settings.yaml
+  deposit_insurance:
+    $ref: ./treasury_financial_accounts_resource_toggle_settings.yaml
+  financial_addresses:
+    $ref: ./treasury_financial_accounts_resource_financial_addresses_features.yaml
+  inbound_transfers:
+    $ref: ./treasury_financial_accounts_resource_inbound_transfers.yaml
+  intra_stripe_flows:
+    $ref: ./treasury_financial_accounts_resource_toggle_settings.yaml
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - treasury.financial_account_features
+    type: string
+  outbound_payments:
+    $ref: ./treasury_financial_accounts_resource_outbound_payments.yaml
+  outbound_transfers:
+    $ref: ./treasury_financial_accounts_resource_outbound_transfers.yaml
+required:
+  - object
+title: FinancialAccount Feature
+type: object
+x-expandableFields:
+  - card_issuing
+  - deposit_insurance
+  - financial_addresses
+  - inbound_transfers
+  - intra_stripe_flows
+  - outbound_payments
+  - outbound_transfers
+x-resourceId: treasury.financial_account_features

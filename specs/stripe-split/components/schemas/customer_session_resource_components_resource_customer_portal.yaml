@@ -1,0 +1,10 @@
+description: This hash contains whether the customer portal is enabled.
+properties:
+  enabled:
+    description: Whether the customer portal is enabled.
+    type: boolean
+required:
+  - enabled
+title: CustomerSessionResourceComponentsResourceCustomerPortal
+type: object
+x-expandableFields: []

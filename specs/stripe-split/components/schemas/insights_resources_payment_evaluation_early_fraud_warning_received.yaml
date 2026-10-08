@@ -1,0 +1,17 @@
+description: >-
+  Early Fraud Warning Received event details attached to this payment
+  evaluation.
+properties:
+  fraud_type:
+    description: The type of fraud labeled by the issuer.
+    enum:
+      - made_with_lost_card
+      - made_with_stolen_card
+      - other
+      - unauthorized_use_of_card
+    type: string
+required:
+  - fraud_type
+title: InsightsResourcesPaymentEvaluationEarlyFraudWarningReceived
+type: object
+x-expandableFields: []

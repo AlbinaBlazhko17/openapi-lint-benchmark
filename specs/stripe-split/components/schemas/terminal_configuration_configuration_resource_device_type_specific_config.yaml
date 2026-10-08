@@ -1,0 +1,15 @@
+description: ''
+properties:
+  splashscreen:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./file.yaml
+    description: A File ID representing an image to display on the reader
+    x-expansionResources:
+      oneOf:
+        - $ref: ./file.yaml
+title: TerminalConfigurationConfigurationResourceDeviceTypeSpecificConfig
+type: object
+x-expandableFields:
+  - splashscreen

@@ -1,0 +1,20 @@
+description: ''
+properties:
+  payer:
+    description: >-
+      A value indicating the responsible payer of a bundle of Stripe fees for
+      pricing-control eligible products on this account. Learn more about [fee
+      behavior on connected
+      accounts](https://docs.stripe.com/connect/direct-charges-fee-payer-behavior).
+    enum:
+      - account
+      - application
+      - application_custom
+      - application_express
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - payer
+title: AccountUnificationAccountControllerFees
+type: object
+x-expandableFields: []

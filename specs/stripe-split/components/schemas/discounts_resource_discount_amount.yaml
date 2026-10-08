@@ -1,0 +1,23 @@
+description: ''
+properties:
+  amount:
+    description: The amount, in cents (or local equivalent), of the discount.
+    type: integer
+  discount:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./discount.yaml
+      - $ref: ./deleted_discount.yaml
+    description: The discount that was applied to get this discount amount.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./discount.yaml
+        - $ref: ./deleted_discount.yaml
+required:
+  - amount
+  - discount
+title: DiscountsResourceDiscountAmount
+type: object
+x-expandableFields:
+  - discount

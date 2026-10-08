@@ -1,0 +1,6 @@
+description: A Refund object returned by the Terminal refunds API.
+properties: {}
+title: TerminalRefundsRefund
+type: object
+x-expandableFields: []
+x-resourceId: terminal.refund

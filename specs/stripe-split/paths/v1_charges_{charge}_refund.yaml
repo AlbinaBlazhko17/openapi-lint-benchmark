@@ -1,0 +1,130 @@
+post:
+  description: >-
+    <p>When you create a new refund, you must specify either a Charge or a
+    PaymentIntent object.</p>
+
+
+    <p>This action refunds a previously created charge that’s not refunded yet.
+
+    Funds are refunded to the credit or debit card that’s originally
+    charged.</p>
+
+
+    <p>You can optionally refund only part of a charge.
+
+    You can repeat this until the entire charge is refunded.</p>
+
+
+    <p>After you entirely refund a charge, you can’t refund it again.
+
+    This method raises an error when it’s called on an already-refunded charge,
+
+    or when you attempt to refund more money than is left on a charge.</p>
+  operationId: PostChargesChargeRefund
+  parameters:
+    - description: The identifier of the charge to refund.
+      in: path
+      name: charge
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+          metadata:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            amount:
+              description: >-
+                A positive integer in the [smallest currency
+                unit](https://docs.stripe.com/currencies#zero-decimal)
+                representing how much of this charge to refund. Can refund only
+                up to the remaining, unrefunded amount of the charge.
+              type: integer
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            instructions_email:
+              description: >-
+                For payment methods without native refund support (e.g.,
+                Konbini, PromptPay), use this email from the customer to receive
+                refund instructions.
+              type: string
+            metadata:
+              anyOf:
+                - additionalProperties:
+                    type: string
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                Set of [key-value pairs](https://docs.stripe.com/api/metadata)
+                that you can attach to an object. This can be useful for storing
+                additional information about the object in a structured format.
+                Individual keys can be unset by posting an empty value to them.
+                All keys can be unset by posting an empty value to `metadata`.
+            payment_intent:
+              description: The identifier of the PaymentIntent to refund.
+              maxLength: 5000
+              type: string
+            reason:
+              description: >-
+                String indicating the reason for the refund. If set, possible
+                values are `duplicate`, `fraudulent`, and
+                `requested_by_customer`. If you believe the charge to be
+                fraudulent, specifying `fraudulent` as the reason will add the
+                associated card and email to your [block
+                lists](https://docs.stripe.com/radar/lists), and will also help
+                us improve our fraud detection algorithms.
+              enum:
+                - duplicate
+                - fraudulent
+                - requested_by_customer
+              maxLength: 5000
+              type: string
+            refund_application_fee:
+              description: >-
+                Boolean indicating whether the application fee should be
+                refunded when refunding this charge. If a full charge refund is
+                given, the full application fee will be refunded. Otherwise, the
+                application fee will be refunded in an amount proportional to
+                the amount of the charge refunded. An application fee can be
+                refunded only by the application that created the charge.
+              type: boolean
+            reverse_transfer:
+              description: >-
+                Boolean indicating whether the transfer should be reversed when
+                refunding this charge. The transfer will be reversed
+                proportionally to the amount being refunded (either the entire
+                or partial amount).<br><br>A transfer can be reversed only by
+                the application that created the charge.
+              type: boolean
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/charge.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Create a refund

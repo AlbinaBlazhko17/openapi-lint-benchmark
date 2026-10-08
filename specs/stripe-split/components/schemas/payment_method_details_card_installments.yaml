@@ -1,0 +1,11 @@
+description: ''
+properties:
+  plan:
+    anyOf:
+      - $ref: ./payment_method_details_card_installments_plan.yaml
+    description: Installment plan selected for the payment.
+    nullable: true
+title: payment_method_details_card_installments
+type: object
+x-expandableFields:
+  - plan

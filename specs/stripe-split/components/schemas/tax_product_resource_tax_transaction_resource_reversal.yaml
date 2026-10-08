@@ -1,0 +1,10 @@
+description: ''
+properties:
+  original_transaction:
+    description: The `id` of the reversed `Transaction` object.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: TaxProductResourceTaxTransactionResourceReversal
+type: object
+x-expandableFields: []

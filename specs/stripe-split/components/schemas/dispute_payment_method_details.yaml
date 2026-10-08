@@ -1,0 +1,27 @@
+description: ''
+properties:
+  amazon_pay:
+    $ref: ./dispute_payment_method_details_amazon_pay.yaml
+  card:
+    $ref: ./dispute_payment_method_details_card.yaml
+  klarna:
+    $ref: ./dispute_payment_method_details_klarna.yaml
+  paypal:
+    $ref: ./dispute_payment_method_details_paypal.yaml
+  type:
+    description: Payment method type.
+    enum:
+      - amazon_pay
+      - card
+      - klarna
+      - paypal
+    type: string
+required:
+  - type
+title: DisputePaymentMethodDetails
+type: object
+x-expandableFields:
+  - amazon_pay
+  - card
+  - klarna
+  - paypal

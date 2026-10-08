@@ -1,0 +1,32 @@
+description: ''
+properties:
+  code:
+    description: Reason for the return.
+    enum:
+      - account_closed
+      - account_frozen
+      - bank_account_restricted
+      - bank_ownership_changed
+      - declined
+      - incorrect_account_holder_name
+      - invalid_account_number
+      - invalid_currency
+      - no_account
+      - other
+    type: string
+  transaction:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./treasury.transaction.yaml
+    description: The Transaction associated with this object.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./treasury.transaction.yaml
+required:
+  - code
+  - transaction
+title: TreasuryOutboundTransfersResourceReturnedDetails
+type: object
+x-expandableFields:
+  - transaction

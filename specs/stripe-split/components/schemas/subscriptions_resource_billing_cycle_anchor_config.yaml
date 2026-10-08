@@ -1,0 +1,26 @@
+description: ''
+properties:
+  day_of_month:
+    description: The day of the month of the billing_cycle_anchor.
+    type: integer
+  hour:
+    description: The hour of the day of the billing_cycle_anchor.
+    nullable: true
+    type: integer
+  minute:
+    description: The minute of the hour of the billing_cycle_anchor.
+    nullable: true
+    type: integer
+  month:
+    description: The month to start full cycle billing periods.
+    nullable: true
+    type: integer
+  second:
+    description: The second of the minute of the billing_cycle_anchor.
+    nullable: true
+    type: integer
+required:
+  - day_of_month
+title: SubscriptionsResourceBillingCycleAnchorConfig
+type: object
+x-expandableFields: []

@@ -1,0 +1,12 @@
+description: ''
+properties:
+  fingerprint:
+    description: >-
+      Uniquely identifies this particular Pix account. You can use this
+      attribute to check whether two Pix accounts are the same.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: setup_attempt_payment_method_details_pix
+type: object
+x-expandableFields: []

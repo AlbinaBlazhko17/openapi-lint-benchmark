@@ -1,0 +1,32 @@
+description: ''
+properties:
+  driver_id:
+    description: Driver ID.
+    maxLength: 5000
+    nullable: true
+    type: string
+  odometer:
+    description: Odometer reading.
+    nullable: true
+    type: integer
+  unspecified_id:
+    description: >-
+      An alphanumeric ID. This field is used when a vehicle ID, driver ID, or
+      generic ID is entered by the cardholder, but the merchant or card network
+      did not specify the prompt type.
+    maxLength: 5000
+    nullable: true
+    type: string
+  user_id:
+    description: User ID.
+    maxLength: 5000
+    nullable: true
+    type: string
+  vehicle_number:
+    description: Vehicle number.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: IssuingTransactionFleetCardholderPromptData
+type: object
+x-expandableFields: []

@@ -1,0 +1,36 @@
+description: ''
+properties:
+  card_logo:
+    description: >-
+      The policy for how to use card logo images in a card design with this
+      physical bundle.
+    enum:
+      - optional
+      - required
+      - unsupported
+    type: string
+  carrier_text:
+    description: >-
+      The policy for how to use carrier letter text in a card design with this
+      physical bundle.
+    enum:
+      - optional
+      - required
+      - unsupported
+    type: string
+  second_line:
+    description: >-
+      The policy for how to use a second line on a card with this physical
+      bundle.
+    enum:
+      - optional
+      - required
+      - unsupported
+    type: string
+required:
+  - card_logo
+  - carrier_text
+  - second_line
+title: IssuingPhysicalBundleFeatures
+type: object
+x-expandableFields: []

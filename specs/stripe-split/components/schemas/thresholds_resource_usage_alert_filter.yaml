@@ -1,0 +1,22 @@
+description: ''
+properties:
+  customer:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./customer.yaml
+    description: Limit the scope of the alert to this customer ID
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./customer.yaml
+  type:
+    enum:
+      - customer
+    type: string
+required:
+  - type
+title: ThresholdsResourceUsageAlertFilter
+type: object
+x-expandableFields:
+  - customer

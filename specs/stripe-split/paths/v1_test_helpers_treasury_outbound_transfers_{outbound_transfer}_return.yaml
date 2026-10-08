@@ -1,0 +1,67 @@
+post:
+  description: >-
+    <p>Transitions a test mode created OutboundTransfer to the
+    <code>returned</code> status. The OutboundTransfer must already be in the
+    <code>processing</code> state.</p>
+  operationId: PostTestHelpersTreasuryOutboundTransfersOutboundTransferReturn
+  parameters:
+    - in: path
+      name: outbound_transfer
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+          returned_details:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            returned_details:
+              description: Details about a returned OutboundTransfer.
+              properties:
+                code:
+                  enum:
+                    - account_closed
+                    - account_frozen
+                    - bank_account_restricted
+                    - bank_ownership_changed
+                    - declined
+                    - incorrect_account_holder_name
+                    - invalid_account_number
+                    - invalid_currency
+                    - no_account
+                    - other
+                  type: string
+              title: returned_details_params
+              type: object
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/treasury.outbound_transfer.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: 'Test mode: Return an OutboundTransfer'

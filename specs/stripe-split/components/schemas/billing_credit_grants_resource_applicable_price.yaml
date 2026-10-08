@@ -1,0 +1,10 @@
+description: ''
+properties:
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: BillingCreditGrantsResourceApplicablePrice
+type: object
+x-expandableFields: []

@@ -1,0 +1,9 @@
+description: ''
+properties:
+  tax:
+    $ref: >-
+      ./payment_flows_payment_intent_async_workflows_resource_inputs_resource_tax.yaml
+title: PaymentFlowsPaymentIntentAsyncWorkflowsResourceInputs
+type: object
+x-expandableFields:
+  - tax

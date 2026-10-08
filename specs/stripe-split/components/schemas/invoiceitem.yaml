@@ -1,0 +1,217 @@
+description: >-
+  Invoice Items represent the component lines of an
+  [invoice](https://docs.stripe.com/api/invoices). When you create an invoice
+  item with an `invoice` field, it is attached to the specified invoice and
+  included as [an invoice line
+  item](https://docs.stripe.com/api/invoices/line_item) within
+  [invoice.lines](https://docs.stripe.com/api/invoices/object#invoice_object-lines).
+
+
+  Invoice Items can be created before you are ready to actually send the
+  invoice. This can be particularly useful when combined
+
+  with a [subscription](https://docs.stripe.com/api/subscriptions). Sometimes
+  you want to add a charge or credit to a customer, but actually charge
+
+  or credit the customer's card only at the end of a regular billing cycle. This
+  is useful for combining several charges
+
+  (to minimize per-transaction fees), or for having Stripe tabulate your
+  usage-based billing totals.
+
+
+  Related guides: [Integrate with the Invoicing
+  API](https://docs.stripe.com/invoicing/integration), [Subscription
+  Invoices](https://docs.stripe.com/billing/invoices/subscription#adding-upcoming-invoice-items).
+properties:
+  amount:
+    description: >-
+      Amount (in the `currency` specified) of the invoice item. This should
+      always be equal to `unit_amount * quantity`.
+    type: integer
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    format: currency
+    type: string
+  customer:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./customer.yaml
+      - $ref: ./deleted_customer.yaml
+    description: The ID of the customer to bill for this invoice item.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./customer.yaml
+        - $ref: ./deleted_customer.yaml
+  customer_account:
+    description: The ID of the account to bill for this invoice item.
+    maxLength: 5000
+    nullable: true
+    type: string
+  date:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  description:
+    description: >-
+      An arbitrary string attached to the object. Often useful for displaying to
+      users.
+    maxLength: 5000
+    nullable: true
+    type: string
+  discountable:
+    description: >-
+      If true, discounts will apply to this invoice item. Always false for
+      prorations.
+    type: boolean
+  discounts:
+    description: >-
+      The discounts which apply to the invoice item. Item discounts are applied
+      before invoice discounts. Use `expand[]=discounts` to expand each
+      discount.
+    items:
+      anyOf:
+        - maxLength: 5000
+          type: string
+        - $ref: ./discount.yaml
+      x-expansionResources:
+        oneOf:
+          - $ref: ./discount.yaml
+    nullable: true
+    type: array
+  frozen_fields:
+    description: >-
+      Array of field names that can't be modified. Attempting to update a frozen
+      field returns an error.
+    items:
+      enum:
+        - discounts
+        - pricing
+        - quantity
+      type: string
+    type: array
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  invoice:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./invoice.yaml
+    description: The ID of the invoice this invoice item belongs to.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./invoice.yaml
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    nullable: true
+    type: object
+  net_amount:
+    description: >-
+      The amount after discounts, but before credits and taxes. This field is
+      `null` for `discountable=true` items.
+    type: integer
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - invoiceitem
+    type: string
+  parent:
+    anyOf:
+      - $ref: ./billing_bill_resource_invoice_item_parents_invoice_item_parent.yaml
+    description: The parent that generated this invoice item.
+    nullable: true
+  period:
+    $ref: ./invoice_line_item_period.yaml
+  pricing:
+    anyOf:
+      - $ref: ./billing_bill_resource_invoicing_pricing_pricing.yaml
+    description: The pricing information of the invoice item.
+    nullable: true
+  proration:
+    description: >-
+      Whether the invoice item was created automatically as a proration
+      adjustment when the customer switched plans.
+    type: boolean
+  proration_details:
+    $ref: ./proration_details.yaml
+  quantity:
+    description: >-
+      Quantity of units for the invoice item in integer format, with any decimal
+      precision truncated. For the item's full-precision decimal quantity, use
+      `quantity_decimal`. This field will be deprecated in favor of
+      `quantity_decimal` in a future version. If the invoice item is a
+      proration, the quantity of the subscription that the proration was
+      computed for.
+    type: integer
+  quantity_decimal:
+    description: >-
+      Non-negative decimal with at most 12 decimal places. The quantity of units
+      for the invoice item.
+    format: decimal
+    type: string
+  tax_rates:
+    description: >-
+      The tax rates which apply to the invoice item. When set, the
+      `default_tax_rates` on the invoice do not apply to this invoice item.
+    items:
+      $ref: ./tax_rate.yaml
+    nullable: true
+    type: array
+  test_clock:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./test_helpers.test_clock.yaml
+    description: ID of the test clock this invoice item belongs to.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./test_helpers.test_clock.yaml
+required:
+  - amount
+  - currency
+  - customer
+  - date
+  - discountable
+  - id
+  - livemode
+  - object
+  - period
+  - proration
+  - quantity
+  - quantity_decimal
+title: Invoice Item
+type: object
+x-expandableFields:
+  - customer
+  - discounts
+  - invoice
+  - parent
+  - period
+  - pricing
+  - proration_details
+  - tax_rates
+  - test_clock
+x-resourceId: invoiceitem

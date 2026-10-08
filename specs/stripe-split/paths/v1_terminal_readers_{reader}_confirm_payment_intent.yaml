@@ -1,0 +1,64 @@
+post:
+  description: >-
+    <p>Finalizes a payment on a Reader. See <a
+    href="/docs/terminal/payments/collect-card-payment?terminal-sdk-platform=server-driven&process=inspect#confirm-the-paymentintent">Confirming
+    a Payment</a> for more details.</p>
+  operationId: PostTerminalReadersReaderConfirmPaymentIntent
+  parameters:
+    - in: path
+      name: reader
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          confirm_config:
+            explode: true
+            style: deepObject
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            confirm_config:
+              description: >-
+                Configuration overrides for this confirmation, such as surcharge
+                settings and return URL.
+              properties:
+                return_url:
+                  type: string
+              title: confirm_config
+              type: object
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            payment_intent:
+              description: The ID of the PaymentIntent to confirm.
+              maxLength: 5000
+              type: string
+          required:
+            - payment_intent
+          type: object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/terminal.reader.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Confirm a PaymentIntent on the Reader

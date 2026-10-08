@@ -1,0 +1,19 @@
+description: ''
+properties:
+  local_amount_decimal:
+    description: >-
+      Amount of state or provincial Sales Tax included in the transaction
+      amount. `null` if not reported by merchant or not subject to tax.
+    format: decimal
+    nullable: true
+    type: string
+  national_amount_decimal:
+    description: >-
+      Amount of national Sales Tax or VAT included in the transaction amount.
+      `null` if not reported by merchant or not subject to tax.
+    format: decimal
+    nullable: true
+    type: string
+title: IssuingAuthorizationFleetTaxData
+type: object
+x-expandableFields: []

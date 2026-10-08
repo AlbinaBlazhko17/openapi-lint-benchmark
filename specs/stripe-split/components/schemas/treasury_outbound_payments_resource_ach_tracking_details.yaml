@@ -1,0 +1,13 @@
+description: ''
+properties:
+  trace_id:
+    description: >-
+      ACH trace ID of the OutboundPayment for payments sent over the `ach`
+      network.
+    maxLength: 5000
+    type: string
+required:
+  - trace_id
+title: TreasuryOutboundPaymentsResourceACHTrackingDetails
+type: object
+x-expandableFields: []

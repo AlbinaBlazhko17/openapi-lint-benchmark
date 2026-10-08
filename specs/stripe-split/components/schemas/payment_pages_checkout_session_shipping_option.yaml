@@ -1,0 +1,21 @@
+description: ''
+properties:
+  shipping_amount:
+    description: A non-negative integer in cents representing how much to charge.
+    type: integer
+  shipping_rate:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./shipping_rate.yaml
+    description: The shipping rate.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./shipping_rate.yaml
+required:
+  - shipping_amount
+  - shipping_rate
+title: PaymentPagesCheckoutSessionShippingOption
+type: object
+x-expandableFields:
+  - shipping_rate

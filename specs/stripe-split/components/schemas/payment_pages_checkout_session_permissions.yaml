@@ -1,0 +1,21 @@
+description: ''
+properties:
+  update_shipping_details:
+    description: >-
+      Determines which entity is allowed to update the shipping details.
+
+
+      Default is `client_only`. Stripe Checkout client will automatically update
+      the shipping details. If set to `server_only`, only your server is allowed
+      to update the shipping details.
+
+
+      This parameter is only supported when `ui_mode=elements`.
+    enum:
+      - client_only
+      - server_only
+    nullable: true
+    type: string
+title: PaymentPagesCheckoutSessionPermissions
+type: object
+x-expandableFields: []

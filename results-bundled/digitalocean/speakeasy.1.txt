@@ -1,0 +1,1357 @@
+Linting OpenAPI document...
+                           
+Lint report written to: /home/runner/.speakeasy/temp/lint-report-5174dac8a9932f74ae1328ad12ae0045-799390629.html
+INFO    validation hint: [line 1:1] generator-retries - retries should be configured - consider adding x-speakeasy-retries[0m extension globally or per-operation
+INFO    validation hint: [line 1273:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 1347:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 1425:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 1574:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 1710:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 1950:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 2074:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 2128:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 2162:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 2383:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 2654:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 2806:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 2885:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 3177:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 3378:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 3768:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 3831:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 3882:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 4140:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 4386:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 4539:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 4607:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 4695:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 5006:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 5045:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 5207:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 9865:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 9943:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 9992:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 10035:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 10125:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 10181:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 10231:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 10395:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 10677:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 11177:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 11616:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 11752:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 11867:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 11945:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 12064:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 12399:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 12543:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 12621:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 12774:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 12964:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 13235:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 13273:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 13311:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 14647:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 14723:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 14975:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 15149:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 15326:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 15432:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 15718:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 15843:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 16003:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 16167:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 16219:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 16266:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 16313:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 16422:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 16578:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 16867:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 17101:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 17478:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 17787:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 18044:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 18195:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 18304:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 18370:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 18436:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 18470:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 18762:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 19260:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 19355:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 19452:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 19565:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 19661:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 19761:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 19914:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 22051:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 22121:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 22418:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 22856:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 22926:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 23081:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 23257:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 23401:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 23479:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 23631:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 23870:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 24108:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 24436:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 24557:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 24784:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 24787:19] generator-duplicate-inline-schemas - 2[0m duplicates of enum[0m "starter, basic, professional" at lines [24787,25629]
+INFO    validation hint: [line 24970:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 25025:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 25059:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 25156:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 25260:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 25384:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 25485:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 25626:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 25758:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 25797:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 25846:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 25902:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 26010:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 26152:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 26238:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 26304:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 26435:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 26519:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 26810:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 26961:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 27034:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 27234:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 27323:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 27390:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 27599:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 27668:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 27734:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 27798:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 27840:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 27893:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 27927:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 27962:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 28005:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 28073:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 28145:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 28217:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 28479:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 28747:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 28828:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 29048:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 29150:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 29229:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 29247:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 29286:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 29292:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 29342:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 29389:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 29395:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 29489:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 29545:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 29599:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 29605:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 29655:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 29703:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 29709:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 29758:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 29764:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 29799:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 30055:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 30429:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 30502:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 30674:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 30743:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 30912:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 30990:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 31128:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 31209:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 31333:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 31385:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 31434:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 31491:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 31522:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 31569:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 31645:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 31708:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 31922:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 31974:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 32079:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 32211:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 32274:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 32390:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 32494:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 32520:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 32559:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 32565:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 32613:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 32640:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 32687:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 32693:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 32752:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 32758:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 32818:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 32874:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 32922:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 32928:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 33004:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 33010:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 33070:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 33118:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 33124:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 33192:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 33241:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 33305:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 33366:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 33421:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 33427:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 33488:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 33494:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 33556:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 33605:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 33653:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 33659:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 33722:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 33771:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 33819:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 33825:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 33890:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 33924:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 33951:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 33998:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 34004:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 34042:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 34062:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 34101:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 34107:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 34160:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 34207:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 34213:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 34265:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 34299:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 34326:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 34360:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 34393:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 34433:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 34439:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 34502:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 34550:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 34597:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 34603:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 34667:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 34706:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 34712:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 34760:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 34766:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 34821:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 34870:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 34911:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 34951:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 34957:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 35013:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 35019:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 35076:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 35116:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 35122:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 35176:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 35210:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 35237:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 35293:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 35334:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 35373:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 35379:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 35446:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 35501:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 35548:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 35554:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 35600:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 35620:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 35659:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 35665:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 35720:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 35771:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 35819:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 35868:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 35874:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 35911:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 35931:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 35970:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 35976:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 36067:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 36073:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 36113:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 36140:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 36187:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 36193:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 36261:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 36267:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 36328:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 36377:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 36425:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 36473:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 36479:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 36535:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 36575:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 36581:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 36628:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 36669:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 36718:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 36766:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 36800:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 36896:13] generator-duplicate-inline-schemas - 2[0m duplicates of enum[0m "SORT_DIRECTION_UNSPECIFIED, SORT_DIRECTION_ASC, SORT_DIRECTION_DESC" at lines [36896,37708]
+INFO    validation hint: [line 36907:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 36946:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 36952:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 36995:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 37022:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 37074:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 37123:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 37129:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 37184:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 37190:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 37242:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 37276:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 37328:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 37362:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 37382:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 37428:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 37475:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 37481:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 37533:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 37582:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 37616:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 37752:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 37806:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 37839:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 37859:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 37898:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 37904:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 37953:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 37973:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 38007:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 38027:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 38076:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 38123:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 38129:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 38192:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 38232:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 38238:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 38292:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 38326:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 38346:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 38385:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 38391:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 38444:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 38491:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 38497:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 38549:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 38583:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 38610:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 38664:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 38704:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 38710:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 38767:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 38815:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 38854:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 38893:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 38899:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 38955:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 39002:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 39008:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 39061:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 39095:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 39128:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 39175:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 39181:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 39234:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 39282:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 39296:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 39299:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 39366:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 39381:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 39384:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 39397:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 39466:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 39480:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 39563:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 39577:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 39580:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 39649:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 39663:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 39666:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 39741:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 39799:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 39813:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 39816:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 39925:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 39938:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 40086:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 40185:11] generator-validate-servers - server URL is not valid: no hostname or path provided
+INFO    validation hint: [line 40194:15] generator-missing-examples - missing example for requestBody[0m. Consider adding an example
+INFO    validation hint: [line 40364:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 40449:7] generator-pagination - pagination might be supported by this operation - consider adding x-speakeasy-pagination[0m extension
+INFO    validation hint: [line 40509:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 40593:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 40678:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 40800:17] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 41042:9] generator-duplicate-inline-schemas - 2[0m duplicates of enum[0m "application/json, application/yaml" at lines [41042,41052]
+INFO    validation hint: [line 42354:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42372:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42388:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42409:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42488:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42504:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42511:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42518:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42522:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42529:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42536:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42540:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42552:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42557:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42565:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42575:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42629:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42676:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42743:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42771:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42812:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42915:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42944:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 42992:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43013:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43093:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43132:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43143:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43172:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43193:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43232:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43270:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43281:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43330:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43341:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43356:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43370:5] generator-duplicate-component-schemas - schema apps_bitbucket_source_spec[0m is structurally identical to apps_github_source_spec[0m, apps_gitlab_source_spec[0m; consolidate them into a single component referenced via $ref[0m to avoid generating redundant types
+INFO    validation hint: [line 43371:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43386:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43431:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43468:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43478:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43492:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43502:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43518:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43541:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43561:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43611:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43662:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43695:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43723:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43745:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43792:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43831:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43880:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43892:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43909:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 43965:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44000:5] generator-duplicate-component-schemas - schema app_job_spec_termination[0m is structurally identical to app_worker_spec_termination[0m; consolidate them into a single component referenced via $ref[0m to avoid generating redundant types
+INFO    validation hint: [line 44001:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44011:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44035:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44045:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44100:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44118:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44167:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44220:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44232:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44244:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44252:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44270:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44296:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44307:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44334:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44340:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44356:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44362:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44375:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44466:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44477:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44488:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44565:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44573:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44585:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44613:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44672:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44686:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44781:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44792:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44804:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44809:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44821:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44828:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44839:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44844:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44857:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44864:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44887:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44894:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44905:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44912:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 44914:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45014:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45024:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45086:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45107:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45169:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45180:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45185:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45192:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45203:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45239:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45249:5] generator-duplicate-component-schemas - schema app_alert_phase[0m is structurally identical to apps_domain_phase[0m; consolidate them into a single component referenced via $ref[0m to avoid generating redundant types
+INFO    validation hint: [line 45259:5] generator-duplicate-component-schemas - schema app_alert_progress_step_status[0m is structurally identical to apps_deployment_progress_step_status[0m; consolidate them into a single component referenced via $ref[0m to avoid generating redundant types
+INFO    validation hint: [line 45269:5] generator-duplicate-component-schemas - schema app_alert_progress_step_reason[0m is structurally identical to apps_deployment_progress_step_reason[0m; consolidate them into a single component referenced via $ref[0m to avoid generating redundant types
+INFO    validation hint: [line 45270:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45281:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45302:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45310:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45340:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45347:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45360:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45365:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45376:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45416:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45429:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45442:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45461:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45491:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45512:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45523:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45528:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45548:11] generator-duplicate-inline-schemas - 2[0m duplicates of enum[0m "60, 600, 3600... 2[0m more" at lines [45548,45580]
+INFO    validation hint: [line 45577:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45601:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45614:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45661:11] generator-duplicate-inline-schemas - 2[0m duplicates of enum[0m "custom, lets_encrypt" at lines [45661,45675]
+INFO    validation hint: [line 45668:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45684:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45700:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45836:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45856:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45895:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45902:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45926:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 45973:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46008:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46023:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46046:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46057:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46108:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46140:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46152:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46164:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46179:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46188:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46205:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46210:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46282:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46315:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46348:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46386:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46403:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46481:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46577:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46606:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46647:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46660:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46675:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46688:11] generator-duplicate-inline-schemas - 2[0m duplicates of enum[0m "pg, mysql, redis... 6[0m more" at lines [46688,46880]
+INFO    validation hint: [line 46723:11] generator-duplicate-inline-schemas - 4[0m duplicates of enum[0m "creating, online, resizing... 2[0m more" at lines [46723,46915,48675,48742]
+INFO    validation hint: [line 46837:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46859:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 46867:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 47033:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 47047:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 47058:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 47356:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 47421:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 47431:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 47768:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 47893:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 47995:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 48240:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 48496:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 48532:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 48544:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 48554:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 48575:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 48616:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 48635:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 48654:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 48721:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 48788:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 48815:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 48824:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 48869:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 48878:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 48902:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 48915:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 48920:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 48935:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 48940:15] generator-duplicate-inline-schemas - 2[0m duplicates of enum[0m "active, configuring, deleting... 1[0m more" at lines [48940,49166]
+INFO    validation hint: [line 48949:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49119:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49126:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49159:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49185:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49198:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49216:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49285:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49318:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49351:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49367:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49384:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49392:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49415:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49426:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49437:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49448:11] generator-duplicate-inline-schemas - 3[0m duplicates of enum[0m "AVRO, JSON, PROTOBUF" at lines [49448,49475,49510]
+INFO    validation hint: [line 49468:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49495:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49530:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49541:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49546:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49570:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49594:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49623:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49649:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49697:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49749:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49812:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49826:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49840:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49870:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49905:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49916:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49931:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49947:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49965:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 49973:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50004:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50054:5] generator-duplicate-component-schemas - schema domain_record_a[0m is structurally identical to domain_record_aaaa[0m, domain_record_cname[0m; consolidate them into a single component referenced via $ref[0m to avoid generating redundant types
+INFO    validation hint: [line 50055:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50062:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50068:5] generator-duplicate-component-schemas - schema domain_record_caa[0m is structurally identical to domain_record_ns[0m, domain_record_txt[0m; consolidate them into a single component referenced via $ref[0m to avoid generating redundant types
+INFO    validation hint: [line 50069:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50078:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50085:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50092:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50101:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50107:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50118:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50127:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50149:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50173:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50250:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50322:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50345:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50427:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50455:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50481:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50622:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50665:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50759:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50773:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50791:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50808:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50843:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50865:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50884:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50926:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50983:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 50992:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51005:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51016:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51025:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51034:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51052:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51070:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51108:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51137:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51200:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51216:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51256:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51277:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51316:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51328:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51366:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51455:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51472:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51526:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51545:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51558:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51606:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51655:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51686:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51711:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51727:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51739:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51745:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51782:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51796:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51815:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51861:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51888:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51897:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51928:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51941:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51951:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 51986:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52011:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52030:5] generator-duplicate-component-schemas - schema images_post_account_transfer_cancel[0m is structurally identical to images_post_account_transfer_decline[0m; consolidate them into a single component referenced via $ref[0m to avoid generating redundant types
+INFO    validation hint: [line 52031:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52040:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52049:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52061:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52071:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52078:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52097:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52136:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52192:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52202:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52212:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52239:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52256:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52291:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52322:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52331:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52340:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52349:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52358:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52367:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52376:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52385:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52394:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52403:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52483:11] generator-duplicate-inline-schemas - 2[0m duplicates of object[0m "state[0m: string[0m, message[0m: string[0m" at lines [52483,52653]
+INFO    validation hint: [line 52488:15] generator-duplicate-inline-schemas - 2[0m duplicates of enum[0m "running, provisioning, degraded... 4[0m more" at lines [52488,52658]
+INFO    validation hint: [line 52569:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52729:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52788:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52799:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52827:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52852:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52902:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52922:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52929:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52947:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52958:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52969:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 52987:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53038:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53072:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53083:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53102:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53116:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53164:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53207:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53227:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53249:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53265:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53302:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53465:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53499:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53537:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53548:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53562:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53580:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53596:11] generator-duplicate-inline-schemas - 2[0m duplicates of enum[0m "GreaterThan, LessThan" at lines [53596,53699]
+INFO    validation hint: [line 53620:11] generator-duplicate-inline-schemas - 2[0m duplicates of enum[0m "v1/insights/droplet/load_1, v1/insights/droplet/load_5, v1/insights/droplet/load_15... 33[0m more" at lines [53620,53723]
+INFO    validation hint: [line 53675:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53684:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53775:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53802:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53818:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53832:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53861:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53872:11] generator-duplicate-inline-schemas - 2[0m duplicates of enum[0m "opensearch_dbaas, opensearch_ext" at lines [53872,53996]
+INFO    validation hint: [line 53883:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53888:11] generator-duplicate-inline-schemas - 2[0m duplicates of object[0m "username[0m: string[0m, password[0m: string[0m" at lines [53888,53953]
+INFO    validation hint: [line 53919:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53944:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 53983:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54007:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54021:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54033:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54077:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54151:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54221:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54228:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54258:5] generator-duplicate-component-schemas - schema nfs_create_response[0m is structurally identical to nfs_get_response[0m; consolidate them into a single component referenced via $ref[0m to avoid generating redundant types
+INFO    validation hint: [line 54259:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54264:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54269:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54290:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54304:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54318:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54332:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54346:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54365:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54379:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54432:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54440:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54489:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54496:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54501:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54512:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54527:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54561:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54572:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54580:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54603:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54623:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54640:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54651:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54700:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54793:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54875:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54930:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54950:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 54958:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55027:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55036:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55065:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55075:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55105:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55140:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55157:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55167:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55176:11] generator-duplicate-inline-schemas - 2[0m duplicates of enum[0m "starter, basic, professional" at lines [55176,55408]
+INFO    validation hint: [line 55199:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55203:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55216:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55233:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55275:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55282:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55293:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55335:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55356:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55388:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55399:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55429:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55446:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55457:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55473:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55504:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55529:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55545:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55557:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55563:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55585:21] generator-duplicate-inline-schemas - 2[0m duplicates of schema[0m "null" at lines [55585,55620]
+INFO    validation hint: [line 55592:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55602:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55627:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55643:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55655:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55661:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55718:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55737:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55744:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55769:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55878:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55896:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55924:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55961:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55977:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 55987:13] generator-duplicate-inline-schemas - 2[0m duplicates of object[0m "resources[0m: array[0m, tags[0m: array[0m" at lines [55987,74571]
+INFO    validation hint: [line 56006:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56043:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56057:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56081:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56091:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56104:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56173:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56196:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56231:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56246:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56258:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56321:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56332:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56358:5] generator-duplicate-component-schemas - schema vectordbCreateVectorDBResponse[0m is structurally identical to vectordbGetVectorDBResponse[0m, vectordbResizeVectorDBResponse[0m, vectordbUpdateVectorDBResponse[0m, vectordbUpdateVectorDBTagsResponse[0m; consolidate them into a single component referenced via $ref[0m to avoid generating redundant types
+INFO    validation hint: [line 56359:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56364:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56369:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56382:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56387:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56409:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56417:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56432:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56443:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56454:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56465:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56476:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56481:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56496:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56510:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56545:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56587:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56622:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56628:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56639:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56656:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56673:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56692:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56703:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56712:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56725:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56736:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56749:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56760:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56772:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56789:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56796:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56809:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56833:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56847:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56855:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56861:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 56889:11] generator-duplicate-inline-schemas - 2[0m duplicates of enum[0m "nyc1, nyc2, nyc3... 12[0m more" at lines [56889,56978]
+INFO    validation hint: [line 56965:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57055:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57095:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57104:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57142:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57147:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57163:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57171:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57186:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57193:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57202:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57235:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57276:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57281:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57311:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57350:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57380:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57410:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57426:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57442:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57468:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57542:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57561:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57692:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57704:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57712:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57732:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57748:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57800:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57824:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57916:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57986:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 57998:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 58069:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 58153:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 58297:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 58317:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 58323:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 58342:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 58355:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 58440:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 58472:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 58502:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 58510:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 58705:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 58763:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 58807:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 58835:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 58873:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 58919:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 58951:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 58977:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59045:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59098:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59121:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59185:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59234:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59240:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59252:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59262:5] generator-duplicate-component-schemas - schema apiCreateAgentAPIKeyOutput[0m is structurally identical to apiDeleteAgentAPIKeyOutput[0m, apiRegenerateAgentAPIKeyOutput[0m, apiUpdateAgentAPIKeyOutput[0m; consolidate them into a single component referenced via $ref[0m to avoid generating redundant types
+INFO    validation hint: [line 59263:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59268:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59283:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59288:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59293:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59298:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59328:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59334:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59368:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59374:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59380:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59392:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59404:5] generator-duplicate-component-schemas - schema apiLinkAgentGuardrailOutput[0m is structurally identical to apiUpdateAgentOutput[0m; consolidate them into a single component referenced via $ref[0m to avoid generating redundant types
+INFO    validation hint: [line 59405:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59411:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59417:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59423:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59429:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59453:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59472:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59491:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59503:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59515:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59521:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59639:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59645:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59651:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59660:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59670:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59676:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59687:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59706:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59714:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59737:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59761:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59782:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59797:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59905:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59918:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59929:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59956:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59965:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59978:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59990:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 59996:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60001:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60017:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60023:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60029:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60041:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60053:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60093:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60145:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60157:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60261:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60279:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60309:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60364:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60380:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60396:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60411:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60421:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60464:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60470:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60479:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60496:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60508:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60516:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60529:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60538:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60559:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60572:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60575:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60588:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60595:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60605:5] generator-duplicate-component-schemas - schema apiCreateCustomEvaluationMetricOutput[0m is structurally identical to apiUpdateCustomEvaluationMetricOutput[0m; consolidate them into a single component referenced via $ref[0m to avoid generating redundant types
+INFO    validation hint: [line 60606:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60611:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60625:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60629:5] generator-duplicate-component-schemas - schema apiDeleteCustomEvaluationMetricOutput[0m is structurally identical to apiDeleteModelEvaluationPresetOutput[0m; consolidate them into a single component referenced via $ref[0m to avoid generating redundant types
+INFO    validation hint: [line 60630:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60632:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60660:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60680:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60727:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60821:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60826:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60865:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60895:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60926:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60946:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60980:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 60986:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61007:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61020:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61058:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61105:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61120:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61125:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61133:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61165:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61172:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61180:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61185:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61195:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61218:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61229:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61242:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61258:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61264:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61271:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61278:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61284:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61292:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61298:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61311:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61344:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61366:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61377:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61388:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61423:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61445:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61485:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61533:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61539:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61554:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61561:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61572:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61620:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61633:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61651:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61657:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61673:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61679:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61709:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61717:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61747:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61753:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61761:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61770:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61778:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61830:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61922:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61930:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61935:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61952:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 61977:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62023:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62049:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62121:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62128:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62157:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62201:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62235:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62262:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62270:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62296:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62310:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62338:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62352:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62371:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62390:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62410:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62424:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62461:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62533:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62556:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62565:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62578:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62583:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62593:5] generator-duplicate-component-schemas - schema apiCancelModelEvaluationRunOutput[0m is structurally identical to apiUpdateModelEvaluationRunOutput[0m; consolidate them into a single component referenced via $ref[0m to avoid generating redundant types
+INFO    validation hint: [line 62594:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62599:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62612:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62713:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62839:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62852:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62882:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62894:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62901:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62912:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62916:5] generator-duplicate-component-schemas - schema apiDeleteModelAPIKeyOutput[0m is structurally identical to apiRegenerateModelAPIKeyOutput[0m, apiUpdateModelAPIKeyOutput[0m; consolidate them into a single component referenced via $ref[0m to avoid generating redundant types
+INFO    validation hint: [line 62917:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62922:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 62950:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63037:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63088:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63117:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63135:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63173:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63193:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63202:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63288:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63293:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63306:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63341:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63347:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63369:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63382:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63420:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63433:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63439:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63474:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63480:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63488:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63500:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63512:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63520:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63533:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63545:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63551:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63556:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63572:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63578:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63584:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63596:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63620:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63629:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63647:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63698:5] generator-duplicate-component-schemas - schema apiCreateScheduledIndexingOutput[0m is structurally identical to apiDeleteScheduledIndexingOutput[0m, apiGetScheduledIndexingOutput[0m; consolidate them into a single component referenced via $ref[0m to avoid generating redundant types
+INFO    validation hint: [line 63699:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63704:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63709:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63714:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63722:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63741:5] generator-duplicate-component-schemas - schema apiCreateWorkspaceOutput[0m is structurally identical to apiGetWorkspaceOutput[0m, apiMoveAgentsToWorkspaceOutput[0m, apiUpdateWorkspaceOutput[0m; consolidate them into a single component referenced via $ref[0m to avoid generating redundant types
+INFO    validation hint: [line 63742:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63747:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63752:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63768:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63773:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63780:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63791:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63807:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63812:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63819:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63850:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63890:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63907:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 63921:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64058:11] generator-validate-enums - enum is nullable but does not contain a null[0m value
+INFO    validation hint: [line 64097:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64117:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64144:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64197:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64300:17] generator-duplicate-inline-schemas - 2[0m duplicates of object[0m "content[0m: array[0m, refusal[0m: array[0m" at lines [64300,64420]
+INFO    validation hint: [line 64336:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64362:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64393:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64444:17] generator-validate-enums - enum is nullable but does not contain a null[0m value
+INFO    validation hint: [line 64475:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64492:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64512:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64526:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64550:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64575:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64578:9] generator-suggest-discriminator - oneOf[0m members are distinguished by distinct type[0m values; add discriminator: { propertyName: type }[0m so the SDK can select the variant directly
+INFO    validation hint: [line 64583:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64606:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64625:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64647:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64659:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64734:11] generator-validate-enums - enum is nullable but does not contain a null[0m value
+INFO    validation hint: [line 64746:11] generator-validate-enums - enum is nullable but does not contain a null[0m value
+INFO    validation hint: [line 64752:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64768:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64792:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64794:9] generator-suggest-discriminator - oneOf[0m members are distinguished by distinct type[0m values; add discriminator: { propertyName: type }[0m so the SDK can select the variant directly
+INFO    validation hint: [line 64797:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64823:11] generator-validate-enums - enum is nullable but does not contain a null[0m value
+INFO    validation hint: [line 64828:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64869:11] generator-validate-enums - enum is nullable but does not contain a null[0m value
+INFO    validation hint: [line 64881:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64923:15] generator-validate-enums - enum is nullable but does not contain a null[0m value
+INFO    validation hint: [line 64928:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64953:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 64991:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 65027:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 65042:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 65068:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 65155:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 65171:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 65207:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 65250:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 65315:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 65342:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 65360:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 65534:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 65582:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 65746:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 65795:21] generator-validate-enums - enum is nullable but does not contain a null[0m value
+INFO    validation hint: [line 65853:17] generator-validate-enums - enum is nullable but does not contain a null[0m value
+INFO    validation hint: [line 65879:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 65970:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 66027:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 66041:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 66065:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 66204:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 66241:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 66296:7] generator-missing-examples - missing example for component. Consider adding an example
+INFO    validation hint: [line 66459:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 66503:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 66527:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 66576:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 66597:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 66612:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 66629:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 66646:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 66663:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 66678:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 66693:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 66956:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 66969:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 66985:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 67501:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 69171:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 69444:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 69461:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 69480:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 69503:17] generator-duplicate-inline-schemas - 4[0m duplicates of enum[0m "NONE, BACKWARD, BACKWARD_TRANSITIVE... 4[0m more" at lines [9488,9568,69503,69535]
+INFO    validation hint: [line 69642:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 69716:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 69819:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 70369:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 70384:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 70504:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 71010:17] generator-duplicate-inline-schemas - 2[0m duplicates of object[0m "droplets[0m: array[0m, actions[0m: array[0m" at lines [71010,74025]
+INFO    validation hint: [line 71176:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 71197:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 71283:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 71304:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 71894:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 71937:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 71956:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 72242:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 72277:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 72290:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 72308:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 72457:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 72526:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 72555:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 72572:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 72587:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 72605:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 72620:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 72633:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 72748:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 72761:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 73369:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 73563:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 73581:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 73596:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 73609:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 73688:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 73862:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 73948:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 74498:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 74519:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 74535:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 74553:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 74566:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 74597:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 74698:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 75290:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 75614:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 75635:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 75651:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 75667:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+INFO    validation hint: [line 75688:13] generator-missing-examples - missing example for responses[0m. Consider adding an example
+WARN    validation warn: [line 37429:7] style-operation-success-response - operation genai_create_model_api_key[0m must define at least a single 2xx[0m or 3xx[0m response
+WARN    validation warn: [line 41040:7] generator-validate-parameters - header name Accept[0m is reserved and will be ignored
+WARN    validation warn: [line 41050:7] generator-validate-parameters - header name Content-Type[0m is reserved and will be ignored
+ERROR    validation error: [line 39543:16] validation-invalid-format - server.url[0m is not a valid uri: parse "https://{your-agent-url}": invalid character "{" in host name
+ERROR    validation error: [line 40171:5] generator-validate-paths - path contains unencoded characters [ < >[0m ]
+                                                                   
+OpenAPI document linting complete. 2 errors, 3 warnings, 1344 hints
+                                                                   
+OpenAPI document invalid ✖
+exit 1

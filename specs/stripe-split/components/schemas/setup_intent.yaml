@@ -1,0 +1,503 @@
+description: >-
+  A SetupIntent guides you through the process of setting up and saving a
+  customer's payment credentials for future payments.
+
+  For example, you can use a SetupIntent to set up and save your customer's card
+  without immediately collecting a payment.
+
+  Later, you can use [PaymentIntents](https://api.stripe.com#payment_intents) to
+  drive the payment flow.
+
+
+  Create a SetupIntent when you're ready to collect your customer's payment
+  credentials.
+
+  Don't maintain long-lived, unconfirmed SetupIntents because they might not be
+  valid.
+
+  The SetupIntent transitions through multiple
+  [statuses](https://docs.stripe.com/payments/intents#intent-statuses) as it
+  guides
+
+  you through the setup process.
+
+
+  Successful SetupIntents result in payment credentials that are optimized for
+  future payments.
+
+  For example, cardholders in [certain
+  regions](https://stripe.com/guides/strong-customer-authentication) might need
+  to be run through
+
+  [Strong Customer
+  Authentication](https://docs.stripe.com/strong-customer-authentication) during
+  payment method collection
+
+  to streamline later [off-session
+  payments](https://docs.stripe.com/payments/setup-intents).
+
+  If you use the SetupIntent with a
+  [Customer](https://api.stripe.com#setup_intent_object-customer),
+
+  it automatically attaches the resulting payment method to that Customer after
+  successful setup.
+
+  We recommend using SetupIntents or
+  [setup_future_usage](https://api.stripe.com#payment_intent_object-setup_future_usage)
+  on
+
+  PaymentIntents to save payment methods to prevent saving invalid or
+  unoptimized payment methods.
+
+
+  By using SetupIntents, you can reduce friction for your customers, even as
+  regulations change over time.
+
+
+  Related guide: [Setup Intents
+  API](https://docs.stripe.com/payments/setup-intents)
+properties:
+  allowed_payment_method_types:
+    description: >-
+      The list of payment method types to allow for this SetupIntent. Stripe
+      will only use methods in this list when determining the payment methods to
+      offer.
+    items:
+      enum:
+        - acss_debit
+        - affirm
+        - afterpay_clearpay
+        - alipay
+        - alma
+        - amazon_pay
+        - au_becs_debit
+        - bacs_debit
+        - bancontact
+        - billie
+        - bizum
+        - blik
+        - boku_promptpay
+        - boleto
+        - capchase_pay
+        - card
+        - cashapp
+        - check_scan
+        - click_to_pay
+        - crypto
+        - customer_balance
+        - demo_pay
+        - duitnow
+        - dummy_auth_push
+        - dummy_passthrough_card
+        - edenred
+        - eps
+        - fpx
+        - gcash
+        - getbalance
+        - gift_card
+        - giropay
+        - gopay
+        - grabpay
+        - id_bank_transfer
+        - ideal
+        - kakao_pay
+        - klarna
+        - knet
+        - konbini
+        - kr_card
+        - kr_market
+        - kriya
+        - link
+        - mb_way
+        - mobilepay
+        - momo
+        - mondu
+        - multibanco
+        - naver_pay
+        - netbanking
+        - ng_bank
+        - ng_bank_transfer
+        - ng_card
+        - ng_market
+        - ng_ussd
+        - ng_wallet
+        - nz_bank_account
+        - octopus
+        - oxxo
+        - p24
+        - paper_check
+        - pay_by_bank
+        - payco
+        - paynow
+        - paypal
+        - paypay
+        - payto
+        - pix
+        - promptpay
+        - qris
+        - rechnung
+        - revolut_pay
+        - samsung_pay
+        - satispay
+        - scalapay
+        - sepa_debit
+        - sequra
+        - shop_pay
+        - shopeepay
+        - sofort
+        - south_korea_market
+        - stripe_balance
+        - sunbit
+        - swish
+        - tamara
+        - test_pay
+        - touch_n_go
+        - truemoney
+        - twint
+        - upi
+        - us_bank_account
+        - us_cash_voucher
+        - vipps
+        - wechat_pay
+        - wero
+        - zip
+      type: string
+      x-stripeBypassValidation: true
+    nullable: true
+    type: array
+  application:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./application.yaml
+    description: ID of the Connect application that created the SetupIntent.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./application.yaml
+  attach_to_self:
+    description: >-
+      If present, the SetupIntent's payment method will be attached to the
+      in-context Stripe Account.
+
+
+      It can only be used for this Stripe Account’s own money movement flows
+      like InboundTransfer and OutboundTransfers. It cannot be set to true when
+      setting up a PaymentMethod for a Customer, and defaults to false when
+      attaching a PaymentMethod to a Customer.
+    type: boolean
+  automatic_payment_methods:
+    anyOf:
+      - $ref: ./payment_flows_automatic_payment_methods_setup_intent.yaml
+    description: Settings for dynamic payment methods compatible with this Setup Intent
+    nullable: true
+  cancellation_reason:
+    description: >-
+      Reason for cancellation of this SetupIntent, one of `abandoned`,
+      `requested_by_customer`, or `duplicate`.
+    enum:
+      - abandoned
+      - duplicate
+      - requested_by_customer
+    nullable: true
+    type: string
+  client_secret:
+    description: >-
+      The client secret of this SetupIntent. Used for client-side retrieval
+      using a publishable key.
+
+
+      The client secret can be used to complete payment setup from your
+      frontend. It should not be stored, logged, or exposed to anyone other than
+      the customer. Make sure that you have TLS enabled on any page that
+      includes the client secret.
+    maxLength: 5000
+    nullable: true
+    type: string
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  customer:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./customer.yaml
+      - $ref: ./deleted_customer.yaml
+    description: >-
+      ID of the Customer this SetupIntent belongs to, if one exists.
+
+
+      If present, the SetupIntent's payment method will be attached to the
+      Customer on successful setup. Payment methods attached to other Customers
+      cannot be used with this SetupIntent.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./customer.yaml
+        - $ref: ./deleted_customer.yaml
+  customer_account:
+    description: >-
+      ID of the Account this SetupIntent belongs to, if one exists.
+
+
+      If present, the SetupIntent's payment method will be attached to the
+      Account on successful setup. Payment methods attached to other Accounts
+      cannot be used with this SetupIntent.
+    maxLength: 5000
+    nullable: true
+    type: string
+  description:
+    description: >-
+      An arbitrary string attached to the object. Often useful for displaying to
+      users.
+    maxLength: 5000
+    nullable: true
+    type: string
+  excluded_payment_method_types:
+    description: Payment method types that are excluded from this SetupIntent.
+    items:
+      enum:
+        - acss_debit
+        - affirm
+        - afterpay_clearpay
+        - alipay
+        - alma
+        - amazon_pay
+        - au_becs_debit
+        - bacs_debit
+        - bancontact
+        - billie
+        - bizum
+        - blik
+        - boleto
+        - card
+        - cashapp
+        - crypto
+        - customer_balance
+        - eps
+        - fpx
+        - giropay
+        - grabpay
+        - ideal
+        - kakao_pay
+        - klarna
+        - konbini
+        - kr_card
+        - mb_way
+        - mobilepay
+        - multibanco
+        - naver_pay
+        - nz_bank_account
+        - oxxo
+        - p24
+        - pay_by_bank
+        - payco
+        - paynow
+        - paypal
+        - payto
+        - pix
+        - promptpay
+        - revolut_pay
+        - samsung_pay
+        - satispay
+        - scalapay
+        - sepa_debit
+        - sofort
+        - sunbit
+        - swish
+        - twint
+        - upi
+        - us_bank_account
+        - wechat_pay
+        - zip
+      type: string
+      x-stripeBypassValidation: true
+    nullable: true
+    type: array
+  flow_directions:
+    description: >-
+      Indicates the directions of money movement for which this payment method
+      is intended to be used.
+
+
+      Include `inbound` if you intend to use the payment method as the origin to
+      pull funds from. Include `outbound` if you intend to use the payment
+      method as the destination to send funds to. You can include both if you
+      intend to use the payment method for both purposes.
+    items:
+      enum:
+        - inbound
+        - outbound
+      type: string
+    nullable: true
+    type: array
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  last_setup_error:
+    anyOf:
+      - $ref: ./api_errors.yaml
+    description: The error encountered in the previous SetupIntent confirmation.
+    nullable: true
+  latest_attempt:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./setup_attempt.yaml
+    description: The most recent SetupAttempt for this SetupIntent.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./setup_attempt.yaml
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  managed_payments:
+    anyOf:
+      - $ref: ./smor_resource_managed_payments.yaml
+    nullable: true
+  mandate:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./mandate.yaml
+    description: ID of the multi use Mandate generated by the SetupIntent.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./mandate.yaml
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    nullable: true
+    type: object
+  next_action:
+    anyOf:
+      - $ref: ./setup_intent_next_action.yaml
+    description: >-
+      If present, this property tells you what actions you need to take in order
+      for your customer to continue payment setup.
+    nullable: true
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - setup_intent
+    type: string
+  on_behalf_of:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./account.yaml
+    description: The account (if any) for which the setup is intended.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./account.yaml
+  payment_method:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./payment_method.yaml
+    description: >-
+      ID of the payment method used with this SetupIntent. If the payment method
+      is `card_present` and isn't a digital wallet, then the
+      [generated_card](https://docs.stripe.com/api/setup_attempts/object#setup_attempt_object-payment_method_details-card_present-generated_card)
+      associated with the `latest_attempt` is attached to the Customer instead.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./payment_method.yaml
+  payment_method_configuration_details:
+    anyOf:
+      - $ref: ./payment_method_config_biz_payment_method_configuration_details.yaml
+    description: >-
+      Information about the [payment method
+      configuration](https://docs.stripe.com/api/payment_method_configurations)
+      used for this Setup Intent.
+    nullable: true
+  payment_method_options:
+    anyOf:
+      - $ref: ./setup_intent_payment_method_options.yaml
+    description: Payment method-specific configuration for this SetupIntent.
+    nullable: true
+  payment_method_types:
+    description: >-
+      The list of payment method types (e.g. card) that this SetupIntent is
+      allowed to set up. A list of valid payment method types can be found
+      [here](https://docs.stripe.com/api/payment_methods/object#payment_method_object-type).
+    items:
+      maxLength: 5000
+      type: string
+    type: array
+  single_use_mandate:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./mandate.yaml
+    description: ID of the single_use Mandate generated by the SetupIntent.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./mandate.yaml
+  status:
+    description: >-
+      [Status](https://docs.stripe.com/payments/intents#intent-statuses) of this
+      SetupIntent, one of `requires_payment_method`, `requires_confirmation`,
+      `requires_action`, `processing`, `canceled`, or `succeeded`.
+    enum:
+      - canceled
+      - processing
+      - requires_action
+      - requires_confirmation
+      - requires_payment_method
+      - succeeded
+    type: string
+  usage:
+    description: >-
+      Indicates how the payment method is intended to be used in the future.
+
+
+      Use `on_session` if you intend to only reuse the payment method when the
+      customer is in your checkout flow. Use `off_session` if your customer may
+      or may not be in your checkout flow. If not provided, this value defaults
+      to `off_session`.
+    maxLength: 5000
+    type: string
+required:
+  - created
+  - id
+  - livemode
+  - object
+  - payment_method_types
+  - status
+  - usage
+title: SetupIntent
+type: object
+x-expandableFields:
+  - application
+  - automatic_payment_methods
+  - customer
+  - last_setup_error
+  - latest_attempt
+  - managed_payments
+  - mandate
+  - next_action
+  - on_behalf_of
+  - payment_method
+  - payment_method_configuration_details
+  - payment_method_options
+  - single_use_mandate
+x-resourceId: setup_intent

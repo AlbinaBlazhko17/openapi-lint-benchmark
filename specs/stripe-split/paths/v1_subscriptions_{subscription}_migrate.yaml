@@ -1,0 +1,70 @@
+post:
+  description: <p>Upgrade the billing_mode of an existing subscription.</p>
+  operationId: PostSubscriptionsSubscriptionMigrate
+  parameters:
+    - in: path
+      name: subscription
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          billing_mode:
+            explode: true
+            style: deepObject
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            billing_mode:
+              description: >-
+                Controls how prorations and invoices for subscriptions are
+                calculated and orchestrated.
+              properties:
+                flexible:
+                  properties:
+                    proration_discounts:
+                      enum:
+                        - included
+                        - itemized
+                      type: string
+                  title: flexible_params
+                  type: object
+                type:
+                  enum:
+                    - flexible
+                  type: string
+              required:
+                - type
+              title: billing_mode_migrate
+              type: object
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+          required:
+            - billing_mode
+          type: object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/subscription.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Migrate a subscription

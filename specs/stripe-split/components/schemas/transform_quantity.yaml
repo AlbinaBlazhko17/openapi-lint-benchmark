@@ -1,0 +1,17 @@
+description: ''
+properties:
+  divide_by:
+    description: Divide usage by this number.
+    type: integer
+  round:
+    description: After division, either round the result `up` or `down`.
+    enum:
+      - down
+      - up
+    type: string
+required:
+  - divide_by
+  - round
+title: TransformQuantity
+type: object
+x-expandableFields: []

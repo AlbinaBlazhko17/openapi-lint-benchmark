@@ -1,0 +1,16 @@
+description: ''
+properties:
+  line1:
+    description: The street address of the cardholder tokenizing the card.
+    maxLength: 5000
+    type: string
+  postal_code:
+    description: The postal code of the cardholder tokenizing the card.
+    maxLength: 5000
+    type: string
+required:
+  - line1
+  - postal_code
+title: IssuingNetworkTokenAddress
+type: object
+x-expandableFields: []

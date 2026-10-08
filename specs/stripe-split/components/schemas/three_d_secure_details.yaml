@@ -1,0 +1,71 @@
+description: ''
+properties:
+  authentication_flow:
+    description: |-
+      For authenticated transactions: how the customer was authenticated by
+      the issuing bank.
+    enum:
+      - challenge
+      - frictionless
+    nullable: true
+    type: string
+  electronic_commerce_indicator:
+    description: |-
+      The Electronic Commerce Indicator (ECI). A protocol-level field
+      indicating what degree of authentication was performed.
+    enum:
+      - '01'
+      - '02'
+      - '05'
+      - '06'
+      - '07'
+    nullable: true
+    type: string
+    x-stripeBypassValidation: true
+  result:
+    description: Indicates the outcome of 3D Secure authentication.
+    enum:
+      - attempt_acknowledged
+      - authenticated
+      - data_share_only
+      - exempted
+      - failed
+      - not_supported
+      - processing_error
+    nullable: true
+    type: string
+  result_reason:
+    description: |-
+      Additional information about why 3D Secure succeeded or failed based
+      on the `result`.
+    enum:
+      - abandoned
+      - bypassed
+      - canceled
+      - card_not_enrolled
+      - network_not_supported
+      - protocol_error
+      - rejected
+    nullable: true
+    type: string
+  transaction_id:
+    description: |-
+      The 3D Secure 1 XID or 3D Secure 2 Directory Server Transaction ID
+      (dsTransId) for this payment.
+    maxLength: 5000
+    nullable: true
+    type: string
+  version:
+    description: The version of 3D Secure that was used.
+    enum:
+      - 1.0.2
+      - 2.1.0
+      - 2.2.0
+      - 2.3.0
+      - 2.3.1
+    nullable: true
+    type: string
+    x-stripeBypassValidation: true
+title: three_d_secure_details
+type: object
+x-expandableFields: []

@@ -1,0 +1,39 @@
+description: ''
+properties:
+  card_issuing:
+    anyOf:
+      - $ref: ./issuing_cardholder_card_issuing.yaml
+    description: Information related to the card_issuing program for this cardholder.
+    nullable: true
+  dob:
+    anyOf:
+      - $ref: ./issuing_cardholder_individual_dob.yaml
+    description: The date of birth of this cardholder.
+    nullable: true
+  first_name:
+    description: >-
+      The first name of this cardholder. Required before activating Cards. This
+      field cannot contain any numbers, special characters (except periods,
+      commas, hyphens, spaces and apostrophes) or non-latin letters.
+    maxLength: 5000
+    nullable: true
+    type: string
+  last_name:
+    description: >-
+      The last name of this cardholder. Required before activating Cards. This
+      field cannot contain any numbers, special characters (except periods,
+      commas, hyphens, spaces and apostrophes) or non-latin letters.
+    maxLength: 5000
+    nullable: true
+    type: string
+  verification:
+    anyOf:
+      - $ref: ./issuing_cardholder_verification.yaml
+    description: Government-issued ID document for this cardholder.
+    nullable: true
+title: IssuingCardholderIndividual
+type: object
+x-expandableFields:
+  - card_issuing
+  - dob
+  - verification

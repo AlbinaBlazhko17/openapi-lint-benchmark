@@ -1,0 +1,13 @@
+description: ''
+properties:
+  account:
+    anyOf:
+      - $ref: ./person_additional_tos_acceptance.yaml
+    description: >-
+      Details on the legal guardian's acceptance of the main Stripe service
+      agreement.
+    nullable: true
+title: PersonAdditionalTOSAcceptances
+type: object
+x-expandableFields:
+  - account

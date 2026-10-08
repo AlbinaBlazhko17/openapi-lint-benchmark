@@ -1,0 +1,132 @@
+description: >-
+  An Issuing `Cardholder` object represents an individual or business entity who
+  is [issued](https://docs.stripe.com/issuing) cards.
+
+
+  Related guide: [How to create a
+  cardholder](https://docs.stripe.com/issuing/cards/virtual/issue-cards#create-cardholder)
+properties:
+  billing:
+    $ref: ./issuing_cardholder_address.yaml
+  company:
+    anyOf:
+      - $ref: ./issuing_cardholder_company.yaml
+    description: Additional information about a `company` cardholder.
+    nullable: true
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  email:
+    description: The cardholder's email address.
+    maxLength: 5000
+    nullable: true
+    type: string
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  individual:
+    anyOf:
+      - $ref: ./issuing_cardholder_individual.yaml
+    description: Additional information about an `individual` cardholder.
+    nullable: true
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    type: object
+  name:
+    description: The cardholder's name. This will be printed on cards issued to them.
+    maxLength: 5000
+    type: string
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - issuing.cardholder
+    type: string
+  phone_number:
+    description: >-
+      The cardholder's phone number. This is required for all cardholders who
+      will be creating EU cards. See the [3D Secure
+      documentation](https://docs.stripe.com/issuing/3d-secure#when-is-3d-secure-applied)
+      for more details.
+    maxLength: 5000
+    nullable: true
+    type: string
+  preferred_locales:
+    description: >-
+      The cardholder’s preferred locales (languages), ordered by preference.
+      Locales can be `de`, `en`, `es`, `fr`, or `it`.
+       This changes the language of the [3D Secure flow](https://docs.stripe.com/issuing/3d-secure) and one-time password messages sent to the cardholder.
+    items:
+      enum:
+        - de
+        - en
+        - es
+        - fr
+        - it
+      type: string
+      x-stripeBypassValidation: true
+    nullable: true
+    type: array
+  requirements:
+    $ref: ./issuing_cardholder_requirements.yaml
+  spending_controls:
+    anyOf:
+      - $ref: ./issuing_cardholder_authorization_controls.yaml
+    description: >-
+      Rules that control spending across this cardholder's cards. Refer to our
+      [documentation](https://docs.stripe.com/issuing/controls/spending-controls)
+      for more details.
+    nullable: true
+  status:
+    description: Specifies whether to permit authorizations on this cardholder's cards.
+    enum:
+      - active
+      - blocked
+      - inactive
+    type: string
+  type:
+    description: >-
+      One of `individual` or `company`. See [Choose a cardholder
+      type](https://docs.stripe.com/issuing/other/choose-cardholder) for more
+      details.
+    enum:
+      - company
+      - individual
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - billing
+  - created
+  - id
+  - livemode
+  - metadata
+  - name
+  - object
+  - requirements
+  - status
+  - type
+title: Cardholder
+type: object
+x-expandableFields:
+  - billing
+  - company
+  - individual
+  - requirements
+  - spending_controls
+x-resourceId: issuing.cardholder

@@ -1,0 +1,29 @@
+description: ''
+properties:
+  fingerprint:
+    description: >-
+      Uniquely identifies this particular WeChat Pay account. You can use this
+      attribute to check whether two WeChat accounts are the same.
+    maxLength: 5000
+    nullable: true
+    type: string
+  location:
+    description: >-
+      ID of the [location](https://docs.stripe.com/api/terminal/locations) that
+      this transaction's reader is assigned to.
+    maxLength: 5000
+    type: string
+  reader:
+    description: >-
+      ID of the [reader](https://docs.stripe.com/api/terminal/readers) this
+      transaction was made on.
+    maxLength: 5000
+    type: string
+  transaction_id:
+    description: Transaction ID of this particular WeChat Pay transaction.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: payment_method_details_payment_record_wechat_pay
+type: object
+x-expandableFields: []

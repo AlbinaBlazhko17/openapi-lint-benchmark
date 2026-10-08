@@ -1,0 +1,33 @@
+description: ''
+properties:
+  back:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./file.yaml
+    description: >-
+      The back of a document returned by a [file
+      upload](https://api.stripe.com#create_file) with a `purpose` value of
+      `identity_document`.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./file.yaml
+  front:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./file.yaml
+    description: >-
+      The front of a document returned by a [file
+      upload](https://api.stripe.com#create_file) with a `purpose` value of
+      `identity_document`.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./file.yaml
+title: IssuingCardholderIdDocument
+type: object
+x-expandableFields:
+  - back
+  - front

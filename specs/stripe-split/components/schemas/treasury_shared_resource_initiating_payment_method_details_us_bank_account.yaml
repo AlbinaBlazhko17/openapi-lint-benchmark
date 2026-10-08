@@ -1,0 +1,20 @@
+description: ''
+properties:
+  bank_name:
+    description: Bank name.
+    maxLength: 5000
+    nullable: true
+    type: string
+  last4:
+    description: The last four digits of the bank account number.
+    maxLength: 5000
+    nullable: true
+    type: string
+  routing_number:
+    description: The routing number for the bank account.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: TreasurySharedResourceInitiatingPaymentMethodDetailsUSBankAccount
+type: object
+x-expandableFields: []

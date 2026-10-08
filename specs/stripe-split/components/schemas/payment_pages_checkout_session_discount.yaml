@@ -1,0 +1,27 @@
+description: ''
+properties:
+  coupon:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./coupon.yaml
+    description: Coupon attached to the Checkout Session.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./coupon.yaml
+  promotion_code:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./promotion_code.yaml
+    description: Promotion code attached to the Checkout Session.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./promotion_code.yaml
+title: PaymentPagesCheckoutSessionDiscount
+type: object
+x-expandableFields:
+  - coupon
+  - promotion_code

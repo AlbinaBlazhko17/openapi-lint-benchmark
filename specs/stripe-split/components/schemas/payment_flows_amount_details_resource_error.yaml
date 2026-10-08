@@ -1,0 +1,19 @@
+description: ''
+properties:
+  code:
+    description: >-
+      The code of the error that occurred when validating the current amount
+      details.
+    enum:
+      - amount_details_amount_mismatch
+      - amount_details_tax_shipping_discount_greater_than_amount
+    nullable: true
+    type: string
+  message:
+    description: A message providing more details about the error.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: PaymentFlowsAmountDetailsResourceError
+type: object
+x-expandableFields: []

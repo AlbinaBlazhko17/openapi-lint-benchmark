@@ -1,0 +1,28 @@
+description: ''
+properties:
+  mode:
+    description: The address validation capabilities to use.
+    enum:
+      - disabled
+      - normalization_only
+      - validation_and_normalization
+    type: string
+  normalized_address:
+    anyOf:
+      - $ref: ./address.yaml
+    description: The normalized shipping address.
+    nullable: true
+  result:
+    description: The validation result for the shipping address.
+    enum:
+      - indeterminate
+      - likely_deliverable
+      - likely_undeliverable
+    nullable: true
+    type: string
+required:
+  - mode
+title: IssuingCardShippingAddressValidation
+type: object
+x-expandableFields:
+  - normalized_address

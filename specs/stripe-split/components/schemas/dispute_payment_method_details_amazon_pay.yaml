@@ -1,0 +1,12 @@
+description: ''
+properties:
+  dispute_type:
+    description: The AmazonPay dispute type, chargeback or claim
+    enum:
+      - chargeback
+      - claim
+    nullable: true
+    type: string
+title: DisputePaymentMethodDetailsAmazonPay
+type: object
+x-expandableFields: []

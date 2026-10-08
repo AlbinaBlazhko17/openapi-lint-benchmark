@@ -1,0 +1,33 @@
+description: ''
+properties:
+  address:
+    anyOf:
+      - $ref: ./address.yaml
+    description: Billing address.
+    nullable: true
+  email:
+    description: Email address.
+    maxLength: 5000
+    nullable: true
+    type: string
+  name:
+    description: Full name.
+    maxLength: 5000
+    nullable: true
+    type: string
+  phone:
+    description: Billing phone number (including extension).
+    maxLength: 5000
+    nullable: true
+    type: string
+  tax_id:
+    description: >-
+      Taxpayer identification number. Used only for transactions between LATAM
+      buyers and non-LATAM sellers.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: billing_details
+type: object
+x-expandableFields:
+  - address

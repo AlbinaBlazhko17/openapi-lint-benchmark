@@ -1,0 +1,27 @@
+description: ''
+properties:
+  charge:
+    description: The charge that created this object.
+    maxLength: 5000
+    nullable: true
+    type: string
+  payment_method_details:
+    anyOf:
+      - $ref: ./card_generated_from_payment_method_details.yaml
+    description: Transaction-specific details of the payment method used in the payment.
+    nullable: true
+  setup_attempt:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./setup_attempt.yaml
+    description: The ID of the SetupAttempt that generated this PaymentMethod, if any.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./setup_attempt.yaml
+title: payment_method_card_generated_card
+type: object
+x-expandableFields:
+  - payment_method_details
+  - setup_attempt

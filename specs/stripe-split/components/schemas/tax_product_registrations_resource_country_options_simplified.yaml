@@ -1,0 +1,12 @@
+description: ''
+properties:
+  type:
+    description: Type of registration in `country`.
+    enum:
+      - simplified
+    type: string
+required:
+  - type
+title: TaxProductRegistrationsResourceCountryOptionsSimplified
+type: object
+x-expandableFields: []

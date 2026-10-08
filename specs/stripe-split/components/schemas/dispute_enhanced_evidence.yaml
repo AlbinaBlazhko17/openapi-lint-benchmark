@@ -1,0 +1,14 @@
+description: ''
+properties:
+  mastercard_compliance:
+    $ref: ./dispute_enhanced_evidence_mastercard_compliance.yaml
+  visa_compelling_evidence_3:
+    $ref: ./dispute_enhanced_evidence_visa_compelling_evidence3.yaml
+  visa_compliance:
+    $ref: ./dispute_enhanced_evidence_visa_compliance.yaml
+title: DisputeEnhancedEvidence
+type: object
+x-expandableFields:
+  - mastercard_compliance
+  - visa_compelling_evidence_3
+  - visa_compliance

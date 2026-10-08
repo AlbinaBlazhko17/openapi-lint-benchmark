@@ -1,0 +1,16 @@
+description: ''
+properties:
+  enabled:
+    description: Indicates whether individual name collection is enabled for the session
+    type: boolean
+  optional:
+    description: >-
+      Whether the customer is required to complete the field before completing
+      the Checkout Session. Defaults to `false`.
+    type: boolean
+required:
+  - enabled
+  - optional
+title: PaymentPagesCheckoutSessionIndividualName
+type: object
+x-expandableFields: []

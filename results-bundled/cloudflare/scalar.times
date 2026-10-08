@@ -1,0 +1,2 @@
+/home/runner/work/_temp/f901fefc-1299-498e-a2e5-3ca6b193880d.sh: line 3:  4915 Killed                  timeout -s KILL 300 scalar document lint cloudflare.yaml > $RESULTS/cloudflare/scalar.$run.txt 2>&1
+300.002

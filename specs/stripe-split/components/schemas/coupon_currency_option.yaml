@@ -1,0 +1,12 @@
+description: ''
+properties:
+  amount_off:
+    description: >-
+      Amount (in the `currency` specified) that will be taken off the subtotal
+      of any invoices for this customer.
+    type: integer
+required:
+  - amount_off
+title: CouponCurrencyOption
+type: object
+x-expandableFields: []

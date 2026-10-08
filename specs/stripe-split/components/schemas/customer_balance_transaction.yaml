@@ -1,0 +1,164 @@
+description: >-
+  Each customer has a
+  [Balance](https://docs.stripe.com/api/customers/object#customer_object-balance)
+  value,
+
+  which denotes a debit or credit that's automatically applied to their next
+  invoice upon finalization.
+
+  You may modify the value directly by using the [update customer
+  API](https://docs.stripe.com/api/customers/update),
+
+  or by creating a Customer Balance Transaction, which increments or decrements
+  the customer's `balance` by the specified `amount`.
+
+
+  Related guide: [Customer
+  balance](https://docs.stripe.com/billing/customer/balance)
+properties:
+  amount:
+    description: >-
+      The amount of the transaction. A negative value is a credit for the
+      customer's balance, and a positive value is a debit to the customer's
+      `balance`.
+    type: integer
+  checkout_session:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./checkout.session.yaml
+    description: The ID of the checkout session (if any) that created the transaction.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./checkout.session.yaml
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  credit_note:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./credit_note.yaml
+    description: The ID of the credit note (if any) related to the transaction.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./credit_note.yaml
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    format: currency
+    type: string
+  customer:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./customer.yaml
+    description: The ID of the customer the transaction belongs to.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./customer.yaml
+  customer_account:
+    description: >-
+      The ID of an Account representing a customer that the transaction belongs
+      to.
+    maxLength: 5000
+    nullable: true
+    type: string
+  description:
+    description: >-
+      An arbitrary string attached to the object. Often useful for displaying to
+      users.
+    maxLength: 5000
+    nullable: true
+    type: string
+  ending_balance:
+    description: >-
+      The customer's `balance` after the transaction was applied. A negative
+      value decreases the amount due on the customer's next invoice. A positive
+      value increases the amount due on the customer's next invoice.
+    type: integer
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  invoice:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./invoice.yaml
+    description: The ID of the invoice (if any) related to the transaction.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./invoice.yaml
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    nullable: true
+    type: object
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - customer_balance_transaction
+    type: string
+  type:
+    description: >-
+      Transaction type: `adjustment`, `applied_to_invoice`, `credit_note`,
+      `initial`, `invoice_overpaid`, `invoice_too_large`, `invoice_too_small`,
+      `unspent_receiver_credit`, `unapplied_from_invoice`,
+      `checkout_session_subscription_payment`, or
+      `checkout_session_subscription_payment_canceled`. See the [Customer
+      Balance page](https://docs.stripe.com/billing/customer/balance#types) to
+      learn more about transaction types.
+    enum:
+      - adjustment
+      - applied_to_invoice
+      - checkout_session_subscription_payment
+      - checkout_session_subscription_payment_canceled
+      - credit_note
+      - initial
+      - invoice_overpaid
+      - invoice_too_large
+      - invoice_too_small
+      - migration
+      - unapplied_from_invoice
+      - unspent_receiver_credit
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - amount
+  - created
+  - currency
+  - customer
+  - ending_balance
+  - id
+  - livemode
+  - object
+  - type
+title: Customer Balance Transaction
+type: object
+x-expandableFields:
+  - checkout_session
+  - credit_note
+  - customer
+  - invoice
+x-resourceId: customer_balance_transaction

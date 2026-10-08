@@ -1,0 +1,452 @@
+name: Benchmark (bundled)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths-ignore:
+      - README.md
+      - BUNDLED.md
+      - results/**
+      - results-bundled/**
+
+permissions:
+  contents: write
+
+concurrency:
+  group: benchmark-bundled
+  cancel-in-progress: false
+
+# The same benchmark as benchmark.yml, but every input is a single file produced by
+# `redocly bundle` from the multi-file source. Every tool is installed at its latest release
+# in its own step, then runs 5 times from the spec's directory, one process at a time,
+# after a 5 s pause.
+# `time` reports wall-clock seconds (the last line of each install step is its install time);
+# `timeout -s KILL 300` stops a run after 5 minutes (exit 137) and ends that tool's loop.
+# Redocly CLI is in the middle of the order.
+env:
+  TIMEFORMAT: "%R"
+  RESULTS: ${{ github.workspace }}/results-bundled
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Prepare results directory
+        run: |
+          rm -rf results-bundled
+          mkdir -p results-bundled/stripe results-bundled/digitalocean results-bundled/azure results-bundled/github results-bundled/cloudflare results-bundled/aws-ec2
+
+      # ---- Install ----------------------------------------------------------------------------
+
+      - name: Install vacuum
+        run: |
+          time {
+            version=$(curl -fsSLI -o /dev/null -w '%{url_effective}' https://github.com/daveshanley/vacuum/releases/latest | sed 's#.*/tag/v##')
+            curl -fsSL "https://github.com/daveshanley/vacuum/releases/download/v${version}/vacuum_${version}_linux_x86_64.tar.gz" | sudo tar -xz -C /usr/local/bin vacuum
+          }
+
+      - name: Install Spectral
+        run: time npm install -g @stoplight/spectral-cli@latest
+
+      - name: Install Redocly CLI
+        run: time npm install -g @redocly/cli@latest
+
+      - name: Install Scalar CLI
+        run: time npm install -g @scalar/cli@latest
+
+      - name: Install Speakeasy CLI
+        run: |
+          time {
+            version=$(curl -fsSLI -o /dev/null -w '%{url_effective}' https://github.com/speakeasy-api/speakeasy/releases/latest | sed 's#.*/tag/v##')
+            curl -fsSL -o speakeasy.zip "https://github.com/speakeasy-api/speakeasy/releases/download/v${version}/speakeasy_linux_amd64.zip"
+            sudo unzip -oq speakeasy.zip speakeasy -d /usr/local/bin
+            rm speakeasy.zip
+          }
+
+      - name: Warm up and record versions and machine
+        run: |
+          {
+            echo "vacuum $(vacuum version)"
+            echo "Spectral $(spectral --version)"
+            echo "Redocly CLI $(redocly --version)"
+            echo "Scalar CLI $(scalar --version)"
+            echo "Speakeasy CLI $(speakeasy --version | head -1 | awk '{print $NF}')"
+          } | tee results-bundled/versions.txt
+          echo "$(lscpu | sed -n 's/^Model name: *//p'), $(nproc) cores, $(free -g | awk '/^Mem/ {print $2}') GB RAM, $(uname -sr), Node $(node --version)" | tee results-bundled/machine.txt
+          echo "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" > results-bundled/run.txt
+          date -u +"%Y-%m-%d %H:%M UTC" >> results-bundled/run.txt
+
+      # ---- Stripe, bundled ---------------------------------------------------------------------
+
+      - name: vacuum, Stripe bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 vacuum lint stripe.yaml > $RESULTS/stripe/vacuum.$run.txt 2>&1; echo "exit $?" >> $RESULTS/stripe/vacuum.$run.txt; } 2>> $RESULTS/stripe/vacuum.times
+            if grep -qx "exit 137" $RESULTS/stripe/vacuum.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/stripe/vacuum.times) s"
+          done
+
+      - name: Spectral, Stripe bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 spectral lint stripe.yaml --ruleset $GITHUB_WORKSPACE/.spectral.yaml > $RESULTS/stripe/spectral.$run.txt 2>&1; echo "exit $?" >> $RESULTS/stripe/spectral.$run.txt; } 2>> $RESULTS/stripe/spectral.times
+            if grep -qx "exit 137" $RESULTS/stripe/spectral.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/stripe/spectral.times) s"
+          done
+
+      - name: Redocly CLI, Stripe bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 redocly lint stripe.yaml > $RESULTS/stripe/redocly.$run.txt 2>&1; echo "exit $?" >> $RESULTS/stripe/redocly.$run.txt; } 2>> $RESULTS/stripe/redocly.times
+            if grep -qx "exit 137" $RESULTS/stripe/redocly.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/stripe/redocly.times) s"
+          done
+
+      - name: Scalar CLI, Stripe bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 scalar document lint stripe.yaml > $RESULTS/stripe/scalar.$run.txt 2>&1; echo "exit $?" >> $RESULTS/stripe/scalar.$run.txt; } 2>> $RESULTS/stripe/scalar.times
+            if grep -qx "exit 137" $RESULTS/stripe/scalar.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/stripe/scalar.times) s"
+          done
+
+      - name: Speakeasy CLI, Stripe bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 env -u GITHUB_ACTIONS speakeasy lint openapi --schema stripe.yaml --non-interactive > $RESULTS/stripe/speakeasy.$run.txt 2>&1; echo "exit $?" >> $RESULTS/stripe/speakeasy.$run.txt; } 2>> $RESULTS/stripe/speakeasy.times
+            if grep -qx "exit 137" $RESULTS/stripe/speakeasy.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/stripe/speakeasy.times) s"
+          done
+
+      # ---- DigitalOcean, bundled ---------------------------------------------------------------
+
+      - name: vacuum, DigitalOcean bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 vacuum lint digitalocean.yaml > $RESULTS/digitalocean/vacuum.$run.txt 2>&1; echo "exit $?" >> $RESULTS/digitalocean/vacuum.$run.txt; } 2>> $RESULTS/digitalocean/vacuum.times
+            if grep -qx "exit 137" $RESULTS/digitalocean/vacuum.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/digitalocean/vacuum.times) s"
+          done
+
+      - name: Spectral, DigitalOcean bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 spectral lint digitalocean.yaml --ruleset $GITHUB_WORKSPACE/.spectral.yaml > $RESULTS/digitalocean/spectral.$run.txt 2>&1; echo "exit $?" >> $RESULTS/digitalocean/spectral.$run.txt; } 2>> $RESULTS/digitalocean/spectral.times
+            if grep -qx "exit 137" $RESULTS/digitalocean/spectral.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/digitalocean/spectral.times) s"
+          done
+
+      - name: Redocly CLI, DigitalOcean bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 redocly lint digitalocean.yaml > $RESULTS/digitalocean/redocly.$run.txt 2>&1; echo "exit $?" >> $RESULTS/digitalocean/redocly.$run.txt; } 2>> $RESULTS/digitalocean/redocly.times
+            if grep -qx "exit 137" $RESULTS/digitalocean/redocly.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/digitalocean/redocly.times) s"
+          done
+
+      - name: Scalar CLI, DigitalOcean bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 scalar document lint digitalocean.yaml > $RESULTS/digitalocean/scalar.$run.txt 2>&1; echo "exit $?" >> $RESULTS/digitalocean/scalar.$run.txt; } 2>> $RESULTS/digitalocean/scalar.times
+            if grep -qx "exit 137" $RESULTS/digitalocean/scalar.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/digitalocean/scalar.times) s"
+          done
+
+      - name: Speakeasy CLI, DigitalOcean bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 env -u GITHUB_ACTIONS speakeasy lint openapi --schema digitalocean.yaml --non-interactive > $RESULTS/digitalocean/speakeasy.$run.txt 2>&1; echo "exit $?" >> $RESULTS/digitalocean/speakeasy.$run.txt; } 2>> $RESULTS/digitalocean/speakeasy.times
+            if grep -qx "exit 137" $RESULTS/digitalocean/speakeasy.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/digitalocean/speakeasy.times) s"
+          done
+
+      # ---- Azure Compute, bundled (Swagger 2.0) ------------------------------------------------
+
+      - name: vacuum, Azure bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 vacuum lint azure.yaml > $RESULTS/azure/vacuum.$run.txt 2>&1; echo "exit $?" >> $RESULTS/azure/vacuum.$run.txt; } 2>> $RESULTS/azure/vacuum.times
+            if grep -qx "exit 137" $RESULTS/azure/vacuum.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/azure/vacuum.times) s"
+          done
+
+      - name: Spectral, Azure bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 spectral lint azure.yaml --ruleset $GITHUB_WORKSPACE/.spectral.yaml > $RESULTS/azure/spectral.$run.txt 2>&1; echo "exit $?" >> $RESULTS/azure/spectral.$run.txt; } 2>> $RESULTS/azure/spectral.times
+            if grep -qx "exit 137" $RESULTS/azure/spectral.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/azure/spectral.times) s"
+          done
+
+      - name: Redocly CLI, Azure bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 redocly lint azure.yaml > $RESULTS/azure/redocly.$run.txt 2>&1; echo "exit $?" >> $RESULTS/azure/redocly.$run.txt; } 2>> $RESULTS/azure/redocly.times
+            if grep -qx "exit 137" $RESULTS/azure/redocly.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/azure/redocly.times) s"
+          done
+
+      - name: Scalar CLI, Azure bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 scalar document lint azure.yaml > $RESULTS/azure/scalar.$run.txt 2>&1; echo "exit $?" >> $RESULTS/azure/scalar.$run.txt; } 2>> $RESULTS/azure/scalar.times
+            if grep -qx "exit 137" $RESULTS/azure/scalar.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/azure/scalar.times) s"
+          done
+
+      - name: Speakeasy CLI, Azure bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 env -u GITHUB_ACTIONS speakeasy lint openapi --schema azure.yaml --non-interactive > $RESULTS/azure/speakeasy.$run.txt 2>&1; echo "exit $?" >> $RESULTS/azure/speakeasy.$run.txt; } 2>> $RESULTS/azure/speakeasy.times
+            if grep -qx "exit 137" $RESULTS/azure/speakeasy.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/azure/speakeasy.times) s"
+          done
+
+      # ---- GitHub, bundled -----------------------------------------------------------------------
+
+      - name: vacuum, GitHub bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 vacuum lint github.yaml > $RESULTS/github/vacuum.$run.txt 2>&1; echo "exit $?" >> $RESULTS/github/vacuum.$run.txt; } 2>> $RESULTS/github/vacuum.times
+            if grep -qx "exit 137" $RESULTS/github/vacuum.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/github/vacuum.times) s"
+          done
+
+      - name: Spectral, GitHub bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 spectral lint github.yaml --ruleset $GITHUB_WORKSPACE/.spectral.yaml > $RESULTS/github/spectral.$run.txt 2>&1; echo "exit $?" >> $RESULTS/github/spectral.$run.txt; } 2>> $RESULTS/github/spectral.times
+            if grep -qx "exit 137" $RESULTS/github/spectral.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/github/spectral.times) s"
+          done
+
+      - name: Redocly CLI, GitHub bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 redocly lint github.yaml > $RESULTS/github/redocly.$run.txt 2>&1; echo "exit $?" >> $RESULTS/github/redocly.$run.txt; } 2>> $RESULTS/github/redocly.times
+            if grep -qx "exit 137" $RESULTS/github/redocly.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/github/redocly.times) s"
+          done
+
+      - name: Scalar CLI, GitHub bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 scalar document lint github.yaml > $RESULTS/github/scalar.$run.txt 2>&1; echo "exit $?" >> $RESULTS/github/scalar.$run.txt; } 2>> $RESULTS/github/scalar.times
+            if grep -qx "exit 137" $RESULTS/github/scalar.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/github/scalar.times) s"
+          done
+
+      - name: Speakeasy CLI, GitHub bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 env -u GITHUB_ACTIONS speakeasy lint openapi --schema github.yaml --non-interactive > $RESULTS/github/speakeasy.$run.txt 2>&1; echo "exit $?" >> $RESULTS/github/speakeasy.$run.txt; } 2>> $RESULTS/github/speakeasy.times
+            if grep -qx "exit 137" $RESULTS/github/speakeasy.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/github/speakeasy.times) s"
+          done
+
+      # ---- Cloudflare, bundled -------------------------------------------------------------------
+
+      - name: vacuum, Cloudflare bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 vacuum lint cloudflare.yaml > $RESULTS/cloudflare/vacuum.$run.txt 2>&1; echo "exit $?" >> $RESULTS/cloudflare/vacuum.$run.txt; } 2>> $RESULTS/cloudflare/vacuum.times
+            if grep -qx "exit 137" $RESULTS/cloudflare/vacuum.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/cloudflare/vacuum.times) s"
+          done
+
+      - name: Spectral, Cloudflare bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 spectral lint cloudflare.yaml --ruleset $GITHUB_WORKSPACE/.spectral.yaml > $RESULTS/cloudflare/spectral.$run.txt 2>&1; echo "exit $?" >> $RESULTS/cloudflare/spectral.$run.txt; } 2>> $RESULTS/cloudflare/spectral.times
+            if grep -qx "exit 137" $RESULTS/cloudflare/spectral.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/cloudflare/spectral.times) s"
+          done
+
+      - name: Redocly CLI, Cloudflare bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 redocly lint cloudflare.yaml > $RESULTS/cloudflare/redocly.$run.txt 2>&1; echo "exit $?" >> $RESULTS/cloudflare/redocly.$run.txt; } 2>> $RESULTS/cloudflare/redocly.times
+            if grep -qx "exit 137" $RESULTS/cloudflare/redocly.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/cloudflare/redocly.times) s"
+          done
+
+      - name: Scalar CLI, Cloudflare bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 scalar document lint cloudflare.yaml > $RESULTS/cloudflare/scalar.$run.txt 2>&1; echo "exit $?" >> $RESULTS/cloudflare/scalar.$run.txt; } 2>> $RESULTS/cloudflare/scalar.times
+            if grep -qx "exit 137" $RESULTS/cloudflare/scalar.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/cloudflare/scalar.times) s"
+          done
+
+      - name: Speakeasy CLI, Cloudflare bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 env -u GITHUB_ACTIONS speakeasy lint openapi --schema cloudflare.yaml --non-interactive > $RESULTS/cloudflare/speakeasy.$run.txt 2>&1; echo "exit $?" >> $RESULTS/cloudflare/speakeasy.$run.txt; } 2>> $RESULTS/cloudflare/speakeasy.times
+            if grep -qx "exit 137" $RESULTS/cloudflare/speakeasy.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/cloudflare/speakeasy.times) s"
+          done
+
+      # ---- AWS EC2, bundled ----------------------------------------------------------------------
+
+      - name: vacuum, AWS EC2 bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 vacuum lint aws-ec2.yaml > $RESULTS/aws-ec2/vacuum.$run.txt 2>&1; echo "exit $?" >> $RESULTS/aws-ec2/vacuum.$run.txt; } 2>> $RESULTS/aws-ec2/vacuum.times
+            if grep -qx "exit 137" $RESULTS/aws-ec2/vacuum.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/aws-ec2/vacuum.times) s"
+          done
+
+      - name: Spectral, AWS EC2 bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 spectral lint aws-ec2.yaml --ruleset $GITHUB_WORKSPACE/.spectral.yaml > $RESULTS/aws-ec2/spectral.$run.txt 2>&1; echo "exit $?" >> $RESULTS/aws-ec2/spectral.$run.txt; } 2>> $RESULTS/aws-ec2/spectral.times
+            if grep -qx "exit 137" $RESULTS/aws-ec2/spectral.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/aws-ec2/spectral.times) s"
+          done
+
+      - name: Redocly CLI, AWS EC2 bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 redocly lint aws-ec2.yaml > $RESULTS/aws-ec2/redocly.$run.txt 2>&1; echo "exit $?" >> $RESULTS/aws-ec2/redocly.$run.txt; } 2>> $RESULTS/aws-ec2/redocly.times
+            if grep -qx "exit 137" $RESULTS/aws-ec2/redocly.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/aws-ec2/redocly.times) s"
+          done
+
+      - name: Scalar CLI, AWS EC2 bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 scalar document lint aws-ec2.yaml > $RESULTS/aws-ec2/scalar.$run.txt 2>&1; echo "exit $?" >> $RESULTS/aws-ec2/scalar.$run.txt; } 2>> $RESULTS/aws-ec2/scalar.times
+            if grep -qx "exit 137" $RESULTS/aws-ec2/scalar.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/aws-ec2/scalar.times) s"
+          done
+
+      - name: Speakeasy CLI, AWS EC2 bundled
+        working-directory: specs/bundled
+        run: |
+          sleep 5
+          set +e
+          for run in 1 2 3 4 5; do
+            { time timeout -s KILL 300 env -u GITHUB_ACTIONS speakeasy lint openapi --schema aws-ec2.yaml --non-interactive > $RESULTS/aws-ec2/speakeasy.$run.txt 2>&1; echo "exit $?" >> $RESULTS/aws-ec2/speakeasy.$run.txt; } 2>> $RESULTS/aws-ec2/speakeasy.times
+            if grep -qx "exit 137" $RESULTS/aws-ec2/speakeasy.$run.txt; then echo "run $run: killed after 300 s"; break; fi
+            echo "run $run: $(tail -1 $RESULTS/aws-ec2/speakeasy.times) s"
+          done
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: results-bundled
+          path: results-bundled
+
+      - name: Render BUNDLED.md
+        run: node scripts/render-bundled.mjs
+
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add BUNDLED.md results-bundled
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "chore: update bundled benchmark results [skip ci]"
+          for attempt in 1 2 3; do
+            git push && exit 0
+            git fetch origin main
+            git rebase -X theirs origin/main
+          done
+          exit 1

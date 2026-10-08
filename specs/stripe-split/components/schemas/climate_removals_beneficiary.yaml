@@ -1,0 +1,11 @@
+description: ''
+properties:
+  public_name:
+    description: Publicly displayable name for the end beneficiary of carbon removal.
+    maxLength: 5000
+    type: string
+required:
+  - public_name
+title: ClimateRemovalsBeneficiary
+type: object
+x-expandableFields: []

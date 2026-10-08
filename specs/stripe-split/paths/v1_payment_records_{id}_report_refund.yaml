@@ -1,0 +1,135 @@
+post:
+  description: >-
+    <p>Report that the most recent payment attempt on the specified Payment
+    Record
+     was refunded.</p>
+  operationId: PostPaymentRecordsIdReportRefund
+  parameters:
+    - description: The ID of the Payment Record.
+      in: path
+      name: id
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          amount:
+            explode: true
+            style: deepObject
+          expand:
+            explode: true
+            style: deepObject
+          metadata:
+            explode: true
+            style: deepObject
+          processor_details:
+            explode: true
+            style: deepObject
+          refunded:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            amount:
+              description: >-
+                A positive integer in the [smallest currency
+                unit](https://docs.stripe.com/currencies#zero-decimal)
+                representing how much of this payment to refund. Can refund only
+                up to the remaining, unrefunded amount of the payment.
+              properties:
+                currency:
+                  format: currency
+                  type: string
+                value:
+                  type: integer
+              required:
+                - currency
+                - value
+              title: amount
+              type: object
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            initiated_at:
+              description: >-
+                When the reported refund was initiated. Measured in seconds
+                since the Unix epoch.
+              format: unix-time
+              type: integer
+            metadata:
+              anyOf:
+                - additionalProperties:
+                    type: string
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                Set of [key-value pairs](https://docs.stripe.com/api/metadata)
+                that you can attach to an object. This can be useful for storing
+                additional information about the object in a structured format.
+                Individual keys can be unset by posting an empty value to them.
+                All keys can be unset by posting an empty value to `metadata`.
+            outcome:
+              description: The outcome of the reported refund.
+              enum:
+                - refunded
+              type: string
+              x-stripeBypassValidation: true
+            processor_details:
+              description: Processor information for this refund.
+              properties:
+                custom:
+                  properties:
+                    refund_reference:
+                      maxLength: 5000
+                      type: string
+                  required:
+                    - refund_reference
+                  title: custom
+                  type: object
+                type:
+                  enum:
+                    - custom
+                  type: string
+              required:
+                - type
+              title: processor_details
+              type: object
+            refunded:
+              description: Information about the payment attempt refund.
+              properties:
+                refunded_at:
+                  format: unix-time
+                  type: integer
+              required:
+                - refunded_at
+              title: refunded
+              type: object
+          required:
+            - outcome
+            - processor_details
+          type: object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/payment_record.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Report a refund

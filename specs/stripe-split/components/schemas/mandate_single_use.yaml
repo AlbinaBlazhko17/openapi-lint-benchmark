@@ -1,0 +1,15 @@
+description: ''
+properties:
+  amount:
+    description: The amount of the payment on a single use mandate.
+    type: integer
+  currency:
+    description: The currency of the payment on a single use mandate.
+    format: currency
+    type: string
+required:
+  - amount
+  - currency
+title: mandate_single_use
+type: object
+x-expandableFields: []

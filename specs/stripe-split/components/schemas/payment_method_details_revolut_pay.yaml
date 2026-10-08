@@ -1,0 +1,13 @@
+description: ''
+properties:
+  funding:
+    $ref: ./revolut_pay_underlying_payment_method_funding_details.yaml
+  transaction_id:
+    description: The Revolut Pay transaction ID associated with this payment.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: payment_method_details_revolut_pay
+type: object
+x-expandableFields:
+  - funding

@@ -1,0 +1,23 @@
+description: ''
+properties:
+  disputed_transaction:
+    anyOf:
+      - $ref: ./dispute_visa_compelling_evidence3_disputed_transaction.yaml
+    description: >-
+      Disputed transaction details for Visa Compelling Evidence 3.0 evidence
+      submission.
+    nullable: true
+  prior_undisputed_transactions:
+    description: >-
+      List of exactly two prior undisputed transaction objects for Visa
+      Compelling Evidence 3.0 evidence submission.
+    items:
+      $ref: ./dispute_visa_compelling_evidence3_prior_undisputed_transaction.yaml
+    type: array
+required:
+  - prior_undisputed_transactions
+title: DisputeEnhancedEvidenceVisaCompellingEvidence3
+type: object
+x-expandableFields:
+  - disputed_transaction
+  - prior_undisputed_transactions

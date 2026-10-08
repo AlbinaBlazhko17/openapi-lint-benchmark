@@ -1,0 +1,23 @@
+description: Information about a selection being collected using a reader
+properties:
+  choices:
+    description: List of possible choices to be selected
+    items:
+      $ref: ./terminal_reader_reader_resource_choice.yaml
+    type: array
+  id:
+    description: The id of the selected choice
+    maxLength: 5000
+    nullable: true
+    type: string
+  text:
+    description: The text of the selected choice
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - choices
+title: TerminalReaderReaderResourceSelection
+type: object
+x-expandableFields:
+  - choices

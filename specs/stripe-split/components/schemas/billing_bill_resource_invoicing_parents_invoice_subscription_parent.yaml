@@ -1,0 +1,34 @@
+description: ''
+properties:
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) defined as
+      subscription metadata when an invoice is created. Becomes an immutable
+      snapshot of the subscription metadata at the time of invoice finalization.
+       *Note: This attribute is populated only for invoices created on or after June 29, 2023.*
+    nullable: true
+    type: object
+  subscription:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./subscription.yaml
+    description: The subscription that generated this invoice
+    x-expansionResources:
+      oneOf:
+        - $ref: ./subscription.yaml
+  subscription_proration_date:
+    description: >-
+      Only set for upcoming invoices that preview prorations. The time used to
+      calculate prorations.
+    format: unix-time
+    type: integer
+required:
+  - subscription
+title: BillingBillResourceInvoicingParentsInvoiceSubscriptionParent
+type: object
+x-expandableFields:
+  - subscription

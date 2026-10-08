@@ -1,0 +1,27 @@
+description: Represents a reader action to process a setup intent
+properties:
+  generated_card:
+    description: >-
+      ID of a card PaymentMethod generated from the card_present PaymentMethod
+      that may be attached to a Customer for future transactions. Only present
+      if it was possible to generate a card PaymentMethod.
+    maxLength: 5000
+    type: string
+  process_config:
+    $ref: ./terminal_reader_reader_resource_process_setup_config.yaml
+  setup_intent:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./setup_intent.yaml
+    description: Most recent SetupIntent processed by the reader.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./setup_intent.yaml
+required:
+  - setup_intent
+title: TerminalReaderReaderResourceProcessSetupIntentAction
+type: object
+x-expandableFields:
+  - process_config
+  - setup_intent

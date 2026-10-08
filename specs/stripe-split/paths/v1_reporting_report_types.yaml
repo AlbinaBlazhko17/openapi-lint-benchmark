@@ -1,0 +1,68 @@
+get:
+  description: <p>Returns a full list of Report Types.</p>
+  operationId: GetReportingReportTypes
+  parameters:
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            description: ''
+            properties:
+              data:
+                items:
+                  $ref: ../components/schemas/reporting.report_type.yaml
+                type: array
+              has_more:
+                description: >-
+                  True if this list has another page of items after this one
+                  that can be fetched.
+                type: boolean
+              object:
+                description: >-
+                  String representing the object's type. Objects of the same
+                  type share the same value. Always has the value `list`.
+                enum:
+                  - list
+                type: string
+              url:
+                description: The URL where this list can be accessed.
+                maxLength: 5000
+                type: string
+            required:
+              - data
+              - has_more
+              - object
+              - url
+            title: FinancialReportingFinanceReportTypeList
+            type: object
+            x-expandableFields:
+              - data
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: List all Report Types

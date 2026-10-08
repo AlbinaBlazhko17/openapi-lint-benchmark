@@ -1,0 +1,108 @@
+description: >-
+  Invoice Payments represent payments made against invoices. Invoice Payments
+  can
+
+  be accessed in two ways:
+
+  1. By expanding the `payments` field on the
+  [Invoice](https://api.stripe.com#invoice) resource.
+
+  2. By using the Invoice Payment retrieve and list endpoints.
+
+
+  Invoice Payments include the mapping between payment objects, such as Payment
+  Intent, and Invoices.
+
+  This resource and its endpoints allows you to easily track if a payment is
+  associated with a specific invoice and
+
+  monitor the allocation details of the payments.
+properties:
+  amount_paid:
+    description: >-
+      Amount that was actually paid for this invoice, in cents (or local
+      equivalent). This field is null until the payment is `paid`. This amount
+      can be less than the `amount_requested` if the PaymentIntent’s
+      `amount_received` is not sufficient to pay all of the invoices that it is
+      attached to.
+    nullable: true
+    type: integer
+  amount_requested:
+    description: >-
+      Amount intended to be paid toward this invoice, in cents (or local
+      equivalent)
+    type: integer
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    maxLength: 5000
+    type: string
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  invoice:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./invoice.yaml
+      - $ref: ./deleted_invoice.yaml
+    description: The invoice that was paid.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./invoice.yaml
+        - $ref: ./deleted_invoice.yaml
+  is_default:
+    description: >-
+      Stripe automatically creates a default InvoicePayment when the invoice is
+      finalized, and keeps it synchronized with the invoice’s
+      `amount_remaining`. The PaymentIntent associated with the default payment
+      can’t be edited or canceled directly.
+    type: boolean
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - invoice_payment
+    type: string
+  payment:
+    $ref: ./invoices_payments_invoice_payment_associated_payment.yaml
+  status:
+    description: The status of the payment, one of `open`, `paid`, or `canceled`.
+    maxLength: 5000
+    type: string
+  status_transitions:
+    $ref: ./invoices_payments_invoice_payment_status_transitions.yaml
+required:
+  - amount_requested
+  - created
+  - currency
+  - id
+  - invoice
+  - is_default
+  - livemode
+  - object
+  - payment
+  - status
+  - status_transitions
+title: Invoice Payment
+type: object
+x-expandableFields:
+  - invoice
+  - payment
+  - status_transitions
+x-resourceId: invoice_payment

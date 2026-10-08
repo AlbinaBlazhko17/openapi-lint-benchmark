@@ -1,0 +1,21 @@
+description: ''
+properties:
+  expires_at:
+    description: The date (unix timestamp) when the QR code expires.
+    format: unix-time
+    type: integer
+  image_url_png:
+    description: The image_url_png string used to render QR code
+    maxLength: 5000
+    type: string
+  image_url_svg:
+    description: The image_url_svg string used to render QR code
+    maxLength: 5000
+    type: string
+required:
+  - expires_at
+  - image_url_png
+  - image_url_svg
+title: PaymentIntentNextActionUPIQRCode
+type: object
+x-expandableFields: []

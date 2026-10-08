@@ -1,0 +1,18 @@
+description: ''
+properties:
+  network:
+    description: The banking network used for this funding.
+    enum:
+      - ach
+      - domestic_wire_us
+      - swift
+    type: string
+  sender_name:
+    description: The full name of the sender, as supplied by the sending bank.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: >-
+  CustomerBalanceResourceCashBalanceTransactionResourceFundedTransactionResourceBankTransferResourceUsBankTransfer
+type: object
+x-expandableFields: []

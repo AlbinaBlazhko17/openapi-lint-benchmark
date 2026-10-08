@@ -1,0 +1,73 @@
+post:
+  description: >-
+    <p>You can cancel a PaymentIntent object when it’s in one of these statuses:
+    <code>requires_payment_method</code>, <code>requires_capture</code>,
+    <code>requires_confirmation</code>, <code>requires_action</code> or, <a
+    href="/docs/payments/intents">in rare cases</a>, <code>processing</code>.
+    </p>
+
+
+    <p>After it’s canceled, no additional charges are made by the PaymentIntent
+    and any operations on the PaymentIntent fail with an error. For
+    PaymentIntents with a <code>status</code> of <code>requires_capture</code>,
+    the remaining <code>amount_capturable</code> is automatically refunded. </p>
+
+
+    <p>You can directly cancel the PaymentIntent for a Checkout Session only
+    when the PaymentIntent has a status of <code>requires_capture</code>.
+    Otherwise, you must <a href="/docs/api/checkout/sessions/expire">expire the
+    Checkout Session</a>.</p>
+  operationId: PostPaymentIntentsIntentCancel
+  parameters:
+    - in: path
+      name: intent
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            cancellation_reason:
+              description: >-
+                Reason for canceling this PaymentIntent. Possible values are:
+                `duplicate`, `fraudulent`, `requested_by_customer`, or
+                `abandoned`
+              enum:
+                - abandoned
+                - duplicate
+                - fraudulent
+                - requested_by_customer
+              maxLength: 5000
+              type: string
+              x-stripeBypassValidation: true
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/payment_intent.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Cancel a PaymentIntent

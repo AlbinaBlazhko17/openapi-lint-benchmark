@@ -1,0 +1,163 @@
+delete:
+  description: >-
+    <p>Deleting plans means new subscribers can’t be added. Existing subscribers
+    aren’t affected.</p>
+  operationId: DeletePlansPlan
+  parameters:
+    - in: path
+      name: plan
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/deleted_plan.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Delete a plan
+get:
+  description: <p>Retrieves the plan with the given ID.</p>
+  operationId: GetPlansPlan
+  parameters:
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+    - in: path
+      name: plan
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/plan.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Retrieve a plan
+post:
+  description: >-
+    <p>Updates the specified plan by setting the values of the parameters
+    passed. Any parameters not provided are left unchanged. By design, you
+    cannot change a plan’s ID, amount, currency, or billing cycle.</p>
+  operationId: PostPlansPlan
+  parameters:
+    - in: path
+      name: plan
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+          metadata:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            active:
+              description: Whether the plan is currently available for new subscriptions.
+              type: boolean
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            metadata:
+              anyOf:
+                - additionalProperties:
+                    type: string
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                Set of [key-value pairs](https://docs.stripe.com/api/metadata)
+                that you can attach to an object. This can be useful for storing
+                additional information about the object in a structured format.
+                Individual keys can be unset by posting an empty value to them.
+                All keys can be unset by posting an empty value to `metadata`.
+            nickname:
+              description: A brief description of the plan, hidden from customers.
+              maxLength: 5000
+              type: string
+            product:
+              description: >-
+                The product the plan belongs to. This cannot be changed once it
+                has been used in a subscription or subscription schedule.
+              maxLength: 5000
+              type: string
+            trial_period_days:
+              description: >-
+                Default number of trial days when subscribing a customer to this
+                plan using
+                [`trial_from_plan=true`](https://docs.stripe.com/api#create_subscription-trial_from_plan).
+              type: integer
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/plan.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Update a plan

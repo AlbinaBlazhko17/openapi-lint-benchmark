@@ -1,0 +1,23 @@
+description: ''
+properties:
+  available_plans:
+    description: Installment plans that may be selected for this PaymentIntent.
+    items:
+      $ref: ./payment_method_details_card_installments_plan.yaml
+    nullable: true
+    type: array
+  enabled:
+    description: Whether Installments are enabled for this PaymentIntent.
+    type: boolean
+  plan:
+    anyOf:
+      - $ref: ./payment_method_details_card_installments_plan.yaml
+    description: Installment plan selected for this PaymentIntent.
+    nullable: true
+required:
+  - enabled
+title: payment_method_options_card_installments
+type: object
+x-expandableFields:
+  - available_plans
+  - plan

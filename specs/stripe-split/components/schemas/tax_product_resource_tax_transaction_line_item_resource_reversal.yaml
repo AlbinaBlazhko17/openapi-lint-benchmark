@@ -1,0 +1,11 @@
+description: ''
+properties:
+  original_line_item:
+    description: The `id` of the line item to reverse in the original transaction.
+    maxLength: 5000
+    type: string
+required:
+  - original_line_item
+title: TaxProductResourceTaxTransactionLineItemResourceReversal
+type: object
+x-expandableFields: []

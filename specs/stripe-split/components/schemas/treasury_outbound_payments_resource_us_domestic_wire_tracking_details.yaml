@@ -1,0 +1,26 @@
+description: ''
+properties:
+  chips:
+    description: >-
+      CHIPS System Sequence Number (SSN) of the OutboundPayment for payments
+      sent over the `us_domestic_wire` network.
+    maxLength: 5000
+    nullable: true
+    type: string
+  imad:
+    description: >-
+      IMAD of the OutboundPayment for payments sent over the `us_domestic_wire`
+      network.
+    maxLength: 5000
+    nullable: true
+    type: string
+  omad:
+    description: >-
+      OMAD of the OutboundPayment for payments sent over the `us_domestic_wire`
+      network.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: TreasuryOutboundPaymentsResourceUSDomesticWireTrackingDetails
+type: object
+x-expandableFields: []

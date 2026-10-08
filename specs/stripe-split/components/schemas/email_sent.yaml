@@ -1,0 +1,16 @@
+description: ''
+properties:
+  email_sent_at:
+    description: The timestamp when the email was sent.
+    format: unix-time
+    type: integer
+  email_sent_to:
+    description: The recipient's email address.
+    maxLength: 5000
+    type: string
+required:
+  - email_sent_at
+  - email_sent_to
+title: EmailSent
+type: object
+x-expandableFields: []

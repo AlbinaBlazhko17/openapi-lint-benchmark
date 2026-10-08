@@ -1,0 +1,28 @@
+description: ''
+properties:
+  debit_negative_balances:
+    description: >-
+      A Boolean indicating if Stripe should try to reclaim negative balances
+      from an attached bank account. See [Understanding Connect account
+      balances](/connect/account-balances) for details. The default value is
+      `false` when
+      [controller.requirement_collection](/api/accounts/object#account_object-controller-requirement_collection)
+      is `application`, which includes Custom accounts, otherwise `true`.
+    type: boolean
+  schedule:
+    $ref: ./transfer_schedule.yaml
+  statement_descriptor:
+    description: >-
+      The text that appears on the bank account statement for payouts. If not
+      set, this defaults to the platform's bank descriptor as set in the
+      Dashboard.
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - debit_negative_balances
+  - schedule
+title: AccountPayoutSettings
+type: object
+x-expandableFields:
+  - schedule

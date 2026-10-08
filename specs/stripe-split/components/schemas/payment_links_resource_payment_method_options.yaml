@@ -1,0 +1,11 @@
+description: ''
+properties:
+  card:
+    anyOf:
+      - $ref: ./payment_links_resource_card_payment_method_options.yaml
+    description: Configuration for `card` payment methods.
+    nullable: true
+title: PaymentLinksResourcePaymentMethodOptions
+type: object
+x-expandableFields:
+  - card

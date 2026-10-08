@@ -1,0 +1,11 @@
+description: ''
+properties:
+  document:
+    $ref: ./gelato_report_document_options.yaml
+  id_number:
+    $ref: ./gelato_report_id_number_options.yaml
+title: GelatoVerificationReportOptions
+type: object
+x-expandableFields:
+  - document
+  - id_number

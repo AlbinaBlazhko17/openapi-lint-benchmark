@@ -1,0 +1,48 @@
+post:
+  description: >-
+    <p>Cancels the current reader action. See <a
+    href="/docs/terminal/payments/collect-card-payment?terminal-sdk-platform=server-driven#programmatic-cancellation">Programmatic
+    Cancellation</a> for more details.</p>
+  operationId: PostTerminalReadersReaderCancelAction
+  parameters:
+    - in: path
+      name: reader
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            anyOf:
+              - $ref: ../components/schemas/terminal.reader.yaml
+              - $ref: ../components/schemas/deleted_terminal.reader.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Cancel the current reader action

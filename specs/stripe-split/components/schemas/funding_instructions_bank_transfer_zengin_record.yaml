@@ -1,0 +1,49 @@
+description: Zengin Records contain Japan bank account details per the Zengin format.
+properties:
+  account_holder_address:
+    $ref: ./address.yaml
+  account_holder_name:
+    description: The account holder name
+    maxLength: 5000
+    nullable: true
+    type: string
+  account_number:
+    description: The account number
+    maxLength: 5000
+    nullable: true
+    type: string
+  account_type:
+    description: The bank account type. In Japan, this can only be `futsu` or `toza`.
+    maxLength: 5000
+    nullable: true
+    type: string
+  bank_address:
+    $ref: ./address.yaml
+  bank_code:
+    description: The bank code of the account
+    maxLength: 5000
+    nullable: true
+    type: string
+  bank_name:
+    description: The bank name of the account
+    maxLength: 5000
+    nullable: true
+    type: string
+  branch_code:
+    description: The branch code of the account
+    maxLength: 5000
+    nullable: true
+    type: string
+  branch_name:
+    description: The branch name of the account
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - account_holder_address
+  - bank_address
+title: FundingInstructionsBankTransferZenginRecord
+type: object
+x-expandableFields:
+  - account_holder_address
+  - bank_address

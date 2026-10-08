@@ -1,0 +1,11 @@
+description: ''
+properties:
+  collection_method:
+    description: Mandate collection method
+    enum:
+      - paper
+    type: string
+    x-stripeBypassValidation: true
+title: mandate_us_bank_account
+type: object
+x-expandableFields: []

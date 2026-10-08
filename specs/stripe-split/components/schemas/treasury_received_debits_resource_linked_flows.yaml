@@ -1,0 +1,47 @@
+description: ''
+properties:
+  debit_reversal:
+    description: >-
+      The DebitReversal created as a result of this ReceivedDebit being
+      reversed.
+    maxLength: 5000
+    nullable: true
+    type: string
+  inbound_transfer:
+    description: >-
+      Set if the ReceivedDebit is associated with an InboundTransfer's return of
+      funds.
+    maxLength: 5000
+    nullable: true
+    type: string
+  issuing_authorization:
+    description: >-
+      Set if the ReceivedDebit was created due to an [Issuing
+      Authorization](https://api.stripe.com#issuing_authorizations) object.
+    maxLength: 5000
+    nullable: true
+    type: string
+  issuing_transaction:
+    description: >-
+      Set if the ReceivedDebit is also viewable as an [Issuing
+      Dispute](https://api.stripe.com#issuing_disputes) object.
+    maxLength: 5000
+    nullable: true
+    type: string
+  payout:
+    description: >-
+      Set if the ReceivedDebit was created due to a
+      [Payout](https://api.stripe.com#payouts) object.
+    maxLength: 5000
+    nullable: true
+    type: string
+  topup:
+    description: >-
+      Set if the ReceivedDebit was created due to a
+      [Topup](https://api.stripe.com#topups) object.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: TreasuryReceivedDebitsResourceLinkedFlows
+type: object
+x-expandableFields: []

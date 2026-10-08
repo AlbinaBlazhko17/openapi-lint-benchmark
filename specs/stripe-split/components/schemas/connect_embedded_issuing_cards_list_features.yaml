@@ -1,0 +1,32 @@
+description: ''
+properties:
+  card_management:
+    description: Whether to allow card management features.
+    type: boolean
+  card_spend_dispute_management:
+    description: Whether to allow card spend dispute management features.
+    type: boolean
+  cardholder_management:
+    description: Whether to allow cardholder management features.
+    type: boolean
+  disable_stripe_user_authentication:
+    description: >-
+      Whether Stripe user authentication is disabled. This value can only be
+      `true` for accounts where `controller.requirement_collection` is
+      `application` for the account. The default value is the opposite of the
+      `external_account_collection` value. For example, if you don't set
+      `external_account_collection`, it defaults to `true` and
+      `disable_stripe_user_authentication` defaults to `false`.
+    type: boolean
+  spend_control_management:
+    description: Whether to allow spend control management features.
+    type: boolean
+required:
+  - card_management
+  - card_spend_dispute_management
+  - cardholder_management
+  - disable_stripe_user_authentication
+  - spend_control_management
+title: ConnectEmbeddedIssuingCardsListFeatures
+type: object
+x-expandableFields: []

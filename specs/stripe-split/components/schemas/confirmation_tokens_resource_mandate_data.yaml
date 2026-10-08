@@ -1,0 +1,11 @@
+description: Data used for generating a Mandate.
+properties:
+  customer_acceptance:
+    $ref: >-
+      ./confirmation_tokens_resource_mandate_data_resource_customer_acceptance.yaml
+required:
+  - customer_acceptance
+title: ConfirmationTokensResourceMandateData
+type: object
+x-expandableFields:
+  - customer_acceptance

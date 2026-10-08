@@ -1,0 +1,262 @@
+post:
+  description: |-
+    <p>Report a new Payment Record. You may report a Payment Record as it is
+     initialized and later report updates through the other report_* methods, or report Payment
+     Records in a terminal state directly, through this method.</p>
+  operationId: PostPaymentRecordsReportPayment
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          amount_requested:
+            explode: true
+            style: deepObject
+          customer_details:
+            explode: true
+            style: deepObject
+          expand:
+            explode: true
+            style: deepObject
+          failed:
+            explode: true
+            style: deepObject
+          guaranteed:
+            explode: true
+            style: deepObject
+          metadata:
+            explode: true
+            style: deepObject
+          payment_method_details:
+            explode: true
+            style: deepObject
+          processor_details:
+            explode: true
+            style: deepObject
+          shipping_details:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            amount_requested:
+              description: The amount you initially requested for this payment.
+              properties:
+                currency:
+                  format: currency
+                  type: string
+                value:
+                  type: integer
+              required:
+                - currency
+                - value
+              title: amount
+              type: object
+            customer_details:
+              description: Customer information for this payment.
+              properties:
+                customer:
+                  maxLength: 5000
+                  type: string
+                email:
+                  type: string
+                name:
+                  maxLength: 5000
+                  type: string
+                phone:
+                  type: string
+              title: customer_details
+              type: object
+            customer_presence:
+              description: >-
+                Indicates whether the customer was present in your checkout flow
+                during this payment.
+              enum:
+                - off_session
+                - on_session
+              type: string
+            description:
+              description: >-
+                An arbitrary string attached to the object. Often useful for
+                displaying to users.
+              maxLength: 5000
+              type: string
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            failed:
+              description: Information about the payment attempt failure.
+              properties:
+                failed_at:
+                  format: unix-time
+                  type: integer
+              required:
+                - failed_at
+              title: failed
+              type: object
+            guaranteed:
+              description: Information about the payment attempt guarantee.
+              properties:
+                guaranteed_at:
+                  format: unix-time
+                  type: integer
+              required:
+                - guaranteed_at
+              title: guaranteed
+              type: object
+            initiated_at:
+              description: >-
+                When the reported payment was initiated. Measured in seconds
+                since the Unix epoch.
+              format: unix-time
+              type: integer
+            metadata:
+              anyOf:
+                - additionalProperties:
+                    type: string
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                Set of [key-value pairs](https://docs.stripe.com/api/metadata)
+                that you can attach to an object. This can be useful for storing
+                additional information about the object in a structured format.
+                Individual keys can be unset by posting an empty value to them.
+                All keys can be unset by posting an empty value to `metadata`.
+            outcome:
+              description: The outcome of the reported payment.
+              enum:
+                - failed
+                - guaranteed
+              type: string
+            payment_method_details:
+              description: Information about the Payment Method debited for this payment.
+              properties:
+                billing_details:
+                  properties:
+                    address:
+                      properties:
+                        city:
+                          maxLength: 5000
+                          type: string
+                        country:
+                          maxLength: 5000
+                          type: string
+                        line1:
+                          maxLength: 5000
+                          type: string
+                        line2:
+                          maxLength: 5000
+                          type: string
+                        postal_code:
+                          maxLength: 5000
+                          type: string
+                        state:
+                          maxLength: 5000
+                          type: string
+                      title: address
+                      type: object
+                    email:
+                      type: string
+                    name:
+                      maxLength: 5000
+                      type: string
+                    phone:
+                      type: string
+                  title: billing_details
+                  type: object
+                custom:
+                  properties:
+                    display_name:
+                      maxLength: 5000
+                      type: string
+                    type:
+                      maxLength: 5000
+                      type: string
+                  title: custom
+                  type: object
+                payment_method:
+                  maxLength: 5000
+                  type: string
+                type:
+                  enum:
+                    - custom
+                  type: string
+                  x-stripeBypassValidation: true
+              title: payment_method_details
+              type: object
+            processor_details:
+              description: Processor information for this payment.
+              properties:
+                custom:
+                  properties:
+                    payment_reference:
+                      maxLength: 5000
+                      type: string
+                  required:
+                    - payment_reference
+                  title: custom
+                  type: object
+                type:
+                  enum:
+                    - custom
+                  type: string
+              required:
+                - type
+              title: processor_details
+              type: object
+            shipping_details:
+              description: Shipping information for this payment.
+              properties:
+                address:
+                  properties:
+                    city:
+                      maxLength: 5000
+                      type: string
+                    country:
+                      maxLength: 5000
+                      type: string
+                    line1:
+                      maxLength: 5000
+                      type: string
+                    line2:
+                      maxLength: 5000
+                      type: string
+                    postal_code:
+                      maxLength: 5000
+                      type: string
+                    state:
+                      maxLength: 5000
+                      type: string
+                  title: address
+                  type: object
+                name:
+                  maxLength: 5000
+                  type: string
+                phone:
+                  type: string
+              title: shipping_details
+              type: object
+          required:
+            - amount_requested
+            - initiated_at
+            - payment_method_details
+          type: object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/payment_record.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Report a payment

@@ -1,0 +1,23 @@
+description: Represents a reader action to collect a payment method
+properties:
+  collect_config:
+    $ref: ./terminal_reader_reader_resource_collect_config.yaml
+  payment_intent:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./payment_intent.yaml
+    description: Most recent PaymentIntent processed by the reader.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./payment_intent.yaml
+  payment_method:
+    $ref: ./payment_method.yaml
+required:
+  - payment_intent
+title: TerminalReaderReaderResourceCollectPaymentMethodAction
+type: object
+x-expandableFields:
+  - collect_config
+  - payment_intent
+  - payment_method

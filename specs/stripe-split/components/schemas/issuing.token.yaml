@@ -1,0 +1,93 @@
+description: >-
+  An issuing token object is created when an issued card is added to a digital
+  wallet. As a [card issuer](https://docs.stripe.com/issuing), you can [view and
+  manage these
+  tokens](https://docs.stripe.com/issuing/controls/token-management) through
+  Stripe.
+properties:
+  card:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./issuing.card.yaml
+    description: Card associated with this token.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./issuing.card.yaml
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  device_fingerprint:
+    description: >-
+      The hashed ID derived from the device ID from the card network associated
+      with the token.
+    maxLength: 5000
+    nullable: true
+    type: string
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  last4:
+    description: The last four digits of the token.
+    maxLength: 5000
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  network:
+    description: The token service provider / card network associated with the token.
+    enum:
+      - mastercard
+      - visa
+    type: string
+  network_data:
+    $ref: ./issuing_network_token_network_data.yaml
+  network_updated_at:
+    description: >-
+      Time at which the token was last updated by the card network. Measured in
+      seconds since the Unix epoch.
+    format: unix-time
+    type: integer
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - issuing.token
+    type: string
+  status:
+    description: The usage state of the token.
+    enum:
+      - active
+      - deleted
+      - requested
+      - suspended
+    type: string
+  wallet_provider:
+    description: The digital wallet for this token, if one was used.
+    enum:
+      - apple_pay
+      - google_pay
+      - samsung_pay
+    type: string
+required:
+  - card
+  - created
+  - id
+  - livemode
+  - network
+  - network_updated_at
+  - object
+  - status
+title: Token
+type: object
+x-expandableFields:
+  - card
+  - network_data
+x-resourceId: issuing.token

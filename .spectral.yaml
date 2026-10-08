@@ -1,0 +1,2 @@
+# Spectral has no built-in default ruleset. This is its recommended OpenAPI ruleset.
+extends: ["spectral:oas"]

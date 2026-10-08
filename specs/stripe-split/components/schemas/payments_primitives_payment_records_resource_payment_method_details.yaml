@@ -1,0 +1,216 @@
+description: Details about the Payment Method used in this payment attempt.
+properties:
+  ach_credit_transfer:
+    $ref: ./payment_method_details_ach_credit_transfer.yaml
+  ach_debit:
+    $ref: ./payment_method_details_ach_debit.yaml
+  acss_debit:
+    $ref: ./payment_method_details_payment_record_acss_debit.yaml
+  affirm:
+    $ref: ./payment_method_details_payment_record_affirm.yaml
+  afterpay_clearpay:
+    $ref: ./payment_method_details_payment_record_afterpay_clearpay.yaml
+  alipay:
+    $ref: ./payment_method_details_payment_record_alipay.yaml
+  alma:
+    $ref: ./payment_method_details_payment_record_alma.yaml
+  amazon_pay:
+    $ref: ./payment_method_details_payment_record_amazon_pay.yaml
+  au_becs_debit:
+    $ref: ./payment_method_details_payment_record_au_becs_debit.yaml
+  bacs_debit:
+    $ref: ./payment_method_details_payment_record_bacs_debit.yaml
+  bancontact:
+    $ref: ./payment_method_details_payment_record_bancontact.yaml
+  billie:
+    $ref: ./payment_method_details_payment_record_billie.yaml
+  billing_details:
+    anyOf:
+      - $ref: ./payments_primitives_payment_records_resource_billing_details.yaml
+    description: The billing details associated with the method of payment.
+    nullable: true
+  bizum:
+    $ref: ./payment_method_details_payment_record_bizum.yaml
+  blik:
+    $ref: ./payment_method_details_payment_record_blik.yaml
+  boleto:
+    $ref: ./payment_method_details_payment_record_boleto.yaml
+  card:
+    $ref: >-
+      ./payments_primitives_payment_records_resource_payment_method_card_details.yaml
+  card_present:
+    $ref: ./payment_method_details_card_present.yaml
+  cashapp:
+    $ref: ./payment_method_details_payment_record_cashapp.yaml
+  crypto:
+    $ref: ./payment_method_details_crypto.yaml
+  custom:
+    $ref: >-
+      ./payments_primitives_payment_records_resource_payment_method_custom_details.yaml
+  customer_balance:
+    $ref: ./payment_method_details_customer_balance.yaml
+  eps:
+    $ref: ./payment_method_details_payment_record_eps.yaml
+  fpx:
+    $ref: ./payment_method_details_fpx.yaml
+  giropay:
+    $ref: ./payment_method_details_payment_record_giropay.yaml
+  grabpay:
+    $ref: ./payment_method_details_grabpay.yaml
+  ideal:
+    $ref: ./payment_method_details_payment_record_ideal.yaml
+  interac_present:
+    $ref: ./payment_method_details_interac_present.yaml
+  kakao_pay:
+    $ref: ./payment_method_details_payment_record_kakao_pay.yaml
+  klarna:
+    $ref: ./payment_method_details_payment_record_klarna.yaml
+  konbini:
+    $ref: ./payment_method_details_payment_record_konbini.yaml
+  kr_card:
+    $ref: ./payment_method_details_kr_card.yaml
+  link:
+    $ref: ./payment_method_details_payment_record_link.yaml
+  mb_way:
+    $ref: ./payment_method_details_payment_record_mb_way.yaml
+  mobilepay:
+    $ref: ./payment_method_details_payment_record_mobilepay.yaml
+  multibanco:
+    $ref: ./payment_method_details_payment_record_multibanco.yaml
+  naver_pay:
+    $ref: ./payment_method_details_payment_record_naver_pay.yaml
+  nz_bank_account:
+    $ref: ./payment_method_details_payment_record_nz_bank_account.yaml
+  oxxo:
+    $ref: ./payment_method_details_payment_record_oxxo.yaml
+  p24:
+    $ref: ./payment_method_details_payment_record_p24.yaml
+  pay_by_bank:
+    $ref: ./payment_method_details_payment_record_pay_by_bank.yaml
+  payco:
+    $ref: ./payment_method_details_payment_record_payco.yaml
+  payment_method:
+    description: ID of the Stripe PaymentMethod used to make this payment.
+    maxLength: 5000
+    nullable: true
+    type: string
+  paynow:
+    $ref: ./payment_method_details_payment_record_paynow.yaml
+  paypal:
+    $ref: ./payment_method_details_paypal.yaml
+  payto:
+    $ref: ./payment_method_details_payment_record_payto.yaml
+  pix:
+    $ref: ./payment_method_details_payment_record_pix.yaml
+  promptpay:
+    $ref: ./payment_method_details_payment_record_promptpay.yaml
+  revolut_pay:
+    $ref: ./payment_method_details_payment_record_revolut_pay.yaml
+  samsung_pay:
+    $ref: ./payment_method_details_payment_record_samsung_pay.yaml
+  satispay:
+    $ref: ./payment_method_details_payment_record_satispay.yaml
+  scalapay:
+    $ref: ./payment_method_details_payment_record_scalapay.yaml
+  sepa_debit:
+    $ref: ./payment_method_details_payment_record_sepa_debit.yaml
+  sofort:
+    $ref: ./payment_method_details_payment_record_sofort.yaml
+  stripe_account:
+    $ref: ./payment_method_details_stripe_account.yaml
+  sunbit:
+    $ref: ./payment_method_details_payment_record_sunbit.yaml
+  swish:
+    $ref: ./payment_method_details_payment_record_swish.yaml
+  twint:
+    $ref: ./payment_method_details_payment_record_twint.yaml
+  type:
+    description: >-
+      The type of transaction-specific details of the payment method used in the
+      payment. See
+      [PaymentMethod.type](https://docs.stripe.com/api/payment_methods/object#payment_method_object-type)
+      for the full list of possible types.
+
+      An additional hash is included on `payment_method_details` with a name
+      matching this value.
+
+      It contains information specific to the payment method.
+    maxLength: 5000
+    type: string
+  upi:
+    $ref: ./payment_method_details_payment_record_upi.yaml
+  us_bank_account:
+    $ref: ./payment_method_details_payment_record_us_bank_account.yaml
+  wechat:
+    $ref: ./payment_method_details_wechat.yaml
+  wechat_pay:
+    $ref: ./payment_method_details_payment_record_wechat_pay.yaml
+  zip:
+    $ref: ./payment_method_details_payment_record_zip.yaml
+required:
+  - type
+title: PaymentsPrimitivesPaymentRecordsResourcePaymentMethodDetails
+type: object
+x-expandableFields:
+  - ach_credit_transfer
+  - ach_debit
+  - acss_debit
+  - affirm
+  - afterpay_clearpay
+  - alipay
+  - alma
+  - amazon_pay
+  - au_becs_debit
+  - bacs_debit
+  - bancontact
+  - billie
+  - billing_details
+  - bizum
+  - blik
+  - boleto
+  - card
+  - card_present
+  - cashapp
+  - crypto
+  - custom
+  - customer_balance
+  - eps
+  - fpx
+  - giropay
+  - grabpay
+  - ideal
+  - interac_present
+  - kakao_pay
+  - klarna
+  - konbini
+  - kr_card
+  - link
+  - mb_way
+  - mobilepay
+  - multibanco
+  - naver_pay
+  - nz_bank_account
+  - oxxo
+  - p24
+  - pay_by_bank
+  - payco
+  - paynow
+  - paypal
+  - payto
+  - pix
+  - promptpay
+  - revolut_pay
+  - samsung_pay
+  - satispay
+  - scalapay
+  - sepa_debit
+  - sofort
+  - stripe_account
+  - sunbit
+  - swish
+  - twint
+  - upi
+  - us_bank_account
+  - wechat
+  - wechat_pay
+  - zip

@@ -1,0 +1,8 @@
+description: ''
+properties:
+  require_verification:
+    description: Request one time password verification of `provided_details.email`.
+    type: boolean
+title: GelatoSessionEmailOptions
+type: object
+x-expandableFields: []

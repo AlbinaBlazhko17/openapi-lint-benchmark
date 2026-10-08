@@ -1,0 +1,2 @@
+/home/runner/work/_temp/f9b708cb-eda0-47a7-9f7a-69e33041fb32.sh: line 3:  3129 Killed                  timeout -s KILL 300 scalar document lint openapi.yaml > $RESULTS/stripe-split/scalar.$run.txt 2>&1
+300.002

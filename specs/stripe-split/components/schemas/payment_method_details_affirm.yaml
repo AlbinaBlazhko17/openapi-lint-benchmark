@@ -1,0 +1,18 @@
+description: ''
+properties:
+  location:
+    description: ID of the location that this reader is assigned to.
+    maxLength: 5000
+    type: string
+  reader:
+    description: ID of the reader this transaction was made on.
+    maxLength: 5000
+    type: string
+  transaction_id:
+    description: The Affirm transaction ID associated with this payment.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: payment_method_details_affirm
+type: object
+x-expandableFields: []

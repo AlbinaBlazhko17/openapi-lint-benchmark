@@ -1,0 +1,59 @@
+post:
+  description: >-
+    <p>Cancels a subscription schedule and its associated subscription
+    immediately (if the subscription schedule has an active subscription). A
+    subscription schedule can only be canceled if its status is
+    <code>not_started</code> or <code>active</code>.</p>
+  operationId: PostSubscriptionSchedulesScheduleCancel
+  parameters:
+    - in: path
+      name: schedule
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            invoice_now:
+              description: >-
+                If the subscription schedule is `active`, indicates if a final
+                invoice will be generated that contains any un-invoiced metered
+                usage and new/pending proration invoice items. Defaults to
+                `true`.
+              type: boolean
+            prorate:
+              description: >-
+                If the subscription schedule is `active`, indicates if the
+                cancellation should be prorated. Defaults to `true`.
+              type: boolean
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/subscription_schedule.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Cancel a schedule

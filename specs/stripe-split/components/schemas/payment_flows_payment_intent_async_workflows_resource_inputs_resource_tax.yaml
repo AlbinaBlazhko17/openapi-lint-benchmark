@@ -1,0 +1,11 @@
+description: ''
+properties:
+  calculation:
+    description: The [TaxCalculation](https://docs.stripe.com/api/tax/calculations) id
+    maxLength: 5000
+    type: string
+required:
+  - calculation
+title: PaymentFlowsPaymentIntentAsyncWorkflowsResourceInputsResourceTax
+type: object
+x-expandableFields: []

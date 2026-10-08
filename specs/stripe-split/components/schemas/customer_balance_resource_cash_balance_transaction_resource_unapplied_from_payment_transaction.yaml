@@ -1,0 +1,20 @@
+description: ''
+properties:
+  payment_intent:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./payment_intent.yaml
+    description: >-
+      The [Payment Intent](https://docs.stripe.com/api/payment_intents/object)
+      that funds were unapplied from.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./payment_intent.yaml
+required:
+  - payment_intent
+title: >-
+  CustomerBalanceResourceCashBalanceTransactionResourceUnappliedFromPaymentTransaction
+type: object
+x-expandableFields:
+  - payment_intent

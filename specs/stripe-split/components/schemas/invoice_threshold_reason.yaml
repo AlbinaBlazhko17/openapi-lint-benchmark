@@ -1,0 +1,19 @@
+description: ''
+properties:
+  amount_gte:
+    description: >-
+      The total invoice amount threshold boundary if it triggered the threshold
+      invoice.
+    nullable: true
+    type: integer
+  item_reasons:
+    description: Indicates which line items triggered a threshold invoice.
+    items:
+      $ref: ./invoice_item_threshold_reason.yaml
+    type: array
+required:
+  - item_reasons
+title: InvoiceThresholdReason
+type: object
+x-expandableFields:
+  - item_reasons

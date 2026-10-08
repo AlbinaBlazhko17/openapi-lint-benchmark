@@ -1,0 +1,26 @@
+description: ''
+properties:
+  chips:
+    description: >-
+      CHIPS System Sequence Number (SSN) of the OutboundTransfer for transfers
+      sent over the `us_domestic_wire` network.
+    maxLength: 5000
+    nullable: true
+    type: string
+  imad:
+    description: >-
+      IMAD of the OutboundTransfer for transfers sent over the
+      `us_domestic_wire` network.
+    maxLength: 5000
+    nullable: true
+    type: string
+  omad:
+    description: >-
+      OMAD of the OutboundTransfer for transfers sent over the
+      `us_domestic_wire` network.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: TreasuryOutboundTransfersResourceUSDomesticWireTrackingDetails
+type: object
+x-expandableFields: []

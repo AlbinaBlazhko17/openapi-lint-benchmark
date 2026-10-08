@@ -1,0 +1,46 @@
+description: An active entitlement describes access to a feature for a customer.
+properties:
+  feature:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./entitlements.feature.yaml
+    description: >-
+      The [Feature](https://docs.stripe.com/api/entitlements/feature) that the
+      customer is entitled to.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./entitlements.feature.yaml
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  lookup_key:
+    description: >-
+      A unique key you provide as your own system identifier. This may be up to
+      80 characters.
+    maxLength: 5000
+    type: string
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - entitlements.active_entitlement
+    type: string
+required:
+  - feature
+  - id
+  - livemode
+  - lookup_key
+  - object
+title: Active Entitlement
+type: object
+x-expandableFields:
+  - feature
+x-resourceId: entitlements.active_entitlement

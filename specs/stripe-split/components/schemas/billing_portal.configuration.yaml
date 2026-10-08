@@ -1,0 +1,105 @@
+description: >-
+  A portal configuration describes the functionality and behavior you embed in a
+  portal session. Related guide: [Configure the customer
+  portal](/customer-management/configure-portal).
+properties:
+  active:
+    description: >-
+      Whether the configuration is active and can be used to create portal
+      sessions.
+    type: boolean
+  application:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./application.yaml
+      - $ref: ./deleted_application.yaml
+    description: ID of the Connect Application that created the configuration.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./application.yaml
+        - $ref: ./deleted_application.yaml
+  business_profile:
+    $ref: ./portal_business_profile.yaml
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  default_return_url:
+    description: >-
+      The default URL to redirect customers to when they click on the portal's
+      link to return to your website. This can be
+      [overridden](https://docs.stripe.com/api/customer_portal/sessions/create#create_portal_session-return_url)
+      when creating the session.
+    maxLength: 5000
+    nullable: true
+    type: string
+  features:
+    $ref: ./portal_features.yaml
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  is_default:
+    description: >-
+      Whether the configuration is the default. If `true`, this configuration
+      can be managed in the Dashboard and portal sessions will use this
+      configuration unless it is overriden when creating the session.
+    type: boolean
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  login_page:
+    $ref: ./portal_login_page.yaml
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    nullable: true
+    type: object
+  name:
+    description: The name of the configuration.
+    maxLength: 5000
+    nullable: true
+    type: string
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - billing_portal.configuration
+    type: string
+  updated:
+    description: >-
+      Time at which the object was last updated. Measured in seconds since the
+      Unix epoch.
+    format: unix-time
+    type: integer
+required:
+  - active
+  - business_profile
+  - created
+  - features
+  - id
+  - is_default
+  - livemode
+  - login_page
+  - object
+  - updated
+title: Customer portal configuration
+type: object
+x-expandableFields:
+  - application
+  - business_profile
+  - features
+  - login_page
+x-resourceId: billing_portal.configuration

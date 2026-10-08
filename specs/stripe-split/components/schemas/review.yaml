@@ -1,0 +1,123 @@
+description: >-
+  Reviews can be used to supplement automated fraud detection with human
+  expertise.
+
+
+  Learn more about [Radar](/radar) and reviewing payments
+
+  [here](https://docs.stripe.com/radar/reviews).
+properties:
+  billing_zip:
+    description: The ZIP or postal code of the card used, if applicable.
+    maxLength: 5000
+    nullable: true
+    type: string
+  charge:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./charge.yaml
+    description: The charge associated with this review.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./charge.yaml
+  closed_reason:
+    description: >-
+      The reason the review was closed, or null if it has not yet been closed.
+      One of `approved`, `refunded`, `refunded_as_fraud`, `disputed`,
+      `redacted`, `canceled`, `payment_never_settled`, or `acknowledged`.
+    enum:
+      - acknowledged
+      - approved
+      - canceled
+      - disputed
+      - payment_never_settled
+      - redacted
+      - refunded
+      - refunded_as_fraud
+    nullable: true
+    type: string
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  ip_address:
+    description: The IP address where the payment originated.
+    maxLength: 5000
+    nullable: true
+    type: string
+  ip_address_location:
+    anyOf:
+      - $ref: ./radar_review_resource_location.yaml
+    description: >-
+      Information related to the location of the payment. Note that this
+      information is an approximation and attempts to locate the nearest
+      population center - it should not be used to determine a specific address.
+    nullable: true
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - review
+    type: string
+  open:
+    description: If `true`, the review needs action.
+    type: boolean
+  opened_reason:
+    description: The reason the review was opened. One of `rule` or `manual`.
+    enum:
+      - manual
+      - rule
+    type: string
+  payment_intent:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./payment_intent.yaml
+    description: The PaymentIntent ID associated with this review, if one exists.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./payment_intent.yaml
+  reason:
+    description: >-
+      The reason the review is currently open or closed. One of `rule`,
+      `manual`, `approved`, `refunded`, `refunded_as_fraud`, `disputed`,
+      `redacted`, `canceled`, `payment_never_settled`, or `acknowledged`.
+    maxLength: 5000
+    type: string
+  session:
+    anyOf:
+      - $ref: ./radar_review_resource_session.yaml
+    description: >-
+      Information related to the browsing session of the user who initiated the
+      payment.
+    nullable: true
+required:
+  - created
+  - id
+  - livemode
+  - object
+  - open
+  - opened_reason
+  - reason
+title: Review
+type: object
+x-expandableFields:
+  - charge
+  - ip_address_location
+  - payment_intent
+  - session
+x-resourceId: review

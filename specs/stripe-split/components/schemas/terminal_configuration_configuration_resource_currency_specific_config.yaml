@@ -1,0 +1,22 @@
+description: ''
+properties:
+  fixed_amounts:
+    description: Fixed amounts displayed when collecting a tip
+    items:
+      type: integer
+    nullable: true
+    type: array
+  percentages:
+    description: Percentages displayed when collecting a tip
+    items:
+      type: integer
+    nullable: true
+    type: array
+  smart_tip_threshold:
+    description: >-
+      Below this amount, fixed amounts will be displayed; above it, percentages
+      will be displayed
+    type: integer
+title: TerminalConfigurationConfigurationResourceCurrencySpecificConfig
+type: object
+x-expandableFields: []

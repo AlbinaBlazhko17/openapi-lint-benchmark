@@ -1,0 +1,20 @@
+description: ''
+properties:
+  discounts:
+    description: The aggregated discounts.
+    items:
+      $ref: ./line_items_discount_amount.yaml
+    type: array
+  taxes:
+    description: The aggregated tax amounts by rate.
+    items:
+      $ref: ./line_items_tax_amount.yaml
+    type: array
+required:
+  - discounts
+  - taxes
+title: QuotesResourceTotalDetailsResourceBreakdown
+type: object
+x-expandableFields:
+  - discounts
+  - taxes

@@ -1,0 +1,28 @@
+description: ''
+properties:
+  dispute_categories:
+    description: >-
+      An array of conditions that are covered for the transaction, if
+      applicable.
+    items:
+      enum:
+        - fraudulent
+        - product_not_received
+      type: string
+      x-stripeBypassValidation: true
+    nullable: true
+    type: array
+  status:
+    description: >-
+      Indicates whether the transaction is eligible for PayPal's seller
+      protection.
+    enum:
+      - eligible
+      - not_eligible
+      - partially_eligible
+    type: string
+required:
+  - status
+title: paypal_seller_protection
+type: object
+x-expandableFields: []

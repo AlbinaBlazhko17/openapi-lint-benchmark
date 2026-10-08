@@ -1,0 +1,8 @@
+description: ''
+properties:
+  customer_notification:
+    $ref: ./payment_intent_processing_customer_notification.yaml
+title: PaymentIntentCardProcessing
+type: object
+x-expandableFields:
+  - customer_notification

@@ -1,0 +1,39 @@
+description: ''
+properties:
+  address:
+    anyOf:
+      - $ref: ./tax_product_resource_postal_address.yaml
+    description: The customer's postal address (for example, home or business location).
+    nullable: true
+  address_source:
+    description: The type of customer address provided.
+    enum:
+      - billing
+      - shipping
+    nullable: true
+    type: string
+  ip_address:
+    description: The customer's IP address (IPv4 or IPv6).
+    maxLength: 5000
+    nullable: true
+    type: string
+  tax_ids:
+    description: The customer's tax IDs (for example, EU VAT numbers).
+    items:
+      $ref: ./tax_product_resource_customer_details_resource_tax_id.yaml
+    type: array
+  taxability_override:
+    description: The taxability override used for taxation.
+    enum:
+      - customer_exempt
+      - none
+      - reverse_charge
+    type: string
+required:
+  - tax_ids
+  - taxability_override
+title: TaxProductResourceCustomerDetails
+type: object
+x-expandableFields:
+  - address
+  - tax_ids

@@ -1,0 +1,36 @@
+description: Iban Records contain E.U. bank account details per the SEPA format.
+properties:
+  account_holder_address:
+    $ref: ./address.yaml
+  account_holder_name:
+    description: The name of the person or business that owns the bank account
+    maxLength: 5000
+    type: string
+  bank_address:
+    $ref: ./address.yaml
+  bic:
+    description: The BIC/SWIFT code of the account.
+    maxLength: 5000
+    type: string
+  country:
+    description: >-
+      Two-letter country code ([ISO 3166-1
+      alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)).
+    maxLength: 5000
+    type: string
+  iban:
+    description: The IBAN of the account.
+    maxLength: 5000
+    type: string
+required:
+  - account_holder_address
+  - account_holder_name
+  - bank_address
+  - bic
+  - country
+  - iban
+title: FundingInstructionsBankTransferIbanRecord
+type: object
+x-expandableFields:
+  - account_holder_address
+  - bank_address

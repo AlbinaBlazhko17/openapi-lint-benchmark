@@ -1,0 +1,420 @@
+description: >-
+  The `Charge` object represents a single attempt to move money into your Stripe
+  account.
+
+  PaymentIntent confirmation is the most common way to create Charges, but
+  [Account Debits](https://docs.stripe.com/connect/account-debits) may also
+  create Charges.
+
+  Some legacy payment flows create Charges directly, which is not recommended
+  for new integrations.
+properties:
+  amount:
+    description: >-
+      Amount intended to be collected by this payment. A positive integer
+      representing how much to charge in the [smallest currency
+      unit](https://docs.stripe.com/currencies#zero-decimal) (e.g., 100 cents to
+      charge $1.00 or 100 to charge ¥100, a zero-decimal currency). The minimum
+      amount is $0.50 US or [equivalent in charge
+      currency](https://docs.stripe.com/currencies#minimum-and-maximum-charge-amounts).
+      The amount value supports up to eight digits (e.g., a value of 99999999
+      for a USD charge of $999,999.99).
+    type: integer
+  amount_captured:
+    description: >-
+      Amount in cents (or local equivalent) captured (can be less than the
+      amount attribute on the charge if a partial capture was made).
+    type: integer
+  amount_refunded:
+    description: >-
+      Amount in cents (or local equivalent) refunded (can be less than the
+      amount attribute on the charge if a partial refund was issued).
+    type: integer
+  application:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./application.yaml
+    description: ID of the Connect application that created the charge.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./application.yaml
+  application_fee:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./application_fee.yaml
+    description: >-
+      The application fee (if any) for the charge. [See the Connect
+      documentation](https://docs.stripe.com/connect/direct-charges#collect-fees)
+      for details.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./application_fee.yaml
+  application_fee_amount:
+    description: >-
+      The amount of the application fee (if any) requested for the charge. [See
+      the Connect
+      documentation](https://docs.stripe.com/connect/direct-charges#collect-fees)
+      for details.
+    nullable: true
+    type: integer
+  balance_transaction:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./balance_transaction.yaml
+    description: >-
+      ID of the balance transaction that describes the impact of this charge on
+      your account balance (not including refunds or disputes).
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./balance_transaction.yaml
+  billing_details:
+    $ref: ./billing_details.yaml
+  calculated_statement_descriptor:
+    description: >-
+      The full statement descriptor that is passed to card networks, and that is
+      displayed on your customers' credit card and bank statements. Allows you
+      to see what the statement descriptor looks like after the static and
+      dynamic portions are combined. This value only exists for card payments.
+    maxLength: 5000
+    nullable: true
+    type: string
+  captured:
+    description: >-
+      If the charge was created without capturing, this Boolean represents
+      whether it is still uncaptured or has since been captured.
+    type: boolean
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    format: currency
+    type: string
+  customer:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./customer.yaml
+      - $ref: ./deleted_customer.yaml
+    description: ID of the customer this charge is for if one exists.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./customer.yaml
+        - $ref: ./deleted_customer.yaml
+  description:
+    description: >-
+      An arbitrary string attached to the object. Often useful for displaying to
+      users.
+    maxLength: 40000
+    nullable: true
+    type: string
+  disputed:
+    description: Whether the charge has been disputed.
+    type: boolean
+  failure_balance_transaction:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./balance_transaction.yaml
+    description: >-
+      ID of the balance transaction that describes the reversal of the balance
+      on your account due to payment failure.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./balance_transaction.yaml
+  failure_code:
+    description: >-
+      Error code explaining reason for charge failure if available (see [the
+      errors section](https://docs.stripe.com/error-codes) for a list of codes).
+    maxLength: 5000
+    nullable: true
+    type: string
+  failure_message:
+    description: Message to user further explaining reason for charge failure if available.
+    maxLength: 5000
+    nullable: true
+    type: string
+  fraud_details:
+    anyOf:
+      - $ref: ./charge_fraud_details.yaml
+    description: Information on fraud assessments for the charge.
+    nullable: true
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    type: object
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - charge
+    type: string
+  on_behalf_of:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./account.yaml
+    description: >-
+      The account (if any) the charge was made on behalf of without triggering
+      an automatic transfer. See the [Connect
+      documentation](https://docs.stripe.com/connect/separate-charges-and-transfers)
+      for details.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./account.yaml
+  outcome:
+    anyOf:
+      - $ref: ./charge_outcome.yaml
+    description: >-
+      Details about whether the payment was accepted, and why. See
+      [understanding declines](https://docs.stripe.com/declines) for details.
+    nullable: true
+  paid:
+    description: >-
+      `true` if the charge succeeded, or was successfully authorized for later
+      capture.
+    type: boolean
+  payment_intent:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./payment_intent.yaml
+    description: ID of the PaymentIntent associated with this charge, if one exists.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./payment_intent.yaml
+  payment_method:
+    description: ID of the payment method used in this charge.
+    maxLength: 5000
+    nullable: true
+    type: string
+  payment_method_details:
+    anyOf:
+      - $ref: ./payment_method_details.yaml
+    description: Details about the payment method at the time of the transaction.
+    nullable: true
+  presentment_details:
+    $ref: ./payment_flows_payment_intent_presentment_details.yaml
+  radar_options:
+    $ref: ./radar_radar_options.yaml
+  receipt_email:
+    description: This is the email address that the receipt for this charge was sent to.
+    maxLength: 5000
+    nullable: true
+    type: string
+  receipt_number:
+    description: >-
+      This is the transaction number that appears on email receipts sent for
+      this charge. This attribute will be `null` until a receipt has been sent.
+    maxLength: 5000
+    nullable: true
+    type: string
+  receipt_url:
+    description: >-
+      This is the URL to view the receipt for this charge. The receipt is kept
+      up-to-date to the latest state of the charge, including any refunds. If
+      the charge is for an Invoice, the receipt will be stylized as an Invoice
+      receipt.
+    maxLength: 5000
+    nullable: true
+    type: string
+  refunded:
+    description: >-
+      Whether the charge has been fully refunded. If the charge is only
+      partially refunded, this attribute will still be false.
+    type: boolean
+  refunds:
+    description: A list of refunds that have been applied to the charge.
+    nullable: true
+    properties:
+      data:
+        description: Details about each object.
+        items:
+          $ref: ./refund.yaml
+        type: array
+      has_more:
+        description: >-
+          True if this list has another page of items after this one that can be
+          fetched.
+        type: boolean
+      object:
+        description: >-
+          String representing the object's type. Objects of the same type share
+          the same value. Always has the value `list`.
+        enum:
+          - list
+        type: string
+      url:
+        description: The URL where this list can be accessed.
+        maxLength: 5000
+        type: string
+    required:
+      - data
+      - has_more
+      - object
+      - url
+    title: RefundList
+    type: object
+    x-expandableFields:
+      - data
+  review:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./review.yaml
+    description: ID of the review associated with this charge if one exists.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./review.yaml
+  shipping:
+    anyOf:
+      - $ref: ./shipping.yaml
+    description: Shipping information for the charge.
+    nullable: true
+  source_transfer:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./transfer.yaml
+    description: >-
+      The transfer ID which created this charge. Only present if the charge came
+      from another Stripe account. [See the Connect
+      documentation](https://docs.stripe.com/connect/destination-charges) for
+      details.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./transfer.yaml
+  statement_descriptor:
+    description: >-
+      For a non-card charge, text that appears on the customer's statement as
+      the statement descriptor. This value overrides the account's default
+      statement descriptor. For information about requirements, including the
+      22-character limit, see [the Statement Descriptor
+      docs](https://docs.stripe.com/get-started/account/statement-descriptors).
+
+
+      For a card charge, this value is ignored unless you don't specify a
+      `statement_descriptor_suffix`, in which case this value is used as the
+      suffix.
+    maxLength: 5000
+    nullable: true
+    type: string
+  statement_descriptor_suffix:
+    description: >-
+      Provides information about a card charge. Concatenated to the account's
+      [statement descriptor
+      prefix](https://docs.stripe.com/get-started/account/statement-descriptors#static)
+      to form the complete statement descriptor that appears on the customer's
+      statement. If the account has no prefix value, the suffix is concatenated
+      to the account's statement descriptor.
+    maxLength: 5000
+    nullable: true
+    type: string
+  status:
+    description: The status of the payment is either `succeeded`, `pending`, or `failed`.
+    enum:
+      - failed
+      - pending
+      - succeeded
+    type: string
+  transfer:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./transfer.yaml
+    description: >-
+      ID of the transfer to the `destination` account (only applicable if the
+      charge was created using the `destination` parameter).
+    x-expansionResources:
+      oneOf:
+        - $ref: ./transfer.yaml
+  transfer_data:
+    anyOf:
+      - $ref: ./charge_transfer_data.yaml
+    description: >-
+      An optional dictionary including the account to automatically transfer to
+      as part of a destination charge. [See the Connect
+      documentation](https://docs.stripe.com/connect/destination-charges) for
+      details.
+    nullable: true
+  transfer_group:
+    description: >-
+      A string that identifies this transaction as part of a group. See the
+      [Connect
+      documentation](https://docs.stripe.com/connect/separate-charges-and-transfers#transfer-options)
+      for details.
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - amount
+  - amount_captured
+  - amount_refunded
+  - billing_details
+  - captured
+  - created
+  - currency
+  - disputed
+  - id
+  - livemode
+  - metadata
+  - object
+  - paid
+  - refunded
+  - status
+title: Charge
+type: object
+x-expandableFields:
+  - application
+  - application_fee
+  - balance_transaction
+  - billing_details
+  - customer
+  - failure_balance_transaction
+  - fraud_details
+  - on_behalf_of
+  - outcome
+  - payment_intent
+  - payment_method_details
+  - presentment_details
+  - radar_options
+  - refunds
+  - review
+  - shipping
+  - source_transfer
+  - transfer
+  - transfer_data
+x-resourceId: charge

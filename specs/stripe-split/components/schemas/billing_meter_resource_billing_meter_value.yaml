@@ -1,0 +1,11 @@
+description: ''
+properties:
+  event_payload_key:
+    description: The key in the meter event payload to use as the value for this meter.
+    maxLength: 5000
+    type: string
+required:
+  - event_payload_key
+title: BillingMeterResourceBillingMeterValue
+type: object
+x-expandableFields: []

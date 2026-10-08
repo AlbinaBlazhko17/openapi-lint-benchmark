@@ -1,0 +1,131 @@
+post:
+  description: <p>Report informational updates on the specified Payment Record.</p>
+  operationId: PostPaymentRecordsIdReportPaymentAttemptInformational
+  parameters:
+    - description: The ID of the Payment Record.
+      in: path
+      name: id
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          customer_details:
+            explode: true
+            style: deepObject
+          description:
+            explode: true
+            style: deepObject
+          expand:
+            explode: true
+            style: deepObject
+          metadata:
+            explode: true
+            style: deepObject
+          shipping_details:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            customer_details:
+              description: Customer information for this payment.
+              properties:
+                customer:
+                  maxLength: 5000
+                  type: string
+                email:
+                  type: string
+                name:
+                  maxLength: 5000
+                  type: string
+                phone:
+                  type: string
+              title: customer_details
+              type: object
+            description:
+              anyOf:
+                - maxLength: 5000
+                  type: string
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                An arbitrary string attached to the object. Often useful for
+                displaying to users.
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            metadata:
+              anyOf:
+                - additionalProperties:
+                    type: string
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                Set of [key-value pairs](https://docs.stripe.com/api/metadata)
+                that you can attach to an object. This can be useful for storing
+                additional information about the object in a structured format.
+                Individual keys can be unset by posting an empty value to them.
+                All keys can be unset by posting an empty value to `metadata`.
+            shipping_details:
+              anyOf:
+                - properties:
+                    address:
+                      properties:
+                        city:
+                          maxLength: 5000
+                          type: string
+                        country:
+                          maxLength: 5000
+                          type: string
+                        line1:
+                          maxLength: 5000
+                          type: string
+                        line2:
+                          maxLength: 5000
+                          type: string
+                        postal_code:
+                          maxLength: 5000
+                          type: string
+                        state:
+                          maxLength: 5000
+                          type: string
+                      title: address
+                      type: object
+                    name:
+                      maxLength: 5000
+                      type: string
+                    phone:
+                      type: string
+                  title: shipping_details
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: Shipping information for this payment.
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/payment_record.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Report payment attempt informational

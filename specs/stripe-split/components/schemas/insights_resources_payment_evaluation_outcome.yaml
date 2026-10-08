@@ -1,0 +1,28 @@
+description: Outcome details for this payment evaluation.
+properties:
+  merchant_blocked:
+    $ref: ./insights_resources_payment_evaluation_merchant_blocked.yaml
+  payment_intent_id:
+    description: The PaymentIntent ID associated with the payment evaluation.
+    maxLength: 5000
+    type: string
+  rejected:
+    $ref: ./insights_resources_payment_evaluation_rejected.yaml
+  succeeded:
+    $ref: ./insights_resources_payment_evaluation_succeeded.yaml
+  type:
+    description: Indicates the outcome of the payment evaluation.
+    enum:
+      - failed
+      - merchant_blocked
+      - rejected
+      - succeeded
+    type: string
+required:
+  - type
+title: InsightsResourcesPaymentEvaluationOutcome
+type: object
+x-expandableFields:
+  - merchant_blocked
+  - rejected
+  - succeeded

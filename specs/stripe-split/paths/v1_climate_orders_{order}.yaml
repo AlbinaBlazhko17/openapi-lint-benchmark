@@ -1,0 +1,128 @@
+get:
+  description: <p>Retrieves the details of a Climate order object with the given ID.</p>
+  operationId: GetClimateOrdersOrder
+  parameters:
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+    - description: Unique identifier of the order.
+      in: path
+      name: order
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/climate.order.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Retrieve an order
+post:
+  description: >-
+    <p>Updates the specified order by setting the values of the parameters
+    passed.</p>
+  operationId: PostClimateOrdersOrder
+  parameters:
+    - description: Unique identifier of the order.
+      in: path
+      name: order
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          beneficiary:
+            explode: true
+            style: deepObject
+          expand:
+            explode: true
+            style: deepObject
+          metadata:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            beneficiary:
+              anyOf:
+                - properties:
+                    public_name:
+                      anyOf:
+                        - maxLength: 5000
+                          type: string
+                        - enum:
+                            - ''
+                          type: string
+                  required:
+                    - public_name
+                  title: beneficiary_params
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                Publicly sharable reference for the end beneficiary of carbon
+                removal. Assumed to be the Stripe account if not set.
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            metadata:
+              additionalProperties:
+                type: string
+              description: >-
+                Set of [key-value pairs](https://docs.stripe.com/api/metadata)
+                that you can attach to an object. This can be useful for storing
+                additional information about the object in a structured format.
+                Individual keys can be unset by posting an empty value to them.
+                All keys can be unset by posting an empty value to `metadata`.
+              type: object
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/climate.order.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Update an order

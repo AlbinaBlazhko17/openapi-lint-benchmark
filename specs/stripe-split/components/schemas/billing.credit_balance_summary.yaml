@@ -1,0 +1,51 @@
+description: >-
+  Indicates the billing credit balance for billing credits granted to a
+  customer.
+properties:
+  balances:
+    description: >-
+      The billing credit balances. One entry per credit grant currency. If a
+      customer only has credit grants in a single currency, then this will have
+      a single balance entry.
+    items:
+      $ref: ./credit_balance.yaml
+    type: array
+  customer:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./customer.yaml
+      - $ref: ./deleted_customer.yaml
+    description: The customer the balance is for.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./customer.yaml
+        - $ref: ./deleted_customer.yaml
+  customer_account:
+    description: The account the balance is for.
+    maxLength: 5000
+    nullable: true
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - billing.credit_balance_summary
+    type: string
+required:
+  - balances
+  - customer
+  - livemode
+  - object
+title: Credit Balance Summary
+type: object
+x-expandableFields:
+  - balances
+  - customer
+x-resourceId: billing.credit_balance_summary

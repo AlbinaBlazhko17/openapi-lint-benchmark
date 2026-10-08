@@ -1,0 +1,10 @@
+description: ''
+properties:
+  number:
+    description: OXXO reference number
+    maxLength: 5000
+    nullable: true
+    type: string
+title: payment_method_details_payment_record_oxxo
+type: object
+x-expandableFields: []

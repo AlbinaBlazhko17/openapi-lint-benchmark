@@ -1,0 +1,18 @@
+description: ''
+properties:
+  coupon_offer:
+    anyOf:
+      - $ref: ./portal_flows_coupon_offer.yaml
+    description: Configuration when `retention.type=coupon_offer`.
+    nullable: true
+  type:
+    description: Type of retention strategy that will be used.
+    enum:
+      - coupon_offer
+    type: string
+required:
+  - type
+title: PortalFlowsRetention
+type: object
+x-expandableFields:
+  - coupon_offer

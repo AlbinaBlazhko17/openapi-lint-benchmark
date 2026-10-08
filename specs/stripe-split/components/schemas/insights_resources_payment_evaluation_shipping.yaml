@@ -1,0 +1,20 @@
+description: Shipping details attached to this payment.
+properties:
+  address:
+    $ref: ./insights_resources_payment_evaluation_address.yaml
+  name:
+    description: Shipping name.
+    maxLength: 5000
+    nullable: true
+    type: string
+  phone:
+    description: Shipping phone number.
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - address
+title: InsightsResourcesPaymentEvaluationShipping
+type: object
+x-expandableFields:
+  - address

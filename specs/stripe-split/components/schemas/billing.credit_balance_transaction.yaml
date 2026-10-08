@@ -1,0 +1,85 @@
+description: >-
+  A credit balance transaction is a resource representing a transaction (either
+  a credit or a debit) against an existing credit grant.
+properties:
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  credit:
+    anyOf:
+      - $ref: ./billing_credit_grants_resource_balance_credit.yaml
+    description: >-
+      Credit details for this credit balance transaction. Only present if type
+      is `credit`.
+    nullable: true
+  credit_grant:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./billing.credit_grant.yaml
+    description: The credit grant associated with this credit balance transaction.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./billing.credit_grant.yaml
+  debit:
+    anyOf:
+      - $ref: ./billing_credit_grants_resource_balance_debit.yaml
+    description: >-
+      Debit details for this credit balance transaction. Only present if type is
+      `debit`.
+    nullable: true
+  effective_at:
+    description: The effective time of this credit balance transaction.
+    format: unix-time
+    type: integer
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - billing.credit_balance_transaction
+    type: string
+  test_clock:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./test_helpers.test_clock.yaml
+    description: ID of the test clock this credit balance transaction belongs to.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./test_helpers.test_clock.yaml
+  type:
+    description: The type of credit balance transaction (credit or debit).
+    enum:
+      - credit
+      - debit
+    nullable: true
+    type: string
+required:
+  - created
+  - credit_grant
+  - effective_at
+  - id
+  - livemode
+  - object
+title: Credit Balance Transaction
+type: object
+x-expandableFields:
+  - credit
+  - credit_grant
+  - debit
+  - test_clock
+x-resourceId: billing.credit_balance_transaction

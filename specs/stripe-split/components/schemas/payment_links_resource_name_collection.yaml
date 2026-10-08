@@ -1,0 +1,11 @@
+description: ''
+properties:
+  business:
+    $ref: ./payment_links_resource_business_name.yaml
+  individual:
+    $ref: ./payment_links_resource_individual_name.yaml
+title: PaymentLinksResourceNameCollection
+type: object
+x-expandableFields:
+  - business
+  - individual

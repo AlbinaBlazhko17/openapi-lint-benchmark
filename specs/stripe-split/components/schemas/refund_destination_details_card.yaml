@@ -1,0 +1,28 @@
+description: ''
+properties:
+  reference:
+    description: Value of the reference number assigned to the refund.
+    maxLength: 5000
+    type: string
+  reference_status:
+    description: >-
+      Status of the reference number on the refund. This can be `pending`,
+      `available` or `unavailable`.
+    maxLength: 5000
+    type: string
+  reference_type:
+    description: Type of the reference number assigned to the refund.
+    maxLength: 5000
+    type: string
+  type:
+    description: The type of refund. This can be `refund`, `reversal`, or `pending`.
+    enum:
+      - pending
+      - refund
+      - reversal
+    type: string
+required:
+  - type
+title: refund_destination_details_card
+type: object
+x-expandableFields: []

@@ -1,0 +1,10 @@
+description: ''
+properties:
+  card_spend_dispute_management:
+    description: Whether to allow card spend dispute management features.
+    type: boolean
+required:
+  - card_spend_dispute_management
+title: ConnectEmbeddedFinancialAccountTransactionsFeatures
+type: object
+x-expandableFields: []

@@ -1,0 +1,10 @@
+description: ''
+properties:
+  custom_message:
+    description: A custom message to display to the customer after the flow is completed.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: PortalFlowsAfterCompletionHostedConfirmation
+type: object
+x-expandableFields: []

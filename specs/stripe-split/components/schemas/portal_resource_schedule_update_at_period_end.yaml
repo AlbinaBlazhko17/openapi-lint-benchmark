@@ -1,0 +1,15 @@
+description: ''
+properties:
+  conditions:
+    description: >-
+      List of conditions. When any condition is true, an update will be
+      scheduled at the end of the current period.
+    items:
+      $ref: ./portal_resource_schedule_update_at_period_end_condition.yaml
+    type: array
+required:
+  - conditions
+title: PortalResourceScheduleUpdateAtPeriodEnd
+type: object
+x-expandableFields:
+  - conditions

@@ -1,0 +1,12 @@
+description: ''
+properties:
+  card:
+    anyOf:
+      - $ref: >-
+          ./payments_primitives_payment_records_resource_payment_method_mobilepay_details_resource_card.yaml
+    description: Internal card details
+    nullable: true
+title: payment_method_details_payment_record_mobilepay
+type: object
+x-expandableFields:
+  - card

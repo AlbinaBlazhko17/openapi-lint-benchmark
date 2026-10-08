@@ -1,0 +1,16 @@
+description: ''
+properties:
+  status:
+    description: >-
+      Indicates whether or not the incremental authorization feature is
+      supported.
+    enum:
+      - available
+      - unavailable
+    type: string
+required:
+  - status
+title: >-
+  PaymentFlowsPrivatePaymentMethodsCardDetailsAPIResourceEnterpriseFeaturesIncrementalAuthorizationIncrementalAuthorization
+type: object
+x-expandableFields: []

@@ -1,0 +1,13 @@
+description: ''
+properties:
+  address:
+    anyOf:
+      - $ref: >-
+          ./payments_primitives_payment_records_resource_payment_method_klarna_details_resource_payer_details_resource_payer_details_address.yaml
+    description: The payer's address
+    nullable: true
+title: >-
+  PaymentsPrimitivesPaymentRecordsResourcePaymentMethodKlarnaDetailsResourcePayerDetails
+type: object
+x-expandableFields:
+  - address

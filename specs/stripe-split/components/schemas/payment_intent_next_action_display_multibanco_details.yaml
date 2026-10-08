@@ -1,0 +1,27 @@
+description: ''
+properties:
+  entity:
+    description: Entity number associated with this Multibanco payment.
+    maxLength: 5000
+    nullable: true
+    type: string
+  expires_at:
+    description: The timestamp at which the Multibanco voucher expires.
+    format: unix-time
+    nullable: true
+    type: integer
+  hosted_voucher_url:
+    description: >-
+      The URL for the hosted Multibanco voucher page, which allows customers to
+      view a Multibanco voucher.
+    maxLength: 5000
+    nullable: true
+    type: string
+  reference:
+    description: Reference number associated with this Multibanco payment.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: PaymentIntentNextActionDisplayMultibancoDetails
+type: object
+x-expandableFields: []

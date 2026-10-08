@@ -1,0 +1,13 @@
+description: ''
+properties:
+  us_bank_account:
+    anyOf:
+      - $ref: ./topup_resource_us_bank_account.yaml
+    description: >-
+      If this top-up is to be used with a `us_bank_account` payment method, this
+      sub-hash contains configuration for it.
+    nullable: true
+title: TopupResourcePaymentMethodOptions
+type: object
+x-expandableFields:
+  - us_bank_account

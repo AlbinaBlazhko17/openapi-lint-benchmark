@@ -1,0 +1,14 @@
+description: ''
+properties:
+  enabled:
+    description: Whether the embedded component is enabled.
+    type: boolean
+  features:
+    $ref: ./connect_embedded_instant_payouts_promotion_features.yaml
+required:
+  - enabled
+  - features
+title: ConnectEmbeddedInstantPayoutsPromotionConfig
+type: object
+x-expandableFields:
+  - features

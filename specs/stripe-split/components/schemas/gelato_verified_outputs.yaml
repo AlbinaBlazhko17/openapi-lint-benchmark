@@ -1,0 +1,69 @@
+description: ''
+properties:
+  address:
+    anyOf:
+      - $ref: ./address.yaml
+    description: The user's verified address.
+    nullable: true
+  dob:
+    anyOf:
+      - $ref: ./gelato_data_verified_outputs_date.yaml
+    description: The user’s verified date of birth.
+    nullable: true
+  email:
+    description: The user's verified email address
+    maxLength: 5000
+    nullable: true
+    type: string
+  first_name:
+    description: The user's verified first name.
+    maxLength: 5000
+    nullable: true
+    type: string
+  id_number:
+    description: The user's verified id number.
+    maxLength: 5000
+    nullable: true
+    type: string
+  id_number_type:
+    description: The user's verified id number type.
+    enum:
+      - br_cpf
+      - sg_nric
+      - us_ssn
+    nullable: true
+    type: string
+  last_name:
+    description: The user's verified last name.
+    maxLength: 5000
+    nullable: true
+    type: string
+  phone:
+    description: The user's verified phone number
+    maxLength: 5000
+    nullable: true
+    type: string
+  sex:
+    description: The user's verified sex.
+    enum:
+      - '[redacted]'
+      - female
+      - male
+      - unknown
+    nullable: true
+    type: string
+  unparsed_place_of_birth:
+    description: The user's verified place of birth as it appears in the document.
+    maxLength: 5000
+    nullable: true
+    type: string
+  unparsed_sex:
+    description: The user's verified sex as it appears in the document.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: GelatoVerifiedOutputs
+type: object
+x-expandableFields:
+  - address
+  - dob

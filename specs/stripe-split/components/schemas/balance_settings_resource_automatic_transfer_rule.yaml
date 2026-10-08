@@ -1,0 +1,26 @@
+description: ''
+properties:
+  payout_method:
+    description: >-
+      The ID of the FinancialAccount that funds will be transferred to during
+      automatic transfers.
+    maxLength: 5000
+    type: string
+  transfer_up_to_amount:
+    description: >-
+      The maximum amount in minor units to transfer to the FinancialAccount.
+      Only applicable when `type` is `transfer_up_to_amount`.
+    nullable: true
+    type: integer
+  type:
+    description: The type of automatic transfer rule.
+    enum:
+      - transfer_all
+      - transfer_up_to_amount
+    type: string
+required:
+  - payout_method
+  - type
+title: BalanceSettingsResourceAutomaticTransferRule
+type: object
+x-expandableFields: []

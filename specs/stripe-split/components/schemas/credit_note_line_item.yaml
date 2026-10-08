@@ -1,0 +1,114 @@
+description: The credit note line item object
+properties:
+  amount:
+    description: >-
+      The integer amount in cents (or local equivalent) representing the gross
+      amount being credited for this line item, excluding (exclusive) tax and
+      discounts.
+    type: integer
+  description:
+    description: Description of the item being credited.
+    maxLength: 5000
+    nullable: true
+    type: string
+  discount_amount:
+    description: >-
+      The integer amount in cents (or local equivalent) representing the
+      discount being credited for this line item.
+    type: integer
+  discount_amounts:
+    description: The amount of discount calculated per discount for this line item
+    items:
+      $ref: ./discounts_resource_discount_amount.yaml
+    type: array
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  invoice_line_item:
+    description: ID of the invoice line item being credited
+    maxLength: 5000
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    nullable: true
+    type: object
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - credit_note_line_item
+    type: string
+  pretax_credit_amounts:
+    description: >-
+      The pretax credit amounts (ex: discount, credit grants, etc) for this line
+      item.
+    items:
+      $ref: ./credit_notes_pretax_credit_amount.yaml
+    type: array
+  quantity:
+    description: The number of units of product being credited.
+    nullable: true
+    type: integer
+  tax_rates:
+    description: The tax rates which apply to the line item.
+    items:
+      $ref: ./tax_rate.yaml
+    type: array
+  taxes:
+    description: The tax information of the line item.
+    items:
+      $ref: ./billing_bill_resource_invoicing_taxes_tax.yaml
+    nullable: true
+    type: array
+  type:
+    description: >-
+      The type of the credit note line item, one of `invoice_line_item` or
+      `custom_line_item`. When the type is `invoice_line_item` there is an
+      additional `invoice_line_item` property on the resource the value of which
+      is the id of the credited line item on the invoice.
+    enum:
+      - custom_line_item
+      - invoice_line_item
+    type: string
+  unit_amount:
+    description: The cost of each unit of product being credited.
+    nullable: true
+    type: integer
+  unit_amount_decimal:
+    description: >-
+      Same as `unit_amount`, but contains a decimal value with at most 12
+      decimal places.
+    format: decimal
+    nullable: true
+    type: string
+required:
+  - amount
+  - discount_amount
+  - discount_amounts
+  - id
+  - livemode
+  - object
+  - pretax_credit_amounts
+  - tax_rates
+  - type
+title: Credit Note Line Item
+type: object
+x-expandableFields:
+  - discount_amounts
+  - pretax_credit_amounts
+  - tax_rates
+  - taxes
+x-resourceId: credit_note_line_item

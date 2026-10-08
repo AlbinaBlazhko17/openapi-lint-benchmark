@@ -1,0 +1,20 @@
+description: ''
+properties:
+  ach:
+    $ref: ./treasury_outbound_transfers_resource_ach_tracking_details.yaml
+  type:
+    description: The US bank account network used to send funds.
+    enum:
+      - ach
+      - us_domestic_wire
+    type: string
+  us_domestic_wire:
+    $ref: >-
+      ./treasury_outbound_transfers_resource_us_domestic_wire_tracking_details.yaml
+required:
+  - type
+title: TreasuryOutboundTransfersResourceOutboundTransferResourceTrackingDetails
+type: object
+x-expandableFields:
+  - ach
+  - us_domestic_wire

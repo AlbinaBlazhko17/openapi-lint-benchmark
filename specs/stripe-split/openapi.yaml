@@ -1,0 +1,886 @@
+components:
+  securitySchemes:
+    basicAuth:
+      description: >-
+        Basic HTTP authentication. Allowed headers-- Authorization: Basic
+        <api_key> | Authorization: Basic <base64 hash of `api_key:`>
+      scheme: basic
+      type: http
+    bearerAuth:
+      bearerFormat: auth-scheme
+      description: >-
+        Bearer HTTP authentication. Allowed headers-- Authorization: Bearer
+        <api_key>
+      scheme: bearer
+      type: http
+info:
+  contact:
+    email: dev-platform@stripe.com
+    name: Stripe Dev Platform Team
+    url: https://stripe.com
+  description: >-
+    The Stripe REST API. Please see https://stripe.com/docs/api for more
+    details.
+  termsOfService: https://stripe.com/us/terms/
+  title: Stripe API
+  version: 2026-08-26.dahlia
+  x-stripeSpecFilename: spec3
+openapi: 3.0.0
+paths:
+  /v1/account:
+    $ref: paths/v1_account.yaml
+  /v1/account_links:
+    $ref: paths/v1_account_links.yaml
+  /v1/account_sessions:
+    $ref: paths/v1_account_sessions.yaml
+  /v1/accounts:
+    $ref: paths/v1_accounts.yaml
+  /v1/accounts/{account}:
+    $ref: paths/v1_accounts_{account}.yaml
+  /v1/accounts/{account}/bank_accounts:
+    $ref: paths/v1_accounts_{account}_bank_accounts.yaml
+  /v1/accounts/{account}/bank_accounts/{id}:
+    $ref: paths/v1_accounts_{account}_bank_accounts_{id}.yaml
+  /v1/accounts/{account}/capabilities:
+    $ref: paths/v1_accounts_{account}_capabilities.yaml
+  /v1/accounts/{account}/capabilities/{capability}:
+    $ref: paths/v1_accounts_{account}_capabilities_{capability}.yaml
+  /v1/accounts/{account}/external_accounts:
+    $ref: paths/v1_accounts_{account}_external_accounts.yaml
+  /v1/accounts/{account}/external_accounts/{id}:
+    $ref: paths/v1_accounts_{account}_external_accounts_{id}.yaml
+  /v1/accounts/{account}/login_links:
+    $ref: paths/v1_accounts_{account}_login_links.yaml
+  /v1/accounts/{account}/people:
+    $ref: paths/v1_accounts_{account}_people.yaml
+  /v1/accounts/{account}/people/{person}:
+    $ref: paths/v1_accounts_{account}_people_{person}.yaml
+  /v1/accounts/{account}/persons:
+    $ref: paths/v1_accounts_{account}_persons.yaml
+  /v1/accounts/{account}/persons/{person}:
+    $ref: paths/v1_accounts_{account}_persons_{person}.yaml
+  /v1/accounts/{account}/reject:
+    $ref: paths/v1_accounts_{account}_reject.yaml
+  /v1/accounts/{account}/unreject:
+    $ref: paths/v1_accounts_{account}_unreject.yaml
+  /v1/apple_pay/domains:
+    $ref: paths/v1_apple_pay_domains.yaml
+  /v1/apple_pay/domains/{domain}:
+    $ref: paths/v1_apple_pay_domains_{domain}.yaml
+  /v1/application_fees:
+    $ref: paths/v1_application_fees.yaml
+  /v1/application_fees/{fee}/refunds/{id}:
+    $ref: paths/v1_application_fees_{fee}_refunds_{id}.yaml
+  /v1/application_fees/{id}:
+    $ref: paths/v1_application_fees_{id}.yaml
+  /v1/application_fees/{id}/refund:
+    $ref: paths/v1_application_fees_{id}_refund.yaml
+  /v1/application_fees/{id}/refunds:
+    $ref: paths/v1_application_fees_{id}_refunds.yaml
+  /v1/apps/secrets:
+    $ref: paths/v1_apps_secrets.yaml
+  /v1/apps/secrets/delete:
+    $ref: paths/v1_apps_secrets_delete.yaml
+  /v1/apps/secrets/find:
+    $ref: paths/v1_apps_secrets_find.yaml
+  /v1/balance:
+    $ref: paths/v1_balance.yaml
+  /v1/balance/history:
+    $ref: paths/v1_balance_history.yaml
+  /v1/balance/history/{id}:
+    $ref: paths/v1_balance_history_{id}.yaml
+  /v1/balance_settings:
+    $ref: paths/v1_balance_settings.yaml
+  /v1/balance_transactions:
+    $ref: paths/v1_balance_transactions.yaml
+  /v1/balance_transactions/{id}:
+    $ref: paths/v1_balance_transactions_{id}.yaml
+  /v1/billing/alerts:
+    $ref: paths/v1_billing_alerts.yaml
+  /v1/billing/alerts/{id}:
+    $ref: paths/v1_billing_alerts_{id}.yaml
+  /v1/billing/alerts/{id}/activate:
+    $ref: paths/v1_billing_alerts_{id}_activate.yaml
+  /v1/billing/alerts/{id}/archive:
+    $ref: paths/v1_billing_alerts_{id}_archive.yaml
+  /v1/billing/alerts/{id}/deactivate:
+    $ref: paths/v1_billing_alerts_{id}_deactivate.yaml
+  /v1/billing/credit_balance_summary:
+    $ref: paths/v1_billing_credit_balance_summary.yaml
+  /v1/billing/credit_balance_transactions:
+    $ref: paths/v1_billing_credit_balance_transactions.yaml
+  /v1/billing/credit_balance_transactions/{id}:
+    $ref: paths/v1_billing_credit_balance_transactions_{id}.yaml
+  /v1/billing/credit_grants:
+    $ref: paths/v1_billing_credit_grants.yaml
+  /v1/billing/credit_grants/{id}:
+    $ref: paths/v1_billing_credit_grants_{id}.yaml
+  /v1/billing/credit_grants/{id}/expire:
+    $ref: paths/v1_billing_credit_grants_{id}_expire.yaml
+  /v1/billing/credit_grants/{id}/void:
+    $ref: paths/v1_billing_credit_grants_{id}_void.yaml
+  /v1/billing/feedback_options:
+    $ref: paths/v1_billing_feedback_options.yaml
+  /v1/billing/feedback_options/{id}:
+    $ref: paths/v1_billing_feedback_options_{id}.yaml
+  /v1/billing/feedback_options/{id}/deactivate:
+    $ref: paths/v1_billing_feedback_options_{id}_deactivate.yaml
+  /v1/billing/meter_event_adjustments:
+    $ref: paths/v1_billing_meter_event_adjustments.yaml
+  /v1/billing/meter_events:
+    $ref: paths/v1_billing_meter_events.yaml
+  /v1/billing/meters:
+    $ref: paths/v1_billing_meters.yaml
+  /v1/billing/meters/{id}:
+    $ref: paths/v1_billing_meters_{id}.yaml
+  /v1/billing/meters/{id}/deactivate:
+    $ref: paths/v1_billing_meters_{id}_deactivate.yaml
+  /v1/billing/meters/{id}/event_summaries:
+    $ref: paths/v1_billing_meters_{id}_event_summaries.yaml
+  /v1/billing/meters/{id}/reactivate:
+    $ref: paths/v1_billing_meters_{id}_reactivate.yaml
+  /v1/billing_portal/configurations:
+    $ref: paths/v1_billing_portal_configurations.yaml
+  /v1/billing_portal/configurations/{configuration}:
+    $ref: paths/v1_billing_portal_configurations_{configuration}.yaml
+  /v1/billing_portal/sessions:
+    $ref: paths/v1_billing_portal_sessions.yaml
+  /v1/charges:
+    $ref: paths/v1_charges.yaml
+  /v1/charges/search:
+    $ref: paths/v1_charges_search.yaml
+  /v1/charges/{charge}:
+    $ref: paths/v1_charges_{charge}.yaml
+  /v1/charges/{charge}/capture:
+    $ref: paths/v1_charges_{charge}_capture.yaml
+  /v1/charges/{charge}/dispute:
+    $ref: paths/v1_charges_{charge}_dispute.yaml
+  /v1/charges/{charge}/dispute/close:
+    $ref: paths/v1_charges_{charge}_dispute_close.yaml
+  /v1/charges/{charge}/refund:
+    $ref: paths/v1_charges_{charge}_refund.yaml
+  /v1/charges/{charge}/refunds:
+    $ref: paths/v1_charges_{charge}_refunds.yaml
+  /v1/charges/{charge}/refunds/{refund}:
+    $ref: paths/v1_charges_{charge}_refunds_{refund}.yaml
+  /v1/checkout/sessions:
+    $ref: paths/v1_checkout_sessions.yaml
+  /v1/checkout/sessions/{session}:
+    $ref: paths/v1_checkout_sessions_{session}.yaml
+  /v1/checkout/sessions/{session}/expire:
+    $ref: paths/v1_checkout_sessions_{session}_expire.yaml
+  /v1/checkout/sessions/{session}/line_items:
+    $ref: paths/v1_checkout_sessions_{session}_line_items.yaml
+  /v1/climate/orders:
+    $ref: paths/v1_climate_orders.yaml
+  /v1/climate/orders/{order}:
+    $ref: paths/v1_climate_orders_{order}.yaml
+  /v1/climate/orders/{order}/cancel:
+    $ref: paths/v1_climate_orders_{order}_cancel.yaml
+  /v1/climate/products:
+    $ref: paths/v1_climate_products.yaml
+  /v1/climate/products/{product}:
+    $ref: paths/v1_climate_products_{product}.yaml
+  /v1/climate/suppliers:
+    $ref: paths/v1_climate_suppliers.yaml
+  /v1/climate/suppliers/{supplier}:
+    $ref: paths/v1_climate_suppliers_{supplier}.yaml
+  /v1/confirmation_tokens/{confirmation_token}:
+    $ref: paths/v1_confirmation_tokens_{confirmation_token}.yaml
+  /v1/country_specs:
+    $ref: paths/v1_country_specs.yaml
+  /v1/country_specs/{country}:
+    $ref: paths/v1_country_specs_{country}.yaml
+  /v1/coupons:
+    $ref: paths/v1_coupons.yaml
+  /v1/coupons/{coupon}:
+    $ref: paths/v1_coupons_{coupon}.yaml
+  /v1/credit_notes:
+    $ref: paths/v1_credit_notes.yaml
+  /v1/credit_notes/preview:
+    $ref: paths/v1_credit_notes_preview.yaml
+  /v1/credit_notes/preview/lines:
+    $ref: paths/v1_credit_notes_preview_lines.yaml
+  /v1/credit_notes/{credit_note}/lines:
+    $ref: paths/v1_credit_notes_{credit_note}_lines.yaml
+  /v1/credit_notes/{id}:
+    $ref: paths/v1_credit_notes_{id}.yaml
+  /v1/credit_notes/{id}/void:
+    $ref: paths/v1_credit_notes_{id}_void.yaml
+  /v1/customer_sessions:
+    $ref: paths/v1_customer_sessions.yaml
+  /v1/customers:
+    $ref: paths/v1_customers.yaml
+  /v1/customers/search:
+    $ref: paths/v1_customers_search.yaml
+  /v1/customers/{customer}:
+    $ref: paths/v1_customers_{customer}.yaml
+  /v1/customers/{customer}/balance_transactions:
+    $ref: paths/v1_customers_{customer}_balance_transactions.yaml
+  /v1/customers/{customer}/balance_transactions/{transaction}:
+    $ref: paths/v1_customers_{customer}_balance_transactions_{transaction}.yaml
+  /v1/customers/{customer}/bank_accounts:
+    $ref: paths/v1_customers_{customer}_bank_accounts.yaml
+  /v1/customers/{customer}/bank_accounts/{id}:
+    $ref: paths/v1_customers_{customer}_bank_accounts_{id}.yaml
+  /v1/customers/{customer}/bank_accounts/{id}/verify:
+    $ref: paths/v1_customers_{customer}_bank_accounts_{id}_verify.yaml
+  /v1/customers/{customer}/cards:
+    $ref: paths/v1_customers_{customer}_cards.yaml
+  /v1/customers/{customer}/cards/{id}:
+    $ref: paths/v1_customers_{customer}_cards_{id}.yaml
+  /v1/customers/{customer}/cash_balance:
+    $ref: paths/v1_customers_{customer}_cash_balance.yaml
+  /v1/customers/{customer}/cash_balance_transactions:
+    $ref: paths/v1_customers_{customer}_cash_balance_transactions.yaml
+  /v1/customers/{customer}/cash_balance_transactions/{transaction}:
+    $ref: paths/v1_customers_{customer}_cash_balance_transactions_{transaction}.yaml
+  /v1/customers/{customer}/discount:
+    $ref: paths/v1_customers_{customer}_discount.yaml
+  /v1/customers/{customer}/funding_instructions:
+    $ref: paths/v1_customers_{customer}_funding_instructions.yaml
+  /v1/customers/{customer}/payment_methods:
+    $ref: paths/v1_customers_{customer}_payment_methods.yaml
+  /v1/customers/{customer}/payment_methods/{payment_method}:
+    $ref: paths/v1_customers_{customer}_payment_methods_{payment_method}.yaml
+  /v1/customers/{customer}/sources:
+    $ref: paths/v1_customers_{customer}_sources.yaml
+  /v1/customers/{customer}/sources/{id}:
+    $ref: paths/v1_customers_{customer}_sources_{id}.yaml
+  /v1/customers/{customer}/sources/{id}/verify:
+    $ref: paths/v1_customers_{customer}_sources_{id}_verify.yaml
+  /v1/customers/{customer}/subscriptions:
+    $ref: paths/v1_customers_{customer}_subscriptions.yaml
+  /v1/customers/{customer}/subscriptions/{subscription_exposed_id}:
+    $ref: paths/v1_customers_{customer}_subscriptions_{subscription_exposed_id}.yaml
+  /v1/customers/{customer}/subscriptions/{subscription_exposed_id}/discount:
+    $ref: >-
+      paths/v1_customers_{customer}_subscriptions_{subscription_exposed_id}_discount.yaml
+  /v1/customers/{customer}/tax_ids:
+    $ref: paths/v1_customers_{customer}_tax_ids.yaml
+  /v1/customers/{customer}/tax_ids/{id}:
+    $ref: paths/v1_customers_{customer}_tax_ids_{id}.yaml
+  /v1/disputes:
+    $ref: paths/v1_disputes.yaml
+  /v1/disputes/{dispute}:
+    $ref: paths/v1_disputes_{dispute}.yaml
+  /v1/disputes/{dispute}/close:
+    $ref: paths/v1_disputes_{dispute}_close.yaml
+  /v1/entitlements/active_entitlements:
+    $ref: paths/v1_entitlements_active_entitlements.yaml
+  /v1/entitlements/active_entitlements/{id}:
+    $ref: paths/v1_entitlements_active_entitlements_{id}.yaml
+  /v1/entitlements/features:
+    $ref: paths/v1_entitlements_features.yaml
+  /v1/entitlements/features/{id}:
+    $ref: paths/v1_entitlements_features_{id}.yaml
+  /v1/ephemeral_keys:
+    $ref: paths/v1_ephemeral_keys.yaml
+  /v1/ephemeral_keys/{key}:
+    $ref: paths/v1_ephemeral_keys_{key}.yaml
+  /v1/events:
+    $ref: paths/v1_events.yaml
+  /v1/events/{id}:
+    $ref: paths/v1_events_{id}.yaml
+  /v1/exchange_rates:
+    $ref: paths/v1_exchange_rates.yaml
+  /v1/exchange_rates/{rate_id}:
+    $ref: paths/v1_exchange_rates_{rate_id}.yaml
+  /v1/external_accounts/{id}:
+    $ref: paths/v1_external_accounts_{id}.yaml
+  /v1/file_links:
+    $ref: paths/v1_file_links.yaml
+  /v1/file_links/{link}:
+    $ref: paths/v1_file_links_{link}.yaml
+  /v1/files:
+    $ref: paths/v1_files.yaml
+  /v1/files/{file}:
+    $ref: paths/v1_files_{file}.yaml
+  /v1/financial_connections/accounts:
+    $ref: paths/v1_financial_connections_accounts.yaml
+  /v1/financial_connections/accounts/{account}:
+    $ref: paths/v1_financial_connections_accounts_{account}.yaml
+  /v1/financial_connections/accounts/{account}/disconnect:
+    $ref: paths/v1_financial_connections_accounts_{account}_disconnect.yaml
+  /v1/financial_connections/accounts/{account}/owners:
+    $ref: paths/v1_financial_connections_accounts_{account}_owners.yaml
+  /v1/financial_connections/accounts/{account}/refresh:
+    $ref: paths/v1_financial_connections_accounts_{account}_refresh.yaml
+  /v1/financial_connections/accounts/{account}/subscribe:
+    $ref: paths/v1_financial_connections_accounts_{account}_subscribe.yaml
+  /v1/financial_connections/accounts/{account}/unsubscribe:
+    $ref: paths/v1_financial_connections_accounts_{account}_unsubscribe.yaml
+  /v1/financial_connections/sessions:
+    $ref: paths/v1_financial_connections_sessions.yaml
+  /v1/financial_connections/sessions/{session}:
+    $ref: paths/v1_financial_connections_sessions_{session}.yaml
+  /v1/financial_connections/transactions:
+    $ref: paths/v1_financial_connections_transactions.yaml
+  /v1/financial_connections/transactions/{transaction}:
+    $ref: paths/v1_financial_connections_transactions_{transaction}.yaml
+  /v1/forwarding/requests:
+    $ref: paths/v1_forwarding_requests.yaml
+  /v1/forwarding/requests/{id}:
+    $ref: paths/v1_forwarding_requests_{id}.yaml
+  /v1/identity/verification_reports:
+    $ref: paths/v1_identity_verification_reports.yaml
+  /v1/identity/verification_reports/{report}:
+    $ref: paths/v1_identity_verification_reports_{report}.yaml
+  /v1/identity/verification_sessions:
+    $ref: paths/v1_identity_verification_sessions.yaml
+  /v1/identity/verification_sessions/{session}:
+    $ref: paths/v1_identity_verification_sessions_{session}.yaml
+  /v1/identity/verification_sessions/{session}/cancel:
+    $ref: paths/v1_identity_verification_sessions_{session}_cancel.yaml
+  /v1/identity/verification_sessions/{session}/redact:
+    $ref: paths/v1_identity_verification_sessions_{session}_redact.yaml
+  /v1/invoice_payments:
+    $ref: paths/v1_invoice_payments.yaml
+  /v1/invoice_payments/{invoice_payment}:
+    $ref: paths/v1_invoice_payments_{invoice_payment}.yaml
+  /v1/invoice_rendering_templates:
+    $ref: paths/v1_invoice_rendering_templates.yaml
+  /v1/invoice_rendering_templates/{template}:
+    $ref: paths/v1_invoice_rendering_templates_{template}.yaml
+  /v1/invoice_rendering_templates/{template}/archive:
+    $ref: paths/v1_invoice_rendering_templates_{template}_archive.yaml
+  /v1/invoice_rendering_templates/{template}/unarchive:
+    $ref: paths/v1_invoice_rendering_templates_{template}_unarchive.yaml
+  /v1/invoiceitems:
+    $ref: paths/v1_invoiceitems.yaml
+  /v1/invoiceitems/{invoiceitem}:
+    $ref: paths/v1_invoiceitems_{invoiceitem}.yaml
+  /v1/invoices:
+    $ref: paths/v1_invoices.yaml
+  /v1/invoices/create_preview:
+    $ref: paths/v1_invoices_create_preview.yaml
+  /v1/invoices/search:
+    $ref: paths/v1_invoices_search.yaml
+  /v1/invoices/{invoice}:
+    $ref: paths/v1_invoices_{invoice}.yaml
+  /v1/invoices/{invoice}/add_lines:
+    $ref: paths/v1_invoices_{invoice}_add_lines.yaml
+  /v1/invoices/{invoice}/attach_payment:
+    $ref: paths/v1_invoices_{invoice}_attach_payment.yaml
+  /v1/invoices/{invoice}/finalize:
+    $ref: paths/v1_invoices_{invoice}_finalize.yaml
+  /v1/invoices/{invoice}/lines:
+    $ref: paths/v1_invoices_{invoice}_lines.yaml
+  /v1/invoices/{invoice}/lines/{line_item_id}:
+    $ref: paths/v1_invoices_{invoice}_lines_{line_item_id}.yaml
+  /v1/invoices/{invoice}/mark_uncollectible:
+    $ref: paths/v1_invoices_{invoice}_mark_uncollectible.yaml
+  /v1/invoices/{invoice}/pay:
+    $ref: paths/v1_invoices_{invoice}_pay.yaml
+  /v1/invoices/{invoice}/remove_lines:
+    $ref: paths/v1_invoices_{invoice}_remove_lines.yaml
+  /v1/invoices/{invoice}/send:
+    $ref: paths/v1_invoices_{invoice}_send.yaml
+  /v1/invoices/{invoice}/update_lines:
+    $ref: paths/v1_invoices_{invoice}_update_lines.yaml
+  /v1/invoices/{invoice}/void:
+    $ref: paths/v1_invoices_{invoice}_void.yaml
+  /v1/issuing/authorizations:
+    $ref: paths/v1_issuing_authorizations.yaml
+  /v1/issuing/authorizations/{authorization}:
+    $ref: paths/v1_issuing_authorizations_{authorization}.yaml
+  /v1/issuing/authorizations/{authorization}/approve:
+    $ref: paths/v1_issuing_authorizations_{authorization}_approve.yaml
+  /v1/issuing/authorizations/{authorization}/decline:
+    $ref: paths/v1_issuing_authorizations_{authorization}_decline.yaml
+  /v1/issuing/cardholders:
+    $ref: paths/v1_issuing_cardholders.yaml
+  /v1/issuing/cardholders/{cardholder}:
+    $ref: paths/v1_issuing_cardholders_{cardholder}.yaml
+  /v1/issuing/cards:
+    $ref: paths/v1_issuing_cards.yaml
+  /v1/issuing/cards/{card}:
+    $ref: paths/v1_issuing_cards_{card}.yaml
+  /v1/issuing/disputes:
+    $ref: paths/v1_issuing_disputes.yaml
+  /v1/issuing/disputes/{dispute}:
+    $ref: paths/v1_issuing_disputes_{dispute}.yaml
+  /v1/issuing/disputes/{dispute}/submit:
+    $ref: paths/v1_issuing_disputes_{dispute}_submit.yaml
+  /v1/issuing/personalization_designs:
+    $ref: paths/v1_issuing_personalization_designs.yaml
+  /v1/issuing/personalization_designs/{personalization_design}:
+    $ref: paths/v1_issuing_personalization_designs_{personalization_design}.yaml
+  /v1/issuing/physical_bundles:
+    $ref: paths/v1_issuing_physical_bundles.yaml
+  /v1/issuing/physical_bundles/{physical_bundle}:
+    $ref: paths/v1_issuing_physical_bundles_{physical_bundle}.yaml
+  /v1/issuing/settlements/{settlement}:
+    $ref: paths/v1_issuing_settlements_{settlement}.yaml
+  /v1/issuing/tokens:
+    $ref: paths/v1_issuing_tokens.yaml
+  /v1/issuing/tokens/{token}:
+    $ref: paths/v1_issuing_tokens_{token}.yaml
+  /v1/issuing/transactions:
+    $ref: paths/v1_issuing_transactions.yaml
+  /v1/issuing/transactions/{transaction}:
+    $ref: paths/v1_issuing_transactions_{transaction}.yaml
+  /v1/link_account_sessions:
+    $ref: paths/v1_link_account_sessions.yaml
+  /v1/link_account_sessions/{session}:
+    $ref: paths/v1_link_account_sessions_{session}.yaml
+  /v1/linked_accounts:
+    $ref: paths/v1_linked_accounts.yaml
+  /v1/linked_accounts/{account}:
+    $ref: paths/v1_linked_accounts_{account}.yaml
+  /v1/linked_accounts/{account}/disconnect:
+    $ref: paths/v1_linked_accounts_{account}_disconnect.yaml
+  /v1/linked_accounts/{account}/owners:
+    $ref: paths/v1_linked_accounts_{account}_owners.yaml
+  /v1/linked_accounts/{account}/refresh:
+    $ref: paths/v1_linked_accounts_{account}_refresh.yaml
+  /v1/mandates/{mandate}:
+    $ref: paths/v1_mandates_{mandate}.yaml
+  /v1/payment_attempt_records:
+    $ref: paths/v1_payment_attempt_records.yaml
+  /v1/payment_attempt_records/{id}:
+    $ref: paths/v1_payment_attempt_records_{id}.yaml
+  /v1/payment_intents:
+    $ref: paths/v1_payment_intents.yaml
+  /v1/payment_intents/search:
+    $ref: paths/v1_payment_intents_search.yaml
+  /v1/payment_intents/{intent}:
+    $ref: paths/v1_payment_intents_{intent}.yaml
+  /v1/payment_intents/{intent}/amount_details_line_items:
+    $ref: paths/v1_payment_intents_{intent}_amount_details_line_items.yaml
+  /v1/payment_intents/{intent}/apply_customer_balance:
+    $ref: paths/v1_payment_intents_{intent}_apply_customer_balance.yaml
+  /v1/payment_intents/{intent}/cancel:
+    $ref: paths/v1_payment_intents_{intent}_cancel.yaml
+  /v1/payment_intents/{intent}/capture:
+    $ref: paths/v1_payment_intents_{intent}_capture.yaml
+  /v1/payment_intents/{intent}/confirm:
+    $ref: paths/v1_payment_intents_{intent}_confirm.yaml
+  /v1/payment_intents/{intent}/increment_authorization:
+    $ref: paths/v1_payment_intents_{intent}_increment_authorization.yaml
+  /v1/payment_intents/{intent}/verify_microdeposits:
+    $ref: paths/v1_payment_intents_{intent}_verify_microdeposits.yaml
+  /v1/payment_links:
+    $ref: paths/v1_payment_links.yaml
+  /v1/payment_links/{payment_link}:
+    $ref: paths/v1_payment_links_{payment_link}.yaml
+  /v1/payment_links/{payment_link}/line_items:
+    $ref: paths/v1_payment_links_{payment_link}_line_items.yaml
+  /v1/payment_method_configurations:
+    $ref: paths/v1_payment_method_configurations.yaml
+  /v1/payment_method_configurations/{configuration}:
+    $ref: paths/v1_payment_method_configurations_{configuration}.yaml
+  /v1/payment_method_domains:
+    $ref: paths/v1_payment_method_domains.yaml
+  /v1/payment_method_domains/{payment_method_domain}:
+    $ref: paths/v1_payment_method_domains_{payment_method_domain}.yaml
+  /v1/payment_method_domains/{payment_method_domain}/validate:
+    $ref: paths/v1_payment_method_domains_{payment_method_domain}_validate.yaml
+  /v1/payment_methods:
+    $ref: paths/v1_payment_methods.yaml
+  /v1/payment_methods/{payment_method}:
+    $ref: paths/v1_payment_methods_{payment_method}.yaml
+  /v1/payment_methods/{payment_method}/attach:
+    $ref: paths/v1_payment_methods_{payment_method}_attach.yaml
+  /v1/payment_methods/{payment_method}/detach:
+    $ref: paths/v1_payment_methods_{payment_method}_detach.yaml
+  /v1/payment_records:
+    $ref: paths/v1_payment_records.yaml
+  /v1/payment_records/report_payment:
+    $ref: paths/v1_payment_records_report_payment.yaml
+  /v1/payment_records/{id}:
+    $ref: paths/v1_payment_records_{id}.yaml
+  /v1/payment_records/{id}/report_payment_attempt:
+    $ref: paths/v1_payment_records_{id}_report_payment_attempt.yaml
+  /v1/payment_records/{id}/report_payment_attempt_canceled:
+    $ref: paths/v1_payment_records_{id}_report_payment_attempt_canceled.yaml
+  /v1/payment_records/{id}/report_payment_attempt_failed:
+    $ref: paths/v1_payment_records_{id}_report_payment_attempt_failed.yaml
+  /v1/payment_records/{id}/report_payment_attempt_guaranteed:
+    $ref: paths/v1_payment_records_{id}_report_payment_attempt_guaranteed.yaml
+  /v1/payment_records/{id}/report_payment_attempt_informational:
+    $ref: paths/v1_payment_records_{id}_report_payment_attempt_informational.yaml
+  /v1/payment_records/{id}/report_refund:
+    $ref: paths/v1_payment_records_{id}_report_refund.yaml
+  /v1/payouts:
+    $ref: paths/v1_payouts.yaml
+  /v1/payouts/{payout}:
+    $ref: paths/v1_payouts_{payout}.yaml
+  /v1/payouts/{payout}/cancel:
+    $ref: paths/v1_payouts_{payout}_cancel.yaml
+  /v1/payouts/{payout}/reverse:
+    $ref: paths/v1_payouts_{payout}_reverse.yaml
+  /v1/plans:
+    $ref: paths/v1_plans.yaml
+  /v1/plans/{plan}:
+    $ref: paths/v1_plans_{plan}.yaml
+  /v1/prices:
+    $ref: paths/v1_prices.yaml
+  /v1/prices/search:
+    $ref: paths/v1_prices_search.yaml
+  /v1/prices/{price}:
+    $ref: paths/v1_prices_{price}.yaml
+  /v1/products:
+    $ref: paths/v1_products.yaml
+  /v1/products/search:
+    $ref: paths/v1_products_search.yaml
+  /v1/products/{id}:
+    $ref: paths/v1_products_{id}.yaml
+  /v1/products/{product}/features:
+    $ref: paths/v1_products_{product}_features.yaml
+  /v1/products/{product}/features/{id}:
+    $ref: paths/v1_products_{product}_features_{id}.yaml
+  /v1/promotion_codes:
+    $ref: paths/v1_promotion_codes.yaml
+  /v1/promotion_codes/{promotion_code}:
+    $ref: paths/v1_promotion_codes_{promotion_code}.yaml
+  /v1/quotes:
+    $ref: paths/v1_quotes.yaml
+  /v1/quotes/{quote}:
+    $ref: paths/v1_quotes_{quote}.yaml
+  /v1/quotes/{quote}/accept:
+    $ref: paths/v1_quotes_{quote}_accept.yaml
+  /v1/quotes/{quote}/cancel:
+    $ref: paths/v1_quotes_{quote}_cancel.yaml
+  /v1/quotes/{quote}/computed_upfront_line_items:
+    $ref: paths/v1_quotes_{quote}_computed_upfront_line_items.yaml
+  /v1/quotes/{quote}/finalize:
+    $ref: paths/v1_quotes_{quote}_finalize.yaml
+  /v1/quotes/{quote}/line_items:
+    $ref: paths/v1_quotes_{quote}_line_items.yaml
+  /v1/quotes/{quote}/pdf:
+    $ref: paths/v1_quotes_{quote}_pdf.yaml
+  /v1/radar/early_fraud_warnings:
+    $ref: paths/v1_radar_early_fraud_warnings.yaml
+  /v1/radar/early_fraud_warnings/{early_fraud_warning}:
+    $ref: paths/v1_radar_early_fraud_warnings_{early_fraud_warning}.yaml
+  /v1/radar/payment_evaluations:
+    $ref: paths/v1_radar_payment_evaluations.yaml
+  /v1/radar/value_list_items:
+    $ref: paths/v1_radar_value_list_items.yaml
+  /v1/radar/value_list_items/{item}:
+    $ref: paths/v1_radar_value_list_items_{item}.yaml
+  /v1/radar/value_lists:
+    $ref: paths/v1_radar_value_lists.yaml
+  /v1/radar/value_lists/{value_list}:
+    $ref: paths/v1_radar_value_lists_{value_list}.yaml
+  /v1/refunds:
+    $ref: paths/v1_refunds.yaml
+  /v1/refunds/{refund}:
+    $ref: paths/v1_refunds_{refund}.yaml
+  /v1/refunds/{refund}/cancel:
+    $ref: paths/v1_refunds_{refund}_cancel.yaml
+  /v1/reporting/report_runs:
+    $ref: paths/v1_reporting_report_runs.yaml
+  /v1/reporting/report_runs/{report_run}:
+    $ref: paths/v1_reporting_report_runs_{report_run}.yaml
+  /v1/reporting/report_types:
+    $ref: paths/v1_reporting_report_types.yaml
+  /v1/reporting/report_types/{report_type}:
+    $ref: paths/v1_reporting_report_types_{report_type}.yaml
+  /v1/reviews:
+    $ref: paths/v1_reviews.yaml
+  /v1/reviews/{review}:
+    $ref: paths/v1_reviews_{review}.yaml
+  /v1/reviews/{review}/approve:
+    $ref: paths/v1_reviews_{review}_approve.yaml
+  /v1/setup_attempts:
+    $ref: paths/v1_setup_attempts.yaml
+  /v1/setup_intents:
+    $ref: paths/v1_setup_intents.yaml
+  /v1/setup_intents/{intent}:
+    $ref: paths/v1_setup_intents_{intent}.yaml
+  /v1/setup_intents/{intent}/cancel:
+    $ref: paths/v1_setup_intents_{intent}_cancel.yaml
+  /v1/setup_intents/{intent}/confirm:
+    $ref: paths/v1_setup_intents_{intent}_confirm.yaml
+  /v1/setup_intents/{intent}/verify_microdeposits:
+    $ref: paths/v1_setup_intents_{intent}_verify_microdeposits.yaml
+  /v1/shipping_rates:
+    $ref: paths/v1_shipping_rates.yaml
+  /v1/shipping_rates/{shipping_rate_token}:
+    $ref: paths/v1_shipping_rates_{shipping_rate_token}.yaml
+  /v1/sigma/saved_queries/{id}:
+    $ref: paths/v1_sigma_saved_queries_{id}.yaml
+  /v1/sigma/scheduled_query_runs:
+    $ref: paths/v1_sigma_scheduled_query_runs.yaml
+  /v1/sigma/scheduled_query_runs/{scheduled_query_run}:
+    $ref: paths/v1_sigma_scheduled_query_runs_{scheduled_query_run}.yaml
+  /v1/sources:
+    $ref: paths/v1_sources.yaml
+  /v1/sources/{source}:
+    $ref: paths/v1_sources_{source}.yaml
+  /v1/sources/{source}/mandate_notifications/{mandate_notification}:
+    $ref: >-
+      paths/v1_sources_{source}_mandate_notifications_{mandate_notification}.yaml
+  /v1/sources/{source}/source_transactions:
+    $ref: paths/v1_sources_{source}_source_transactions.yaml
+  /v1/sources/{source}/source_transactions/{source_transaction}:
+    $ref: paths/v1_sources_{source}_source_transactions_{source_transaction}.yaml
+  /v1/sources/{source}/verify:
+    $ref: paths/v1_sources_{source}_verify.yaml
+  /v1/subscription_items:
+    $ref: paths/v1_subscription_items.yaml
+  /v1/subscription_items/{item}:
+    $ref: paths/v1_subscription_items_{item}.yaml
+  /v1/subscription_schedules:
+    $ref: paths/v1_subscription_schedules.yaml
+  /v1/subscription_schedules/{schedule}:
+    $ref: paths/v1_subscription_schedules_{schedule}.yaml
+  /v1/subscription_schedules/{schedule}/cancel:
+    $ref: paths/v1_subscription_schedules_{schedule}_cancel.yaml
+  /v1/subscription_schedules/{schedule}/release:
+    $ref: paths/v1_subscription_schedules_{schedule}_release.yaml
+  /v1/subscriptions:
+    $ref: paths/v1_subscriptions.yaml
+  /v1/subscriptions/search:
+    $ref: paths/v1_subscriptions_search.yaml
+  /v1/subscriptions/{subscription_exposed_id}:
+    $ref: paths/v1_subscriptions_{subscription_exposed_id}.yaml
+  /v1/subscriptions/{subscription_exposed_id}/discount:
+    $ref: paths/v1_subscriptions_{subscription_exposed_id}_discount.yaml
+  /v1/subscriptions/{subscription}/migrate:
+    $ref: paths/v1_subscriptions_{subscription}_migrate.yaml
+  /v1/subscriptions/{subscription}/resume:
+    $ref: paths/v1_subscriptions_{subscription}_resume.yaml
+  /v1/tax/associations/find:
+    $ref: paths/v1_tax_associations_find.yaml
+  /v1/tax/calculations:
+    $ref: paths/v1_tax_calculations.yaml
+  /v1/tax/calculations/{calculation}:
+    $ref: paths/v1_tax_calculations_{calculation}.yaml
+  /v1/tax/calculations/{calculation}/line_items:
+    $ref: paths/v1_tax_calculations_{calculation}_line_items.yaml
+  /v1/tax/registrations:
+    $ref: paths/v1_tax_registrations.yaml
+  /v1/tax/registrations/{id}:
+    $ref: paths/v1_tax_registrations_{id}.yaml
+  /v1/tax/settings:
+    $ref: paths/v1_tax_settings.yaml
+  /v1/tax/transactions/create_from_calculation:
+    $ref: paths/v1_tax_transactions_create_from_calculation.yaml
+  /v1/tax/transactions/create_reversal:
+    $ref: paths/v1_tax_transactions_create_reversal.yaml
+  /v1/tax/transactions/{transaction}:
+    $ref: paths/v1_tax_transactions_{transaction}.yaml
+  /v1/tax/transactions/{transaction}/line_items:
+    $ref: paths/v1_tax_transactions_{transaction}_line_items.yaml
+  /v1/tax_codes:
+    $ref: paths/v1_tax_codes.yaml
+  /v1/tax_codes/{id}:
+    $ref: paths/v1_tax_codes_{id}.yaml
+  /v1/tax_ids:
+    $ref: paths/v1_tax_ids.yaml
+  /v1/tax_ids/{id}:
+    $ref: paths/v1_tax_ids_{id}.yaml
+  /v1/tax_rates:
+    $ref: paths/v1_tax_rates.yaml
+  /v1/tax_rates/{tax_rate}:
+    $ref: paths/v1_tax_rates_{tax_rate}.yaml
+  /v1/terminal/configurations:
+    $ref: paths/v1_terminal_configurations.yaml
+  /v1/terminal/configurations/{configuration}:
+    $ref: paths/v1_terminal_configurations_{configuration}.yaml
+  /v1/terminal/connection_tokens:
+    $ref: paths/v1_terminal_connection_tokens.yaml
+  /v1/terminal/locations:
+    $ref: paths/v1_terminal_locations.yaml
+  /v1/terminal/locations/{location}:
+    $ref: paths/v1_terminal_locations_{location}.yaml
+  /v1/terminal/onboarding_links:
+    $ref: paths/v1_terminal_onboarding_links.yaml
+  /v1/terminal/readers:
+    $ref: paths/v1_terminal_readers.yaml
+  /v1/terminal/readers/{reader}:
+    $ref: paths/v1_terminal_readers_{reader}.yaml
+  /v1/terminal/readers/{reader}/cancel_action:
+    $ref: paths/v1_terminal_readers_{reader}_cancel_action.yaml
+  /v1/terminal/readers/{reader}/collect_inputs:
+    $ref: paths/v1_terminal_readers_{reader}_collect_inputs.yaml
+  /v1/terminal/readers/{reader}/collect_payment_method:
+    $ref: paths/v1_terminal_readers_{reader}_collect_payment_method.yaml
+  /v1/terminal/readers/{reader}/confirm_payment_intent:
+    $ref: paths/v1_terminal_readers_{reader}_confirm_payment_intent.yaml
+  /v1/terminal/readers/{reader}/process_payment_intent:
+    $ref: paths/v1_terminal_readers_{reader}_process_payment_intent.yaml
+  /v1/terminal/readers/{reader}/process_setup_intent:
+    $ref: paths/v1_terminal_readers_{reader}_process_setup_intent.yaml
+  /v1/terminal/readers/{reader}/refund_payment:
+    $ref: paths/v1_terminal_readers_{reader}_refund_payment.yaml
+  /v1/terminal/readers/{reader}/set_reader_display:
+    $ref: paths/v1_terminal_readers_{reader}_set_reader_display.yaml
+  /v1/terminal/refunds:
+    $ref: paths/v1_terminal_refunds.yaml
+  /v1/test_helpers/confirmation_tokens:
+    $ref: paths/v1_test_helpers_confirmation_tokens.yaml
+  /v1/test_helpers/customers/{customer}/fund_cash_balance:
+    $ref: paths/v1_test_helpers_customers_{customer}_fund_cash_balance.yaml
+  /v1/test_helpers/issuing/authorizations:
+    $ref: paths/v1_test_helpers_issuing_authorizations.yaml
+  /v1/test_helpers/issuing/authorizations/{authorization}/capture:
+    $ref: paths/v1_test_helpers_issuing_authorizations_{authorization}_capture.yaml
+  /v1/test_helpers/issuing/authorizations/{authorization}/expire:
+    $ref: paths/v1_test_helpers_issuing_authorizations_{authorization}_expire.yaml
+  /v1/test_helpers/issuing/authorizations/{authorization}/finalize_amount:
+    $ref: >-
+      paths/v1_test_helpers_issuing_authorizations_{authorization}_finalize_amount.yaml
+  /v1/test_helpers/issuing/authorizations/{authorization}/fraud_challenges/respond:
+    $ref: >-
+      paths/v1_test_helpers_issuing_authorizations_{authorization}_fraud_challenges_respond.yaml
+  /v1/test_helpers/issuing/authorizations/{authorization}/increment:
+    $ref: >-
+      paths/v1_test_helpers_issuing_authorizations_{authorization}_increment.yaml
+  /v1/test_helpers/issuing/authorizations/{authorization}/reverse:
+    $ref: paths/v1_test_helpers_issuing_authorizations_{authorization}_reverse.yaml
+  /v1/test_helpers/issuing/cards/{card}/shipping/deliver:
+    $ref: paths/v1_test_helpers_issuing_cards_{card}_shipping_deliver.yaml
+  /v1/test_helpers/issuing/cards/{card}/shipping/fail:
+    $ref: paths/v1_test_helpers_issuing_cards_{card}_shipping_fail.yaml
+  /v1/test_helpers/issuing/cards/{card}/shipping/return:
+    $ref: paths/v1_test_helpers_issuing_cards_{card}_shipping_return.yaml
+  /v1/test_helpers/issuing/cards/{card}/shipping/ship:
+    $ref: paths/v1_test_helpers_issuing_cards_{card}_shipping_ship.yaml
+  /v1/test_helpers/issuing/cards/{card}/shipping/submit:
+    $ref: paths/v1_test_helpers_issuing_cards_{card}_shipping_submit.yaml
+  /v1/test_helpers/issuing/personalization_designs/{personalization_design}/activate:
+    $ref: >-
+      paths/v1_test_helpers_issuing_personalization_designs_{personalization_design}_activate.yaml
+  /v1/test_helpers/issuing/personalization_designs/{personalization_design}/deactivate:
+    $ref: >-
+      paths/v1_test_helpers_issuing_personalization_designs_{personalization_design}_deactivate.yaml
+  /v1/test_helpers/issuing/personalization_designs/{personalization_design}/reject:
+    $ref: >-
+      paths/v1_test_helpers_issuing_personalization_designs_{personalization_design}_reject.yaml
+  /v1/test_helpers/issuing/settlements:
+    $ref: paths/v1_test_helpers_issuing_settlements.yaml
+  /v1/test_helpers/issuing/settlements/{settlement}/complete:
+    $ref: paths/v1_test_helpers_issuing_settlements_{settlement}_complete.yaml
+  /v1/test_helpers/issuing/transactions/create_force_capture:
+    $ref: paths/v1_test_helpers_issuing_transactions_create_force_capture.yaml
+  /v1/test_helpers/issuing/transactions/create_unlinked_refund:
+    $ref: paths/v1_test_helpers_issuing_transactions_create_unlinked_refund.yaml
+  /v1/test_helpers/issuing/transactions/{transaction}/refund:
+    $ref: paths/v1_test_helpers_issuing_transactions_{transaction}_refund.yaml
+  /v1/test_helpers/refunds/{refund}/expire:
+    $ref: paths/v1_test_helpers_refunds_{refund}_expire.yaml
+  /v1/test_helpers/terminal/readers/{reader}/present_payment_method:
+    $ref: >-
+      paths/v1_test_helpers_terminal_readers_{reader}_present_payment_method.yaml
+  /v1/test_helpers/terminal/readers/{reader}/succeed_input_collection:
+    $ref: >-
+      paths/v1_test_helpers_terminal_readers_{reader}_succeed_input_collection.yaml
+  /v1/test_helpers/terminal/readers/{reader}/timeout_input_collection:
+    $ref: >-
+      paths/v1_test_helpers_terminal_readers_{reader}_timeout_input_collection.yaml
+  /v1/test_helpers/test_clocks:
+    $ref: paths/v1_test_helpers_test_clocks.yaml
+  /v1/test_helpers/test_clocks/{test_clock}:
+    $ref: paths/v1_test_helpers_test_clocks_{test_clock}.yaml
+  /v1/test_helpers/test_clocks/{test_clock}/advance:
+    $ref: paths/v1_test_helpers_test_clocks_{test_clock}_advance.yaml
+  /v1/test_helpers/treasury/inbound_transfers/{id}/fail:
+    $ref: paths/v1_test_helpers_treasury_inbound_transfers_{id}_fail.yaml
+  /v1/test_helpers/treasury/inbound_transfers/{id}/return:
+    $ref: paths/v1_test_helpers_treasury_inbound_transfers_{id}_return.yaml
+  /v1/test_helpers/treasury/inbound_transfers/{id}/succeed:
+    $ref: paths/v1_test_helpers_treasury_inbound_transfers_{id}_succeed.yaml
+  /v1/test_helpers/treasury/outbound_payments/{id}:
+    $ref: paths/v1_test_helpers_treasury_outbound_payments_{id}.yaml
+  /v1/test_helpers/treasury/outbound_payments/{id}/fail:
+    $ref: paths/v1_test_helpers_treasury_outbound_payments_{id}_fail.yaml
+  /v1/test_helpers/treasury/outbound_payments/{id}/post:
+    $ref: paths/v1_test_helpers_treasury_outbound_payments_{id}_post.yaml
+  /v1/test_helpers/treasury/outbound_payments/{id}/return:
+    $ref: paths/v1_test_helpers_treasury_outbound_payments_{id}_return.yaml
+  /v1/test_helpers/treasury/outbound_transfers/{outbound_transfer}:
+    $ref: paths/v1_test_helpers_treasury_outbound_transfers_{outbound_transfer}.yaml
+  /v1/test_helpers/treasury/outbound_transfers/{outbound_transfer}/fail:
+    $ref: >-
+      paths/v1_test_helpers_treasury_outbound_transfers_{outbound_transfer}_fail.yaml
+  /v1/test_helpers/treasury/outbound_transfers/{outbound_transfer}/post:
+    $ref: >-
+      paths/v1_test_helpers_treasury_outbound_transfers_{outbound_transfer}_post.yaml
+  /v1/test_helpers/treasury/outbound_transfers/{outbound_transfer}/return:
+    $ref: >-
+      paths/v1_test_helpers_treasury_outbound_transfers_{outbound_transfer}_return.yaml
+  /v1/test_helpers/treasury/received_credits:
+    $ref: paths/v1_test_helpers_treasury_received_credits.yaml
+  /v1/test_helpers/treasury/received_debits:
+    $ref: paths/v1_test_helpers_treasury_received_debits.yaml
+  /v1/tokens:
+    $ref: paths/v1_tokens.yaml
+  /v1/tokens/{token}:
+    $ref: paths/v1_tokens_{token}.yaml
+  /v1/topups:
+    $ref: paths/v1_topups.yaml
+  /v1/topups/{topup}:
+    $ref: paths/v1_topups_{topup}.yaml
+  /v1/topups/{topup}/cancel:
+    $ref: paths/v1_topups_{topup}_cancel.yaml
+  /v1/transfers:
+    $ref: paths/v1_transfers.yaml
+  /v1/transfers/{id}/reversals:
+    $ref: paths/v1_transfers_{id}_reversals.yaml
+  /v1/transfers/{transfer}:
+    $ref: paths/v1_transfers_{transfer}.yaml
+  /v1/transfers/{transfer}/reversals/{id}:
+    $ref: paths/v1_transfers_{transfer}_reversals_{id}.yaml
+  /v1/treasury/credit_reversals:
+    $ref: paths/v1_treasury_credit_reversals.yaml
+  /v1/treasury/credit_reversals/{credit_reversal}:
+    $ref: paths/v1_treasury_credit_reversals_{credit_reversal}.yaml
+  /v1/treasury/debit_reversals:
+    $ref: paths/v1_treasury_debit_reversals.yaml
+  /v1/treasury/debit_reversals/{debit_reversal}:
+    $ref: paths/v1_treasury_debit_reversals_{debit_reversal}.yaml
+  /v1/treasury/financial_accounts:
+    $ref: paths/v1_treasury_financial_accounts.yaml
+  /v1/treasury/financial_accounts/{financial_account}:
+    $ref: paths/v1_treasury_financial_accounts_{financial_account}.yaml
+  /v1/treasury/financial_accounts/{financial_account}/close:
+    $ref: paths/v1_treasury_financial_accounts_{financial_account}_close.yaml
+  /v1/treasury/financial_accounts/{financial_account}/features:
+    $ref: paths/v1_treasury_financial_accounts_{financial_account}_features.yaml
+  /v1/treasury/inbound_transfers:
+    $ref: paths/v1_treasury_inbound_transfers.yaml
+  /v1/treasury/inbound_transfers/{id}:
+    $ref: paths/v1_treasury_inbound_transfers_{id}.yaml
+  /v1/treasury/inbound_transfers/{inbound_transfer}/cancel:
+    $ref: paths/v1_treasury_inbound_transfers_{inbound_transfer}_cancel.yaml
+  /v1/treasury/outbound_payments:
+    $ref: paths/v1_treasury_outbound_payments.yaml
+  /v1/treasury/outbound_payments/{id}:
+    $ref: paths/v1_treasury_outbound_payments_{id}.yaml
+  /v1/treasury/outbound_payments/{id}/cancel:
+    $ref: paths/v1_treasury_outbound_payments_{id}_cancel.yaml
+  /v1/treasury/outbound_transfers:
+    $ref: paths/v1_treasury_outbound_transfers.yaml
+  /v1/treasury/outbound_transfers/{outbound_transfer}:
+    $ref: paths/v1_treasury_outbound_transfers_{outbound_transfer}.yaml
+  /v1/treasury/outbound_transfers/{outbound_transfer}/cancel:
+    $ref: paths/v1_treasury_outbound_transfers_{outbound_transfer}_cancel.yaml
+  /v1/treasury/received_credits:
+    $ref: paths/v1_treasury_received_credits.yaml
+  /v1/treasury/received_credits/{id}:
+    $ref: paths/v1_treasury_received_credits_{id}.yaml
+  /v1/treasury/received_debits:
+    $ref: paths/v1_treasury_received_debits.yaml
+  /v1/treasury/received_debits/{id}:
+    $ref: paths/v1_treasury_received_debits_{id}.yaml
+  /v1/treasury/transaction_entries:
+    $ref: paths/v1_treasury_transaction_entries.yaml
+  /v1/treasury/transaction_entries/{id}:
+    $ref: paths/v1_treasury_transaction_entries_{id}.yaml
+  /v1/treasury/transactions:
+    $ref: paths/v1_treasury_transactions.yaml
+  /v1/treasury/transactions/{id}:
+    $ref: paths/v1_treasury_transactions_{id}.yaml
+  /v1/webhook_endpoints:
+    $ref: paths/v1_webhook_endpoints.yaml
+  /v1/webhook_endpoints/{webhook_endpoint}:
+    $ref: paths/v1_webhook_endpoints_{webhook_endpoint}.yaml
+security:
+  - basicAuth: []
+  - bearerAuth: []
+servers:
+  - url: https://api.stripe.com/

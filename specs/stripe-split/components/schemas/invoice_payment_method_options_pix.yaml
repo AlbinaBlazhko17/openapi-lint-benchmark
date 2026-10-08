@@ -1,0 +1,17 @@
+description: ''
+properties:
+  amount_includes_iof:
+    description: Determines if the amount includes the IOF tax.
+    enum:
+      - always
+      - never
+    nullable: true
+    type: string
+  expires_after_seconds:
+    description: >-
+      The number of seconds (between 10 and 1209600) after which Pix payment
+      will expire. Defaults to 86400 seconds.
+    type: integer
+title: invoice_payment_method_options_pix
+type: object
+x-expandableFields: []

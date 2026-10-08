@@ -1,0 +1,42 @@
+description: ''
+properties:
+  balance:
+    description: Set when `type` is `balance`.
+    enum:
+      - payments
+    type: string
+  billing_details:
+    $ref: ./treasury_shared_resource_billing_details.yaml
+  financial_account:
+    $ref: ./received_payment_method_details_financial_account.yaml
+  issuing_card:
+    description: >-
+      Set when `type` is `issuing_card`. This is an [Issuing
+      Card](https://api.stripe.com#issuing_cards) ID.
+    maxLength: 5000
+    type: string
+  type:
+    description: >-
+      Polymorphic type matching the originating money movement's source. This
+      can be an external account, a Stripe balance, or a FinancialAccount.
+    enum:
+      - balance
+      - financial_account
+      - issuing_card
+      - stripe
+      - us_bank_account
+    type: string
+    x-stripeBypassValidation: true
+  us_bank_account:
+    $ref: >-
+      ./treasury_shared_resource_initiating_payment_method_details_us_bank_account.yaml
+required:
+  - billing_details
+  - type
+title: >-
+  TreasurySharedResourceInitiatingPaymentMethodDetailsInitiatingPaymentMethodDetails
+type: object
+x-expandableFields:
+  - billing_details
+  - financial_account
+  - us_bank_account

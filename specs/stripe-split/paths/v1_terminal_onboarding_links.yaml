@@ -1,0 +1,68 @@
+post:
+  description: >-
+    <p>Creates a new <code>OnboardingLink</code> object that contains a
+    redirect_url used for onboarding onto Tap to Pay on iPhone.</p>
+  operationId: PostTerminalOnboardingLinks
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+          link_options:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            link_options:
+              description: Specific fields needed to generate the desired link type.
+              properties:
+                apple_terms_and_conditions:
+                  properties:
+                    allow_relinking:
+                      type: boolean
+                    merchant_display_name:
+                      maxLength: 5000
+                      type: string
+                  required:
+                    - merchant_display_name
+                  title: apple_terms_and_conditions_params
+                  type: object
+              title: link_options_params
+              type: object
+            link_type:
+              description: The type of link being generated.
+              enum:
+                - apple_terms_and_conditions
+              type: string
+            on_behalf_of:
+              description: Stripe account ID to generate the link for.
+              maxLength: 5000
+              type: string
+          required:
+            - link_options
+            - link_type
+          type: object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/terminal.onboarding_link.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Create an Onboarding Link

@@ -1,0 +1,25 @@
+description: ''
+properties:
+  ca_certificate_file:
+    description: A File ID representing a PEM file containing the server certificate
+    maxLength: 5000
+    type: string
+  password:
+    description: Password for connecting to the WiFi network
+    maxLength: 5000
+    type: string
+  ssid:
+    description: Name of the WiFi network
+    maxLength: 5000
+    type: string
+  username:
+    description: Username for connecting to the WiFi network
+    maxLength: 5000
+    type: string
+required:
+  - password
+  - ssid
+  - username
+title: TerminalConfigurationConfigurationResourceEnterprisePEAPWifi
+type: object
+x-expandableFields: []

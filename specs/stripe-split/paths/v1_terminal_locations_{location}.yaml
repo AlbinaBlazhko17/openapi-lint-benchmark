@@ -1,0 +1,293 @@
+delete:
+  description: <p>Deletes a <code>Location</code> object.</p>
+  operationId: DeleteTerminalLocationsLocation
+  parameters:
+    - in: path
+      name: location
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/deleted_terminal.location.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Delete a Location
+get:
+  description: <p>Retrieves a <code>Location</code> object.</p>
+  operationId: GetTerminalLocationsLocation
+  parameters:
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+    - in: path
+      name: location
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            anyOf:
+              - $ref: ../components/schemas/terminal.location.yaml
+              - $ref: ../components/schemas/deleted_terminal.location.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Retrieve a Location
+post:
+  description: >-
+    <p>Updates a <code>Location</code> object by setting the values of the
+    parameters passed. Any parameters not provided will be left unchanged.</p>
+  operationId: PostTerminalLocationsLocation
+  parameters:
+    - in: path
+      name: location
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          address:
+            explode: true
+            style: deepObject
+          address_kana:
+            explode: true
+            style: deepObject
+          address_kanji:
+            explode: true
+            style: deepObject
+          configuration_overrides:
+            explode: true
+            style: deepObject
+          display_name:
+            explode: true
+            style: deepObject
+          display_name_kana:
+            explode: true
+            style: deepObject
+          display_name_kanji:
+            explode: true
+            style: deepObject
+          expand:
+            explode: true
+            style: deepObject
+          metadata:
+            explode: true
+            style: deepObject
+          phone:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            address:
+              description: >-
+                The full address of the location. You can't change the
+                location's `country`. If you need to modify the `country` field,
+                create a new `Location` object and re-register any existing
+                readers to that location.
+              properties:
+                city:
+                  maxLength: 5000
+                  type: string
+                country:
+                  maxLength: 5000
+                  type: string
+                line1:
+                  maxLength: 5000
+                  type: string
+                line2:
+                  maxLength: 5000
+                  type: string
+                postal_code:
+                  maxLength: 5000
+                  type: string
+                state:
+                  maxLength: 5000
+                  type: string
+              title: update_location_address_param
+              type: object
+            address_kana:
+              description: >-
+                The Kana variation of the full address of the location (Japan
+                only).
+              properties:
+                city:
+                  maxLength: 5000
+                  type: string
+                country:
+                  maxLength: 5000
+                  type: string
+                line1:
+                  maxLength: 5000
+                  type: string
+                line2:
+                  maxLength: 5000
+                  type: string
+                postal_code:
+                  maxLength: 5000
+                  type: string
+                state:
+                  maxLength: 5000
+                  type: string
+                town:
+                  maxLength: 5000
+                  type: string
+              title: japan_address_kana_specs
+              type: object
+            address_kanji:
+              description: >-
+                The Kanji variation of the full address of the location (Japan
+                only).
+              properties:
+                city:
+                  maxLength: 5000
+                  type: string
+                country:
+                  maxLength: 5000
+                  type: string
+                line1:
+                  maxLength: 5000
+                  type: string
+                line2:
+                  maxLength: 5000
+                  type: string
+                postal_code:
+                  maxLength: 5000
+                  type: string
+                state:
+                  maxLength: 5000
+                  type: string
+                town:
+                  maxLength: 5000
+                  type: string
+              title: japan_address_kanji_specs
+              type: object
+            configuration_overrides:
+              anyOf:
+                - maxLength: 1000
+                  type: string
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                The ID of a configuration that will be used to customize all
+                readers in this location.
+            display_name:
+              anyOf:
+                - maxLength: 1000
+                  type: string
+                - enum:
+                    - ''
+                  type: string
+              description: A name for the location.
+            display_name_kana:
+              anyOf:
+                - maxLength: 1000
+                  type: string
+                - enum:
+                    - ''
+                  type: string
+              description: The Kana variation of the name for the location (Japan only).
+            display_name_kanji:
+              anyOf:
+                - maxLength: 1000
+                  type: string
+                - enum:
+                    - ''
+                  type: string
+              description: The Kanji variation of the name for the location (Japan only).
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            metadata:
+              anyOf:
+                - additionalProperties:
+                    type: string
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                Set of [key-value pairs](https://docs.stripe.com/api/metadata)
+                that you can attach to an object. This can be useful for storing
+                additional information about the object in a structured format.
+                Individual keys can be unset by posting an empty value to them.
+                All keys can be unset by posting an empty value to `metadata`.
+            phone:
+              anyOf:
+                - type: string
+                - enum:
+                    - ''
+                  type: string
+              description: The phone number for the location.
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            anyOf:
+              - $ref: ../components/schemas/terminal.location.yaml
+              - $ref: ../components/schemas/deleted_terminal.location.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Update a Location

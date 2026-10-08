@@ -1,0 +1,52 @@
+description: ''
+properties:
+  account:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./account.yaml
+    description: The account being referenced when `type` is `account`.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./account.yaml
+  application:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./application.yaml
+    description: The Connect Application being referenced when `type` is `application`.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./application.yaml
+  customer:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./customer.yaml
+    description: The customer being referenced when `type` is `customer`.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./customer.yaml
+  customer_account:
+    description: >-
+      The Account representing the customer being referenced when `type` is
+      `customer`.
+    maxLength: 5000
+    nullable: true
+    type: string
+  type:
+    description: Type of owner referenced.
+    enum:
+      - account
+      - application
+      - customer
+      - self
+    type: string
+required:
+  - type
+title: TaxIDsOwner
+type: object
+x-expandableFields:
+  - account
+  - application
+  - customer

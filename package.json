@@ -1,0 +1,9 @@
+{
+  "name": "openapi-lint-benchmark",
+  "private": true,
+  "description": "Reproducible speed and findings benchmark of OpenAPI linters on real public API descriptions",
+  "scripts": {
+    "render": "node scripts/render-readme.mjs",
+    "render:bundled": "node scripts/render-bundled.mjs"
+  }
+}

@@ -1,0 +1,17 @@
+description: ''
+properties:
+  dob:
+    description: Strictness of the DOB matching policy to apply.
+    enum:
+      - none
+      - similar
+    type: string
+  name:
+    description: Strictness of the name matching policy to apply.
+    enum:
+      - none
+      - similar
+    type: string
+title: GelatoSessionMatchingOptions
+type: object
+x-expandableFields: []

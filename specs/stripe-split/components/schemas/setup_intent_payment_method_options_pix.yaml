@@ -1,0 +1,8 @@
+description: ''
+properties:
+  mandate_options:
+    $ref: ./payment_method_options_mandate_options_pix.yaml
+title: setup_intent_payment_method_options_pix
+type: object
+x-expandableFields:
+  - mandate_options

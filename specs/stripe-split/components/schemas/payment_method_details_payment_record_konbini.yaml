@@ -1,0 +1,14 @@
+description: ''
+properties:
+  store:
+    anyOf:
+      - $ref: >-
+          ./payments_primitives_payment_records_resource_payment_method_konbini_details_resource_store.yaml
+    description: >-
+      If the payment succeeded, this contains the details of the convenience
+      store where the payment was completed.
+    nullable: true
+title: payment_method_details_payment_record_konbini
+type: object
+x-expandableFields:
+  - store

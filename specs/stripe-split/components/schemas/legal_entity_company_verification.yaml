@@ -1,0 +1,10 @@
+description: ''
+properties:
+  document:
+    $ref: ./legal_entity_company_verification_document.yaml
+required:
+  - document
+title: LegalEntityCompanyVerification
+type: object
+x-expandableFields:
+  - document

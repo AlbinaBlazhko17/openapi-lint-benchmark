@@ -1,0 +1,16 @@
+description: ''
+properties:
+  mandate_options:
+    $ref: ./invoice_payment_method_options_acss_debit_mandate_options.yaml
+  verification_method:
+    description: Bank account verification method. The default value is `automatic`.
+    enum:
+      - automatic
+      - instant
+      - microdeposits
+    type: string
+    x-stripeBypassValidation: true
+title: invoice_payment_method_options_acss_debit
+type: object
+x-expandableFields:
+  - mandate_options

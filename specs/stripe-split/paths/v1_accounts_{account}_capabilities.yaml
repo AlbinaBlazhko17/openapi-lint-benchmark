@@ -1,0 +1,78 @@
+get:
+  description: >-
+    <p>Returns a list of capabilities associated with the account. The
+    capabilities are returned sorted by creation date, with the most recent
+    capability appearing first.</p>
+  operationId: GetAccountsAccountCapabilities
+  parameters:
+    - in: path
+      name: account
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            description: ''
+            properties:
+              data:
+                items:
+                  $ref: ../components/schemas/capability.yaml
+                type: array
+              has_more:
+                description: >-
+                  True if this list has another page of items after this one
+                  that can be fetched.
+                type: boolean
+              object:
+                description: >-
+                  String representing the object's type. Objects of the same
+                  type share the same value. Always has the value `list`.
+                enum:
+                  - list
+                type: string
+              url:
+                description: The URL where this list can be accessed.
+                maxLength: 5000
+                type: string
+            required:
+              - data
+              - has_more
+              - object
+              - url
+            title: ListAccountCapability
+            type: object
+            x-expandableFields:
+              - data
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: List all account capabilities

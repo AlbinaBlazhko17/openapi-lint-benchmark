@@ -1,0 +1,89 @@
+description: ''
+properties:
+  aed:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_currency_specific_config.yaml
+  aud:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_currency_specific_config.yaml
+  cad:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_currency_specific_config.yaml
+  chf:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_currency_specific_config.yaml
+  czk:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_currency_specific_config.yaml
+  dkk:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_currency_specific_config.yaml
+  eur:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_currency_specific_config.yaml
+  gbp:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_currency_specific_config.yaml
+  gip:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_currency_specific_config.yaml
+  hkd:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_currency_specific_config.yaml
+  huf:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_currency_specific_config.yaml
+  jpy:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_currency_specific_config.yaml
+  mxn:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_currency_specific_config.yaml
+  myr:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_currency_specific_config.yaml
+  nok:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_currency_specific_config.yaml
+  nzd:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_currency_specific_config.yaml
+  pln:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_currency_specific_config.yaml
+  ron:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_currency_specific_config.yaml
+  sek:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_currency_specific_config.yaml
+  sgd:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_currency_specific_config.yaml
+  usd:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_currency_specific_config.yaml
+title: TerminalConfigurationConfigurationResourceTipping
+type: object
+x-expandableFields:
+  - aed
+  - aud
+  - cad
+  - chf
+  - czk
+  - dkk
+  - eur
+  - gbp
+  - gip
+  - hkd
+  - huf
+  - jpy
+  - mxn
+  - myr
+  - nok
+  - nzd
+  - pln
+  - ron
+  - sek
+  - sgd
+  - usd

@@ -1,0 +1,17 @@
+description: ''
+properties:
+  card:
+    $ref: ./payment_intent_card_processing.yaml
+  type:
+    description: >-
+      Type of the payment method for which payment is in `processing` state, one
+      of `card`.
+    enum:
+      - card
+    type: string
+required:
+  - type
+title: PaymentIntentProcessing
+type: object
+x-expandableFields:
+  - card

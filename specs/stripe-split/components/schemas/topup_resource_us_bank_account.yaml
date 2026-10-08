@@ -1,0 +1,13 @@
+description: ''
+properties:
+  network:
+    description: The US bank transfer network used for this top-up. The default is `ach`.
+    enum:
+      - ach
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - network
+title: TopupResourceUSBankAccount
+type: object
+x-expandableFields: []

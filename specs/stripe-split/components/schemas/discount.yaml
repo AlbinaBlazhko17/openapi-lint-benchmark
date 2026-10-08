@@ -1,0 +1,116 @@
+description: >-
+  A discount represents the actual application of a
+  [coupon](https://api.stripe.com#coupons) or [promotion
+  code](https://api.stripe.com#promotion_codes).
+
+  It contains information about when the discount began, when it will end, and
+  what it is applied to.
+
+
+  Related guide: [Applying discounts to
+  subscriptions](https://docs.stripe.com/billing/subscriptions/discounts)
+properties:
+  checkout_session:
+    description: >-
+      The Checkout session that this coupon is applied to, if it is applied to a
+      particular session in payment mode. Not present for subscription mode.
+    maxLength: 5000
+    nullable: true
+    type: string
+  customer:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./customer.yaml
+      - $ref: ./deleted_customer.yaml
+    description: The ID of the customer associated with this discount.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./customer.yaml
+        - $ref: ./deleted_customer.yaml
+  customer_account:
+    description: >-
+      The ID of the account representing the customer associated with this
+      discount.
+    maxLength: 5000
+    nullable: true
+    type: string
+  end:
+    description: >-
+      If the coupon has a duration of `repeating`, the date that this discount
+      will end. If the coupon has a duration of `once` or `forever`, this
+      attribute will be null.
+    format: unix-time
+    nullable: true
+    type: integer
+  id:
+    description: >-
+      The ID of the discount object. Discounts can't be fetched by ID. Use
+      `expand[]=discounts` in API calls to expand discount IDs in an array.
+    maxLength: 5000
+    type: string
+  invoice:
+    description: >-
+      The invoice that the discount's coupon was applied to, if it was applied
+      directly to a particular invoice.
+    maxLength: 5000
+    nullable: true
+    type: string
+  invoice_item:
+    description: >-
+      The invoice item `id` (or invoice line item `id` for invoice line items of
+      type='subscription') that the discount's coupon was applied to, if it was
+      applied directly to a particular invoice item or invoice line item.
+    maxLength: 5000
+    nullable: true
+    type: string
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - discount
+    type: string
+  promotion_code:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./promotion_code.yaml
+    description: The promotion code applied to create this discount.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./promotion_code.yaml
+  source:
+    $ref: ./discount_source.yaml
+  start:
+    description: Date that the coupon was applied.
+    format: unix-time
+    type: integer
+  subscription:
+    description: >-
+      The subscription that this coupon is applied to, if it is applied to a
+      particular subscription.
+    maxLength: 5000
+    nullable: true
+    type: string
+  subscription_item:
+    description: >-
+      The subscription item that this coupon is applied to, if it is applied to
+      a particular subscription item.
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - id
+  - object
+  - source
+  - start
+title: Discount
+type: object
+x-expandableFields:
+  - customer
+  - promotion_code
+  - source
+x-resourceId: discount

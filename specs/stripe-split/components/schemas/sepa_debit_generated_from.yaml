@@ -1,0 +1,27 @@
+description: ''
+properties:
+  charge:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./charge.yaml
+    description: The ID of the Charge that generated this PaymentMethod, if any.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./charge.yaml
+  setup_attempt:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./setup_attempt.yaml
+    description: The ID of the SetupAttempt that generated this PaymentMethod, if any.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./setup_attempt.yaml
+title: sepa_debit_generated_from
+type: object
+x-expandableFields:
+  - charge
+  - setup_attempt

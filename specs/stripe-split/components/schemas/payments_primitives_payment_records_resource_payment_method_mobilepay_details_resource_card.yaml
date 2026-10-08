@@ -1,0 +1,29 @@
+description: ''
+properties:
+  brand:
+    description: Brand of the card used in the transaction
+    maxLength: 5000
+    nullable: true
+    type: string
+  country:
+    description: Two-letter ISO code representing the country of the card
+    maxLength: 5000
+    nullable: true
+    type: string
+  exp_month:
+    description: Two digit number representing the card's expiration month
+    nullable: true
+    type: integer
+  exp_year:
+    description: Two digit number representing the card's expiration year
+    nullable: true
+    type: integer
+  last4:
+    description: The last 4 digits of the card
+    maxLength: 5000
+    nullable: true
+    type: string
+title: >-
+  PaymentsPrimitivesPaymentRecordsResourcePaymentMethodMobilepayDetailsResourceCard
+type: object
+x-expandableFields: []

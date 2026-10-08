@@ -1,0 +1,16 @@
+description: ''
+properties:
+  result:
+    description: The outcome of the 3D Secure authentication request.
+    enum:
+      - attempt_acknowledged
+      - authenticated
+      - failed
+      - required
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - result
+title: IssuingAuthorizationThreeDSecure
+type: object
+x-expandableFields: []

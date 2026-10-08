@@ -1,0 +1,14 @@
+description: ''
+properties:
+  enabled:
+    description: Indicates whether invoice creation is enabled for the Checkout Session.
+    type: boolean
+  invoice_data:
+    $ref: ./payment_pages_checkout_session_invoice_settings.yaml
+required:
+  - enabled
+  - invoice_data
+title: PaymentPagesCheckoutSessionInvoiceCreation
+type: object
+x-expandableFields:
+  - invoice_data

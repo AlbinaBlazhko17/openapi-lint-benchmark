@@ -1,0 +1,31 @@
+description: ''
+properties:
+  default_account_tax_ids:
+    description: >-
+      The list of default Account Tax IDs to automatically include on invoices.
+      Account Tax IDs get added when an invoice is finalized.
+    items:
+      anyOf:
+        - maxLength: 5000
+          type: string
+        - $ref: ./tax_id.yaml
+      x-expansionResources:
+        oneOf:
+          - $ref: ./tax_id.yaml
+    nullable: true
+    type: array
+  hosted_payment_method_save:
+    description: >-
+      Whether to save the payment method after a payment is completed for a
+      one-time invoice or a subscription invoice when the customer already has a
+      default payment method on the hosted invoice page.
+    enum:
+      - always
+      - never
+      - offer
+    nullable: true
+    type: string
+title: AccountInvoicesSettings
+type: object
+x-expandableFields:
+  - default_account_tax_ids

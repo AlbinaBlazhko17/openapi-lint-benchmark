@@ -1,0 +1,71 @@
+description: |-
+  To share the contents of a `File` object with non-Stripe users, you can
+  create a `FileLink`. `FileLink`s contain a URL that you can use to
+  retrieve the contents of the file without authentication.
+properties:
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  expired:
+    description: Returns if the link is already expired.
+    type: boolean
+  expires_at:
+    description: Time that the link expires.
+    format: unix-time
+    nullable: true
+    type: integer
+  file:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./file.yaml
+    description: The file object this link points to.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./file.yaml
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    type: object
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - file_link
+    type: string
+  url:
+    description: The publicly accessible URL to download the file.
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - created
+  - expired
+  - file
+  - id
+  - livemode
+  - metadata
+  - object
+title: File Link
+type: object
+x-expandableFields:
+  - file
+x-resourceId: file_link

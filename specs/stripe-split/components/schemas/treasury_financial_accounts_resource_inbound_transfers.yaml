@@ -1,0 +1,8 @@
+description: InboundTransfers contains inbound transfers features for a FinancialAccount.
+properties:
+  ach:
+    $ref: ./treasury_financial_accounts_resource_inbound_ach_toggle_settings.yaml
+title: TreasuryFinancialAccountsResourceInboundTransfers
+type: object
+x-expandableFields:
+  - ach

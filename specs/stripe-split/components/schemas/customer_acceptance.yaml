@@ -1,0 +1,26 @@
+description: ''
+properties:
+  accepted_at:
+    description: The time that the customer accepts the mandate.
+    format: unix-time
+    nullable: true
+    type: integer
+  offline:
+    $ref: ./offline_acceptance.yaml
+  online:
+    $ref: ./online_acceptance.yaml
+  type:
+    description: >-
+      The mandate includes the type of customer acceptance information, such as:
+      `online` or `offline`.
+    enum:
+      - offline
+      - online
+    type: string
+required:
+  - type
+title: customer_acceptance
+type: object
+x-expandableFields:
+  - offline
+  - online

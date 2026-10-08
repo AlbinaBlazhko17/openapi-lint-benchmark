@@ -1,0 +1,357 @@
+description: >-
+  A payment link is a shareable URL that will take your customers to a hosted
+  payment page. A payment link can be shared and used multiple times.
+
+
+  When a customer opens a payment link it will open a new [checkout
+  session](https://docs.stripe.com/api/checkout/sessions) to render the payment
+  page. You can use [checkout session
+  events](https://docs.stripe.com/api/events/types#event_types-checkout.session.completed)
+  to track payments through payment links.
+
+
+  Related guide: [Payment Links API](https://docs.stripe.com/payment-links)
+properties:
+  active:
+    description: >-
+      Whether the payment link's `url` is active. If `false`, customers visiting
+      the URL will be shown a page saying that the link has been deactivated.
+    type: boolean
+  after_completion:
+    $ref: ./payment_links_resource_after_completion.yaml
+  allow_promotion_codes:
+    description: Whether user redeemable promotion codes are enabled.
+    type: boolean
+  application:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./application.yaml
+      - $ref: ./deleted_application.yaml
+    description: The ID of the Connect application that created the Payment Link.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./application.yaml
+        - $ref: ./deleted_application.yaml
+  application_fee_amount:
+    description: >-
+      The amount of the application fee (if any) that will be requested to be
+      applied to the payment and transferred to the application owner's Stripe
+      account.
+    nullable: true
+    type: integer
+  application_fee_percent:
+    description: >-
+      This represents the percentage of the subscription invoice total that will
+      be transferred to the application owner's Stripe account.
+    nullable: true
+    type: number
+  automatic_tax:
+    $ref: ./payment_links_resource_automatic_tax.yaml
+  billing_address_collection:
+    description: >-
+      Configuration for collecting the customer's billing address. Defaults to
+      `auto`.
+    enum:
+      - auto
+      - required
+    type: string
+  consent_collection:
+    anyOf:
+      - $ref: ./payment_links_resource_consent_collection.yaml
+    description: When set, provides configuration to gather active consent from customers.
+    nullable: true
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    format: currency
+    type: string
+  custom_fields:
+    description: >-
+      Collect additional information from your customer using custom fields. Up
+      to 3 fields are supported. You can't set this parameter if `ui_mode` is
+      `custom`.
+    items:
+      $ref: ./payment_links_resource_custom_fields.yaml
+    type: array
+  custom_text:
+    $ref: ./payment_links_resource_custom_text.yaml
+  customer_creation:
+    description: Configuration for Customer creation during checkout.
+    enum:
+      - always
+      - if_required
+    type: string
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  inactive_message:
+    description: >-
+      The custom message to be displayed to a customer when a payment link is no
+      longer active.
+    maxLength: 5000
+    nullable: true
+    type: string
+  invoice_creation:
+    anyOf:
+      - $ref: ./payment_links_resource_invoice_creation.yaml
+    description: Configuration for creating invoice for payment mode payment links.
+    nullable: true
+  line_items:
+    description: The line items representing what is being sold.
+    properties:
+      data:
+        description: Details about each object.
+        items:
+          $ref: ./item.yaml
+        type: array
+      has_more:
+        description: >-
+          True if this list has another page of items after this one that can be
+          fetched.
+        type: boolean
+      object:
+        description: >-
+          String representing the object's type. Objects of the same type share
+          the same value. Always has the value `list`.
+        enum:
+          - list
+        type: string
+      url:
+        description: The URL where this list can be accessed.
+        maxLength: 5000
+        type: string
+    required:
+      - data
+      - has_more
+      - object
+      - url
+    title: PaymentLinksResourceListLineItems
+    type: object
+    x-expandableFields:
+      - data
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  managed_payments:
+    anyOf:
+      - $ref: ./payment_pages_checkout_session_managed_payments.yaml
+    description: >-
+      Settings for Managed Payments for this Payment Link and resulting
+      [CheckoutSessions](/api/checkout/sessions/object),
+      [PaymentIntents](/api/payment_intents/object),
+      [Invoices](/api/invoices/object), and
+      [Subscriptions](/api/subscriptions/object).
+    nullable: true
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    type: object
+  name_collection:
+    $ref: ./payment_links_resource_name_collection.yaml
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - payment_link
+    type: string
+  on_behalf_of:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./account.yaml
+    description: >-
+      The account on behalf of which to charge. See the [Connect
+      documentation](https://support.stripe.com/questions/sending-invoices-on-behalf-of-connected-accounts)
+      for details.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./account.yaml
+  optional_items:
+    description: The optional items presented to the customer at checkout.
+    items:
+      $ref: ./payment_links_resource_optional_item.yaml
+    nullable: true
+    type: array
+  payment_intent_data:
+    anyOf:
+      - $ref: ./payment_links_resource_payment_intent_data.yaml
+    description: >-
+      Indicates the parameters to be passed to PaymentIntent creation during
+      checkout.
+    nullable: true
+  payment_method_collection:
+    description: >-
+      Configuration for collecting a payment method during checkout. Defaults to
+      `always`.
+    enum:
+      - always
+      - if_required
+    type: string
+    x-stripeBypassValidation: true
+  payment_method_options:
+    anyOf:
+      - $ref: ./payment_links_resource_payment_method_options.yaml
+    description: Payment-method-specific configuration.
+    nullable: true
+  payment_method_types:
+    description: >-
+      The list of payment method types that customers can use. When `null`,
+      Stripe will dynamically show relevant payment methods you've enabled in
+      your [payment method
+      settings](https://dashboard.stripe.com/settings/payment_methods).
+    items:
+      enum:
+        - affirm
+        - afterpay_clearpay
+        - alipay
+        - alma
+        - au_becs_debit
+        - bacs_debit
+        - bancontact
+        - billie
+        - bizum
+        - blik
+        - boleto
+        - card
+        - cashapp
+        - eps
+        - fpx
+        - giropay
+        - grabpay
+        - ideal
+        - klarna
+        - konbini
+        - link
+        - mb_way
+        - mobilepay
+        - multibanco
+        - oxxo
+        - p24
+        - pay_by_bank
+        - paynow
+        - paypal
+        - payto
+        - pix
+        - promptpay
+        - satispay
+        - sepa_debit
+        - sofort
+        - sunbit
+        - swish
+        - twint
+        - upi
+        - us_bank_account
+        - wechat_pay
+        - zip
+      type: string
+      x-stripeBypassValidation: true
+    nullable: true
+    type: array
+  phone_number_collection:
+    $ref: ./payment_links_resource_phone_number_collection.yaml
+  restrictions:
+    anyOf:
+      - $ref: ./payment_links_resource_restrictions.yaml
+    description: Settings that restrict the usage of a payment link.
+    nullable: true
+  shipping_address_collection:
+    anyOf:
+      - $ref: ./payment_links_resource_shipping_address_collection.yaml
+    description: Configuration for collecting the customer's shipping address.
+    nullable: true
+  shipping_options:
+    description: The shipping rate options applied to the session.
+    items:
+      $ref: ./payment_links_resource_shipping_option.yaml
+    type: array
+  submit_type:
+    description: >-
+      Indicates the type of transaction being performed which customizes
+      relevant text on the page, such as the submit button.
+    enum:
+      - auto
+      - book
+      - donate
+      - pay
+      - subscribe
+    type: string
+  subscription_data:
+    anyOf:
+      - $ref: ./payment_links_resource_subscription_data.yaml
+    description: >-
+      When creating a subscription, the specified configuration data will be
+      used. There must be at least one line item with a recurring price to use
+      `subscription_data`.
+    nullable: true
+  tax_id_collection:
+    $ref: ./payment_links_resource_tax_id_collection.yaml
+  transfer_data:
+    anyOf:
+      - $ref: ./payment_links_resource_transfer_data.yaml
+    description: >-
+      The account (if any) the payments will be attributed to for tax reporting,
+      and where funds from each payment will be transferred to.
+    nullable: true
+  url:
+    description: The public URL that can be shared with customers.
+    maxLength: 5000
+    type: string
+required:
+  - active
+  - after_completion
+  - allow_promotion_codes
+  - automatic_tax
+  - billing_address_collection
+  - currency
+  - custom_fields
+  - custom_text
+  - customer_creation
+  - id
+  - livemode
+  - metadata
+  - object
+  - payment_method_collection
+  - phone_number_collection
+  - shipping_options
+  - submit_type
+  - tax_id_collection
+  - url
+title: Payment Link
+type: object
+x-expandableFields:
+  - after_completion
+  - application
+  - automatic_tax
+  - consent_collection
+  - custom_fields
+  - custom_text
+  - invoice_creation
+  - line_items
+  - managed_payments
+  - name_collection
+  - on_behalf_of
+  - optional_items
+  - payment_intent_data
+  - payment_method_options
+  - phone_number_collection
+  - restrictions
+  - shipping_address_collection
+  - shipping_options
+  - subscription_data
+  - tax_id_collection
+  - transfer_data
+x-resourceId: payment_link

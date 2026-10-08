@@ -1,0 +1,14 @@
+description: ''
+properties:
+  user_terms_acceptance:
+    anyOf:
+      - $ref: ./issuing_cardholder_user_terms_acceptance.yaml
+    description: >-
+      Information about cardholder acceptance of Celtic [Authorized User
+      Terms](https://docs.stripe.com/issuing/compliance-us#issuing-terms).
+      Required for cards backed by a Celtic program.
+    nullable: true
+title: IssuingCardholderCardIssuing
+type: object
+x-expandableFields:
+  - user_terms_acceptance

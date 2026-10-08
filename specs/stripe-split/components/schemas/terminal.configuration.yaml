@@ -1,0 +1,91 @@
+description: >-
+  A Configurations object represents how features should be configured for
+  terminal readers.
+
+  For information about how to use it, see the [Terminal configurations
+  documentation](https://docs.stripe.com/terminal/fleet/configurations-overview).
+properties:
+  bbpos_wisepad3:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_device_type_specific_config.yaml
+  bbpos_wisepos_e:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_device_type_specific_config.yaml
+  cellular:
+    $ref: ./terminal_configuration_configuration_resource_cellular_config.yaml
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  is_account_default:
+    description: Whether this Configuration is the default for your account
+    nullable: true
+    type: boolean
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  name:
+    description: String indicating the name of the Configuration object, set by the user
+    maxLength: 5000
+    nullable: true
+    type: string
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - terminal.configuration
+    type: string
+  offline:
+    $ref: ./terminal_configuration_configuration_resource_offline_config.yaml
+  reboot_window:
+    $ref: ./terminal_configuration_configuration_resource_reboot_window.yaml
+  stripe_s700:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_device_type_specific_config.yaml
+  stripe_s710:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_device_type_specific_config.yaml
+  tipping:
+    $ref: ./terminal_configuration_configuration_resource_tipping.yaml
+  verifone_m425:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_device_type_specific_config.yaml
+  verifone_p400:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_device_type_specific_config.yaml
+  verifone_p630:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_device_type_specific_config.yaml
+  verifone_ux700:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_device_type_specific_config.yaml
+  verifone_v660p:
+    $ref: >-
+      ./terminal_configuration_configuration_resource_device_type_specific_config.yaml
+  wifi:
+    $ref: ./terminal_configuration_configuration_resource_wifi_config.yaml
+required:
+  - id
+  - livemode
+  - object
+title: Configuration
+type: object
+x-expandableFields:
+  - bbpos_wisepad3
+  - bbpos_wisepos_e
+  - cellular
+  - offline
+  - reboot_window
+  - stripe_s700
+  - stripe_s710
+  - tipping
+  - verifone_m425
+  - verifone_p400
+  - verifone_p630
+  - verifone_ux700
+  - verifone_v660p
+  - wifi
+x-resourceId: terminal.configuration

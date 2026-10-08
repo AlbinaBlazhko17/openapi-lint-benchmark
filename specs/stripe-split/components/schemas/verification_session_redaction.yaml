@@ -1,0 +1,16 @@
+description: ''
+properties:
+  status:
+    description: >-
+      Indicates whether this object and its related objects have been redacted
+      or not.
+    enum:
+      - processing
+      - redacted
+      - validated
+    type: string
+required:
+  - status
+title: verification_session_redaction
+type: object
+x-expandableFields: []

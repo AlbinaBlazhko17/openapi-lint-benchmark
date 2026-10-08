@@ -1,0 +1,19 @@
+description: ''
+properties:
+  is_default:
+    description: >-
+      Whether we use this personalization design to create cards when one isn't
+      specified. A connected account uses the Connect platform's default design
+      if no personalization design is set as the default design.
+    type: boolean
+  is_platform_default:
+    description: >-
+      Whether this personalization design is used to create cards when one is
+      not specified and a default for this connected account does not exist.
+    nullable: true
+    type: boolean
+required:
+  - is_default
+title: IssuingPersonalizationDesignPreferences
+type: object
+x-expandableFields: []

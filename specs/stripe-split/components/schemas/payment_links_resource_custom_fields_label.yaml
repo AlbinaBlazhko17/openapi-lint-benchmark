@@ -1,0 +1,17 @@
+description: ''
+properties:
+  custom:
+    description: Custom text for the label, displayed to the customer. Up to 50 characters.
+    maxLength: 5000
+    nullable: true
+    type: string
+  type:
+    description: The type of the label.
+    enum:
+      - custom
+    type: string
+required:
+  - type
+title: PaymentLinksResourceCustomFieldsLabel
+type: object
+x-expandableFields: []

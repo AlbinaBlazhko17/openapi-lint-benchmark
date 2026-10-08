@@ -1,0 +1,69 @@
+description: ''
+properties:
+  country:
+    description: >-
+      Two-letter country code ([ISO 3166-1
+      alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)).
+    maxLength: 5000
+    nullable: true
+    type: string
+  flat_amount:
+    anyOf:
+      - $ref: ./tax_rate_flat_amount.yaml
+    description: >-
+      The amount of the tax rate when the `rate_type` is `flat_amount`. Tax
+      rates with `rate_type` `percentage` can vary based on the transaction,
+      resulting in this field being `null`. This field exposes the amount and
+      currency of the flat tax rate.
+    nullable: true
+  percentage_decimal:
+    description: >-
+      The tax rate percentage as a string. For example, 8.5% is represented as
+      `"8.5"`.
+    maxLength: 5000
+    type: string
+  rate_type:
+    description: >-
+      Indicates the type of tax rate applied to the taxable amount. This value
+      can be `null` when no tax applies to the location. This field is only
+      present for TaxRates created by Stripe Tax.
+    enum:
+      - flat_amount
+      - percentage
+    nullable: true
+    type: string
+  state:
+    description: >-
+      State, county, province, or region ([ISO
+      3166-2](https://en.wikipedia.org/wiki/ISO_3166-2)).
+    maxLength: 5000
+    nullable: true
+    type: string
+  tax_type:
+    description: The tax type, such as `vat` or `sales_tax`.
+    enum:
+      - amusement_tax
+      - communications_tax
+      - gst
+      - hst
+      - igst
+      - jct
+      - lease_tax
+      - mass_transit_parking_tax
+      - parking_tax
+      - pst
+      - qst
+      - retail_delivery_fee
+      - rst
+      - sales_tax
+      - service_tax
+      - vat
+    nullable: true
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - percentage_decimal
+title: TaxProductResourceTaxRateDetails
+type: object
+x-expandableFields:
+  - flat_amount

@@ -1,0 +1,21 @@
+description: ''
+properties:
+  maximum:
+    anyOf:
+      - $ref: ./shipping_rate_delivery_estimate_bound.yaml
+    description: >-
+      The upper bound of the estimated range. If empty, represents no upper
+      bound i.e., infinite.
+    nullable: true
+  minimum:
+    anyOf:
+      - $ref: ./shipping_rate_delivery_estimate_bound.yaml
+    description: >-
+      The lower bound of the estimated range. If empty, represents no lower
+      bound.
+    nullable: true
+title: ShippingRateDeliveryEstimate
+type: object
+x-expandableFields:
+  - maximum
+  - minimum

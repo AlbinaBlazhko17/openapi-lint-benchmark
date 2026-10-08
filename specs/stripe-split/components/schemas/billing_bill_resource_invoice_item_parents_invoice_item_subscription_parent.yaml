@@ -1,0 +1,15 @@
+description: ''
+properties:
+  subscription:
+    description: The subscription that generated this invoice item
+    maxLength: 5000
+    type: string
+  subscription_item:
+    description: The subscription item that generated this invoice item
+    maxLength: 5000
+    type: string
+required:
+  - subscription
+title: BillingBillResourceInvoiceItemParentsInvoiceItemSubscriptionParent
+type: object
+x-expandableFields: []

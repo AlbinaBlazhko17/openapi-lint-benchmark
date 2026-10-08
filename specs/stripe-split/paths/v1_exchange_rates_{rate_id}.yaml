@@ -1,0 +1,53 @@
+get:
+  description: >-
+    <p>[Deprecated] The <code>ExchangeRate</code> APIs are deprecated. Please
+    use the <a
+    href="https://docs.stripe.com/payments/currencies/localize-prices/fx-quotes-api">FX
+    Quotes API</a> instead.</p>
+
+
+    <p>Retrieves the exchange rates from the given currency to every supported
+    currency.</p>
+  operationId: GetExchangeRatesRateId
+  parameters:
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+    - in: path
+      name: rate_id
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/exchange_rate.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Retrieve an exchange rate

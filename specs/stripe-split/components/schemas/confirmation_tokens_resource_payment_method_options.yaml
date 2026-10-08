@@ -1,0 +1,12 @@
+description: Payment-method-specific configuration
+properties:
+  card:
+    anyOf:
+      - $ref: >-
+          ./confirmation_tokens_resource_payment_method_options_resource_card.yaml
+    description: This hash contains the card payment method options.
+    nullable: true
+title: ConfirmationTokensResourcePaymentMethodOptions
+type: object
+x-expandableFields:
+  - card

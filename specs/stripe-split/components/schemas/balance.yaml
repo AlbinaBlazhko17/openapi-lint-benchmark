@@ -1,0 +1,77 @@
+description: >-
+  This is an object representing your Stripe balance. You can retrieve it to see
+
+  the balance currently on your Stripe account.
+
+
+  The top-level `available` and `pending` comprise your "payments balance."
+
+
+  Related guide: [Balances and settlement
+  time](https://docs.stripe.com/payments/balances), [Understanding Connect
+  account balances](https://docs.stripe.com/connect/account-balances)
+properties:
+  available:
+    description: >-
+      Available funds that you can transfer or pay out automatically by Stripe
+      or explicitly through the [Transfers
+      API](https://api.stripe.com#transfers) or [Payouts
+      API](https://api.stripe.com#payouts). You can find the available balance
+      for each currency and payment type in the `source_types` property.
+    items:
+      $ref: ./balance_amount.yaml
+    type: array
+  connect_reserved:
+    description: >-
+      Funds held due to negative balances on connected accounts where
+      [account.controller.requirement_collection](/api/accounts/object#account_object-controller-requirement_collection)
+      is `application`, which includes Custom accounts. You can find the connect
+      reserve balance for each currency and payment type in the `source_types`
+      property.
+    items:
+      $ref: ./balance_amount.yaml
+    type: array
+  instant_available:
+    description: Funds that you can pay out using Instant Payouts.
+    items:
+      $ref: ./balance_amount_net.yaml
+    type: array
+  issuing:
+    $ref: ./balance_detail.yaml
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - balance
+    type: string
+  pending:
+    description: >-
+      Funds that aren't available in the balance yet. You can find the pending
+      balance for each currency and each payment type in the `source_types`
+      property.
+    items:
+      $ref: ./balance_amount.yaml
+    type: array
+  refund_and_dispute_prefunding:
+    $ref: ./balance_detail_ungated.yaml
+required:
+  - available
+  - livemode
+  - object
+  - pending
+title: Balance
+type: object
+x-expandableFields:
+  - available
+  - connect_reserved
+  - instant_available
+  - issuing
+  - pending
+  - refund_and_dispute_prefunding
+x-resourceId: balance

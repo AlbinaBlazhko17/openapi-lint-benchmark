@@ -1,0 +1,22 @@
+description: ''
+properties:
+  image_url:
+    maxLength: 2048
+    nullable: true
+    type: string
+  product_url:
+    maxLength: 2048
+    nullable: true
+    type: string
+  reference:
+    maxLength: 255
+    nullable: true
+    type: string
+  subscription_reference:
+    maxLength: 2048
+    nullable: true
+    type: string
+title: >-
+  PaymentFlowsPrivatePaymentMethodsKlarnaPaymentIntentAmountDetailsLineItemPaymentMethodOptions
+type: object
+x-expandableFields: []

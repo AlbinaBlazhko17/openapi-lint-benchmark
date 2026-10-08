@@ -1,0 +1,10 @@
+description: ''
+properties:
+  completed_at:
+    description: Timestamp describing when the DebitReversal changed status to `completed`.
+    format: unix-time
+    nullable: true
+    type: integer
+title: TreasuryReceivedDebitsResourceStatusTransitions
+type: object
+x-expandableFields: []

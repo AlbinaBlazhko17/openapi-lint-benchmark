@@ -1,0 +1,10 @@
+/home/runner/work/_temp/b433da99-aba0-41b4-8669-e85ccebca495.sh: line 3:  2574 Aborted                 timeout -s KILL 300 scalar document lint spec3.yaml > $RESULTS/stripe/scalar.$run.txt 2>&1
+58.513
+/home/runner/work/_temp/b433da99-aba0-41b4-8669-e85ccebca495.sh: line 3:  2626 Aborted                 timeout -s KILL 300 scalar document lint spec3.yaml > $RESULTS/stripe/scalar.$run.txt 2>&1
+54.547
+/home/runner/work/_temp/b433da99-aba0-41b4-8669-e85ccebca495.sh: line 3:  2680 Aborted                 timeout -s KILL 300 scalar document lint spec3.yaml > $RESULTS/stripe/scalar.$run.txt 2>&1
+57.909
+/home/runner/work/_temp/b433da99-aba0-41b4-8669-e85ccebca495.sh: line 3:  2749 Aborted                 timeout -s KILL 300 scalar document lint spec3.yaml > $RESULTS/stripe/scalar.$run.txt 2>&1
+61.196
+/home/runner/work/_temp/b433da99-aba0-41b4-8669-e85ccebca495.sh: line 3:  2808 Aborted                 timeout -s KILL 300 scalar document lint spec3.yaml > $RESULTS/stripe/scalar.$run.txt 2>&1
+61.125

@@ -1,0 +1,24 @@
+description: ''
+properties:
+  display_name:
+    description: Display name of the Dashboard-only CustomPaymentMethodType.
+    maxLength: 5000
+    nullable: true
+    type: string
+  logo:
+    anyOf:
+      - $ref: ./custom_logo.yaml
+    description: >-
+      Contains information about the Dashboard-only CustomPaymentMethodType
+      logo.
+    nullable: true
+  type:
+    description: ID of the Dashboard-only CustomPaymentMethodType. Not expandable.
+    maxLength: 5000
+    type: string
+required:
+  - type
+title: payment_method_custom
+type: object
+x-expandableFields:
+  - logo

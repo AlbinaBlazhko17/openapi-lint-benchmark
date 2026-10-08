@@ -1,0 +1,13 @@
+description: ''
+properties:
+  expires_after_seconds:
+    description: >-
+      The number of seconds (between 10 and 1209600) after which Pix payment
+      will expire. Defaults to 86400 seconds.
+    type: integer
+  mandate_options:
+    $ref: ./subscription_payment_method_options_mandate_options_pix.yaml
+title: subscription_payment_method_options_pix
+type: object
+x-expandableFields:
+  - mandate_options

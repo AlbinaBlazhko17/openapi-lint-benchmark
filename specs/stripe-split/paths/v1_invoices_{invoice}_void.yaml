@@ -1,0 +1,55 @@
+post:
+  description: >-
+    <p>Mark a finalized invoice as void. This cannot be undone. Voiding an
+    invoice is similar to <a href="/api/invoices/delete">deletion</a>, however
+    it only applies to finalized invoices and maintains a papertrail where the
+    invoice can still be found.</p>
+
+
+    <p>Consult with local regulations to determine whether and how an invoice
+    might be amended, canceled, or voided in the jurisdiction you’re doing
+    business in. You might need to <a href="/api/invoices/create">issue another
+    invoice</a> or <a href="/api/credit_notes/create">credit note</a> instead.
+    Stripe recommends that you consult with your legal counsel for advice
+    specific to your business.</p>
+  operationId: PostInvoicesInvoiceVoid
+  parameters:
+    - in: path
+      name: invoice
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/invoice.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Void an invoice

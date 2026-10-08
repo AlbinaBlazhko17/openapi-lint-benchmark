@@ -1,0 +1,13 @@
+description: ''
+properties:
+  received_debit:
+    description: >-
+      If funds for this flow were returned after the flow went to the
+      `succeeded` state, this field contains a reference to the ReceivedDebit
+      return.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: TreasuryInboundTransfersResourceInboundTransferResourceLinkedFlows
+type: object
+x-expandableFields: []

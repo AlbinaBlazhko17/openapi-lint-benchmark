@@ -1,0 +1,159 @@
+description: ''
+properties:
+  account:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./account.yaml
+    description: ID of the Stripe account this fee was taken from.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./account.yaml
+  amount:
+    description: Amount earned, in cents (or local equivalent).
+    type: integer
+  amount_refunded:
+    description: >-
+      Amount in cents (or local equivalent) refunded (can be less than the
+      amount attribute on the fee if a partial refund was issued)
+    type: integer
+  application:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./application.yaml
+    description: ID of the Connect application that earned the fee.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./application.yaml
+  balance_transaction:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./balance_transaction.yaml
+    description: >-
+      Balance transaction that describes the impact of this collected
+      application fee on your account balance (not including refunds).
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./balance_transaction.yaml
+  charge:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./charge.yaml
+    description: ID of the charge that the application fee was taken from.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./charge.yaml
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    format: currency
+    type: string
+  fee_source:
+    anyOf:
+      - $ref: ./platform_earning_fee_source.yaml
+    description: >-
+      Polymorphic source of the application fee. Includes the ID of the object
+      the application fee was created from.
+    nullable: true
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - application_fee
+    type: string
+  originating_transaction:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./charge.yaml
+    description: >-
+      ID of the corresponding charge on the platform account, if this fee was
+      the result of a charge using the `destination` parameter.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./charge.yaml
+  refunded:
+    description: >-
+      Whether the fee has been fully refunded. If the fee is only partially
+      refunded, this attribute will still be false.
+    type: boolean
+  refunds:
+    description: A list of refunds that have been applied to the fee.
+    properties:
+      data:
+        description: Details about each object.
+        items:
+          $ref: ./fee_refund.yaml
+        type: array
+      has_more:
+        description: >-
+          True if this list has another page of items after this one that can be
+          fetched.
+        type: boolean
+      object:
+        description: >-
+          String representing the object's type. Objects of the same type share
+          the same value. Always has the value `list`.
+        enum:
+          - list
+        type: string
+      url:
+        description: The URL where this list can be accessed.
+        maxLength: 5000
+        type: string
+    required:
+      - data
+      - has_more
+      - object
+      - url
+    title: FeeRefundList
+    type: object
+    x-expandableFields:
+      - data
+required:
+  - account
+  - amount
+  - amount_refunded
+  - application
+  - charge
+  - created
+  - currency
+  - id
+  - livemode
+  - object
+  - refunded
+  - refunds
+title: PlatformFee
+type: object
+x-expandableFields:
+  - account
+  - application
+  - balance_transaction
+  - charge
+  - fee_source
+  - originating_transaction
+  - refunds
+x-resourceId: application_fee

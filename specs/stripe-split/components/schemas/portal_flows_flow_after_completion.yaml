@@ -1,0 +1,26 @@
+description: ''
+properties:
+  hosted_confirmation:
+    anyOf:
+      - $ref: ./portal_flows_after_completion_hosted_confirmation.yaml
+    description: Configuration when `after_completion.type=hosted_confirmation`.
+    nullable: true
+  redirect:
+    anyOf:
+      - $ref: ./portal_flows_after_completion_redirect.yaml
+    description: Configuration when `after_completion.type=redirect`.
+    nullable: true
+  type:
+    description: The specified type of behavior after the flow is completed.
+    enum:
+      - hosted_confirmation
+      - portal_homepage
+      - redirect
+    type: string
+required:
+  - type
+title: PortalFlowsFlowAfterCompletion
+type: object
+x-expandableFields:
+  - hosted_confirmation
+  - redirect

@@ -1,0 +1,105 @@
+description: ''
+properties:
+  advice_code:
+    description: >-
+      For card errors resulting from a card issuer decline, a short string
+      indicating [how to proceed with an
+      error](https://docs.stripe.com/declines#retrying-issuer-declines) if they
+      provide one.
+    maxLength: 5000
+    type: string
+  charge:
+    description: For card errors, the ID of the failed charge.
+    maxLength: 5000
+    type: string
+  code:
+    description: >-
+      For some errors that could be handled programmatically, a short string
+      indicating the [error code](https://docs.stripe.com/error-codes) reported.
+    maxLength: 5000
+    type: string
+  decline_code:
+    description: >-
+      For card errors resulting from a card issuer decline, a short string
+      indicating the [card issuer's reason for the
+      decline](https://docs.stripe.com/declines#issuer-declines) if they provide
+      one.
+    maxLength: 5000
+    type: string
+  doc_url:
+    description: >-
+      A URL to more information about the [error
+      code](https://docs.stripe.com/error-codes) reported.
+    maxLength: 5000
+    type: string
+  message:
+    description: >-
+      A human-readable message providing more details about the error. For card
+      errors, these messages can be shown to your users.
+    maxLength: 40000
+    type: string
+  network_advice_code:
+    description: >-
+      For card errors resulting from a card issuer decline, a 2 digit code which
+      indicates the advice given to merchant by the card network on how to
+      proceed with an error.
+    maxLength: 5000
+    type: string
+  network_decline_code:
+    description: >-
+      For payments declined by the network, an alphanumeric code which indicates
+      the reason the payment failed.
+    maxLength: 5000
+    type: string
+  param:
+    description: >-
+      If the error is parameter-specific, the parameter related to the error.
+      For example, you can use this to display a message near the correct form
+      field.
+    maxLength: 5000
+    type: string
+  payment_intent:
+    $ref: ./payment_intent.yaml
+  payment_method:
+    $ref: ./payment_method.yaml
+  payment_method_type:
+    description: >-
+      If the error is specific to the type of payment method, the payment method
+      type that had a problem. This field is only populated for invoice-related
+      errors.
+    maxLength: 5000
+    type: string
+  request_log_url:
+    description: A URL to the request log entry in your dashboard.
+    maxLength: 5000
+    type: string
+  setup_intent:
+    $ref: ./setup_intent.yaml
+  source:
+    anyOf:
+      - $ref: ./bank_account.yaml
+      - $ref: ./card.yaml
+      - $ref: ./source.yaml
+    description: >-
+      The [source object](https://docs.stripe.com/api/sources/object) for errors
+      returned on a request involving a source.
+    x-stripeBypassValidation: true
+  type:
+    description: >-
+      The type of error returned. One of `api_error`, `card_error`,
+      `idempotency_error`, or `invalid_request_error`
+    enum:
+      - api_error
+      - card_error
+      - idempotency_error
+      - invalid_request_error
+    type: string
+required:
+  - type
+title: APIErrors
+type: object
+x-expandableFields:
+  - payment_intent
+  - payment_method
+  - setup_intent
+  - source

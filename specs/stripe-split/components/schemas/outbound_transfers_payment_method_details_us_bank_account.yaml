@@ -1,0 +1,62 @@
+description: ''
+properties:
+  account_holder_type:
+    description: 'Account holder type: individual or company.'
+    enum:
+      - company
+      - individual
+    nullable: true
+    type: string
+  account_type:
+    description: 'Account type: checkings or savings. Defaults to checking if omitted.'
+    enum:
+      - checking
+      - savings
+    nullable: true
+    type: string
+  bank_name:
+    description: Name of the bank associated with the bank account.
+    maxLength: 5000
+    nullable: true
+    type: string
+  fingerprint:
+    description: >-
+      Uniquely identifies this particular bank account. You can use this
+      attribute to check whether two bank accounts are the same.
+    maxLength: 5000
+    nullable: true
+    type: string
+  last4:
+    description: Last four digits of the bank account number.
+    maxLength: 5000
+    nullable: true
+    type: string
+  mandate:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./mandate.yaml
+    description: ID of the mandate used to make this payment.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./mandate.yaml
+  network:
+    description: >-
+      The network rails used. See the
+      [docs](https://docs.stripe.com/treasury/money-movement/timelines) to learn
+      more about money movement timelines for each network type.
+    enum:
+      - ach
+      - us_domestic_wire
+    type: string
+  routing_number:
+    description: Routing number of the bank account.
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - network
+title: outbound_transfers_payment_method_details_us_bank_account
+type: object
+x-expandableFields:
+  - mandate

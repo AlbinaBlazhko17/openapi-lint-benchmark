@@ -1,0 +1,40 @@
+post:
+  description: >-
+    <p>Internal endpoint for terminal use to create a refund for a card_present
+    or card charge.</p>
+
+
+    <p>You can optionally refund only part of a charge.</p>
+  operationId: PostTerminalRefunds
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/terminal.refund.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Create a refund using a Terminal-supported device.

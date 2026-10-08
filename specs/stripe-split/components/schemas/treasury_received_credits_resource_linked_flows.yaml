@@ -1,0 +1,47 @@
+description: ''
+properties:
+  credit_reversal:
+    description: >-
+      The CreditReversal created as a result of this ReceivedCredit being
+      reversed.
+    maxLength: 5000
+    nullable: true
+    type: string
+  issuing_authorization:
+    description: >-
+      Set if the ReceivedCredit was created due to an [Issuing
+      Authorization](https://api.stripe.com#issuing_authorizations) object.
+    maxLength: 5000
+    nullable: true
+    type: string
+  issuing_transaction:
+    description: >-
+      Set if the ReceivedCredit is also viewable as an [Issuing
+      transaction](https://api.stripe.com#issuing_transactions) object.
+    maxLength: 5000
+    nullable: true
+    type: string
+  source_flow:
+    description: >-
+      ID of the source flow. Set if `network` is `stripe` and the source flow is
+      visible to the user. Examples of source flows include OutboundPayments,
+      payouts, or CreditReversals.
+    maxLength: 5000
+    nullable: true
+    type: string
+  source_flow_details:
+    anyOf:
+      - $ref: ./treasury_received_credits_resource_source_flows_details.yaml
+    description: The expandable object of the source flow.
+    nullable: true
+  source_flow_type:
+    description: >-
+      The type of flow that originated the ReceivedCredit (for example,
+      `outbound_payment`).
+    maxLength: 5000
+    nullable: true
+    type: string
+title: TreasuryReceivedCreditsResourceLinkedFlows
+type: object
+x-expandableFields:
+  - source_flow_details

@@ -1,0 +1,31 @@
+description: ''
+properties:
+  city:
+    description: The city where the supplier is located.
+    maxLength: 5000
+    nullable: true
+    type: string
+  country:
+    description: >-
+      Two-letter ISO code representing the country where the supplier is
+      located.
+    maxLength: 5000
+    type: string
+  latitude:
+    description: The geographic latitude where the supplier is located.
+    nullable: true
+    type: number
+  longitude:
+    description: The geographic longitude where the supplier is located.
+    nullable: true
+    type: number
+  region:
+    description: The state/county/province/region where the supplier is located.
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - country
+title: ClimateRemovalsLocation
+type: object
+x-expandableFields: []

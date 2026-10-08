@@ -1,0 +1,21 @@
+description: >-
+  Options for customizing account balances and payout settings for a Stripe
+  platform’s connected accounts.
+properties:
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - balance_settings
+    type: string
+  payments:
+    $ref: ./balance_settings_resource_payments.yaml
+required:
+  - object
+  - payments
+title: Balance Setting
+type: object
+x-expandableFields:
+  - payments
+x-resourceId: balance_settings

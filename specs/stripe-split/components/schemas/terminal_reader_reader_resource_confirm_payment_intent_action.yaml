@@ -1,0 +1,20 @@
+description: Represents a reader action to confirm a payment
+properties:
+  confirm_config:
+    $ref: ./terminal_reader_reader_resource_confirm_config.yaml
+  payment_intent:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./payment_intent.yaml
+    description: Most recent PaymentIntent processed by the reader.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./payment_intent.yaml
+required:
+  - payment_intent
+title: TerminalReaderReaderResourceConfirmPaymentIntentAction
+type: object
+x-expandableFields:
+  - confirm_config
+  - payment_intent

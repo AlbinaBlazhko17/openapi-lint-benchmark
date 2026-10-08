@@ -1,0 +1,38 @@
+description: ''
+properties:
+  address_line1_check:
+    description: >-
+      If you provide a value for `address.line1`, the check result is one of
+      `pass`, `fail`, `unavailable`, or `unchecked`.
+    enum:
+      - fail
+      - pass
+      - unavailable
+      - unchecked
+    nullable: true
+    type: string
+  address_postal_code_check:
+    description: >-
+      If you provide a address postal code, the check result is one of `pass`,
+      `fail`, `unavailable`, or `unchecked`.
+    enum:
+      - fail
+      - pass
+      - unavailable
+      - unchecked
+    nullable: true
+    type: string
+  cvc_check:
+    description: >-
+      If you provide a CVC, the check results is one of `pass`, `fail`,
+      `unavailable`, or `unchecked`.
+    enum:
+      - fail
+      - pass
+      - unavailable
+      - unchecked
+    nullable: true
+    type: string
+title: PaymentsPrimitivesPaymentRecordsResourcePaymentMethodCardDetailsResourceChecks
+type: object
+x-expandableFields: []

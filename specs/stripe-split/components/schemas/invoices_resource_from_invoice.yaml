@@ -1,0 +1,22 @@
+description: ''
+properties:
+  action:
+    description: The relation between this invoice and the cloned invoice
+    maxLength: 5000
+    type: string
+  invoice:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./invoice.yaml
+    description: The invoice that was cloned.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./invoice.yaml
+required:
+  - action
+  - invoice
+title: InvoicesResourceFromInvoice
+type: object
+x-expandableFields:
+  - invoice

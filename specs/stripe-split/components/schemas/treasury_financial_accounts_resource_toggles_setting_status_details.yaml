@@ -1,0 +1,37 @@
+description: Additional details on the FinancialAccount Features information.
+properties:
+  code:
+    description: Represents the reason why the status is `pending` or `restricted`.
+    enum:
+      - activating
+      - capability_not_requested
+      - financial_account_closed
+      - rejected_other
+      - rejected_unsupported_business
+      - requirements_past_due
+      - requirements_pending_verification
+      - restricted_by_platform
+      - restricted_other
+    type: string
+    x-stripeBypassValidation: true
+  resolution:
+    description: Represents what the user should do, if anything, to activate the Feature.
+    enum:
+      - contact_stripe
+      - provide_information
+      - remove_restriction
+    nullable: true
+    type: string
+    x-stripeBypassValidation: true
+  restriction:
+    description: The `platform_restrictions` that are restricting this Feature.
+    enum:
+      - inbound_flows
+      - outbound_flows
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - code
+title: TreasuryFinancialAccountsResourceTogglesSettingStatusDetails
+type: object
+x-expandableFields: []

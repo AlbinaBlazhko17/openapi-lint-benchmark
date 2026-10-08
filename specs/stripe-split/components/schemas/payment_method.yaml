@@ -1,0 +1,328 @@
+description: >-
+  PaymentMethod objects represent your customer's payment instruments.
+
+  You can use them with
+  [PaymentIntents](https://docs.stripe.com/payments/payment-intents) to collect
+  payments or save them to
+
+  Customer objects to store instrument details for future payments.
+
+
+  Related guides: [Payment
+  Methods](https://docs.stripe.com/payments/payment-methods) and [More Payment
+  Scenarios](https://docs.stripe.com/payments/more-payment-scenarios).
+properties:
+  acss_debit:
+    $ref: ./payment_method_acss_debit.yaml
+  affirm:
+    $ref: ./payment_method_affirm.yaml
+  afterpay_clearpay:
+    $ref: ./payment_method_afterpay_clearpay.yaml
+  alipay:
+    $ref: ./payment_flows_private_payment_methods_alipay.yaml
+  allow_redisplay:
+    description: >-
+      This field indicates whether this payment method can be shown again to its
+      customer in a checkout flow. Stripe products such as Checkout and Elements
+      use this field to determine whether a payment method can be shown as a
+      saved payment method in a checkout flow. The field defaults to
+      “unspecified”.
+    enum:
+      - always
+      - limited
+      - unspecified
+    type: string
+  alma:
+    $ref: ./payment_method_alma.yaml
+  amazon_pay:
+    $ref: ./payment_method_amazon_pay.yaml
+  au_becs_debit:
+    $ref: ./payment_method_au_becs_debit.yaml
+  bacs_debit:
+    $ref: ./payment_method_bacs_debit.yaml
+  bancontact:
+    $ref: ./payment_method_bancontact.yaml
+  billie:
+    $ref: ./payment_method_billie.yaml
+  billing_details:
+    $ref: ./billing_details.yaml
+  bizum:
+    $ref: ./payment_method_bizum.yaml
+  blik:
+    $ref: ./payment_method_blik.yaml
+  boleto:
+    $ref: ./payment_method_boleto.yaml
+  card:
+    $ref: ./payment_method_card.yaml
+  card_present:
+    $ref: ./payment_method_card_present.yaml
+  cashapp:
+    $ref: ./payment_method_cashapp.yaml
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  crypto:
+    $ref: ./payment_method_crypto.yaml
+  custom:
+    $ref: ./payment_method_custom.yaml
+  customer:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./customer.yaml
+    description: >-
+      The ID of the Customer to which this PaymentMethod is saved. This will not
+      be set when the PaymentMethod has not been saved to a Customer.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./customer.yaml
+  customer_account:
+    maxLength: 5000
+    nullable: true
+    type: string
+  customer_balance:
+    $ref: ./payment_method_customer_balance.yaml
+  eps:
+    $ref: ./payment_method_eps.yaml
+  fpx:
+    $ref: ./payment_method_fpx.yaml
+  giropay:
+    $ref: ./payment_method_giropay.yaml
+  grabpay:
+    $ref: ./payment_method_grabpay.yaml
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  ideal:
+    $ref: ./payment_method_ideal.yaml
+  interac_present:
+    $ref: ./payment_method_interac_present.yaml
+  kakao_pay:
+    $ref: ./payment_method_kakao_pay.yaml
+  klarna:
+    $ref: ./payment_method_klarna.yaml
+  konbini:
+    $ref: ./payment_method_konbini.yaml
+  kr_card:
+    $ref: ./payment_method_kr_card.yaml
+  link:
+    $ref: ./payment_method_link.yaml
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  mb_way:
+    $ref: ./payment_method_mb_way.yaml
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    nullable: true
+    type: object
+  mobilepay:
+    $ref: ./payment_method_mobilepay.yaml
+  multibanco:
+    $ref: ./payment_method_multibanco.yaml
+  naver_pay:
+    $ref: ./payment_method_naver_pay.yaml
+  nz_bank_account:
+    $ref: ./payment_method_nz_bank_account.yaml
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - payment_method
+    type: string
+  oxxo:
+    $ref: ./payment_method_oxxo.yaml
+  p24:
+    $ref: ./payment_method_p24.yaml
+  pay_by_bank:
+    $ref: ./payment_method_pay_by_bank.yaml
+  payco:
+    $ref: ./payment_method_payco.yaml
+  paynow:
+    $ref: ./payment_method_paynow.yaml
+  paypal:
+    $ref: ./payment_method_paypal.yaml
+  payto:
+    $ref: ./payment_method_payto.yaml
+  pix:
+    $ref: ./payment_method_pix.yaml
+  promptpay:
+    $ref: ./payment_method_promptpay.yaml
+  radar_options:
+    $ref: ./radar_radar_options.yaml
+  revolut_pay:
+    $ref: ./payment_method_revolut_pay.yaml
+  samsung_pay:
+    $ref: ./payment_method_samsung_pay.yaml
+  satispay:
+    $ref: ./payment_method_satispay.yaml
+  scalapay:
+    $ref: ./payment_method_scalapay.yaml
+  sepa_debit:
+    $ref: ./payment_method_sepa_debit.yaml
+  sofort:
+    $ref: ./payment_method_sofort.yaml
+  sunbit:
+    $ref: ./payment_method_sunbit.yaml
+  swish:
+    $ref: ./payment_method_swish.yaml
+  twint:
+    $ref: ./payment_method_twint.yaml
+  type:
+    description: >-
+      The type of the PaymentMethod. An additional hash is included on the
+      PaymentMethod with a name matching this value. It contains additional
+      information specific to the PaymentMethod type.
+    enum:
+      - acss_debit
+      - affirm
+      - afterpay_clearpay
+      - alipay
+      - alma
+      - amazon_pay
+      - au_becs_debit
+      - bacs_debit
+      - bancontact
+      - billie
+      - bizum
+      - blik
+      - boleto
+      - card
+      - card_present
+      - cashapp
+      - crypto
+      - custom
+      - customer_balance
+      - eps
+      - fpx
+      - giropay
+      - grabpay
+      - ideal
+      - interac_present
+      - kakao_pay
+      - klarna
+      - konbini
+      - kr_card
+      - link
+      - mb_way
+      - mobilepay
+      - multibanco
+      - naver_pay
+      - nz_bank_account
+      - oxxo
+      - p24
+      - pay_by_bank
+      - payco
+      - paynow
+      - paypal
+      - payto
+      - pix
+      - promptpay
+      - revolut_pay
+      - samsung_pay
+      - satispay
+      - scalapay
+      - sepa_debit
+      - sofort
+      - sunbit
+      - swish
+      - twint
+      - upi
+      - us_bank_account
+      - wechat_pay
+      - zip
+    type: string
+    x-stripeBypassValidation: true
+  upi:
+    $ref: ./payment_method_upi.yaml
+  us_bank_account:
+    $ref: ./payment_method_us_bank_account.yaml
+  wechat_pay:
+    $ref: ./payment_method_wechat_pay.yaml
+  zip:
+    $ref: ./payment_method_zip.yaml
+required:
+  - billing_details
+  - created
+  - id
+  - livemode
+  - object
+  - type
+title: PaymentMethod
+type: object
+x-expandableFields:
+  - acss_debit
+  - affirm
+  - afterpay_clearpay
+  - alipay
+  - alma
+  - amazon_pay
+  - au_becs_debit
+  - bacs_debit
+  - bancontact
+  - billie
+  - billing_details
+  - bizum
+  - blik
+  - boleto
+  - card
+  - card_present
+  - cashapp
+  - crypto
+  - custom
+  - customer
+  - customer_balance
+  - eps
+  - fpx
+  - giropay
+  - grabpay
+  - ideal
+  - interac_present
+  - kakao_pay
+  - klarna
+  - konbini
+  - kr_card
+  - link
+  - mb_way
+  - mobilepay
+  - multibanco
+  - naver_pay
+  - nz_bank_account
+  - oxxo
+  - p24
+  - pay_by_bank
+  - payco
+  - paynow
+  - paypal
+  - payto
+  - pix
+  - promptpay
+  - radar_options
+  - revolut_pay
+  - samsung_pay
+  - satispay
+  - scalapay
+  - sepa_debit
+  - sofort
+  - sunbit
+  - swish
+  - twint
+  - upi
+  - us_bank_account
+  - wechat_pay
+  - zip
+x-resourceId: payment_method

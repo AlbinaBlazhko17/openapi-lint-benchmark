@@ -1,0 +1,26 @@
+description: ''
+properties:
+  date:
+    description: >-
+      The Unix timestamp marking when the representative declaration attestation
+      was made.
+    format: unix-time
+    nullable: true
+    type: integer
+  ip:
+    description: >-
+      The IP address from which the representative declaration attestation was
+      made.
+    maxLength: 5000
+    nullable: true
+    type: string
+  user_agent:
+    description: >-
+      The user-agent string from the browser where the representative
+      declaration attestation was made.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: LegalEntityRepresentativeDeclaration
+type: object
+x-expandableFields: []

@@ -1,0 +1,22 @@
+description: Change to a FinancialAccount's balance
+properties:
+  cash:
+    description: The change made to funds the user can spend right now.
+    type: integer
+  inbound_pending:
+    description: >-
+      The change made to funds that are not spendable yet, but will become
+      available at a later time.
+    type: integer
+  outbound_pending:
+    description: >-
+      The change made to funds in the account, but not spendable because they
+      are being held for pending outbound flows.
+    type: integer
+required:
+  - cash
+  - inbound_pending
+  - outbound_pending
+title: TreasuryTransactionsResourceBalanceImpact
+type: object
+x-expandableFields: []

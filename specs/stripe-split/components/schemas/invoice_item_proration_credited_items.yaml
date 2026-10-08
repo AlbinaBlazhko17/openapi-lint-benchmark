@@ -1,0 +1,24 @@
+description: ''
+properties:
+  invoice_item:
+    description: >-
+      When `type` is `invoice_item`, the invoice item id for the debited invoice
+      item corresponding to this credit proration.
+    maxLength: 5000
+    type: string
+  invoice_line_item_details:
+    $ref: ./credited_items_invoice_line_items.yaml
+  type:
+    description: >-
+      Whether the credit references a pending invoice item or one or more
+      invoice line items on an invoice.
+    enum:
+      - invoice_item
+      - invoice_line_items
+    type: string
+required:
+  - type
+title: InvoiceItemProrationCreditedItems
+type: object
+x-expandableFields:
+  - invoice_line_item_details

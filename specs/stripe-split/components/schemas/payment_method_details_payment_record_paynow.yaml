@@ -1,0 +1,22 @@
+description: ''
+properties:
+  location:
+    description: >-
+      ID of the [location](https://docs.stripe.com/api/terminal/locations) that
+      this transaction's reader is assigned to.
+    maxLength: 5000
+    type: string
+  reader:
+    description: >-
+      ID of the [reader](https://docs.stripe.com/api/terminal/readers) this
+      transaction was made on.
+    maxLength: 5000
+    type: string
+  reference:
+    description: Reference number associated with this PayNow payment
+    maxLength: 5000
+    nullable: true
+    type: string
+title: payment_method_details_payment_record_paynow
+type: object
+x-expandableFields: []

@@ -1,0 +1,48 @@
+post:
+  description: >-
+    <p>Cancels a refund with a status of <code>requires_action</code>.</p>
+
+
+    <p>You can’t cancel refunds in other states. Only refunds for payment
+    methods that require customer action can enter the
+    <code>requires_action</code> state.</p>
+  operationId: PostRefundsRefundCancel
+  parameters:
+    - in: path
+      name: refund
+      required: true
+      schema:
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/refund.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Cancel a refund

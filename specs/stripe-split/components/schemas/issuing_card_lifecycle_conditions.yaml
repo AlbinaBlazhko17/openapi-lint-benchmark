@@ -1,0 +1,14 @@
+description: ''
+properties:
+  payment_count:
+    description: >-
+      The card is automatically cancelled when it makes this number of non-zero
+      payment authorizations and transactions. The count includes penny
+      authorizations, but doesn't include non-payment actions, such as
+      authorization advice.
+    type: integer
+required:
+  - payment_count
+title: IssuingCardLifecycleConditions
+type: object
+x-expandableFields: []

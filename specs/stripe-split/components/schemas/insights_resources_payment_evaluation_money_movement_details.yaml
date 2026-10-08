@@ -1,0 +1,18 @@
+description: Money Movement details attached to this payment.
+properties:
+  card:
+    anyOf:
+      - $ref: ./insights_resources_payment_evaluation_money_movement_card.yaml
+    description: Describes card money movement details for the payment evaluation.
+    nullable: true
+  money_movement_type:
+    description: Describes the type of money movement. Currently only `card` is supported.
+    enum:
+      - card
+    type: string
+required:
+  - money_movement_type
+title: InsightsResourcesPaymentEvaluationMoneyMovementDetails
+type: object
+x-expandableFields:
+  - card

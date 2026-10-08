@@ -1,0 +1,13 @@
+description: ''
+properties:
+  restrictions:
+    anyOf:
+      - $ref: ./payment_links_resource_card_restrictions.yaml
+    description: >-
+      Restrictions to apply to the card payment method. For example, you can
+      block specific card brands.
+    nullable: true
+title: PaymentLinksResourceCardPaymentMethodOptions
+type: object
+x-expandableFields:
+  - restrictions

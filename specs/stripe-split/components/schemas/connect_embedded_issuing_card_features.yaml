@@ -1,0 +1,22 @@
+description: ''
+properties:
+  card_management:
+    description: Whether to allow card management features.
+    type: boolean
+  card_spend_dispute_management:
+    description: Whether to allow card spend dispute management features.
+    type: boolean
+  cardholder_management:
+    description: Whether to allow cardholder management features.
+    type: boolean
+  spend_control_management:
+    description: Whether to allow spend control management features.
+    type: boolean
+required:
+  - card_management
+  - card_spend_dispute_management
+  - cardholder_management
+  - spend_control_management
+title: ConnectEmbeddedIssuingCardFeatures
+type: object
+x-expandableFields: []

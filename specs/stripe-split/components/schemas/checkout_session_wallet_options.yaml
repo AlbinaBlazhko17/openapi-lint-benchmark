@@ -1,0 +1,8 @@
+description: ''
+properties:
+  link:
+    $ref: ./checkout_link_wallet_options.yaml
+title: CheckoutSessionWalletOptions
+type: object
+x-expandableFields:
+  - link

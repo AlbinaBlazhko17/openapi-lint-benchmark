@@ -1,0 +1,15 @@
+description: ''
+properties:
+  email_sent:
+    $ref: ./email_sent.yaml
+  expires_at:
+    description: The expiry timestamp.
+    format: unix-time
+    type: integer
+required:
+  - email_sent
+  - expires_at
+title: RefundNextActionDisplayDetails
+type: object
+x-expandableFields:
+  - email_sent

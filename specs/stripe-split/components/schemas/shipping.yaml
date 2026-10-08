@@ -1,0 +1,32 @@
+description: ''
+properties:
+  address:
+    $ref: ./address.yaml
+  carrier:
+    description: >-
+      The delivery service that shipped a physical product, such as Fedex, UPS,
+      USPS, etc.
+    maxLength: 5000
+    nullable: true
+    type: string
+  name:
+    description: Recipient name.
+    maxLength: 5000
+    type: string
+  phone:
+    description: Recipient phone (including extension).
+    maxLength: 5000
+    nullable: true
+    type: string
+  tracking_number:
+    description: >-
+      The tracking number for a physical product, obtained from the delivery
+      service. If multiple tracking numbers were generated for this purchase,
+      please separate them with commas.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: Shipping
+type: object
+x-expandableFields:
+  - address

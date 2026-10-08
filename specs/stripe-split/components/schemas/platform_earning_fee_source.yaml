@@ -1,0 +1,22 @@
+description: ''
+properties:
+  charge:
+    description: Charge ID that created this application fee.
+    maxLength: 5000
+    type: string
+  payout:
+    description: Payout ID that created this application fee.
+    maxLength: 5000
+    type: string
+  type:
+    description: Type of object that created the application fee.
+    enum:
+      - charge
+      - payout
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - type
+title: PlatformEarningFeeSource
+type: object
+x-expandableFields: []

@@ -1,0 +1,20 @@
+description: ''
+properties:
+  bank_account:
+    description: >-
+      Amount coming from [legacy US ACH
+      payments](https://docs.stripe.com/ach-deprecated).
+    type: integer
+  card:
+    description: >-
+      Amount coming from most payment methods, including cards as well as
+      [non-legacy bank debits](https://docs.stripe.com/payments/bank-debits).
+    type: integer
+  fpx:
+    description: >-
+      Amount coming from [FPX](https://docs.stripe.com/payments/fpx), a
+      Malaysian payment method.
+    type: integer
+title: BalanceAmountBySourceType
+type: object
+x-expandableFields: []

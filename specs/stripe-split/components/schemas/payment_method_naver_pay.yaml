@@ -1,0 +1,21 @@
+description: ''
+properties:
+  buyer_id:
+    description: >-
+      Uniquely identifies this particular Naver Pay account. You can use this
+      attribute to check whether two Naver Pay accounts are the same.
+    maxLength: 5000
+    nullable: true
+    type: string
+  funding:
+    description: Whether to fund this transaction with Naver Pay points or a card.
+    enum:
+      - card
+      - points
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - funding
+title: payment_method_naver_pay
+type: object
+x-expandableFields: []

@@ -1,0 +1,14 @@
+description: ''
+properties:
+  display_details:
+    $ref: ./refund_next_action_display_details.yaml
+  type:
+    description: Type of the next action to perform.
+    maxLength: 5000
+    type: string
+required:
+  - type
+title: RefundNextAction
+type: object
+x-expandableFields:
+  - display_details

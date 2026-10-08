@@ -1,0 +1,13 @@
+description: ''
+properties:
+  disable_stripe_user_authentication:
+    description: >-
+      Whether Stripe user authentication is disabled. This value can only be
+      `true` for accounts where `controller.requirement_collection` is
+      `application` for the account. This is `false` by default.
+    type: boolean
+required:
+  - disable_stripe_user_authentication
+title: ConnectEmbeddedPaymentMethodSettingsFeatures
+type: object
+x-expandableFields: []

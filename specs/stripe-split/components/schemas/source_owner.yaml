@@ -1,0 +1,59 @@
+description: ''
+properties:
+  address:
+    anyOf:
+      - $ref: ./address.yaml
+    description: Owner's address.
+    nullable: true
+  email:
+    description: Owner's email address.
+    maxLength: 5000
+    nullable: true
+    type: string
+  name:
+    description: Owner's full name.
+    maxLength: 5000
+    nullable: true
+    type: string
+  phone:
+    description: Owner's phone number (including extension).
+    maxLength: 5000
+    nullable: true
+    type: string
+  verified_address:
+    anyOf:
+      - $ref: ./address.yaml
+    description: >-
+      Verified owner's address. Verified values are verified or provided by the
+      payment method directly (and if supported) at the time of authorization or
+      settlement. They cannot be set or mutated.
+    nullable: true
+  verified_email:
+    description: >-
+      Verified owner's email address. Verified values are verified or provided
+      by the payment method directly (and if supported) at the time of
+      authorization or settlement. They cannot be set or mutated.
+    maxLength: 5000
+    nullable: true
+    type: string
+  verified_name:
+    description: >-
+      Verified owner's full name. Verified values are verified or provided by
+      the payment method directly (and if supported) at the time of
+      authorization or settlement. They cannot be set or mutated.
+    maxLength: 5000
+    nullable: true
+    type: string
+  verified_phone:
+    description: >-
+      Verified owner's phone number (including extension). Verified values are
+      verified or provided by the payment method directly (and if supported) at
+      the time of authorization or settlement. They cannot be set or mutated.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: SourceOwner
+type: object
+x-expandableFields:
+  - address
+  - verified_address

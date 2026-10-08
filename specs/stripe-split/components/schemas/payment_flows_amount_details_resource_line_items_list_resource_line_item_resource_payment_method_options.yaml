@@ -1,0 +1,22 @@
+description: ''
+properties:
+  card:
+    $ref: >-
+      ./payment_flows_private_payment_methods_card_payment_intent_amount_details_line_item_payment_method_options.yaml
+  card_present:
+    $ref: >-
+      ./payment_flows_private_payment_methods_card_present_amount_details_line_item_payment_method_options.yaml
+  klarna:
+    $ref: >-
+      ./payment_flows_private_payment_methods_klarna_payment_intent_amount_details_line_item_payment_method_options.yaml
+  paypal:
+    $ref: >-
+      ./payment_flows_private_payment_methods_paypal_amount_details_line_item_payment_method_options.yaml
+title: >-
+  PaymentFlowsAmountDetailsResourceLineItemsListResourceLineItemResourcePaymentMethodOptions
+type: object
+x-expandableFields:
+  - card
+  - card_present
+  - klarna
+  - paypal

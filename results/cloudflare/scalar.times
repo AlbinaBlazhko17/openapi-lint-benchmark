@@ -1,0 +1,2 @@
+/home/runner/work/_temp/1d0f476f-7c4a-4f62-affc-714a3dd8e077.sh: line 3:  4381 Killed                  timeout -s KILL 300 scalar document lint openapi.yaml > $RESULTS/cloudflare/scalar.$run.txt 2>&1
+300.002

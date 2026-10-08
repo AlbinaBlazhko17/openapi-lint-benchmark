@@ -1,0 +1,10 @@
+description: ''
+properties:
+  email:
+    description: Account owner's email address.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: payment_method_link
+type: object
+x-expandableFields: []

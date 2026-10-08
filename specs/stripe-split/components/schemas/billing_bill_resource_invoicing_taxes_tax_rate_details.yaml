@@ -1,0 +1,17 @@
+description: ''
+properties:
+  tax_rate:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./tax_rate.yaml
+    description: ID of the tax rate
+    x-expansionResources:
+      oneOf:
+        - $ref: ./tax_rate.yaml
+required:
+  - tax_rate
+title: BillingBillResourceInvoicingTaxesTaxRateDetails
+type: object
+x-expandableFields:
+  - tax_rate

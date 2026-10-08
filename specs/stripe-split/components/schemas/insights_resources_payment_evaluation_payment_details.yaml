@@ -1,0 +1,56 @@
+description: Payment details attached to this payment evaluation.
+properties:
+  amount:
+    description: >-
+      Amount intended to be collected by this payment. A positive integer
+      representing how much to charge in the [smallest currency
+      unit](https://docs.stripe.com/currencies#zero-decimal) (e.g., 100 cents to
+      charge $1.00 or 100 to charge ¥100, a zero-decimal currency). The minimum
+      amount is $0.50 US or [equivalent in charge
+      currency](https://docs.stripe.com/currencies#minimum-and-maximum-charge-amounts).
+      The amount value supports up to eight digits (e.g., a value of 99999999
+      for a USD charge of $999,999.99).
+    type: integer
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    format: currency
+    type: string
+  description:
+    description: >-
+      An arbitrary string attached to the object. Often useful for displaying to
+      users.
+    maxLength: 5000
+    nullable: true
+    type: string
+  money_movement_details:
+    anyOf:
+      - $ref: ./insights_resources_payment_evaluation_money_movement_details.yaml
+    description: Details about the payment's customer presence and type.
+    nullable: true
+  payment_method_details:
+    anyOf:
+      - $ref: ./insights_resources_payment_evaluation_payment_method_details.yaml
+    description: Details about the payment method used for the payment.
+    nullable: true
+  shipping_details:
+    anyOf:
+      - $ref: ./insights_resources_payment_evaluation_shipping.yaml
+    description: Shipping details for the payment evaluation.
+    nullable: true
+  statement_descriptor:
+    description: Payment statement descriptor.
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - amount
+  - currency
+title: InsightsResourcesPaymentEvaluationPaymentDetails
+type: object
+x-expandableFields:
+  - money_movement_details
+  - payment_method_details
+  - shipping_details

@@ -1,0 +1,35 @@
+description: Configuration for the components supported by this Customer Session.
+properties:
+  active_entitlements:
+    $ref: ./customer_session_resource_components_resource_active_entitlements.yaml
+  buy_button:
+    $ref: ./customer_session_resource_components_resource_buy_button.yaml
+  customer_portal:
+    $ref: ./customer_session_resource_components_resource_customer_portal.yaml
+  customer_sheet:
+    $ref: ./customer_session_resource_components_resource_customer_sheet.yaml
+  mobile_payment_element:
+    $ref: >-
+      ./customer_session_resource_components_resource_mobile_payment_element.yaml
+  payment_element:
+    $ref: ./customer_session_resource_components_resource_payment_element.yaml
+  pricing_table:
+    $ref: ./customer_session_resource_components_resource_pricing_table.yaml
+required:
+  - active_entitlements
+  - buy_button
+  - customer_portal
+  - customer_sheet
+  - mobile_payment_element
+  - payment_element
+  - pricing_table
+title: CustomerSessionResourceComponents
+type: object
+x-expandableFields:
+  - active_entitlements
+  - buy_button
+  - customer_portal
+  - customer_sheet
+  - mobile_payment_element
+  - payment_element
+  - pricing_table

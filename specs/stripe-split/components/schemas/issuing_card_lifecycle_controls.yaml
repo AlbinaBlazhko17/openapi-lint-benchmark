@@ -1,0 +1,10 @@
+description: ''
+properties:
+  cancel_after:
+    $ref: ./issuing_card_lifecycle_conditions.yaml
+required:
+  - cancel_after
+title: IssuingCardLifecycleControls
+type: object
+x-expandableFields:
+  - cancel_after

@@ -1,0 +1,29 @@
+description: ''
+properties:
+  channel:
+    description: The method by which the fraud challenge was delivered to the cardholder.
+    enum:
+      - sms
+    type: string
+  status:
+    description: The status of the fraud challenge.
+    enum:
+      - expired
+      - pending
+      - rejected
+      - undeliverable
+      - verified
+    type: string
+  undeliverable_reason:
+    description: If the challenge is not deliverable, the reason why.
+    enum:
+      - no_phone_number
+      - unsupported_phone_number
+    nullable: true
+    type: string
+required:
+  - channel
+  - status
+title: IssuingAuthorizationFraudChallenge
+type: object
+x-expandableFields: []

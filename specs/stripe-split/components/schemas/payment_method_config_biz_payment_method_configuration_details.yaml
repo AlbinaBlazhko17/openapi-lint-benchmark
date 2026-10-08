@@ -1,0 +1,16 @@
+description: ''
+properties:
+  id:
+    description: ID of the payment method configuration used.
+    maxLength: 5000
+    type: string
+  parent:
+    description: ID of the parent payment method configuration used.
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - id
+title: PaymentMethodConfigBizPaymentMethodConfigurationDetails
+type: object
+x-expandableFields: []

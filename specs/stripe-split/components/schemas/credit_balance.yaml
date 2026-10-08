@@ -1,0 +1,14 @@
+description: ''
+properties:
+  available_balance:
+    $ref: ./billing_credit_grants_resource_amount.yaml
+  ledger_balance:
+    $ref: ./billing_credit_grants_resource_amount.yaml
+required:
+  - available_balance
+  - ledger_balance
+title: CreditBalance
+type: object
+x-expandableFields:
+  - available_balance
+  - ledger_balance

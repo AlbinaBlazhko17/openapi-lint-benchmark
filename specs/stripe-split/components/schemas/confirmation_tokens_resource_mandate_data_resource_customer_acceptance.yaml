@@ -1,0 +1,20 @@
+description: This hash contains details about the customer acceptance of the Mandate.
+properties:
+  online:
+    anyOf:
+      - $ref: >-
+          ./confirmation_tokens_resource_mandate_data_resource_customer_acceptance_resource_online.yaml
+    description: >-
+      If this is a Mandate accepted online, this hash contains details about the
+      online acceptance.
+    nullable: true
+  type:
+    description: The type of customer acceptance information included with the Mandate.
+    maxLength: 5000
+    type: string
+required:
+  - type
+title: ConfirmationTokensResourceMandateDataResourceCustomerAcceptance
+type: object
+x-expandableFields:
+  - online

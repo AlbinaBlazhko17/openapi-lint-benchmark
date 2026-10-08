@@ -1,0 +1,11 @@
+description: ''
+properties:
+  active:
+    $ref: ./tax_product_resource_tax_settings_status_details_resource_active.yaml
+  pending:
+    $ref: ./tax_product_resource_tax_settings_status_details_resource_pending.yaml
+title: TaxProductResourceTaxSettingsStatusDetails
+type: object
+x-expandableFields:
+  - active
+  - pending

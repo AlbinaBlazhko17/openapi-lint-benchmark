@@ -1,0 +1,95 @@
+get:
+  description: <p>Retrieves the credit balance summary for a customer.</p>
+  operationId: GetBillingCreditBalanceSummary
+  parameters:
+    - description: The customer whose credit balance summary you're retrieving.
+      in: query
+      name: customer
+      required: false
+      schema:
+        maxLength: 5000
+        type: string
+      style: form
+    - description: >-
+        The account representing the customer whose credit balance summary
+        you're retrieving.
+      in: query
+      name: customer_account
+      required: false
+      schema:
+        maxLength: 5000
+        type: string
+      style: form
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+    - description: The filter criteria for the credit balance summary.
+      explode: true
+      in: query
+      name: filter
+      required: true
+      schema:
+        properties:
+          applicability_scope:
+            properties:
+              price_type:
+                enum:
+                  - metered
+                type: string
+              prices:
+                items:
+                  properties:
+                    id:
+                      maxLength: 5000
+                      type: string
+                  required:
+                    - id
+                  title: applicable_price_param
+                  type: object
+                type: array
+            title: scope_param
+            type: object
+          credit_grant:
+            maxLength: 5000
+            type: string
+          type:
+            enum:
+              - applicability_scope
+              - credit_grant
+            type: string
+        required:
+          - type
+        title: balance_summary_filter_param
+        type: object
+      style: deepObject
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/billing.credit_balance_summary.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Retrieve the credit balance summary for a customer

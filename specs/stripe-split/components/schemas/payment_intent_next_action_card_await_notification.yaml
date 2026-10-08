@@ -1,0 +1,19 @@
+description: ''
+properties:
+  charge_attempt_at:
+    description: >-
+      The time that payment will be attempted. If customer approval is required,
+      they need to provide approval before this time.
+    format: unix-time
+    nullable: true
+    type: integer
+  customer_approval_required:
+    description: >-
+      For payments greater than INR 15000, the customer must provide explicit
+      approval of the payment with their bank. For payments of lower amount, no
+      customer action is required.
+    nullable: true
+    type: boolean
+title: PaymentIntentNextActionCardAwaitNotification
+type: object
+x-expandableFields: []

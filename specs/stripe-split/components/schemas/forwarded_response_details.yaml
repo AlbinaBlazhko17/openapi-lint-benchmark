@@ -1,0 +1,22 @@
+description: Details about the response from the destination endpoint.
+properties:
+  body:
+    description: The response body from the destination endpoint to Stripe.
+    maxLength: 5000
+    type: string
+  headers:
+    description: HTTP headers that the destination endpoint returned.
+    items:
+      $ref: ./forwarded_request_header.yaml
+    type: array
+  status:
+    description: The HTTP status code that the destination endpoint returned.
+    type: integer
+required:
+  - body
+  - headers
+  - status
+title: ForwardedResponseDetails
+type: object
+x-expandableFields:
+  - headers

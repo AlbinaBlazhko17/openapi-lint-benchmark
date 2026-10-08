@@ -1,0 +1,27 @@
+description: Details about the request forwarded to the destination endpoint.
+properties:
+  body:
+    description: The body payload to send to the destination endpoint.
+    maxLength: 5000
+    type: string
+  headers:
+    description: >-
+      The headers to include in the forwarded request. Can be omitted if no
+      additional headers (excluding Stripe-generated ones such as the
+      Content-Type header) should be included.
+    items:
+      $ref: ./forwarded_request_header.yaml
+    type: array
+  http_method:
+    description: The HTTP method used to call the destination endpoint.
+    enum:
+      - POST
+    type: string
+required:
+  - body
+  - headers
+  - http_method
+title: ForwardedRequestDetails
+type: object
+x-expandableFields:
+  - headers

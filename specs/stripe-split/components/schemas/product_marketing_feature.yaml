@@ -1,0 +1,9 @@
+description: ''
+properties:
+  name:
+    description: The marketing feature name. Up to 80 characters long.
+    maxLength: 5000
+    type: string
+title: ProductMarketingFeature
+type: object
+x-expandableFields: []

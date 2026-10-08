@@ -1,0 +1,24 @@
+description: ''
+properties:
+  adjustable_quantity:
+    $ref: ./portal_subscription_update_product_adjustable_quantity.yaml
+  prices:
+    description: >-
+      The list of price IDs which, when subscribed to, a subscription can be
+      updated.
+    items:
+      maxLength: 5000
+      type: string
+    type: array
+  product:
+    description: The product ID.
+    maxLength: 5000
+    type: string
+required:
+  - adjustable_quantity
+  - prices
+  - product
+title: PortalSubscriptionUpdateProduct
+type: object
+x-expandableFields:
+  - adjustable_quantity

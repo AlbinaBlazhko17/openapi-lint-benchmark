@@ -1,0 +1,11 @@
+description: ''
+properties:
+  card:
+    anyOf:
+      - $ref: ./internal_card.yaml
+    description: Internal card details
+    nullable: true
+title: payment_method_details_mobilepay
+type: object
+x-expandableFields:
+  - card

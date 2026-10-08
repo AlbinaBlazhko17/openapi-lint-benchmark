@@ -1,0 +1,39 @@
+description: ''
+properties:
+  filters:
+    $ref: >-
+      ./payment_flows_private_payment_methods_financial_connections_common_linked_account_options_filters.yaml
+  permissions:
+    description: >-
+      The list of permissions to request. The `payment_method` permission must
+      be included.
+    items:
+      enum:
+        - balances
+        - ownership
+        - payment_method
+        - transactions
+      type: string
+      x-stripeBypassValidation: true
+    type: array
+  prefetch:
+    description: Data features requested to be retrieved upon account creation.
+    items:
+      enum:
+        - balances
+        - ownership
+        - transactions
+      type: string
+      x-stripeBypassValidation: true
+    nullable: true
+    type: array
+  return_url:
+    description: >-
+      For webview integrations only. Upon completing OAuth login in the native
+      browser, the user will be redirected to this URL to return to your app.
+    maxLength: 5000
+    type: string
+title: linked_account_options_common
+type: object
+x-expandableFields:
+  - filters

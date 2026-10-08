@@ -1,0 +1,93 @@
+description: ''
+properties:
+  acss_debit:
+    anyOf:
+      - $ref: ./invoice_payment_method_options_acss_debit.yaml
+    description: >-
+      This sub-hash contains details about the Canadian pre-authorized debit
+      payment method options to pass to invoices created by the subscription.
+    nullable: true
+  bancontact:
+    anyOf:
+      - $ref: ./invoice_payment_method_options_bancontact.yaml
+    description: >-
+      This sub-hash contains details about the Bancontact payment method options
+      to pass to invoices created by the subscription.
+    nullable: true
+  billie:
+    anyOf:
+      - $ref: ./subscription_payment_method_options_billie.yaml
+    description: >-
+      This sub-hash contains details about the Billie payment method options to
+      pass to invoices created by the subscription.
+    nullable: true
+  card:
+    anyOf:
+      - $ref: ./subscription_payment_method_options_card.yaml
+    description: >-
+      This sub-hash contains details about the Card payment method options to
+      pass to invoices created by the subscription.
+    nullable: true
+  customer_balance:
+    anyOf:
+      - $ref: ./invoice_payment_method_options_customer_balance.yaml
+    description: >-
+      This sub-hash contains details about the Bank transfer payment method
+      options to pass to invoices created by the subscription.
+    nullable: true
+  konbini:
+    anyOf:
+      - $ref: ./invoice_payment_method_options_konbini.yaml
+    description: >-
+      This sub-hash contains details about the Konbini payment method options to
+      pass to invoices created by the subscription.
+    nullable: true
+  payto:
+    anyOf:
+      - $ref: ./invoice_payment_method_options_payto.yaml
+    description: >-
+      This sub-hash contains details about the PayTo payment method options to
+      pass to invoices created by the subscription.
+    nullable: true
+  pix:
+    anyOf:
+      - $ref: ./subscription_payment_method_options_pix.yaml
+    description: >-
+      This sub-hash contains details about the Pix payment method options to
+      pass to invoices created by the subscription.
+    nullable: true
+  sepa_debit:
+    anyOf:
+      - $ref: ./invoice_payment_method_options_sepa_debit.yaml
+    description: >-
+      This sub-hash contains details about the SEPA Direct Debit payment method
+      options to pass to invoices created by the subscription.
+    nullable: true
+  upi:
+    anyOf:
+      - $ref: ./invoice_payment_method_options_upi.yaml
+    description: >-
+      This sub-hash contains details about the UPI payment method options to
+      pass to invoices created by the subscription.
+    nullable: true
+  us_bank_account:
+    anyOf:
+      - $ref: ./invoice_payment_method_options_us_bank_account.yaml
+    description: >-
+      This sub-hash contains details about the ACH direct debit payment method
+      options to pass to invoices created by the subscription.
+    nullable: true
+title: SubscriptionsResourcePaymentMethodOptions
+type: object
+x-expandableFields:
+  - acss_debit
+  - bancontact
+  - billie
+  - card
+  - customer_balance
+  - konbini
+  - payto
+  - pix
+  - sepa_debit
+  - upi
+  - us_bank_account

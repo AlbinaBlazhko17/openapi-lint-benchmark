@@ -1,0 +1,13 @@
+description: ''
+properties:
+  province:
+    description: >-
+      Two-letter CA province code ([ISO
+      3166-2](https://en.wikipedia.org/wiki/ISO_3166-2)).
+    maxLength: 5000
+    type: string
+required:
+  - province
+title: TaxProductRegistrationsResourceCountryOptionsCaProvinceStandard
+type: object
+x-expandableFields: []

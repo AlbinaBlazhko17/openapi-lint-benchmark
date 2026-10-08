@@ -1,0 +1,66 @@
+post:
+  description: >-
+    <p>With <a href="/connect">Connect</a>, you can reject accounts that you
+    have flagged as suspicious.</p>
+
+
+    <p>Only accounts where your platform is liable for negative account
+    balances, which includes Custom and Express accounts, can be rejected.</p>
+  operationId: PostAccountsAccountReject
+  parameters:
+    - in: path
+      name: account
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            payouts_action:
+              description: >-
+                Whether to pause payouts on the account as part of the
+                rejection. Defaults to `pause`. Use `none` to leave payouts
+                enabled.
+              enum:
+                - none
+                - pause
+              type: string
+            reason:
+              description: >-
+                The reason for rejecting the account. Can be `fraud`,
+                `terms_of_service`, or `other`.
+              maxLength: 5000
+              type: string
+          required:
+            - reason
+          type: object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/account.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Reject an account

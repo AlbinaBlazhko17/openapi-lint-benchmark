@@ -1,0 +1,17 @@
+description: ''
+properties:
+  retention:
+    anyOf:
+      - $ref: ./portal_flows_retention.yaml
+    description: Specify a retention strategy to be used in the cancellation flow.
+    nullable: true
+  subscription:
+    description: The ID of the subscription to be canceled.
+    maxLength: 5000
+    type: string
+required:
+  - subscription
+title: PortalFlowsFlowSubscriptionCancel
+type: object
+x-expandableFields:
+  - retention

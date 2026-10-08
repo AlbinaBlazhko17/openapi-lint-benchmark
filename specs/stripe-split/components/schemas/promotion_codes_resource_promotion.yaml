@@ -1,0 +1,23 @@
+description: ''
+properties:
+  coupon:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./coupon.yaml
+    description: If promotion `type` is `coupon`, the coupon for this promotion.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./coupon.yaml
+  type:
+    description: The type of promotion.
+    enum:
+      - coupon
+    type: string
+required:
+  - type
+title: PromotionCodesResourcePromotion
+type: object
+x-expandableFields:
+  - coupon

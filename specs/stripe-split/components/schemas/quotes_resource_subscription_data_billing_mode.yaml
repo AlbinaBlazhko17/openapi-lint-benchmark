@@ -1,0 +1,18 @@
+description: The billing mode of the quote.
+properties:
+  flexible:
+    $ref: ./subscriptions_resource_billing_mode_flexible.yaml
+  type:
+    description: >-
+      Controls how prorations and invoices for subscriptions are calculated and
+      orchestrated.
+    enum:
+      - classic
+      - flexible
+    type: string
+required:
+  - type
+title: QuotesResourceSubscriptionDataBillingMode
+type: object
+x-expandableFields:
+  - flexible

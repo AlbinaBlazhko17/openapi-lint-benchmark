@@ -1,0 +1,25 @@
+description: ''
+properties:
+  country:
+    description: The identified tax country of the customer.
+    maxLength: 5000
+    type: string
+  source:
+    description: The data source used to infer the customer's location.
+    enum:
+      - billing_address
+      - ip_address
+      - payment_method
+      - shipping_destination
+    type: string
+  state:
+    description: The identified tax state, county, province, or region of the customer.
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - country
+  - source
+title: CustomerTaxLocation
+type: object
+x-expandableFields: []

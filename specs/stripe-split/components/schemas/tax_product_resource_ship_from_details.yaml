@@ -1,0 +1,10 @@
+description: ''
+properties:
+  address:
+    $ref: ./tax_product_resource_postal_address.yaml
+required:
+  - address
+title: TaxProductResourceShipFromDetails
+type: object
+x-expandableFields:
+  - address

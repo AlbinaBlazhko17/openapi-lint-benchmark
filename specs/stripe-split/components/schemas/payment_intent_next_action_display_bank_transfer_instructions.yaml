@@ -1,0 +1,51 @@
+description: ''
+properties:
+  amount_remaining:
+    description: The remaining amount that needs to be transferred to complete the payment.
+    nullable: true
+    type: integer
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    format: currency
+    nullable: true
+    type: string
+  financial_addresses:
+    description: >-
+      A list of financial addresses that can be used to fund the customer
+      balance
+    items:
+      $ref: ./funding_instructions_bank_transfer_financial_address.yaml
+    type: array
+  hosted_instructions_url:
+    description: >-
+      A link to a hosted page that guides your customer through completing the
+      transfer.
+    maxLength: 5000
+    nullable: true
+    type: string
+  reference:
+    description: >-
+      A string identifying this payment. Instruct your customer to include this
+      code in the reference or memo field of their bank transfer.
+    maxLength: 5000
+    nullable: true
+    type: string
+  type:
+    description: Type of bank transfer
+    enum:
+      - eu_bank_transfer
+      - gb_bank_transfer
+      - jp_bank_transfer
+      - mx_bank_transfer
+      - us_bank_transfer
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - type
+title: PaymentIntentNextActionDisplayBankTransferInstructions
+type: object
+x-expandableFields:
+  - financial_addresses

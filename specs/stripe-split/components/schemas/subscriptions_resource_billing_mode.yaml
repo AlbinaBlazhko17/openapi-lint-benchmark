@@ -1,0 +1,25 @@
+description: The billing mode of the subscription.
+properties:
+  flexible:
+    anyOf:
+      - $ref: ./subscriptions_resource_billing_mode_flexible.yaml
+    description: Configure behavior for flexible billing mode
+    nullable: true
+  type:
+    description: >-
+      Controls how prorations and invoices for subscriptions are calculated and
+      orchestrated.
+    enum:
+      - classic
+      - flexible
+    type: string
+  updated_at:
+    description: Details on when the current billing_mode was adopted.
+    format: unix-time
+    type: integer
+required:
+  - type
+title: SubscriptionsResourceBillingMode
+type: object
+x-expandableFields:
+  - flexible

@@ -1,0 +1,33 @@
+description: Specifies the end of billing period.
+properties:
+  computed_timestamp:
+    description: The timestamp the billing schedule will apply until.
+    format: unix-time
+    type: integer
+  duration:
+    anyOf:
+      - $ref: ./subscriptions_resource_billing_schedules_bill_until_duration.yaml
+    description: Specifies the billing period.
+    nullable: true
+  timestamp:
+    description: >-
+      If specified, the billing schedule will apply until the specified
+      timestamp.
+    format: unix-time
+    nullable: true
+    type: integer
+  type:
+    description: >-
+      Describes how the billing schedule will determine the end date. Either
+      `duration` or `timestamp`.
+    enum:
+      - duration
+      - timestamp
+    type: string
+required:
+  - computed_timestamp
+  - type
+title: SubscriptionsResourceBillingSchedulesBillUntil
+type: object
+x-expandableFields:
+  - duration

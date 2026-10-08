@@ -1,0 +1,26 @@
+description: ''
+properties:
+  customer_update:
+    $ref: ./portal_customer_update.yaml
+  invoice_history:
+    $ref: ./portal_invoice_list.yaml
+  payment_method_update:
+    $ref: ./portal_payment_method_update.yaml
+  subscription_cancel:
+    $ref: ./portal_subscription_cancel.yaml
+  subscription_update:
+    $ref: ./portal_subscription_update.yaml
+required:
+  - customer_update
+  - invoice_history
+  - payment_method_update
+  - subscription_cancel
+  - subscription_update
+title: PortalFeatures
+type: object
+x-expandableFields:
+  - customer_update
+  - invoice_history
+  - payment_method_update
+  - subscription_cancel
+  - subscription_update

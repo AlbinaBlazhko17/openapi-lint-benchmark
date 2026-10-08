@@ -1,0 +1,60 @@
+description: ''
+properties:
+  account_holder_type:
+    description: 'Account holder type: individual or company.'
+    enum:
+      - company
+      - individual
+    nullable: true
+    type: string
+  account_type:
+    description: 'Account type: checkings or savings. Defaults to checking if omitted.'
+    enum:
+      - checking
+      - savings
+    nullable: true
+    type: string
+  bank_name:
+    description: The name of the bank.
+    maxLength: 5000
+    nullable: true
+    type: string
+  financial_connections_account:
+    description: >-
+      The ID of the Financial Connections Account used to create the payment
+      method.
+    maxLength: 5000
+    nullable: true
+    type: string
+  fingerprint:
+    description: >-
+      Uniquely identifies this particular bank account. You can use this
+      attribute to check whether two bank accounts are the same.
+    maxLength: 5000
+    nullable: true
+    type: string
+  last4:
+    description: Last four digits of the bank account number.
+    maxLength: 5000
+    nullable: true
+    type: string
+  networks:
+    anyOf:
+      - $ref: ./us_bank_account_networks.yaml
+    description: Contains information about US bank account networks that can be used.
+    nullable: true
+  routing_number:
+    description: Routing number of the bank account.
+    maxLength: 5000
+    nullable: true
+    type: string
+  status_details:
+    anyOf:
+      - $ref: ./payment_method_us_bank_account_status_details.yaml
+    description: Contains information about the future reusability of this PaymentMethod.
+    nullable: true
+title: payment_method_us_bank_account
+type: object
+x-expandableFields:
+  - networks
+  - status_details

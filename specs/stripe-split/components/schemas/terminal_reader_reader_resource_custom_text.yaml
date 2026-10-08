@@ -1,0 +1,27 @@
+description: >-
+  Represents custom text to be displayed when collecting the input using a
+  reader
+properties:
+  description:
+    description: Customize the default description for this input
+    maxLength: 5000
+    nullable: true
+    type: string
+  skip_button:
+    description: Customize the default label for this input's skip button
+    maxLength: 5000
+    nullable: true
+    type: string
+  submit_button:
+    description: Customize the default label for this input's submit button
+    maxLength: 5000
+    nullable: true
+    type: string
+  title:
+    description: Customize the default title for this input
+    maxLength: 5000
+    nullable: true
+    type: string
+title: TerminalReaderReaderResourceCustomText
+type: object
+x-expandableFields: []

@@ -1,0 +1,22 @@
+description: ''
+properties:
+  debit_reversal:
+    description: >-
+      The Treasury
+      [DebitReversal](https://docs.stripe.com/api/treasury/debit_reversals)
+      representing this Issuing dispute
+    maxLength: 5000
+    nullable: true
+    type: string
+  received_debit:
+    description: >-
+      The Treasury
+      [ReceivedDebit](https://docs.stripe.com/api/treasury/received_debits) that
+      is being disputed.
+    maxLength: 5000
+    type: string
+required:
+  - received_debit
+title: IssuingDisputeTreasury
+type: object
+x-expandableFields: []

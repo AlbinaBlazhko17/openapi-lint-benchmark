@@ -1,0 +1,34 @@
+description: ''
+properties:
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  last_attempted_at:
+    description: >-
+      The time at which the last refresh attempt was initiated. Measured in
+      seconds since the Unix epoch.
+    format: unix-time
+    type: integer
+  next_refresh_available_at:
+    description: >-
+      Time at which the next transaction refresh can be initiated. This value
+      will be `null` when `status` is `pending`. Measured in seconds since the
+      Unix epoch.
+    format: unix-time
+    nullable: true
+    type: integer
+  status:
+    description: The status of the last refresh attempt.
+    enum:
+      - failed
+      - pending
+      - succeeded
+    type: string
+required:
+  - id
+  - last_attempted_at
+  - status
+title: BankConnectionsResourceTransactionRefresh
+type: object
+x-expandableFields: []

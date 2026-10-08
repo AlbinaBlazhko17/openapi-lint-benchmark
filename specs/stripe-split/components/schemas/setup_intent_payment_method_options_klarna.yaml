@@ -1,0 +1,17 @@
+description: ''
+properties:
+  currency:
+    description: The currency of the setup intent. Three letter ISO currency code.
+    format: currency
+    nullable: true
+    type: string
+  preferred_locale:
+    description: >-
+      Preferred locale of the Klarna checkout page that the customer is
+      redirected to.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: setup_intent_payment_method_options_klarna
+type: object
+x-expandableFields: []

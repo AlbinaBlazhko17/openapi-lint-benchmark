@@ -1,0 +1,49 @@
+description: ''
+properties:
+  bank_code:
+    description: Bank code of bank associated with the bank account.
+    maxLength: 5000
+    nullable: true
+    type: string
+  branch_code:
+    description: Branch code of bank associated with the bank account.
+    maxLength: 5000
+    nullable: true
+    type: string
+  country:
+    description: >-
+      Two-letter ISO code representing the country the bank account is located
+      in.
+    maxLength: 5000
+    nullable: true
+    type: string
+  expected_debit_date:
+    description: >-
+      Estimated date to debit the customer's bank account. A date string in
+      YYYY-MM-DD format.
+    maxLength: 5000
+    type: string
+  fingerprint:
+    description: >-
+      Uniquely identifies this particular bank account. You can use this
+      attribute to check whether two bank accounts are the same.
+    maxLength: 5000
+    nullable: true
+    type: string
+  last4:
+    description: Last four characters of the IBAN.
+    maxLength: 5000
+    nullable: true
+    type: string
+  mandate:
+    description: >-
+      Find the ID of the mandate used for this payment under the
+      [payment_method_details.sepa_debit.mandate](https://docs.stripe.com/api/charges/object#charge_object-payment_method_details-sepa_debit-mandate)
+      property on the Charge. Use this mandate ID to [retrieve the
+      Mandate](https://docs.stripe.com/api/mandates/retrieve).
+    maxLength: 5000
+    nullable: true
+    type: string
+title: payment_method_details_sepa_debit
+type: object
+x-expandableFields: []

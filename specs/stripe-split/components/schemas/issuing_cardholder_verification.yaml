@@ -1,0 +1,11 @@
+description: ''
+properties:
+  document:
+    anyOf:
+      - $ref: ./issuing_cardholder_id_document.yaml
+    description: An identifying document, either a passport or local ID card.
+    nullable: true
+title: IssuingCardholderVerification
+type: object
+x-expandableFields:
+  - document

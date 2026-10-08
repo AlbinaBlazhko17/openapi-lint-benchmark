@@ -1,0 +1,16 @@
+description: ''
+properties:
+  account:
+    description: Token referencing the associated Account of the related Person resource.
+    maxLength: 5000
+    type: string
+  person:
+    description: Token referencing the related Person resource.
+    maxLength: 5000
+    type: string
+required:
+  - account
+  - person
+title: GelatoRelatedPerson
+type: object
+x-expandableFields: []

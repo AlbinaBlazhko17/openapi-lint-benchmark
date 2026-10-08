@@ -1,0 +1,12 @@
+description: ''
+properties:
+  enabled:
+    description: >-
+      Whether a cellular-capable reader can connect to the internet over
+      cellular.
+    type: boolean
+required:
+  - enabled
+title: TerminalConfigurationConfigurationResourceCellularConfig
+type: object
+x-expandableFields: []

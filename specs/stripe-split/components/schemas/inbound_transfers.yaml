@@ -1,0 +1,20 @@
+description: ''
+properties:
+  billing_details:
+    $ref: ./treasury_shared_resource_billing_details.yaml
+  type:
+    description: The type of the payment method used in the InboundTransfer.
+    enum:
+      - us_bank_account
+    type: string
+    x-stripeBypassValidation: true
+  us_bank_account:
+    $ref: ./inbound_transfers_payment_method_details_us_bank_account.yaml
+required:
+  - billing_details
+  - type
+title: InboundTransfers
+type: object
+x-expandableFields:
+  - billing_details
+  - us_bank_account

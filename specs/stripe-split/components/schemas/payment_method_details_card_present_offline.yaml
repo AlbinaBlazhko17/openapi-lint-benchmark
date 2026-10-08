@@ -1,0 +1,18 @@
+description: ''
+properties:
+  stored_at:
+    description: Time at which the payment was collected while offline
+    format: unix-time
+    nullable: true
+    type: integer
+  type:
+    description: >-
+      The method used to process this payment method offline. Only deferred is
+      allowed.
+    enum:
+      - deferred
+    nullable: true
+    type: string
+title: payment_method_details_card_present_offline
+type: object
+x-expandableFields: []

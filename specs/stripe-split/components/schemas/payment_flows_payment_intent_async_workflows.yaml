@@ -1,0 +1,8 @@
+description: ''
+properties:
+  inputs:
+    $ref: ./payment_flows_payment_intent_async_workflows_resource_inputs.yaml
+title: PaymentFlowsPaymentIntentAsyncWorkflows
+type: object
+x-expandableFields:
+  - inputs

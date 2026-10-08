@@ -1,0 +1,15 @@
+description: Details of a merchant_blocked outcome attached to this payment evaluation.
+properties:
+  reason:
+    description: The reason the payment was blocked by the merchant.
+    enum:
+      - authentication_required
+      - blocked_for_fraud
+      - invalid_payment
+      - other
+    type: string
+required:
+  - reason
+title: InsightsResourcesPaymentEvaluationMerchantBlocked
+type: object
+x-expandableFields: []

@@ -1,0 +1,24 @@
+description: ''
+properties:
+  billing_details:
+    $ref: ./treasury_shared_resource_billing_details.yaml
+  financial_account:
+    $ref: ./outbound_payments_payment_method_details_financial_account.yaml
+  type:
+    description: The type of the payment method used in the OutboundPayment.
+    enum:
+      - financial_account
+      - us_bank_account
+    type: string
+    x-stripeBypassValidation: true
+  us_bank_account:
+    $ref: ./outbound_payments_payment_method_details_us_bank_account.yaml
+required:
+  - billing_details
+  - type
+title: OutboundPaymentsPaymentMethodDetails
+type: object
+x-expandableFields:
+  - billing_details
+  - financial_account
+  - us_bank_account

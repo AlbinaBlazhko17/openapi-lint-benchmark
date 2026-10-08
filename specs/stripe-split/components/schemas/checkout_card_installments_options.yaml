@@ -1,0 +1,8 @@
+description: ''
+properties:
+  enabled:
+    description: Indicates if installments are enabled
+    type: boolean
+title: CheckoutCardInstallmentsOptions
+type: object
+x-expandableFields: []

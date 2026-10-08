@@ -1,0 +1,9 @@
+description: ''
+properties:
+  enabled:
+    description: Whether Installments are enabled for this Invoice.
+    nullable: true
+    type: boolean
+title: invoice_installments_card
+type: object
+x-expandableFields: []

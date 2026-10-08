@@ -1,0 +1,19 @@
+description: >-
+  This hash contains whether the Payment Element is enabled and the features it
+  supports.
+properties:
+  enabled:
+    description: Whether the Payment Element is enabled.
+    type: boolean
+  features:
+    anyOf:
+      - $ref: >-
+          ./customer_session_resource_components_resource_payment_element_resource_features.yaml
+    description: This hash defines whether the Payment Element supports certain features.
+    nullable: true
+required:
+  - enabled
+title: CustomerSessionResourceComponentsResourcePaymentElement
+type: object
+x-expandableFields:
+  - features

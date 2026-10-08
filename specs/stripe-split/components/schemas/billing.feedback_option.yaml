@@ -1,0 +1,44 @@
+description: A resource for the feedback options model (for custom cancellation reasons)
+properties:
+  description:
+    description: >-
+      An arbitrary string attached to the object. Often useful for displaying to
+      users.
+    maxLength: 5000
+    type: string
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - billing.feedback_option
+    type: string
+  status:
+    description: The feedback option's status.
+    enum:
+      - active
+      - inactive
+    type: string
+  status_transitions:
+    $ref: ./feedback_options_status_transitions.yaml
+required:
+  - description
+  - id
+  - livemode
+  - object
+  - status
+  - status_transitions
+title: FeedbackOptionsFeedbackOptions
+type: object
+x-expandableFields:
+  - status_transitions
+x-resourceId: billing.feedback_option

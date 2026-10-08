@@ -1,0 +1,21 @@
+description: ''
+properties:
+  credited_items:
+    anyOf:
+      - $ref: ./invoice_item_proration_credited_items.yaml
+    description: >-
+      For a credit proration, links to the debit invoice line items or invoice
+      item that the credit applies to.
+    nullable: true
+  discount_amounts:
+    description: Discount amounts applied when the proration was created.
+    items:
+      $ref: ./discounts_resource_discount_amount.yaml
+    type: array
+required:
+  - discount_amounts
+title: ProrationDetails
+type: object
+x-expandableFields:
+  - credited_items
+  - discount_amounts

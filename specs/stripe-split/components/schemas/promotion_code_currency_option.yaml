@@ -1,0 +1,12 @@
+description: ''
+properties:
+  minimum_amount:
+    description: >-
+      Minimum amount required to redeem this Promotion Code into a Coupon (e.g.,
+      a purchase must be $100 or more to work).
+    type: integer
+required:
+  - minimum_amount
+title: PromotionCodeCurrencyOption
+type: object
+x-expandableFields: []

@@ -1,0 +1,18 @@
+description: ''
+properties:
+  enabled:
+    description: >-
+      Indicates whether individual name collection is enabled for the payment
+      link.
+    type: boolean
+  optional:
+    description: >-
+      Whether the customer is required to complete the field before checking
+      out. Defaults to `false`.
+    type: boolean
+required:
+  - enabled
+  - optional
+title: PaymentLinksResourceIndividualName
+type: object
+x-expandableFields: []

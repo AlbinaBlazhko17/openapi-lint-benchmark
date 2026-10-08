@@ -1,0 +1,57 @@
+description: >-
+  A billing alert is a resource that notifies you when a certain usage threshold
+  on a meter is crossed. For example, you might create a billing alert to notify
+  you when a certain user made 100 API requests.
+properties:
+  alert_type:
+    description: Defines the type of the alert.
+    enum:
+      - usage_threshold
+    type: string
+    x-stripeBypassValidation: true
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - billing.alert
+    type: string
+  status:
+    description: Status of the alert. This can be active, inactive or archived.
+    enum:
+      - active
+      - archived
+      - inactive
+    nullable: true
+    type: string
+  title:
+    description: Title of the alert.
+    maxLength: 5000
+    type: string
+  usage_threshold:
+    anyOf:
+      - $ref: ./thresholds_resource_usage_threshold_config.yaml
+    description: >-
+      Encapsulates configuration of the alert to monitor usage on a specific
+      [Billing Meter](https://docs.stripe.com/api/billing/meter).
+    nullable: true
+required:
+  - alert_type
+  - id
+  - livemode
+  - object
+  - title
+title: Alert
+type: object
+x-expandableFields:
+  - usage_threshold
+x-resourceId: billing.alert

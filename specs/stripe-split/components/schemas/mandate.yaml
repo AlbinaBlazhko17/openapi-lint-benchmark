@@ -1,0 +1,74 @@
+description: >-
+  A Mandate is a record of the permission that your customer gives you to debit
+  their payment method.
+properties:
+  customer_acceptance:
+    $ref: ./customer_acceptance.yaml
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  multi_use:
+    $ref: ./mandate_multi_use.yaml
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - mandate
+    type: string
+  on_behalf_of:
+    description: The account (if any) that the mandate is intended for.
+    maxLength: 5000
+    type: string
+  payment_method:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./payment_method.yaml
+    description: ID of the payment method associated with this mandate.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./payment_method.yaml
+  payment_method_details:
+    $ref: ./mandate_payment_method_details.yaml
+  single_use:
+    $ref: ./mandate_single_use.yaml
+  status:
+    description: >-
+      The mandate status indicates whether or not you can use it to initiate a
+      payment.
+    enum:
+      - active
+      - inactive
+      - pending
+    type: string
+  type:
+    description: The type of the mandate.
+    enum:
+      - multi_use
+      - single_use
+    type: string
+required:
+  - customer_acceptance
+  - id
+  - livemode
+  - object
+  - payment_method
+  - payment_method_details
+  - status
+  - type
+title: Mandate
+type: object
+x-expandableFields:
+  - customer_acceptance
+  - multi_use
+  - payment_method
+  - payment_method_details
+  - single_use
+x-resourceId: mandate

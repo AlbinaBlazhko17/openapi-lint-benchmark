@@ -1,0 +1,8 @@
+description: Settings related to Financial Addresses features on a Financial Account
+properties:
+  aba:
+    $ref: ./treasury_financial_accounts_resource_aba_toggle_settings.yaml
+title: TreasuryFinancialAccountsResourceFinancialAddressesFeatures
+type: object
+x-expandableFields:
+  - aba

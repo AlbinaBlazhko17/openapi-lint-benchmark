@@ -1,0 +1,36 @@
+description: ''
+properties:
+  custom_fields:
+    description: Default custom fields to be displayed on invoices for this customer.
+    items:
+      $ref: ./invoice_setting_custom_field.yaml
+    nullable: true
+    type: array
+  default_payment_method:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./payment_method.yaml
+    description: >-
+      ID of a payment method that's attached to the customer, to be used as the
+      customer's default payment method for subscriptions and invoices.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./payment_method.yaml
+  footer:
+    description: Default footer to be displayed on invoices for this customer.
+    maxLength: 5000
+    nullable: true
+    type: string
+  rendering_options:
+    anyOf:
+      - $ref: ./invoice_setting_customer_rendering_options.yaml
+    description: Default options for invoice PDF rendering for this customer.
+    nullable: true
+title: InvoiceSettingCustomerSetting
+type: object
+x-expandableFields:
+  - custom_fields
+  - default_payment_method
+  - rendering_options

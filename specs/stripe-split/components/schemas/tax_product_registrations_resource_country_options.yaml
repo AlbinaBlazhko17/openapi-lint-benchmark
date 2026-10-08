@@ -1,0 +1,316 @@
+description: ''
+properties:
+  ae:
+    $ref: >-
+      ./tax_product_registrations_resource_country_options_default_inbound_goods.yaml
+  al:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+  am:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  ao:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+  at:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  au:
+    $ref: >-
+      ./tax_product_registrations_resource_country_options_default_inbound_goods.yaml
+  aw:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+  az:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  ba:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+  bb:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+  bd:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+  be:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  bf:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+  bg:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  bh:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+  bj:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  bs:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+  by:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  ca:
+    $ref: ./tax_product_registrations_resource_country_options_canada.yaml
+  cd:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+  ch:
+    $ref: >-
+      ./tax_product_registrations_resource_country_options_default_inbound_goods.yaml
+  cl:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  cm:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  co:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  cr:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  cv:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  cy:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  cz:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  de:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  dk:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  ec:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  ee:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  eg:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  es:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  et:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+  fi:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  fr:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  gb:
+    $ref: >-
+      ./tax_product_registrations_resource_country_options_default_inbound_goods.yaml
+  ge:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  gn:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+  gr:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  hr:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  hu:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  id:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  ie:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  in:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  is:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+  it:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  jp:
+    $ref: >-
+      ./tax_product_registrations_resource_country_options_default_inbound_goods.yaml
+  ke:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  kg:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  kh:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  kr:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  kz:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  la:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  lk:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  lt:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  lu:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  lv:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  ma:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  md:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  me:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+  mk:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+  mr:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+  mt:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  mx:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  my:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  ng:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  nl:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  'no':
+    $ref: >-
+      ./tax_product_registrations_resource_country_options_default_inbound_goods.yaml
+  np:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  nz:
+    $ref: >-
+      ./tax_product_registrations_resource_country_options_default_inbound_goods.yaml
+  om:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+  pe:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  ph:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  pl:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  pt:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  ro:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  rs:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+  ru:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  sa:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  se:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  sg:
+    $ref: >-
+      ./tax_product_registrations_resource_country_options_default_inbound_goods.yaml
+  si:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  sk:
+    $ref: ./tax_product_registrations_resource_country_options_europe.yaml
+  sn:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  sr:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+  th:
+    $ref: ./tax_product_registrations_resource_country_options_thailand.yaml
+  tj:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  tr:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  tw:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  tz:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  ua:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  ug:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  us:
+    $ref: ./tax_product_registrations_resource_country_options_united_states.yaml
+  uy:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+  uz:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  vn:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  za:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+  zm:
+    $ref: ./tax_product_registrations_resource_country_options_simplified.yaml
+  zw:
+    $ref: ./tax_product_registrations_resource_country_options_default.yaml
+title: TaxProductRegistrationsResourceCountryOptions
+type: object
+x-expandableFields:
+  - ae
+  - al
+  - am
+  - ao
+  - at
+  - au
+  - aw
+  - az
+  - ba
+  - bb
+  - bd
+  - be
+  - bf
+  - bg
+  - bh
+  - bj
+  - bs
+  - by
+  - ca
+  - cd
+  - ch
+  - cl
+  - cm
+  - co
+  - cr
+  - cv
+  - cy
+  - cz
+  - de
+  - dk
+  - ec
+  - ee
+  - eg
+  - es
+  - et
+  - fi
+  - fr
+  - gb
+  - ge
+  - gn
+  - gr
+  - hr
+  - hu
+  - id
+  - ie
+  - in
+  - is
+  - it
+  - jp
+  - ke
+  - kg
+  - kh
+  - kr
+  - kz
+  - la
+  - lk
+  - lt
+  - lu
+  - lv
+  - ma
+  - md
+  - me
+  - mk
+  - mr
+  - mt
+  - mx
+  - my
+  - ng
+  - nl
+  - 'no'
+  - np
+  - nz
+  - om
+  - pe
+  - ph
+  - pl
+  - pt
+  - ro
+  - rs
+  - ru
+  - sa
+  - se
+  - sg
+  - si
+  - sk
+  - sn
+  - sr
+  - th
+  - tj
+  - tr
+  - tw
+  - tz
+  - ua
+  - ug
+  - us
+  - uy
+  - uz
+  - vn
+  - za
+  - zm
+  - zw

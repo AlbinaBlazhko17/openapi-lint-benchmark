@@ -1,0 +1,190 @@
+description: >-
+  A VerificationSession guides you through the process of collecting and
+  verifying the identities
+
+  of your users. It contains details about the type of verification, such as
+  what [verification
+
+  check](/docs/identity/verification-checks) to perform. Only create one
+  VerificationSession for
+
+  each verification in your system.
+
+
+  A VerificationSession transitions through [multiple
+
+  statuses](/docs/identity/how-sessions-work) throughout its lifetime as it
+  progresses through
+
+  the verification flow. The VerificationSession contains the user's verified
+  data after
+
+  verification checks are complete.
+
+
+  Related guide: [The Verification Sessions
+  API](https://docs.stripe.com/identity/verification-sessions)
+properties:
+  client_reference_id:
+    description: >-
+      A string to reference this user. This can be a customer ID, a session ID,
+      or similar, and can be used to reconcile this verification with your
+      internal systems.
+    maxLength: 5000
+    nullable: true
+    type: string
+  client_secret:
+    description: >-
+      The short-lived client secret used by Stripe.js to [show a verification
+      modal](https://docs.stripe.com/js/identity/modal) inside your app. This
+      client secret expires after 24 hours and can only be used once. Don’t
+      store it, log it, embed it in a URL, or expose it to anyone other than the
+      user. Make sure that you have TLS enabled on any page that includes the
+      client secret. Refer to our docs on [passing the client secret to the
+      frontend](https://docs.stripe.com/identity/verification-sessions#client-secret)
+      to learn more.
+    maxLength: 5000
+    nullable: true
+    type: string
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  last_error:
+    anyOf:
+      - $ref: ./gelato_session_last_error.yaml
+    description: >-
+      If present, this property tells you the last error encountered when
+      processing the verification.
+    nullable: true
+  last_verification_report:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./identity.verification_report.yaml
+    description: >-
+      ID of the most recent VerificationReport. [Learn more about accessing
+      detailed verification
+      results.](https://docs.stripe.com/identity/verification-sessions#results)
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./identity.verification_report.yaml
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    type: object
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - identity.verification_session
+    type: string
+  options:
+    anyOf:
+      - $ref: ./gelato_verification_session_options.yaml
+    description: A set of options for the session’s verification checks.
+    nullable: true
+  provided_details:
+    anyOf:
+      - $ref: ./gelato_provided_details.yaml
+    description: >-
+      Details provided about the user being verified. These details may be shown
+      to the user.
+    nullable: true
+  redaction:
+    anyOf:
+      - $ref: ./verification_session_redaction.yaml
+    description: >-
+      Redaction status of this VerificationSession. If the VerificationSession
+      is not redacted, this field will be null.
+    nullable: true
+  related_customer:
+    description: Customer ID
+    maxLength: 5000
+    nullable: true
+    type: string
+  related_customer_account:
+    description: The ID of the Account representing a customer.
+    maxLength: 5000
+    nullable: true
+    type: string
+  related_person:
+    $ref: ./gelato_related_person.yaml
+  status:
+    description: >-
+      Status of this VerificationSession. [Learn more about the lifecycle of
+      sessions](https://docs.stripe.com/identity/how-sessions-work).
+    enum:
+      - canceled
+      - processing
+      - requires_input
+      - verified
+    type: string
+  type:
+    description: >-
+      The type of [verification
+      check](https://docs.stripe.com/identity/verification-checks) to be
+      performed.
+    enum:
+      - document
+      - id_number
+      - verification_flow
+    type: string
+    x-stripeBypassValidation: true
+  url:
+    description: >-
+      The short-lived URL that you use to redirect a user to Stripe to submit
+      their identity information. This URL expires after 48 hours and can only
+      be used once. Don’t store it, log it, send it in emails or expose it to
+      anyone other than the user. Refer to our docs on [verifying identity
+      documents](https://docs.stripe.com/identity/verify-identity-documents?platform=web&type=redirect)
+      to learn how to redirect users to Stripe.
+    maxLength: 5000
+    nullable: true
+    type: string
+  verification_flow:
+    description: The configuration token of a verification flow from the dashboard.
+    maxLength: 5000
+    type: string
+  verified_outputs:
+    anyOf:
+      - $ref: ./gelato_verified_outputs.yaml
+    description: The user’s verified data.
+    nullable: true
+required:
+  - created
+  - id
+  - livemode
+  - metadata
+  - object
+  - status
+  - type
+title: VerificationSession
+type: object
+x-expandableFields:
+  - last_error
+  - last_verification_report
+  - options
+  - provided_details
+  - redaction
+  - related_person
+  - verified_outputs
+x-resourceId: identity.verification_session

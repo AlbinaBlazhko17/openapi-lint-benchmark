@@ -1,0 +1,1407 @@
+delete:
+  description: >-
+    <p>Cancels a customer’s subscription immediately. The customer won’t be
+    charged again for the subscription. After it’s canceled, the subscription is
+    largely immutable. You can still update its <a href="/metadata">metadata</a>
+    and <code>cancellation_details</code>.</p>
+
+
+    <p>Any pending invoice items that you’ve created are still charged at the
+    end of the period, unless manually <a
+    href="/api/invoiceitems/delete">deleted</a>. If you’ve set the subscription
+    to cancel at the end of the period, any pending prorations are also left in
+    place and collected at the end of the period. But if the subscription is set
+    to cancel immediately, pending prorations are removed if
+    <code>invoice_now</code> and <code>prorate</code> are both set to false.</p>
+
+
+    <p>By default, upon subscription cancellation, Stripe stops automatic
+    collection of all finalized invoices for the customer. This is intended to
+    prevent unexpected payment attempts after the customer has canceled a
+    subscription. However, you can resume automatic collection of the invoices
+    manually after subscription cancellation to have us proceed. Or, you could
+    check for unpaid invoices before allowing the customer to cancel the
+    subscription at all.</p>
+  operationId: DeleteSubscriptionsSubscriptionExposedId
+  parameters:
+    - in: path
+      name: subscription_exposed_id
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          cancellation_details:
+            explode: true
+            style: deepObject
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            cancellation_details:
+              description: Details about why this subscription was cancelled
+              properties:
+                comment:
+                  anyOf:
+                    - maxLength: 5000
+                      type: string
+                    - enum:
+                        - ''
+                      type: string
+                feedback:
+                  enum:
+                    - ''
+                    - customer_service
+                    - low_quality
+                    - missing_features
+                    - other
+                    - switched_service
+                    - too_complex
+                    - too_expensive
+                    - unused
+                  type: string
+                feedback_option:
+                  maxLength: 5000
+                  type: string
+              title: cancellation_details_param
+              type: object
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            invoice_now:
+              description: >-
+                Will generate a final invoice that invoices for any un-invoiced
+                metered usage and new/pending proration invoice items. Defaults
+                to `false`.
+              type: boolean
+            prorate:
+              description: >-
+                Will generate a proration invoice item that credits remaining
+                unused time until the subscription period end. Defaults to
+                `false`.
+              type: boolean
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/subscription.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Cancel a subscription
+get:
+  description: <p>Retrieves the subscription with the given ID.</p>
+  operationId: GetSubscriptionsSubscriptionExposedId
+  parameters:
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+    - in: path
+      name: subscription_exposed_id
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/subscription.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Retrieve a subscription
+post:
+  description: >-
+    <p>Updates an existing subscription to match the specified parameters.
+
+    When changing prices or quantities, we optionally prorate the price we
+    charge next month to make up for any price changes.
+
+    To preview how the proration is calculated, use the <a
+    href="/docs/api/invoices/create_preview">create preview</a> endpoint.</p>
+
+
+    <p>By default, we prorate subscription changes. For example, if a customer
+    signs up on May 1 for a <currency>100</currency> price, they’ll be billed
+    <currency>100</currency> immediately. If on May 15 they switch to a
+    <currency>200</currency> price, then on June 1 they’ll be billed
+    <currency>250</currency> (<currency>200</currency> for a renewal of her
+    subscription, plus a <currency>50</currency> prorating adjustment for half
+    of the previous month’s <currency>100</currency> difference). Similarly, a
+    downgrade generates a credit that is applied to the next invoice. We also
+    prorate when you make quantity changes. You can also <a
+    href="/billing/scripts/stripe-authored/proration">use scripts to prorate
+    your billing</a>. To learn more, see <a
+    href="/billing/subscriptions/prorations">Prorations</a>.</p>
+
+
+    <p>Switching prices does not normally change the billing date or generate an
+    immediate charge unless:</p>
+
+
+    <ul>
+
+    <li>The billing interval is changed (for example, from monthly to
+    yearly).</li>
+
+    <li>The subscription moves from free to paid.</li>
+
+    <li>A trial starts or ends.</li>
+
+    </ul>
+
+
+    <p>In these cases, we apply a credit for the unused time on the previous
+    price, immediately charge the customer using the new price, and reset the
+    billing date. Learn about how <a
+    href="/docs/billing/subscriptions/upgrade-downgrade#immediate-payment">Stripe
+    immediately attempts payment for subscription changes</a>.</p>
+
+
+    <p>If you want to charge for an upgrade immediately, pass
+    <code>proration_behavior</code> as <code>always_invoice</code> to create
+    prorations, automatically invoice the customer for those proration
+    adjustments, and attempt to collect payment. If you pass
+    <code>create_prorations</code>, the prorations are created but not
+    automatically invoiced. If you want to bill the customer for the prorations
+    before the subscription’s renewal date, you need to manually <a
+    href="/docs/api/invoices/create">invoice the customer</a>.</p>
+
+
+    <p>If you don’t want to prorate, set the <code>proration_behavior</code>
+    option to <code>none</code>. With this option, the customer is billed
+    <currency>100</currency> on May 1 and <currency>200</currency> on June 1.
+    Similarly, if you set <code>proration_behavior</code> to <code>none</code>
+    when switching between different billing intervals (for example, from
+    monthly to yearly), we don’t generate any credits for the old subscription’s
+    unused time. We still reset the billing date and bill immediately for the
+    new subscription.</p>
+
+
+    <p>Updating the quantity on a subscription many times in an hour may result
+    in <a href="/docs/rate-limits">rate limiting</a>. If you need to bill for a
+    frequently changing quantity, consider integrating <a
+    href="/docs/billing/subscriptions/usage-based">usage-based billing</a>
+    instead.</p>
+  operationId: PostSubscriptionsSubscriptionExposedId
+  parameters:
+    - in: path
+      name: subscription_exposed_id
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          add_invoice_items:
+            explode: true
+            style: deepObject
+          application_fee_percent:
+            explode: true
+            style: deepObject
+          automatic_tax:
+            explode: true
+            style: deepObject
+          billing_schedules:
+            explode: true
+            style: deepObject
+          billing_thresholds:
+            explode: true
+            style: deepObject
+          cancel_at:
+            explode: true
+            style: deepObject
+          cancellation_details:
+            explode: true
+            style: deepObject
+          default_source:
+            explode: true
+            style: deepObject
+          default_tax_rates:
+            explode: true
+            style: deepObject
+          description:
+            explode: true
+            style: deepObject
+          discounts:
+            explode: true
+            style: deepObject
+          expand:
+            explode: true
+            style: deepObject
+          invoice_settings:
+            explode: true
+            style: deepObject
+          items:
+            explode: true
+            style: deepObject
+          metadata:
+            explode: true
+            style: deepObject
+          on_behalf_of:
+            explode: true
+            style: deepObject
+          pause_collection:
+            explode: true
+            style: deepObject
+          payment_settings:
+            explode: true
+            style: deepObject
+          pending_invoice_item_interval:
+            explode: true
+            style: deepObject
+          transfer_data:
+            explode: true
+            style: deepObject
+          trial_end:
+            explode: true
+            style: deepObject
+          trial_settings:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            add_invoice_items:
+              description: >-
+                A list of prices and quantities that will generate invoice items
+                appended to the next invoice for this subscription. You may pass
+                up to 20 items.
+              items:
+                properties:
+                  discountable:
+                    type: boolean
+                  discounts:
+                    items:
+                      properties:
+                        coupon:
+                          maxLength: 5000
+                          type: string
+                        discount:
+                          maxLength: 5000
+                          type: string
+                        promotion_code:
+                          maxLength: 5000
+                          type: string
+                      title: discounts_data_param
+                      type: object
+                    type: array
+                  metadata:
+                    additionalProperties:
+                      type: string
+                    type: object
+                  period:
+                    properties:
+                      end:
+                        properties:
+                          timestamp:
+                            format: unix-time
+                            type: integer
+                          type:
+                            enum:
+                              - min_item_period_end
+                              - timestamp
+                            type: string
+                            x-stripeBypassValidation: true
+                        required:
+                          - type
+                        title: invoice_item_period_end
+                        type: object
+                      start:
+                        properties:
+                          timestamp:
+                            format: unix-time
+                            type: integer
+                          type:
+                            enum:
+                              - max_item_period_start
+                              - now
+                              - timestamp
+                            type: string
+                            x-stripeBypassValidation: true
+                        required:
+                          - type
+                        title: invoice_item_period_start
+                        type: object
+                    required:
+                      - end
+                      - start
+                    title: invoice_item_period
+                    type: object
+                  price:
+                    maxLength: 5000
+                    type: string
+                  price_data:
+                    properties:
+                      currency:
+                        format: currency
+                        type: string
+                      product:
+                        maxLength: 5000
+                        type: string
+                      tax_behavior:
+                        enum:
+                          - exclusive
+                          - inclusive
+                          - unspecified
+                        type: string
+                      unit_amount:
+                        type: integer
+                      unit_amount_decimal:
+                        format: decimal
+                        type: string
+                    required:
+                      - currency
+                      - product
+                    title: one_time_price_data_with_negative_amounts
+                    type: object
+                  quantity:
+                    type: integer
+                  tax_rates:
+                    anyOf:
+                      - items:
+                          maxLength: 5000
+                          type: string
+                        type: array
+                      - enum:
+                          - ''
+                        type: string
+                title: add_invoice_item_entry
+                type: object
+              type: array
+            application_fee_percent:
+              anyOf:
+                - type: number
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                A non-negative decimal between 0 and 100, with at most two
+                decimal places. This represents the percentage of the
+                subscription invoice total that will be transferred to the
+                application owner's Stripe account. The request must be made by
+                a platform account on a connected account in order to set an
+                application fee percentage. For more information, see the
+                application fees
+                [documentation](https://stripe.com/docs/connect/subscriptions#collecting-fees-on-subscriptions).
+            automatic_tax:
+              description: >-
+                Automatic tax settings for this subscription. We recommend you
+                only include this parameter when the existing value is being
+                changed.
+              properties:
+                enabled:
+                  type: boolean
+                liability:
+                  properties:
+                    account:
+                      type: string
+                    type:
+                      enum:
+                        - account
+                        - self
+                      type: string
+                      x-stripeBypassValidation: true
+                  required:
+                    - type
+                  title: param
+                  type: object
+              required:
+                - enabled
+              title: automatic_tax_config
+              type: object
+            billing_cycle_anchor:
+              description: >-
+                Either `now` or `unchanged`. Setting the value to `now` resets
+                the subscription's billing cycle anchor to the current time (in
+                UTC). For more information, see the billing cycle
+                [documentation](https://docs.stripe.com/billing/subscriptions/billing-cycle).
+              enum:
+                - now
+                - unchanged
+              maxLength: 5000
+              type: string
+              x-stripeBypassValidation: true
+            billing_schedules:
+              anyOf:
+                - items:
+                    properties:
+                      applies_to:
+                        items:
+                          properties:
+                            price:
+                              maxLength: 5000
+                              type: string
+                            type:
+                              enum:
+                                - price
+                              type: string
+                          required:
+                            - type
+                          title: billing_schedules_applies_to
+                          type: object
+                        type: array
+                      bill_until:
+                        properties:
+                          duration:
+                            properties:
+                              interval:
+                                enum:
+                                  - day
+                                  - month
+                                  - week
+                                  - year
+                                type: string
+                              interval_count:
+                                type: integer
+                            required:
+                              - interval
+                            title: billing_schedules_bill_until_duration
+                            type: object
+                          timestamp:
+                            format: unix-time
+                            type: integer
+                          type:
+                            enum:
+                              - duration
+                              - timestamp
+                            type: string
+                        required:
+                          - type
+                        title: billing_schedules_bill_until
+                        type: object
+                      key:
+                        maxLength: 200
+                        type: string
+                    title: billing_schedules_update_params
+                    type: object
+                  type: array
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                An array of billing schedules, which allow you to bill customers
+                in advance for multiple service periods. Requires flexible
+                billing mode and API version 2026-05-27.dahlia or later. Learn
+                more about
+                [prebilling](https://docs.stripe.com/billing/subscriptions/prebilling).
+            billing_thresholds:
+              anyOf:
+                - properties:
+                    amount_gte:
+                      type: integer
+                    reset_billing_cycle_anchor:
+                      type: boolean
+                  title: billing_thresholds_param
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                Define thresholds at which an invoice will be sent, and the
+                subscription advanced to a new billing period. When updating,
+                pass an empty string to remove previously-defined thresholds.
+            cancel_at:
+              anyOf:
+                - format: unix-time
+                  type: integer
+                - enum:
+                    - ''
+                  type: string
+                - enum:
+                    - max_billed_until
+                    - max_period_end
+                    - min_period_end
+                  type: string
+              description: >-
+                A timestamp at which the subscription should cancel. If set to a
+                date before the current period ends, this will cause a proration
+                if prorations have been enabled using `proration_behavior`. If
+                set during a future period, this will always cause a proration
+                for that period.
+            cancel_at_period_end:
+              description: >-
+                Indicate whether this subscription should cancel at the end of
+                the current period (`current_period_end`).
+              type: boolean
+            cancellation_details:
+              description: Details about why this subscription was cancelled
+              properties:
+                comment:
+                  anyOf:
+                    - maxLength: 5000
+                      type: string
+                    - enum:
+                        - ''
+                      type: string
+                feedback:
+                  enum:
+                    - ''
+                    - customer_service
+                    - low_quality
+                    - missing_features
+                    - other
+                    - switched_service
+                    - too_complex
+                    - too_expensive
+                    - unused
+                  type: string
+                feedback_option:
+                  maxLength: 5000
+                  type: string
+              title: cancellation_details_param
+              type: object
+            collection_method:
+              description: >-
+                Either `charge_automatically`, or `send_invoice`. When charging
+                automatically, Stripe will attempt to pay this subscription at
+                the end of the cycle using the default source attached to the
+                customer. When sending an invoice, Stripe will email your
+                customer an invoice with payment instructions and mark the
+                subscription as `active`. Defaults to `charge_automatically`.
+              enum:
+                - charge_automatically
+                - send_invoice
+              type: string
+            days_until_due:
+              description: >-
+                Number of days a customer has to pay invoices generated by this
+                subscription. Valid only for subscriptions where
+                `collection_method` is set to `send_invoice`.
+              type: integer
+            default_payment_method:
+              description: >-
+                ID of the default payment method for the subscription. It must
+                belong to the customer associated with the subscription. This
+                takes precedence over `default_source`. If neither are set,
+                invoices will use the customer's
+                [invoice_settings.default_payment_method](https://docs.stripe.com/api/customers/object#customer_object-invoice_settings-default_payment_method)
+                or
+                [default_source](https://docs.stripe.com/api/customers/object#customer_object-default_source).
+              maxLength: 5000
+              type: string
+            default_source:
+              anyOf:
+                - maxLength: 5000
+                  type: string
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                ID of the default payment source for the subscription. It must
+                belong to the customer associated with the subscription and be
+                in a chargeable state. If `default_payment_method` is also set,
+                `default_payment_method` will take precedence. If neither are
+                set, invoices will use the customer's
+                [invoice_settings.default_payment_method](https://docs.stripe.com/api/customers/object#customer_object-invoice_settings-default_payment_method)
+                or
+                [default_source](https://docs.stripe.com/api/customers/object#customer_object-default_source).
+            default_tax_rates:
+              anyOf:
+                - items:
+                    maxLength: 5000
+                    type: string
+                  type: array
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                The tax rates that will apply to any subscription item that does
+                not have `tax_rates` set. Invoices created will have their
+                `default_tax_rates` populated from the subscription. Pass an
+                empty string to remove previously-defined tax rates.
+            description:
+              anyOf:
+                - maxLength: 500
+                  type: string
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                The subscription's description, meant to be displayable to the
+                customer. Use this field to optionally store an explanation of
+                the subscription for rendering in Stripe surfaces and certain
+                local payment methods UIs.
+            discounts:
+              anyOf:
+                - items:
+                    properties:
+                      coupon:
+                        maxLength: 5000
+                        type: string
+                      discount:
+                        maxLength: 5000
+                        type: string
+                      promotion_code:
+                        maxLength: 5000
+                        type: string
+                    title: discounts_data_param
+                    type: object
+                  type: array
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                The coupons to redeem into discounts for the subscription. A
+                populated array overwrites the existing discounts on the
+                subscription. If not specified or empty array, it leaves the
+                subscription's discounts unchanged. If empty string, it clears
+                the subscription's discounts.
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            invoice_settings:
+              description: All invoices will be billed using the specified settings.
+              properties:
+                account_tax_ids:
+                  anyOf:
+                    - items:
+                        maxLength: 5000
+                        type: string
+                      type: array
+                    - enum:
+                        - ''
+                      type: string
+                custom_fields:
+                  anyOf:
+                    - items:
+                        properties:
+                          name:
+                            maxLength: 40
+                            type: string
+                          value:
+                            maxLength: 140
+                            type: string
+                        required:
+                          - name
+                          - value
+                        title: custom_field_params
+                        type: object
+                      type: array
+                    - enum:
+                        - ''
+                      type: string
+                description:
+                  anyOf:
+                    - maxLength: 1500
+                      type: string
+                    - enum:
+                        - ''
+                      type: string
+                footer:
+                  anyOf:
+                    - maxLength: 5000
+                      type: string
+                    - enum:
+                        - ''
+                      type: string
+                issuer:
+                  properties:
+                    account:
+                      type: string
+                    type:
+                      enum:
+                        - account
+                        - self
+                      type: string
+                      x-stripeBypassValidation: true
+                  required:
+                    - type
+                  title: param
+                  type: object
+              title: invoice_settings_update_param
+              type: object
+            items:
+              description: >-
+                A list of up to 20 subscription items, each with an attached
+                price.
+              items:
+                properties:
+                  billing_thresholds:
+                    anyOf:
+                      - properties:
+                          usage_gte:
+                            type: integer
+                        required:
+                          - usage_gte
+                        title: item_billing_thresholds_param
+                        type: object
+                      - enum:
+                          - ''
+                        type: string
+                  clear_usage:
+                    type: boolean
+                  deleted:
+                    type: boolean
+                  discounts:
+                    anyOf:
+                      - items:
+                          properties:
+                            coupon:
+                              maxLength: 5000
+                              type: string
+                            discount:
+                              maxLength: 5000
+                              type: string
+                            promotion_code:
+                              maxLength: 5000
+                              type: string
+                          title: discounts_data_param
+                          type: object
+                        type: array
+                      - enum:
+                          - ''
+                        type: string
+                  id:
+                    maxLength: 5000
+                    type: string
+                  metadata:
+                    anyOf:
+                      - additionalProperties:
+                          type: string
+                        type: object
+                      - enum:
+                          - ''
+                        type: string
+                  price:
+                    maxLength: 5000
+                    type: string
+                  price_data:
+                    properties:
+                      currency:
+                        format: currency
+                        type: string
+                      product:
+                        maxLength: 5000
+                        type: string
+                      recurring:
+                        properties:
+                          interval:
+                            enum:
+                              - day
+                              - month
+                              - week
+                              - year
+                            type: string
+                          interval_count:
+                            type: integer
+                        required:
+                          - interval
+                        title: recurring_adhoc
+                        type: object
+                      tax_behavior:
+                        enum:
+                          - exclusive
+                          - inclusive
+                          - unspecified
+                        type: string
+                      unit_amount:
+                        type: integer
+                      unit_amount_decimal:
+                        format: decimal
+                        type: string
+                    required:
+                      - currency
+                      - product
+                      - recurring
+                    title: recurring_price_data
+                    type: object
+                  quantity:
+                    type: integer
+                  tax_rates:
+                    anyOf:
+                      - items:
+                          maxLength: 5000
+                          type: string
+                        type: array
+                      - enum:
+                          - ''
+                        type: string
+                title: subscription_item_update_params
+                type: object
+              type: array
+            metadata:
+              anyOf:
+                - additionalProperties:
+                    type: string
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                Set of [key-value pairs](https://docs.stripe.com/api/metadata)
+                that you can attach to an object. This can be useful for storing
+                additional information about the object in a structured format.
+                Individual keys can be unset by posting an empty value to them.
+                All keys can be unset by posting an empty value to `metadata`.
+            off_session:
+              description: >-
+                Indicates if a customer is on or off-session while an invoice
+                payment is attempted. Defaults to `false` (on-session).
+              type: boolean
+            on_behalf_of:
+              anyOf:
+                - type: string
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                The account on behalf of which to charge, for each of the
+                subscription's invoices.
+            pause_collection:
+              anyOf:
+                - properties:
+                    behavior:
+                      enum:
+                        - keep_as_draft
+                        - mark_uncollectible
+                        - void
+                      type: string
+                    resumes_at:
+                      format: unix-time
+                      type: integer
+                  required:
+                    - behavior
+                  title: pause_collection_param
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                If specified, payment collection for this subscription will be
+                paused. Note that the subscription status will be unchanged and
+                will not be updated to `paused`. Learn more about [pausing
+                collection](https://docs.stripe.com/billing/subscriptions/pause-payment).
+            payment_behavior:
+              description: >-
+                Controls how Stripe handles payment when a subscription update
+                requires payment and `collection_method=charge_automatically`.
+              enum:
+                - allow_incomplete
+                - default_incomplete
+                - error_if_incomplete
+                - pending_if_incomplete
+              type: string
+            payment_settings:
+              description: >-
+                Payment settings to pass to invoices created by the
+                subscription.
+              properties:
+                payment_method_options:
+                  properties:
+                    acss_debit:
+                      anyOf:
+                        - properties:
+                            mandate_options:
+                              properties:
+                                transaction_type:
+                                  enum:
+                                    - business
+                                    - personal
+                                  type: string
+                              title: mandate_options_param
+                              type: object
+                            verification_method:
+                              enum:
+                                - automatic
+                                - instant
+                                - microdeposits
+                              type: string
+                              x-stripeBypassValidation: true
+                          title: invoice_payment_method_options_param
+                          type: object
+                        - enum:
+                            - ''
+                          type: string
+                    bancontact:
+                      anyOf:
+                        - properties:
+                            preferred_language:
+                              enum:
+                                - de
+                                - en
+                                - fr
+                                - nl
+                              type: string
+                          title: invoice_payment_method_options_param
+                          type: object
+                        - enum:
+                            - ''
+                          type: string
+                    billie:
+                      anyOf:
+                        - properties: {}
+                          title: subscription_payment_method_options_param
+                          type: object
+                        - enum:
+                            - ''
+                          type: string
+                    card:
+                      anyOf:
+                        - properties:
+                            mandate_options:
+                              properties:
+                                amount:
+                                  type: integer
+                                amount_type:
+                                  enum:
+                                    - fixed
+                                    - maximum
+                                  type: string
+                                description:
+                                  maxLength: 200
+                                  type: string
+                              title: mandate_options_param
+                              type: object
+                            network:
+                              enum:
+                                - amex
+                                - cartes_bancaires
+                                - diners
+                                - discover
+                                - eftpos_au
+                                - girocard
+                                - interac
+                                - jcb
+                                - link
+                                - mastercard
+                                - unionpay
+                                - unknown
+                                - visa
+                              maxLength: 5000
+                              type: string
+                              x-stripeBypassValidation: true
+                            request_three_d_secure:
+                              enum:
+                                - any
+                                - automatic
+                                - challenge
+                              type: string
+                          title: subscription_payment_method_options_param
+                          type: object
+                        - enum:
+                            - ''
+                          type: string
+                    customer_balance:
+                      anyOf:
+                        - properties:
+                            bank_transfer:
+                              properties:
+                                eu_bank_transfer:
+                                  properties:
+                                    country:
+                                      maxLength: 5000
+                                      type: string
+                                  required:
+                                    - country
+                                  title: eu_bank_transfer_param
+                                  type: object
+                                type:
+                                  type: string
+                              title: bank_transfer_param
+                              type: object
+                            funding_type:
+                              type: string
+                          title: invoice_payment_method_options_param
+                          type: object
+                        - enum:
+                            - ''
+                          type: string
+                    konbini:
+                      anyOf:
+                        - properties: {}
+                          title: invoice_payment_method_options_param
+                          type: object
+                        - enum:
+                            - ''
+                          type: string
+                    payto:
+                      anyOf:
+                        - properties:
+                            mandate_options:
+                              properties:
+                                amount:
+                                  type: integer
+                                purpose:
+                                  enum:
+                                    - dependant_support
+                                    - government
+                                    - loan
+                                    - mortgage
+                                    - other
+                                    - pension
+                                    - personal
+                                    - retail
+                                    - salary
+                                    - tax
+                                    - utility
+                                  type: string
+                              title: mandate_options_param
+                              type: object
+                          title: invoice_payment_method_options_param
+                          type: object
+                        - enum:
+                            - ''
+                          type: string
+                    pix:
+                      anyOf:
+                        - properties:
+                            expires_after_seconds:
+                              type: integer
+                            mandate_options:
+                              properties:
+                                amount:
+                                  type: integer
+                                amount_includes_iof:
+                                  enum:
+                                    - always
+                                    - never
+                                  type: string
+                                end_date:
+                                  maxLength: 5000
+                                  type: string
+                                payment_schedule:
+                                  enum:
+                                    - halfyearly
+                                    - monthly
+                                    - quarterly
+                                    - weekly
+                                    - yearly
+                                  type: string
+                              title: >-
+                                subscription_payment_method_options_mandate_options_param
+                              type: object
+                          title: subscription_payment_method_options_param
+                          type: object
+                        - enum:
+                            - ''
+                          type: string
+                    sepa_debit:
+                      anyOf:
+                        - properties: {}
+                          title: invoice_payment_method_options_param
+                          type: object
+                        - enum:
+                            - ''
+                          type: string
+                    upi:
+                      anyOf:
+                        - properties:
+                            mandate_options:
+                              properties:
+                                amount:
+                                  type: integer
+                                amount_type:
+                                  enum:
+                                    - fixed
+                                    - maximum
+                                  type: string
+                                description:
+                                  maxLength: 20
+                                  type: string
+                                end_date:
+                                  format: unix-time
+                                  type: integer
+                              title: >-
+                                invoice_payment_method_options_mandate_options_param
+                              type: object
+                          title: invoice_payment_method_options_param
+                          type: object
+                        - enum:
+                            - ''
+                          type: string
+                    us_bank_account:
+                      anyOf:
+                        - properties:
+                            financial_connections:
+                              properties:
+                                filters:
+                                  properties:
+                                    account_subcategories:
+                                      items:
+                                        enum:
+                                          - checking
+                                          - savings
+                                        type: string
+                                      type: array
+                                  title: invoice_linked_account_options_filters_param
+                                  type: object
+                                permissions:
+                                  items:
+                                    enum:
+                                      - balances
+                                      - ownership
+                                      - payment_method
+                                      - transactions
+                                    maxLength: 5000
+                                    type: string
+                                    x-stripeBypassValidation: true
+                                  type: array
+                                prefetch:
+                                  items:
+                                    enum:
+                                      - balances
+                                      - ownership
+                                      - transactions
+                                    type: string
+                                    x-stripeBypassValidation: true
+                                  type: array
+                              title: invoice_linked_account_options_param
+                              type: object
+                            verification_method:
+                              enum:
+                                - automatic
+                                - instant
+                                - microdeposits
+                              type: string
+                              x-stripeBypassValidation: true
+                          title: invoice_payment_method_options_param
+                          type: object
+                        - enum:
+                            - ''
+                          type: string
+                  title: payment_method_options
+                  type: object
+                payment_method_types:
+                  anyOf:
+                    - items:
+                        enum:
+                          - ach_credit_transfer
+                          - ach_debit
+                          - acss_debit
+                          - affirm
+                          - alipay
+                          - amazon_pay
+                          - au_becs_debit
+                          - bacs_debit
+                          - bancontact
+                          - billie
+                          - boleto
+                          - card
+                          - cashapp
+                          - crypto
+                          - custom
+                          - customer_balance
+                          - eps
+                          - fpx
+                          - giropay
+                          - grabpay
+                          - ideal
+                          - jp_credit_transfer
+                          - kakao_pay
+                          - klarna
+                          - konbini
+                          - kr_card
+                          - link
+                          - mb_way
+                          - multibanco
+                          - naver_pay
+                          - nz_bank_account
+                          - p24
+                          - pay_by_bank
+                          - payco
+                          - paynow
+                          - paypal
+                          - payto
+                          - pix
+                          - promptpay
+                          - revolut_pay
+                          - satispay
+                          - sepa_credit_transfer
+                          - sepa_debit
+                          - sofort
+                          - swish
+                          - twint
+                          - upi
+                          - us_bank_account
+                          - wechat_pay
+                        type: string
+                        x-stripeBypassValidation: true
+                      type: array
+                    - enum:
+                        - ''
+                      type: string
+                save_default_payment_method:
+                  enum:
+                    - 'off'
+                    - on_subscription
+                  type: string
+              title: payment_settings
+              type: object
+            pending_invoice_item_interval:
+              anyOf:
+                - properties:
+                    interval:
+                      enum:
+                        - day
+                        - month
+                        - week
+                        - year
+                      type: string
+                    interval_count:
+                      type: integer
+                  required:
+                    - interval
+                  title: pending_invoice_item_interval_params
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                Specifies an interval for how often to bill for any pending
+                invoice items. It is analogous to calling [Create an
+                invoice](/api/invoices/create) for the given subscription at the
+                specified interval.
+            proration_behavior:
+              description: >-
+                Determines how to handle
+                [prorations](https://docs.stripe.com/billing/subscriptions/prorations)
+                when the billing cycle changes (e.g., when switching plans,
+                resetting `billing_cycle_anchor=now`, or starting a trial), or
+                if an item's `quantity` changes. The default value is
+                `create_prorations`.
+              enum:
+                - always_invoice
+                - create_prorations
+                - none
+              type: string
+            proration_date:
+              description: >-
+                If set, prorations will be calculated as though the subscription
+                was updated at the given time. This can be used to apply exactly
+                the same prorations that were previewed with the [create
+                preview](https://stripe.com/docs/api/invoices/create_preview)
+                endpoint. `proration_date` can also be used to implement custom
+                proration logic, such as prorating by day instead of by second,
+                by providing the time that you wish to use for proration
+                calculations.
+              format: unix-time
+              type: integer
+            transfer_data:
+              anyOf:
+                - properties:
+                    amount_percent:
+                      type: number
+                    destination:
+                      type: string
+                  required:
+                    - destination
+                  title: transfer_data_specs
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                If specified, the funds from the subscription's invoices will be
+                transferred to the destination and the ID of the resulting
+                transfers will be found on the resulting charges. This will be
+                unset if you POST an empty value.
+            trial_end:
+              anyOf:
+                - enum:
+                    - now
+                  maxLength: 5000
+                  type: string
+                - format: unix-time
+                  type: integer
+              description: >-
+                Unix timestamp representing the end of the trial period the
+                customer will get before being charged for the first time. This
+                will always overwrite any trials that might apply via a
+                subscribed plan. If set, `trial_end` will override the default
+                trial period of the plan the customer is being subscribed to.
+                The `billing_cycle_anchor` will be updated to the `trial_end`
+                value. The special value `now` can be provided to end the
+                customer's trial immediately. Can be at most two years from
+                `billing_cycle_anchor`.
+            trial_from_plan:
+              description: >-
+                Indicates if a plan's `trial_period_days` should be applied to
+                the subscription. Setting `trial_end` per subscription is
+                preferred, and this defaults to `false`. Setting this flag to
+                `true` together with `trial_end` is not allowed. See [Using
+                trial periods on
+                subscriptions](https://docs.stripe.com/billing/subscriptions/trials)
+                to learn more.
+              type: boolean
+            trial_settings:
+              description: Settings related to subscription trials.
+              properties:
+                end_behavior:
+                  properties:
+                    missing_payment_method:
+                      enum:
+                        - cancel
+                        - create_invoice
+                        - pause
+                      type: string
+                  required:
+                    - missing_payment_method
+                  title: end_behavior
+                  type: object
+              required:
+                - end_behavior
+              title: trial_settings_config
+              type: object
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/subscription.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Update a subscription

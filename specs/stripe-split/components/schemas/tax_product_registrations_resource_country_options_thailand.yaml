@@ -1,0 +1,13 @@
+description: ''
+properties:
+  type:
+    description: Type of registration in `country`.
+    enum:
+      - simplified
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - type
+title: TaxProductRegistrationsResourceCountryOptionsThailand
+type: object
+x-expandableFields: []

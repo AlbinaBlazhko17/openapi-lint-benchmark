@@ -1,0 +1,32 @@
+description: Customer details attached to this payment evaluation.
+properties:
+  customer:
+    description: The ID of the customer associated with the payment evaluation.
+    maxLength: 5000
+    nullable: true
+    type: string
+  customer_account:
+    description: >-
+      The ID of the Account representing the customer associated with the
+      payment evaluation.
+    maxLength: 5000
+    nullable: true
+    type: string
+  email:
+    description: The customer's email address.
+    maxLength: 5000
+    nullable: true
+    type: string
+  name:
+    description: The customer's full name or business name.
+    maxLength: 5000
+    nullable: true
+    type: string
+  phone:
+    description: The customer's phone number.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: InsightsResourcesPaymentEvaluationCustomerDetails
+type: object
+x-expandableFields: []

@@ -1,0 +1,100 @@
+description: Result from a document check
+properties:
+  address:
+    anyOf:
+      - $ref: ./address.yaml
+    description: Address as it appears in the document.
+    nullable: true
+  dob:
+    anyOf:
+      - $ref: ./gelato_data_document_report_date_of_birth.yaml
+    description: Date of birth as it appears in the document.
+    nullable: true
+  error:
+    anyOf:
+      - $ref: ./gelato_document_report_error.yaml
+    description: Details on the verification error. Present when status is `unverified`.
+    nullable: true
+  expiration_date:
+    anyOf:
+      - $ref: ./gelato_data_document_report_expiration_date.yaml
+    description: Expiration date of the document.
+    nullable: true
+  files:
+    description: >-
+      Array of [File](https://docs.stripe.com/api/files) ids containing images
+      for this document.
+    items:
+      maxLength: 5000
+      type: string
+    nullable: true
+    type: array
+  first_name:
+    description: First name as it appears in the document.
+    maxLength: 5000
+    nullable: true
+    type: string
+  issued_date:
+    anyOf:
+      - $ref: ./gelato_data_document_report_issued_date.yaml
+    description: Issued date of the document.
+    nullable: true
+  issuing_country:
+    description: Issuing country of the document.
+    maxLength: 5000
+    nullable: true
+    type: string
+  last_name:
+    description: Last name as it appears in the document.
+    maxLength: 5000
+    nullable: true
+    type: string
+  number:
+    description: Document ID number.
+    maxLength: 5000
+    nullable: true
+    type: string
+  sex:
+    description: Sex of the person in the document.
+    enum:
+      - '[redacted]'
+      - female
+      - male
+      - unknown
+    nullable: true
+    type: string
+  status:
+    description: Status of this `document` check.
+    enum:
+      - unverified
+      - verified
+    type: string
+    x-stripeBypassValidation: true
+  type:
+    description: Type of the document.
+    enum:
+      - driving_license
+      - id_card
+      - passport
+    nullable: true
+    type: string
+  unparsed_place_of_birth:
+    description: Place of birth as it appears in the document.
+    maxLength: 5000
+    nullable: true
+    type: string
+  unparsed_sex:
+    description: Sex as it appears in the document.
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - status
+title: GelatoDocumentReport
+type: object
+x-expandableFields:
+  - address
+  - dob
+  - error
+  - expiration_date
+  - issued_date

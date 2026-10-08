@@ -1,0 +1,170 @@
+get:
+  description: >-
+    <p>Retrieves the details of a VerificationSession that was previously
+    created.</p>
+
+
+    <p>When the session status is <code>requires_input</code>, you can use this
+    method to retrieve a valid
+
+    <code>client_secret</code> or <code>url</code> to allow re-submission.</p>
+  operationId: GetIdentityVerificationSessionsSession
+  parameters:
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+    - in: path
+      name: session
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/identity.verification_session.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Retrieve a VerificationSession
+post:
+  description: >-
+    <p>Updates a VerificationSession object.</p>
+
+
+    <p>When the session status is <code>requires_input</code>, you can use this
+    method to update the
+
+    verification check and options.</p>
+  operationId: PostIdentityVerificationSessionsSession
+  parameters:
+    - in: path
+      name: session
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+          metadata:
+            explode: true
+            style: deepObject
+          options:
+            explode: true
+            style: deepObject
+          provided_details:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            metadata:
+              additionalProperties:
+                type: string
+              description: >-
+                Set of [key-value pairs](https://docs.stripe.com/api/metadata)
+                that you can attach to an object. This can be useful for storing
+                additional information about the object in a structured format.
+                Individual keys can be unset by posting an empty value to them.
+                All keys can be unset by posting an empty value to `metadata`.
+              type: object
+            options:
+              description: A set of options for the session’s verification checks.
+              properties:
+                document:
+                  anyOf:
+                    - properties:
+                        allowed_types:
+                          items:
+                            enum:
+                              - driving_license
+                              - id_card
+                              - passport
+                            type: string
+                          type: array
+                        require_id_number:
+                          type: boolean
+                        require_live_capture:
+                          type: boolean
+                        require_matching_selfie:
+                          type: boolean
+                      title: document_options
+                      type: object
+                    - enum:
+                        - ''
+                      type: string
+              title: session_options_param
+              type: object
+            provided_details:
+              description: >-
+                Details provided about the user being verified. These details
+                may be shown to the user.
+              properties:
+                email:
+                  type: string
+                phone:
+                  type: string
+              title: provided_details_param
+              type: object
+            type:
+              description: >-
+                The type of [verification
+                check](https://docs.stripe.com/identity/verification-checks) to
+                be performed.
+              enum:
+                - document
+                - id_number
+              type: string
+              x-stripeBypassValidation: true
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/identity.verification_session.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Update a VerificationSession

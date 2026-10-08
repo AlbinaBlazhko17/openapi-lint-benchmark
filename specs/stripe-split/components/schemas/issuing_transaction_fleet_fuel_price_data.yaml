@@ -1,0 +1,12 @@
+description: ''
+properties:
+  gross_amount_decimal:
+    description: >-
+      Gross fuel amount that should equal Fuel Volume multiplied by Fuel Unit
+      Cost, inclusive of taxes.
+    format: decimal
+    nullable: true
+    type: string
+title: IssuingTransactionFleetFuelPriceData
+type: object
+x-expandableFields: []

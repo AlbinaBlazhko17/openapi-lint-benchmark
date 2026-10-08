@@ -1,0 +1,28 @@
+description: ''
+properties:
+  discounts:
+    description: The coupon or promotion code to apply to this subscription update.
+    items:
+      $ref: ./portal_flows_subscription_update_confirm_discount.yaml
+    nullable: true
+    type: array
+  items:
+    description: >-
+      The [subscription item](https://docs.stripe.com/api/subscription_items) to
+      be updated through this flow. Currently, only up to one may be specified
+      and subscriptions with multiple items are not updatable.
+    items:
+      $ref: ./portal_flows_subscription_update_confirm_item.yaml
+    type: array
+  subscription:
+    description: The ID of the subscription to be updated.
+    maxLength: 5000
+    type: string
+required:
+  - items
+  - subscription
+title: PortalFlowsFlowSubscriptionUpdateConfirm
+type: object
+x-expandableFields:
+  - discounts
+  - items

@@ -1,0 +1,10 @@
+description: Information about a phone number being collected using a reader
+properties:
+  value:
+    description: The collected phone number
+    maxLength: 5000
+    nullable: true
+    type: string
+title: TerminalReaderReaderResourcePhone
+type: object
+x-expandableFields: []

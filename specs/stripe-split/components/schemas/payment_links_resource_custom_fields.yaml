@@ -1,0 +1,41 @@
+description: ''
+properties:
+  dropdown:
+    $ref: ./payment_links_resource_custom_fields_dropdown.yaml
+  key:
+    description: >-
+      String of your choice that your integration can use to reconcile this
+      field. Must be unique to this field, alphanumeric, and up to 200
+      characters.
+    maxLength: 5000
+    type: string
+  label:
+    $ref: ./payment_links_resource_custom_fields_label.yaml
+  numeric:
+    $ref: ./payment_links_resource_custom_fields_numeric.yaml
+  optional:
+    description: >-
+      Whether the customer is required to complete the field before completing
+      the Checkout Session. Defaults to `false`.
+    type: boolean
+  text:
+    $ref: ./payment_links_resource_custom_fields_text.yaml
+  type:
+    description: The type of the field.
+    enum:
+      - dropdown
+      - numeric
+      - text
+    type: string
+required:
+  - key
+  - label
+  - optional
+  - type
+title: PaymentLinksResourceCustomFields
+type: object
+x-expandableFields:
+  - dropdown
+  - label
+  - numeric
+  - text

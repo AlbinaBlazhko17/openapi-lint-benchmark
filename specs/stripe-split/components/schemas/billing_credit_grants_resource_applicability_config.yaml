@@ -1,0 +1,10 @@
+description: ''
+properties:
+  scope:
+    $ref: ./billing_credit_grants_resource_scope.yaml
+required:
+  - scope
+title: BillingCreditGrantsResourceApplicabilityConfig
+type: object
+x-expandableFields:
+  - scope

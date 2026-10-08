@@ -1,0 +1,164 @@
+description: ''
+properties:
+  amount_authorized:
+    description: The authorized amount.
+    nullable: true
+    type: integer
+  authorization_code:
+    description: Authorization code on the charge.
+    maxLength: 5000
+    nullable: true
+    type: string
+  brand:
+    description: >-
+      Card brand. Can be `amex`, `cartes_bancaires`, `diners`, `discover`,
+      `eftpos_au`, `jcb`, `link`, `mastercard`, `unionpay`, `visa` or `unknown`.
+    maxLength: 5000
+    nullable: true
+    type: string
+  capture_before:
+    description: >-
+      When using manual capture, a future timestamp at which the charge will be
+      automatically refunded if uncaptured.
+    format: unix-time
+    type: integer
+  checks:
+    anyOf:
+      - $ref: ./payment_method_details_card_checks.yaml
+    description: Check results by Card networks on Card address and CVC at time of payment.
+    nullable: true
+  country:
+    description: >-
+      Two-letter ISO code representing the country of the card. You could use
+      this attribute to get a sense of the international breakdown of cards
+      you've collected.
+    maxLength: 5000
+    nullable: true
+    type: string
+  exp_month:
+    description: Two-digit number representing the card's expiration month.
+    type: integer
+  exp_year:
+    description: Four-digit number representing the card's expiration year.
+    type: integer
+  extended_authorization:
+    $ref: >-
+      ./payment_flows_private_payment_methods_card_details_api_resource_enterprise_features_extended_authorization_extended_authorization.yaml
+  fingerprint:
+    description: >-
+      Uniquely identifies this particular card number. You can use this
+      attribute to check whether two customers who’ve signed up with you are
+      using the same card number, for example. For payment methods that tokenize
+      card information (Apple Pay, Google Pay), the tokenized number might be
+      provided instead of the underlying card number.
+
+
+      *As of May 1, 2021, card fingerprint in India for Connect changed to allow
+      two fingerprints for the same card---one for India and one for the rest of
+      the world.*
+    maxLength: 5000
+    nullable: true
+    type: string
+  funding:
+    description: Card funding type. Can be `credit`, `debit`, `prepaid`, or `unknown`.
+    maxLength: 5000
+    nullable: true
+    type: string
+  incremental_authorization:
+    $ref: >-
+      ./payment_flows_private_payment_methods_card_details_api_resource_enterprise_features_incremental_authorization_incremental_authorization.yaml
+  installments:
+    anyOf:
+      - $ref: ./payment_method_details_card_installments.yaml
+    description: >-
+      Installment details for this payment.
+
+
+      For more information, see the [installments integration
+      guide](https://docs.stripe.com/payments/installments).
+    nullable: true
+  last4:
+    description: The last four digits of the card.
+    maxLength: 5000
+    nullable: true
+    type: string
+  mandate:
+    description: ID of the mandate used to make this payment or created by it.
+    maxLength: 5000
+    nullable: true
+    type: string
+  multicapture:
+    $ref: >-
+      ./payment_flows_private_payment_methods_card_details_api_resource_multicapture.yaml
+  network:
+    description: >-
+      Identifies which network this charge was processed on. Can be `amex`,
+      `cartes_bancaires`, `diners`, `discover`, `eftpos_au`, `interac`, `jcb`,
+      `link`, `mastercard`, `unionpay`, `visa`, or `unknown`.
+    maxLength: 5000
+    nullable: true
+    type: string
+  network_token:
+    anyOf:
+      - $ref: ./payment_method_details_card_network_token.yaml
+    description: >-
+      If this card has network token credentials, this contains the details of
+      the network token credentials.
+    nullable: true
+  network_transaction_id:
+    description: >-
+      This is used by the financial networks to identify a transaction. Visa
+      calls this the Transaction ID, Mastercard calls this the Trace ID, and
+      American Express calls this the Acquirer Reference Data. This value will
+      be present if it is returned by the financial network in the authorization
+      response, and null otherwise.
+    maxLength: 5000
+    nullable: true
+    type: string
+  overcapture:
+    $ref: >-
+      ./payment_flows_private_payment_methods_card_details_api_resource_enterprise_features_overcapture_overcapture.yaml
+  regulated_status:
+    description: Status of a card based on the card issuer.
+    enum:
+      - regulated
+      - unregulated
+    nullable: true
+    type: string
+  three_d_secure:
+    anyOf:
+      - $ref: ./three_d_secure_details_charge.yaml
+    description: Populated if this transaction used 3D Secure authentication.
+    nullable: true
+  transaction_link_id:
+    description: >-
+      Transaction Link ID (TLID) is a unique identifier for a transaction. This
+      is used by some card networks, such as Mastercard, for transaction
+      linking, in addition to Network Transaction IDs. This value will be
+      present if it is returned by the financial network in the authorization
+      response, and null otherwise.
+    maxLength: 22
+    nullable: true
+    type: string
+  wallet:
+    anyOf:
+      - $ref: ./payment_method_details_card_wallet.yaml
+    description: >-
+      If this Card is part of a card wallet, this contains the details of the
+      card wallet.
+    nullable: true
+required:
+  - exp_month
+  - exp_year
+title: payment_method_details_card
+type: object
+x-expandableFields:
+  - checks
+  - extended_authorization
+  - incremental_authorization
+  - installments
+  - multicapture
+  - network_token
+  - overcapture
+  - three_d_secure
+  - wallet

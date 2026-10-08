@@ -1,0 +1,19 @@
+description: ''
+properties:
+  financial_connections:
+    $ref: ./linked_account_options_common.yaml
+  mandate_options:
+    $ref: ./payment_method_options_us_bank_account_mandate_options.yaml
+  verification_method:
+    description: Bank account verification method. The default value is `automatic`.
+    enum:
+      - automatic
+      - instant
+      - microdeposits
+    type: string
+    x-stripeBypassValidation: true
+title: setup_intent_payment_method_options_us_bank_account
+type: object
+x-expandableFields:
+  - financial_connections
+  - mandate_options

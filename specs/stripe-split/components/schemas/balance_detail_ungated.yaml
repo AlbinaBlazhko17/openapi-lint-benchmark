@@ -1,0 +1,20 @@
+description: ''
+properties:
+  available:
+    description: Funds that are available for use.
+    items:
+      $ref: ./balance_amount.yaml
+    type: array
+  pending:
+    description: Funds that are pending
+    items:
+      $ref: ./balance_amount.yaml
+    type: array
+required:
+  - available
+  - pending
+title: BalanceDetailUngated
+type: object
+x-expandableFields:
+  - available
+  - pending

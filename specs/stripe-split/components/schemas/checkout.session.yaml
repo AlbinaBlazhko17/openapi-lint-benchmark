@@ -1,0 +1,660 @@
+description: >-
+  A Checkout Session represents your customer's session as they pay for
+
+  one-time purchases or subscriptions through
+  [Checkout](https://docs.stripe.com/payments/checkout)
+
+  or [Payment Links](https://docs.stripe.com/payments/payment-links). We
+  recommend creating a
+
+  new Session each time your customer attempts to pay.
+
+
+  Once payment is successful, the Checkout Session will contain a reference
+
+  to the [Customer](https://docs.stripe.com/api/customers), and either the
+  successful
+
+  [PaymentIntent](https://docs.stripe.com/api/payment_intents) or an active
+
+  [Subscription](https://docs.stripe.com/api/subscriptions).
+
+
+  You can create a Checkout Session on your server and redirect to its URL
+
+  to begin Checkout.
+
+
+  Related guide: [Checkout
+  quickstart](https://docs.stripe.com/checkout/quickstart)
+properties:
+  adaptive_pricing:
+    anyOf:
+      - $ref: ./payment_pages_checkout_session_adaptive_pricing.yaml
+    description: >-
+      Settings for price localization with [Adaptive
+      Pricing](https://docs.stripe.com/payments/checkout/adaptive-pricing).
+    nullable: true
+  after_expiration:
+    anyOf:
+      - $ref: ./payment_pages_checkout_session_after_expiration.yaml
+    description: >-
+      When set, provides configuration for actions to take if this Checkout
+      Session expires.
+    nullable: true
+  allow_promotion_codes:
+    description: Enables user redeemable promotion codes.
+    nullable: true
+    type: boolean
+  amount_subtotal:
+    description: Total of all items before discounts or taxes are applied.
+    nullable: true
+    type: integer
+  amount_total:
+    description: Total of all items after discounts and taxes are applied.
+    nullable: true
+    type: integer
+  automatic_tax:
+    $ref: ./payment_pages_checkout_session_automatic_tax.yaml
+  billing_address_collection:
+    description: >-
+      Describes whether Checkout should collect the customer's billing address.
+      Defaults to `auto`.
+    enum:
+      - auto
+      - required
+    nullable: true
+    type: string
+  branding_settings:
+    $ref: ./payment_pages_checkout_session_branding_settings.yaml
+  cancel_url:
+    description: >-
+      If set, Checkout displays a back button and customers will be directed to
+      this URL if they decide to cancel payment and return to your website.
+    maxLength: 5000
+    nullable: true
+    type: string
+  client_reference_id:
+    description: |-
+      A unique string to reference the Checkout Session. This can be a
+      customer ID, a cart ID, or similar, and can be used to reconcile the
+      Session with your internal systems.
+    maxLength: 5000
+    nullable: true
+    type: string
+  client_secret:
+    description: >-
+      The client secret of your Checkout Session. Applies to Checkout Sessions
+      with `ui_mode: embedded_page` or `ui_mode: elements`. For `ui_mode:
+      embedded_page`, the client secret is to be used when initializing
+      Stripe.js embedded checkout.
+       For `ui_mode: elements`, use the client secret with [initCheckout](https://docs.stripe.com/js/custom_checkout/init) on your front end.
+    maxLength: 5000
+    nullable: true
+    type: string
+  collected_information:
+    anyOf:
+      - $ref: ./payment_pages_checkout_session_collected_information.yaml
+    description: Information about the customer collected within the Checkout Session.
+    nullable: true
+  consent:
+    anyOf:
+      - $ref: ./payment_pages_checkout_session_consent.yaml
+    description: Results of `consent_collection` for this session.
+    nullable: true
+  consent_collection:
+    anyOf:
+      - $ref: ./payment_pages_checkout_session_consent_collection.yaml
+    description: >-
+      When set, provides configuration for the Checkout Session to gather active
+      consent from customers.
+    nullable: true
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    format: currency
+    nullable: true
+    type: string
+  currency_conversion:
+    anyOf:
+      - $ref: ./payment_pages_checkout_session_currency_conversion.yaml
+    description: >-
+      Currency conversion details for [Adaptive
+      Pricing](https://docs.stripe.com/payments/checkout/adaptive-pricing)
+      sessions created before 2025-03-31.
+    nullable: true
+  custom_fields:
+    description: >-
+      Collect additional information from your customer using custom fields. Up
+      to 3 fields are supported. You can't set this parameter if `ui_mode` is
+      `custom`.
+    items:
+      $ref: ./payment_pages_checkout_session_custom_fields.yaml
+    type: array
+  custom_text:
+    $ref: ./payment_pages_checkout_session_custom_text.yaml
+  customer:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./customer.yaml
+      - $ref: ./deleted_customer.yaml
+    description: >-
+      The ID of the customer for this Session.
+
+      For Checkout Sessions in `subscription` mode or Checkout Sessions with
+      `customer_creation` set as `always` in `payment` mode, Checkout
+
+      will create a new customer object based on information provided
+
+      during the payment flow unless an existing customer was provided when
+
+      the Session was created.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./customer.yaml
+        - $ref: ./deleted_customer.yaml
+  customer_account:
+    description: The ID of the account for this Session.
+    maxLength: 5000
+    nullable: true
+    type: string
+  customer_creation:
+    description: >-
+      Configure whether a Checkout Session creates a Customer when the Checkout
+      Session completes.
+    enum:
+      - always
+      - if_required
+    nullable: true
+    type: string
+  customer_details:
+    anyOf:
+      - $ref: ./payment_pages_checkout_session_customer_details.yaml
+    description: >-
+      The customer details including the customer's tax exempt status and the
+      customer's tax IDs. Customer's address details are not present on Sessions
+      in `setup` mode.
+    nullable: true
+  customer_email:
+    description: |-
+      If provided, this value will be used when the Customer object is created.
+      If not provided, customers will be asked to enter their email address.
+      Use this parameter to prefill customer data if you already have an email
+      on file. To access information about the customer once the payment flow is
+      complete, use the `customer` attribute.
+    maxLength: 5000
+    nullable: true
+    type: string
+  discounts:
+    description: List of coupons and promotion codes attached to the Checkout Session.
+    items:
+      $ref: ./payment_pages_checkout_session_discount.yaml
+    nullable: true
+    type: array
+  excluded_payment_method_types:
+    description: >-
+      A list of the types of payment methods (e.g., `card`) that should be
+      excluded from this Checkout Session. This should only be used when payment
+      methods for this Checkout Session are managed through the [Stripe
+      Dashboard](https://dashboard.stripe.com/settings/payment_methods).
+    items:
+      maxLength: 5000
+      type: string
+    type: array
+  expires_at:
+    description: The timestamp at which the Checkout Session will expire.
+    format: unix-time
+    type: integer
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  integration_identifier:
+    description: >-
+      The integration identifier for this Checkout Session. Multiple Checkout
+      Sessions can have the same integration identifier.
+    maxLength: 5000
+    nullable: true
+    type: string
+  invoice:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./invoice.yaml
+    description: ID of the invoice created by the Checkout Session, if it exists.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./invoice.yaml
+  invoice_creation:
+    anyOf:
+      - $ref: ./payment_pages_checkout_session_invoice_creation.yaml
+    description: Details on the state of invoice creation for the Checkout Session.
+    nullable: true
+  line_items:
+    description: The line items purchased by the customer.
+    properties:
+      data:
+        description: Details about each object.
+        items:
+          $ref: ./item.yaml
+        type: array
+      has_more:
+        description: >-
+          True if this list has another page of items after this one that can be
+          fetched.
+        type: boolean
+      object:
+        description: >-
+          String representing the object's type. Objects of the same type share
+          the same value. Always has the value `list`.
+        enum:
+          - list
+        type: string
+      url:
+        description: The URL where this list can be accessed.
+        maxLength: 5000
+        type: string
+    required:
+      - data
+      - has_more
+      - object
+      - url
+    title: PaymentPagesCheckoutSessionListLineItems
+    type: object
+    x-expandableFields:
+      - data
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  locale:
+    description: >-
+      The IETF language tag of the locale Checkout is displayed in. If blank or
+      `auto`, the browser's locale is used.
+    enum:
+      - auto
+      - bg
+      - cs
+      - da
+      - de
+      - el
+      - en
+      - en-GB
+      - es
+      - es-419
+      - et
+      - fi
+      - fil
+      - fr
+      - fr-CA
+      - hr
+      - hu
+      - id
+      - it
+      - ja
+      - ko
+      - lt
+      - lv
+      - ms
+      - mt
+      - nb
+      - nl
+      - pl
+      - pt
+      - pt-BR
+      - ro
+      - ru
+      - sk
+      - sl
+      - sv
+      - th
+      - tr
+      - vi
+      - zh
+      - zh-HK
+      - zh-TW
+    nullable: true
+    type: string
+    x-stripeBypassValidation: true
+  managed_payments:
+    anyOf:
+      - $ref: ./payment_pages_checkout_session_managed_payments.yaml
+    description: >-
+      Settings for Managed Payments for this Checkout Session and resulting
+      [PaymentIntents](/api/payment_intents/object),
+      [Invoices](/api/invoices/object), and
+      [Subscriptions](/api/subscriptions/object).
+    nullable: true
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    nullable: true
+    type: object
+  mode:
+    description: The mode of the Checkout Session.
+    enum:
+      - payment
+      - setup
+      - subscription
+    type: string
+    x-stripeBypassValidation: true
+  name_collection:
+    $ref: ./payment_pages_checkout_session_name_collection.yaml
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - checkout.session
+    type: string
+  optional_items:
+    description: The optional items presented to the customer at checkout.
+    items:
+      $ref: ./payment_pages_checkout_session_optional_item.yaml
+    nullable: true
+    type: array
+  origin_context:
+    description: >-
+      Where the user is coming from. This informs the optimizations that are
+      applied to the session.
+    enum:
+      - mobile_app
+      - web
+    nullable: true
+    type: string
+  payment_intent:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./payment_intent.yaml
+    description: >-
+      The ID of the PaymentIntent for Checkout Sessions in `payment` mode. You
+      can't confirm or cancel the PaymentIntent for a Checkout Session. To
+      cancel, [expire the Checkout
+      Session](https://docs.stripe.com/api/checkout/sessions/expire) instead.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./payment_intent.yaml
+  payment_link:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./payment_link.yaml
+    description: The ID of the Payment Link that created this Session.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./payment_link.yaml
+  payment_method_collection:
+    description: >-
+      Configure whether a Checkout Session should collect a payment method for
+      sessions with mode `payment`. Defaults to `always`.
+    enum:
+      - always
+      - if_required
+    nullable: true
+    type: string
+    x-stripeBypassValidation: true
+  payment_method_configuration_details:
+    anyOf:
+      - $ref: ./payment_method_config_biz_payment_method_configuration_details.yaml
+    description: >-
+      Information about the payment method configuration used for this Checkout
+      session if using dynamic payment methods.
+    nullable: true
+  payment_method_options:
+    anyOf:
+      - $ref: ./checkout_session_payment_method_options.yaml
+    description: >-
+      Payment-method-specific configuration for the PaymentIntent or SetupIntent
+      of this CheckoutSession.
+    nullable: true
+  payment_method_types:
+    description: |-
+      A list of the types of payment methods (e.g. card) this Checkout
+      Session is allowed to accept.
+    items:
+      maxLength: 5000
+      type: string
+    type: array
+  payment_status:
+    description: >-
+      The payment status of the Checkout Session, one of `paid`, `unpaid`, or
+      `no_payment_required`.
+
+      You can use this value to decide when to fulfill your customer's order.
+    enum:
+      - no_payment_required
+      - paid
+      - unpaid
+    type: string
+  permissions:
+    anyOf:
+      - $ref: ./payment_pages_checkout_session_permissions.yaml
+    description: >-
+      This property is used to set up permissions for various actions (e.g.,
+      update) on the CheckoutSession object.
+
+
+      For specific permissions, please refer to their dedicated subsections,
+      such as `permissions.update_shipping_details`.
+    nullable: true
+  phone_number_collection:
+    $ref: ./payment_pages_checkout_session_phone_number_collection.yaml
+  presentment_details:
+    $ref: ./payment_flows_payment_intent_presentment_details.yaml
+  recovered_from:
+    description: >-
+      The ID of the original expired Checkout Session that triggered the
+      recovery flow.
+    maxLength: 5000
+    nullable: true
+    type: string
+  redirect_on_completion:
+    description: >-
+      This parameter applies to `ui_mode: embedded_page`. Learn more about the
+      [redirect
+      behavior](https://docs.stripe.com/payments/checkout/custom-success-page?payment-ui=embedded-form)
+      of embedded sessions. Defaults to `always`.
+    enum:
+      - always
+      - if_required
+      - never
+    type: string
+  return_url:
+    description: >-
+      Applies to Checkout Sessions with `ui_mode: embedded_page` or `ui_mode:
+      elements`. The URL to redirect your customer back to after they
+      authenticate or cancel their payment on the payment method's app or site.
+    maxLength: 5000
+    type: string
+  saved_payment_method_options:
+    anyOf:
+      - $ref: ./payment_pages_checkout_session_saved_payment_method_options.yaml
+    description: >-
+      Controls saved payment method settings for the session. Only available in
+      `payment` and `subscription` mode.
+    nullable: true
+  setup_intent:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./setup_intent.yaml
+    description: >-
+      The ID of the SetupIntent for Checkout Sessions in `setup` mode. You can't
+      confirm or cancel the SetupIntent for a Checkout Session. To cancel,
+      [expire the Checkout
+      Session](https://docs.stripe.com/api/checkout/sessions/expire) instead.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./setup_intent.yaml
+  shipping_address_collection:
+    anyOf:
+      - $ref: ./payment_pages_checkout_session_shipping_address_collection.yaml
+    description: >-
+      When set, provides configuration for Checkout to collect a shipping
+      address from a customer.
+    nullable: true
+  shipping_cost:
+    anyOf:
+      - $ref: ./payment_pages_checkout_session_shipping_cost.yaml
+    description: >-
+      The details of the customer cost of shipping, including the customer
+      chosen ShippingRate.
+    nullable: true
+  shipping_options:
+    description: The shipping rate options applied to this Session.
+    items:
+      $ref: ./payment_pages_checkout_session_shipping_option.yaml
+    type: array
+  status:
+    description: >-
+      The status of the Checkout Session, one of `open`, `complete`, or
+      `expired`.
+    enum:
+      - complete
+      - expired
+      - open
+    nullable: true
+    type: string
+  submit_type:
+    description: >-
+      Describes the type of transaction being performed by Checkout in order to
+      customize
+
+      relevant text on the page, such as the submit button. `submit_type` can
+      only be
+
+      specified on Checkout Sessions in `payment` mode. If blank or `auto`,
+      `pay` is used.
+    enum:
+      - auto
+      - book
+      - donate
+      - pay
+      - subscribe
+    nullable: true
+    type: string
+  subscription:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./subscription.yaml
+    description: >-
+      The ID of the [Subscription](https://docs.stripe.com/api/subscriptions)
+      for Checkout Sessions in `subscription` mode.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./subscription.yaml
+  success_url:
+    description: |-
+      The URL the customer will be directed to after the payment or
+      subscription creation is successful.
+    maxLength: 5000
+    nullable: true
+    type: string
+  tax_id_collection:
+    $ref: ./payment_pages_checkout_session_tax_id_collection.yaml
+  total_details:
+    anyOf:
+      - $ref: ./payment_pages_checkout_session_total_details.yaml
+    description: Tax and discount details for the computed total amount.
+    nullable: true
+  ui_mode:
+    description: The UI mode of the Session. Defaults to `hosted_page`.
+    enum:
+      - elements
+      - embedded_page
+      - hosted_page
+    nullable: true
+    type: string
+    x-stripeBypassValidation: true
+  url:
+    description: >-
+      The URL to the Checkout Session. Applies to Checkout Sessions with
+      `ui_mode: hosted_page`. Redirect customers to this URL to take them to
+      Checkout. If you’re using [Custom
+      Domains](https://docs.stripe.com/payments/checkout/custom-domains), the
+      URL will use your subdomain. Otherwise, it’ll use `checkout.stripe.com.`
+
+      This value is only present when the session is active.
+    maxLength: 5000
+    nullable: true
+    type: string
+  wallet_options:
+    anyOf:
+      - $ref: ./checkout_session_wallet_options.yaml
+    description: Wallet-specific configuration for this Checkout Session.
+    nullable: true
+required:
+  - automatic_tax
+  - created
+  - custom_fields
+  - custom_text
+  - expires_at
+  - id
+  - livemode
+  - mode
+  - object
+  - payment_method_types
+  - payment_status
+  - shipping_options
+title: Checkout Session
+type: object
+x-expandableFields:
+  - adaptive_pricing
+  - after_expiration
+  - automatic_tax
+  - branding_settings
+  - collected_information
+  - consent
+  - consent_collection
+  - currency_conversion
+  - custom_fields
+  - custom_text
+  - customer
+  - customer_details
+  - discounts
+  - invoice
+  - invoice_creation
+  - line_items
+  - managed_payments
+  - name_collection
+  - optional_items
+  - payment_intent
+  - payment_link
+  - payment_method_configuration_details
+  - payment_method_options
+  - permissions
+  - phone_number_collection
+  - presentment_details
+  - saved_payment_method_options
+  - setup_intent
+  - shipping_address_collection
+  - shipping_cost
+  - shipping_options
+  - subscription
+  - tax_id_collection
+  - total_details
+  - wallet_options
+x-resourceId: checkout.session

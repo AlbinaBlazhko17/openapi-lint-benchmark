@@ -1,0 +1,18 @@
+description: ''
+properties:
+  invoice:
+    description: Invoice containing the credited invoice line items
+    maxLength: 5000
+    type: string
+  invoice_line_items:
+    description: Credited invoice line items
+    items:
+      maxLength: 5000
+      type: string
+    type: array
+required:
+  - invoice
+  - invoice_line_items
+title: BillingBillResourceInvoicingLinesCommonCreditedItems
+type: object
+x-expandableFields: []

@@ -1,0 +1,52 @@
+description: ''
+properties:
+  automatic_transfer_rules_by_currency:
+    additionalProperties:
+      items:
+        $ref: ./balance_settings_resource_automatic_transfer_rule.yaml
+      type: array
+    description: >-
+      Configures per-currency rules for automatically transferring funds from
+      the payments balance to a FinancialAccount.
+    nullable: true
+    type: object
+  minimum_balance_by_currency:
+    additionalProperties:
+      type: integer
+    description: >-
+      The minimum balance amount to retain per currency after automatic payouts.
+      Only funds that exceed these amounts are paid out. Learn more about the
+      [minimum balances for automatic
+      payouts](/payouts/minimum-balances-for-automatic-payouts).
+    nullable: true
+    type: object
+  schedule:
+    anyOf:
+      - $ref: ./balance_settings_resource_payout_schedule.yaml
+    description: >-
+      Details on when funds from charges are available, and when they are paid
+      out to an external account. See our [Setting Bank and Debit Card
+      Payouts](https://docs.stripe.com/connect/bank-transfers#payout-information)
+      documentation for details.
+    nullable: true
+  statement_descriptor:
+    description: >-
+      The text that appears on the bank account statement for payouts. If not
+      set, this defaults to the platform's bank descriptor as set in the
+      Dashboard.
+    maxLength: 5000
+    nullable: true
+    type: string
+  status:
+    description: Whether the funds in this account can be paid out.
+    enum:
+      - disabled
+      - enabled
+    type: string
+required:
+  - status
+title: BalanceSettingsResourcePayouts
+type: object
+x-expandableFields:
+  - automatic_transfer_rules_by_currency
+  - schedule

@@ -1,0 +1,51 @@
+description: Result from an id_number check
+properties:
+  dob:
+    anyOf:
+      - $ref: ./gelato_data_id_number_report_date.yaml
+    description: Date of birth.
+    nullable: true
+  error:
+    anyOf:
+      - $ref: ./gelato_id_number_report_error.yaml
+    description: Details on the verification error. Present when status is `unverified`.
+    nullable: true
+  first_name:
+    description: First name.
+    maxLength: 5000
+    nullable: true
+    type: string
+  id_number:
+    description: >-
+      ID number. When `id_number_type` is `us_ssn`, only the last 4 digits are
+      present.
+    maxLength: 5000
+    nullable: true
+    type: string
+  id_number_type:
+    description: Type of ID number.
+    enum:
+      - br_cpf
+      - sg_nric
+      - us_ssn
+    nullable: true
+    type: string
+  last_name:
+    description: Last name.
+    maxLength: 5000
+    nullable: true
+    type: string
+  status:
+    description: Status of this `id_number` check.
+    enum:
+      - unverified
+      - verified
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - status
+title: GelatoIdNumberReport
+type: object
+x-expandableFields:
+  - dob
+  - error

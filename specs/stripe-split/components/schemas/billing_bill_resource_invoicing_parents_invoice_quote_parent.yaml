@@ -1,0 +1,11 @@
+description: ''
+properties:
+  quote:
+    description: The quote that generated this invoice
+    maxLength: 5000
+    type: string
+required:
+  - quote
+title: BillingBillResourceInvoicingParentsInvoiceQuoteParent
+type: object
+x-expandableFields: []

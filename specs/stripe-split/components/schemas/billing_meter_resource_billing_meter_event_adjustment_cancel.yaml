@@ -1,0 +1,10 @@
+description: ''
+properties:
+  identifier:
+    description: Unique identifier for the event.
+    maxLength: 100
+    nullable: true
+    type: string
+title: BillingMeterResourceBillingMeterEventAdjustmentCancel
+type: object
+x-expandableFields: []

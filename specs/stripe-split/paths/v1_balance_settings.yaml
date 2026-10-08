@@ -1,0 +1,188 @@
+get:
+  description: |-
+    <p>Retrieves balance settings for a given connected account.
+     Related guide: <a href="/connect/authentication">Making API calls for connected accounts</a></p>
+  operationId: GetBalanceSettings
+  parameters:
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/balance_settings.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Retrieve balance settings
+post:
+  description: |-
+    <p>Updates balance settings for a given connected account.
+     Related guide: <a href="/connect/authentication">Making API calls for connected accounts</a></p>
+  operationId: PostBalanceSettings
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+          payments:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            payments:
+              description: >-
+                Settings that apply to the [Payments
+                Balance](https://docs.stripe.com/api/balance).
+              properties:
+                debit_negative_balances:
+                  type: boolean
+                payouts:
+                  properties:
+                    automatic_transfer_rules_by_currency:
+                      anyOf:
+                        - additionalProperties:
+                            anyOf:
+                              - items:
+                                  properties:
+                                    payout_method:
+                                      type: string
+                                    transfer_up_to_amount:
+                                      type: integer
+                                    type:
+                                      enum:
+                                        - transfer_all
+                                        - transfer_up_to_amount
+                                      type: string
+                                  required:
+                                    - payout_method
+                                    - type
+                                  title: automatic_transfer_rule
+                                  type: object
+                                type: array
+                              - enum:
+                                  - ''
+                                type: string
+                          type: object
+                        - enum:
+                            - ''
+                          type: string
+                    minimum_balance_by_currency:
+                      anyOf:
+                        - additionalProperties:
+                            anyOf:
+                              - type: integer
+                              - enum:
+                                  - ''
+                                type: string
+                          type: object
+                        - enum:
+                            - ''
+                          type: string
+                    schedule:
+                      properties:
+                        interval:
+                          enum:
+                            - daily
+                            - manual
+                            - monthly
+                            - weekly
+                          type: string
+                          x-stripeBypassValidation: true
+                        monthly_payout_days:
+                          items:
+                            type: integer
+                          type: array
+                        weekly_payout_days:
+                          items:
+                            enum:
+                              - friday
+                              - monday
+                              - thursday
+                              - tuesday
+                              - wednesday
+                            type: string
+                            x-stripeBypassValidation: true
+                          type: array
+                      title: payout_schedule
+                      type: object
+                    statement_descriptor:
+                      maxLength: 22
+                      type: string
+                  title: payouts
+                  type: object
+                settlement_timing:
+                  properties:
+                    delay_days_override:
+                      anyOf:
+                        - type: integer
+                        - enum:
+                            - ''
+                          type: string
+                    start_of_day:
+                      anyOf:
+                        - properties:
+                            hour:
+                              type: integer
+                            minutes:
+                              type: integer
+                            timezone:
+                              maxLength: 5000
+                              type: string
+                          title: start_of_day
+                          type: object
+                        - enum:
+                            - ''
+                          type: string
+                  title: settlement_timing
+                  type: object
+              title: payments
+              type: object
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/balance_settings.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Update balance settings

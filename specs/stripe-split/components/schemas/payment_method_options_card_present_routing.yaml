@@ -1,0 +1,12 @@
+description: ''
+properties:
+  requested_priority:
+    description: Requested routing priority
+    enum:
+      - domestic
+      - international
+    nullable: true
+    type: string
+title: payment_method_options_card_present_routing
+type: object
+x-expandableFields: []

@@ -1,0 +1,202 @@
+description: >-
+  For new integrations, we recommend using the [Accounts v2
+  API](/api/v2/core/accounts), in place of /v1/accounts and /v1/customers to
+  represent a user.
+
+
+  This is an object representing a Stripe account. You can retrieve it to see
+
+  properties on the account like its current requirements or if the account is
+
+  enabled to make live charges or receive payouts.
+
+
+  For accounts where
+  [controller.requirement_collection](/api/accounts/object#account_object-controller-requirement_collection)
+
+  is `application`, which includes Custom accounts, the properties below are
+  always
+
+  returned.
+
+
+  For accounts where
+  [controller.requirement_collection](/api/accounts/object#account_object-controller-requirement_collection)
+
+  is `stripe`, which includes Standard and Express accounts, some properties are
+  only returned
+
+  until you create an [Account Link](/api/account_links) or [Account
+  Session](/api/account_sessions)
+
+  to start Connect Onboarding. Learn about the [differences between
+  accounts](/connect/accounts).
+properties:
+  business_profile:
+    anyOf:
+      - $ref: ./account_business_profile.yaml
+    description: Business information about the account.
+    nullable: true
+  business_type:
+    description: The business type.
+    enum:
+      - company
+      - government_entity
+      - individual
+      - non_profit
+    nullable: true
+    type: string
+    x-stripeBypassValidation: true
+  capabilities:
+    $ref: ./account_capabilities.yaml
+  charges_enabled:
+    description: Whether the account can process charges.
+    type: boolean
+  company:
+    $ref: ./legal_entity_company.yaml
+  controller:
+    $ref: ./account_unification_account_controller.yaml
+  country:
+    description: The account's country.
+    maxLength: 5000
+    type: string
+  created:
+    description: >-
+      Time at which the account was connected. Measured in seconds since the
+      Unix epoch.
+    format: unix-time
+    type: integer
+  default_currency:
+    description: >-
+      Three-letter ISO currency code representing the default currency for the
+      account. This must be a currency that [Stripe supports in the account's
+      country](https://stripe.com/docs/payouts).
+    maxLength: 5000
+    type: string
+  details_submitted:
+    description: >-
+      Whether account details have been submitted. Accounts with Stripe
+      Dashboard access, which includes Standard accounts, cannot receive payouts
+      before this is true. Accounts where this is false should be directed to
+      [an onboarding flow](/connect/onboarding) to finish submitting account
+      details.
+    type: boolean
+  email:
+    description: >-
+      An email address associated with the account. It's not used for
+      authentication and Stripe doesn't market to this field without explicit
+      approval from the platform.
+    maxLength: 5000
+    nullable: true
+    type: string
+  external_accounts:
+    description: >-
+      External accounts (bank accounts and debit cards) currently attached to
+      this account. External accounts are only returned for requests where
+      `controller[is_controller]` is true.
+    properties:
+      data:
+        description: >-
+          The list contains all external accounts that have been attached to the
+          Stripe account. These may be bank accounts or cards.
+        items:
+          anyOf:
+            - $ref: ./bank_account.yaml
+            - $ref: ./card.yaml
+          title: Polymorphic
+          x-stripeBypassValidation: true
+        type: array
+      has_more:
+        description: >-
+          True if this list has another page of items after this one that can be
+          fetched.
+        type: boolean
+      object:
+        description: >-
+          String representing the object's type. Objects of the same type share
+          the same value. Always has the value `list`.
+        enum:
+          - list
+        type: string
+      url:
+        description: The URL where this list can be accessed.
+        maxLength: 5000
+        type: string
+    required:
+      - data
+      - has_more
+      - object
+      - url
+    title: ExternalAccountList
+    type: object
+    x-expandableFields:
+      - data
+  future_requirements:
+    $ref: ./account_future_requirements.yaml
+  groups:
+    anyOf:
+      - $ref: ./account_group_membership.yaml
+    description: The groups associated with the account.
+    nullable: true
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  individual:
+    $ref: ./person.yaml
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    type: object
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - account
+    type: string
+  payouts_enabled:
+    description: Whether the funds in this account can be paid out.
+    type: boolean
+  requirements:
+    $ref: ./account_requirements.yaml
+  settings:
+    anyOf:
+      - $ref: ./account_settings.yaml
+    description: Options for customizing how the account functions within Stripe.
+    nullable: true
+  tos_acceptance:
+    $ref: ./account_tos_acceptance.yaml
+  type:
+    description: >-
+      The Stripe account type. Can be `standard`, `express`, `custom`, or
+      `none`.
+    enum:
+      - custom
+      - express
+      - none
+      - standard
+    type: string
+required:
+  - id
+  - object
+title: Account
+type: object
+x-expandableFields:
+  - business_profile
+  - capabilities
+  - company
+  - controller
+  - external_accounts
+  - future_requirements
+  - groups
+  - individual
+  - requirements
+  - settings
+  - tos_acceptance
+x-resourceId: account

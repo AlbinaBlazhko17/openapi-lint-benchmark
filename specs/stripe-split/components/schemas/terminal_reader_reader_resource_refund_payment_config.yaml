@@ -1,0 +1,8 @@
+description: Represents a per-transaction override of a reader configuration
+properties:
+  enable_customer_cancellation:
+    description: Enable customer-initiated cancellation when refunding this payment.
+    type: boolean
+title: TerminalReaderReaderResourceRefundPaymentConfig
+type: object
+x-expandableFields: []

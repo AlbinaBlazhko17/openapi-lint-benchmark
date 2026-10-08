@@ -1,0 +1,26 @@
+description: ''
+properties:
+  disabled_reason:
+    description: If Stripe disabled automatic tax, this enum describes why.
+    enum:
+      - requires_location_inputs
+    nullable: true
+    type: string
+  enabled:
+    description: Whether Stripe automatically computes tax on this subscription.
+    type: boolean
+  liability:
+    anyOf:
+      - $ref: ./connect_account_reference.yaml
+    description: >-
+      The account that's liable for tax. If set, the business address and tax
+      registrations required to perform the tax calculation are loaded from this
+      account. The tax transaction is returned in the report of the connected
+      account.
+    nullable: true
+required:
+  - enabled
+title: SubscriptionAutomaticTax
+type: object
+x-expandableFields:
+  - liability

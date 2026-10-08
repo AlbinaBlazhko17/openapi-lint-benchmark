@@ -1,0 +1,28 @@
+description: ''
+properties:
+  device:
+    $ref: ./issuing_network_token_device.yaml
+  mastercard:
+    $ref: ./issuing_network_token_mastercard.yaml
+  type:
+    description: >-
+      The network that the token is associated with. An additional hash is
+      included with a name matching this value, containing tokenization data
+      specific to the card network.
+    enum:
+      - mastercard
+      - visa
+    type: string
+  visa:
+    $ref: ./issuing_network_token_visa.yaml
+  wallet_provider:
+    $ref: ./issuing_network_token_wallet_provider.yaml
+required:
+  - type
+title: IssuingNetworkTokenNetworkData
+type: object
+x-expandableFields:
+  - device
+  - mastercard
+  - visa
+  - wallet_provider

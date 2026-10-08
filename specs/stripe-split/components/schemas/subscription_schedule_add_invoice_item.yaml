@@ -1,0 +1,61 @@
+description: >-
+  An Add Invoice Item describes the prices and quantities that will be added as
+  pending invoice items when entering a phase.
+properties:
+  discountable:
+    description: >-
+      Controls whether discounts apply to this invoice item. Defaults to true if
+      no value is provided.
+    nullable: true
+    type: boolean
+  discounts:
+    description: The stackable discounts that will be applied to the item.
+    items:
+      $ref: ./discounts_resource_stackable_discount_with_discount_end.yaml
+    type: array
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    nullable: true
+    type: object
+  period:
+    $ref: ./subscription_schedule_add_invoice_item_period.yaml
+  price:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./price.yaml
+      - $ref: ./deleted_price.yaml
+    description: ID of the price used to generate the invoice item.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./price.yaml
+        - $ref: ./deleted_price.yaml
+  quantity:
+    description: The quantity of the invoice item.
+    nullable: true
+    type: integer
+  tax_rates:
+    description: >-
+      The tax rates which apply to the item. When set, the `default_tax_rates`
+      do not apply to this item.
+    items:
+      $ref: ./tax_rate.yaml
+    nullable: true
+    type: array
+required:
+  - discounts
+  - period
+  - price
+title: SubscriptionScheduleAddInvoiceItem
+type: object
+x-expandableFields:
+  - discounts
+  - period
+  - price
+  - tax_rates

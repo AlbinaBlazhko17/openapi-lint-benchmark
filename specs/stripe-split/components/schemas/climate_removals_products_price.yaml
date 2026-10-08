@@ -1,0 +1,22 @@
+description: ''
+properties:
+  amount_fees:
+    description: Fees for one metric ton of carbon removal in the currency's smallest unit.
+    type: integer
+  amount_subtotal:
+    description: >-
+      Subtotal for one metric ton of carbon removal (excluding fees) in the
+      currency's smallest unit.
+    type: integer
+  amount_total:
+    description: >-
+      Total for one metric ton of carbon removal (including fees) in the
+      currency's smallest unit.
+    type: integer
+required:
+  - amount_fees
+  - amount_subtotal
+  - amount_total
+title: ClimateRemovalsProductsPrice
+type: object
+x-expandableFields: []

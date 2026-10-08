@@ -1,0 +1,263 @@
+delete:
+  description: <p>Delete a specified external account for a given account.</p>
+  operationId: DeleteAccountsAccountBankAccountsId
+  parameters:
+    - in: path
+      name: account
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+    - description: Unique identifier for the external account to be deleted.
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/deleted_external_account.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Delete an external account
+get:
+  description: <p>Retrieve a specified external account for a given account.</p>
+  operationId: GetAccountsAccountBankAccountsId
+  parameters:
+    - in: path
+      name: account
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+    - description: Unique identifier for the external account to be retrieved.
+      in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/external_account.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Retrieve an external account
+post:
+  description: >-
+    <p>Updates the metadata, account holder name, account holder type of a bank
+    account belonging to
+
+    a connected account and optionally sets it as the default for its currency.
+    Other bank account
+
+    details are not editable by design.</p>
+
+
+    <p>You can only update bank accounts when <a
+    href="/api/accounts/object#account_object-controller-requirement_collection">account.controller.requirement_collection</a>
+    is <code>application</code>, which includes <a
+    href="/connect/custom-accounts">Custom accounts</a>.</p>
+
+
+    <p>You can re-enable a disabled bank account by performing an update call
+    without providing any
+
+    arguments or changes.</p>
+  operationId: PostAccountsAccountBankAccountsId
+  parameters:
+    - in: path
+      name: account
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          documents:
+            explode: true
+            style: deepObject
+          expand:
+            explode: true
+            style: deepObject
+          metadata:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            account_holder_name:
+              description: The name of the person or business that owns the bank account.
+              maxLength: 5000
+              type: string
+            account_holder_type:
+              description: >-
+                The type of entity that holds the account. This can be either
+                `individual` or `company`.
+              enum:
+                - ''
+                - company
+                - individual
+              maxLength: 5000
+              type: string
+            account_type:
+              description: >-
+                The bank account type. This can only be `checking` or `savings`
+                in most countries. In Japan, this can only be `futsu` or `toza`.
+              enum:
+                - checking
+                - futsu
+                - savings
+                - toza
+              maxLength: 5000
+              type: string
+            address_city:
+              description: City/District/Suburb/Town/Village.
+              maxLength: 5000
+              type: string
+            address_country:
+              description: Billing address country, if provided when creating card.
+              maxLength: 5000
+              type: string
+            address_line1:
+              description: Address line 1 (Street address/PO Box/Company name).
+              maxLength: 5000
+              type: string
+            address_line2:
+              description: Address line 2 (Apartment/Suite/Unit/Building).
+              maxLength: 5000
+              type: string
+            address_state:
+              description: State/County/Province/Region.
+              maxLength: 5000
+              type: string
+            address_zip:
+              description: ZIP or postal code.
+              maxLength: 5000
+              type: string
+            default_for_currency:
+              description: >-
+                When set to true, this becomes the default external account for
+                its currency.
+              type: boolean
+            documents:
+              description: >-
+                Documents that may be submitted to satisfy various informational
+                requests.
+              properties:
+                bank_account_ownership_verification:
+                  properties:
+                    files:
+                      items:
+                        maxLength: 500
+                        type: string
+                      type: array
+                  title: documents_param
+                  type: object
+              title: external_account_documents_param
+              type: object
+            exp_month:
+              description: Two digit number representing the card’s expiration month.
+              maxLength: 5000
+              type: string
+            exp_year:
+              description: Four digit number representing the card’s expiration year.
+              maxLength: 5000
+              type: string
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            metadata:
+              anyOf:
+                - additionalProperties:
+                    type: string
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                Set of [key-value pairs](https://docs.stripe.com/api/metadata)
+                that you can attach to an object. This can be useful for storing
+                additional information about the object in a structured format.
+                Individual keys can be unset by posting an empty value to them.
+                All keys can be unset by posting an empty value to `metadata`.
+            name:
+              description: Cardholder name.
+              maxLength: 5000
+              type: string
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/external_account.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Update a bank account

@@ -1,0 +1,54 @@
+description: >-
+  FinancialAddresses contain identifying information that resolves to a
+  FinancialAccount.
+properties:
+  aba:
+    $ref: ./funding_instructions_bank_transfer_aba_record.yaml
+  iban:
+    $ref: ./funding_instructions_bank_transfer_iban_record.yaml
+  sort_code:
+    $ref: ./funding_instructions_bank_transfer_sort_code_record.yaml
+  spei:
+    $ref: ./funding_instructions_bank_transfer_spei_record.yaml
+  supported_networks:
+    description: The payment networks supported by this FinancialAddress
+    items:
+      enum:
+        - ach
+        - bacs
+        - chaps
+        - domestic_wire_us
+        - fps
+        - sepa
+        - spei
+        - swift
+        - zengin
+      type: string
+      x-stripeBypassValidation: true
+    type: array
+  swift:
+    $ref: ./funding_instructions_bank_transfer_swift_record.yaml
+  type:
+    description: The type of financial address
+    enum:
+      - aba
+      - iban
+      - sort_code
+      - spei
+      - swift
+      - zengin
+    type: string
+    x-stripeBypassValidation: true
+  zengin:
+    $ref: ./funding_instructions_bank_transfer_zengin_record.yaml
+required:
+  - type
+title: FundingInstructionsBankTransferFinancialAddress
+type: object
+x-expandableFields:
+  - aba
+  - iban
+  - sort_code
+  - spei
+  - swift
+  - zengin

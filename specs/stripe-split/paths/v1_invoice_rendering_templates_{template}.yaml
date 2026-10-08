@@ -1,0 +1,54 @@
+get:
+  description: >-
+    <p>Retrieves an invoice rendering template with the given ID. It by default
+    returns the latest version of the template. Optionally, specify a version to
+    see previous versions.</p>
+  operationId: GetInvoiceRenderingTemplatesTemplate
+  parameters:
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+    - in: path
+      name: template
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+    - in: query
+      name: version
+      required: false
+      schema:
+        type: integer
+      style: form
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/invoice_rendering_template.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Retrieve an invoice rendering template

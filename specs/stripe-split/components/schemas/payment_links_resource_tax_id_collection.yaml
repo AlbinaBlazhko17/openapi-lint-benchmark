@@ -1,0 +1,16 @@
+description: ''
+properties:
+  enabled:
+    description: Indicates whether tax ID collection is enabled for the session.
+    type: boolean
+  required:
+    enum:
+      - if_supported
+      - never
+    type: string
+required:
+  - enabled
+  - required
+title: PaymentLinksResourceTaxIdCollection
+type: object
+x-expandableFields: []

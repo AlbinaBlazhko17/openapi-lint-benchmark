@@ -1,0 +1,8 @@
+description: ''
+properties:
+  tos_acceptance:
+    $ref: ./card_issuing_account_terms_of_service.yaml
+title: AccountCardIssuingSettings
+type: object
+x-expandableFields:
+  - tos_acceptance

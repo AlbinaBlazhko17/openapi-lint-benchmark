@@ -1,0 +1,15 @@
+description: Metadata about the forwarded request.
+properties:
+  destination_duration:
+    description: The time it took in milliseconds for the destination endpoint to respond.
+    type: integer
+  destination_ip_address:
+    description: The IP address of the destination.
+    maxLength: 5000
+    type: string
+required:
+  - destination_duration
+  - destination_ip_address
+title: ForwardedRequestContext
+type: object
+x-expandableFields: []

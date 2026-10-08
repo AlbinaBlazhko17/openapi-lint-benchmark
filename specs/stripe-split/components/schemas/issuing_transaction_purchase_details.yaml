@@ -1,0 +1,41 @@
+description: ''
+properties:
+  fleet:
+    anyOf:
+      - $ref: ./issuing_transaction_fleet_data.yaml
+    description: Fleet-specific information for transactions using Fleet cards.
+    nullable: true
+  flight:
+    anyOf:
+      - $ref: ./issuing_transaction_flight_data.yaml
+    description: Information about the flight that was purchased with this transaction.
+    nullable: true
+  fuel:
+    anyOf:
+      - $ref: ./issuing_transaction_fuel_data.yaml
+    description: Information about fuel that was purchased with this transaction.
+    nullable: true
+  lodging:
+    anyOf:
+      - $ref: ./issuing_transaction_lodging_data.yaml
+    description: Information about lodging that was purchased with this transaction.
+    nullable: true
+  receipt:
+    description: The line items in the purchase.
+    items:
+      $ref: ./issuing_transaction_receipt_data.yaml
+    nullable: true
+    type: array
+  reference:
+    description: A merchant-specific order number.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: IssuingTransactionPurchaseDetails
+type: object
+x-expandableFields:
+  - fleet
+  - flight
+  - fuel
+  - lodging
+  - receipt

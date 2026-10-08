@@ -1,0 +1,18 @@
+description: ''
+properties:
+  maximum_amount_capturable:
+    description: The maximum amount that can be captured.
+    type: integer
+  status:
+    description: Indicates whether or not the authorized amount can be over-captured.
+    enum:
+      - available
+      - unavailable
+    type: string
+required:
+  - maximum_amount_capturable
+  - status
+title: >-
+  PaymentFlowsPrivatePaymentMethodsCardDetailsAPIResourceEnterpriseFeaturesOvercaptureOvercapture
+type: object
+x-expandableFields: []

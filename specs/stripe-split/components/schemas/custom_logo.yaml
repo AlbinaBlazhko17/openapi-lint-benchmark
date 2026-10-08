@@ -1,0 +1,16 @@
+description: ''
+properties:
+  content_type:
+    description: Content type of the Dashboard-only CustomPaymentMethodType logo.
+    maxLength: 5000
+    nullable: true
+    type: string
+  url:
+    description: URL of the Dashboard-only CustomPaymentMethodType logo.
+    maxLength: 5000
+    type: string
+required:
+  - url
+title: custom_logo
+type: object
+x-expandableFields: []

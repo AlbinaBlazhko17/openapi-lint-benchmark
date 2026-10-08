@@ -1,0 +1,22 @@
+description: ''
+properties:
+  canceled_at:
+    description: Timestamp describing when an InboundTransfer changed status to `canceled`.
+    format: unix-time
+    nullable: true
+    type: integer
+  failed_at:
+    description: Timestamp describing when an InboundTransfer changed status to `failed`.
+    format: unix-time
+    nullable: true
+    type: integer
+  succeeded_at:
+    description: >-
+      Timestamp describing when an InboundTransfer changed status to
+      `succeeded`.
+    format: unix-time
+    nullable: true
+    type: integer
+title: TreasuryInboundTransfersResourceInboundTransferResourceStatusTransitions
+type: object
+x-expandableFields: []

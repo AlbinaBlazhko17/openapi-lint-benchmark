@@ -1,0 +1,13 @@
+description: ''
+properties:
+  proration_discounts:
+    description: >-
+      Controls how invoices and invoice items display proration amounts and
+      discount amounts.
+    enum:
+      - included
+      - itemized
+    type: string
+title: SubscriptionsResourceBillingModeFlexible
+type: object
+x-expandableFields: []

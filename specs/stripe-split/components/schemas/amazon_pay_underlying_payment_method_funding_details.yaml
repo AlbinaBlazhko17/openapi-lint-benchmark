@@ -1,0 +1,14 @@
+description: ''
+properties:
+  card:
+    $ref: ./payment_method_details_passthrough_card.yaml
+  type:
+    description: funding type of the underlying payment method.
+    enum:
+      - card
+    nullable: true
+    type: string
+title: amazon_pay_underlying_payment_method_funding_details
+type: object
+x-expandableFields:
+  - card

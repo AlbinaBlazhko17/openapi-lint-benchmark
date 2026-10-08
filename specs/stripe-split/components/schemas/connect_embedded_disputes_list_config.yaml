@@ -1,0 +1,14 @@
+description: ''
+properties:
+  enabled:
+    description: Whether the embedded component is enabled.
+    type: boolean
+  features:
+    $ref: ./connect_embedded_disputes_list_features.yaml
+required:
+  - enabled
+  - features
+title: ConnectEmbeddedDisputesListConfig
+type: object
+x-expandableFields:
+  - features

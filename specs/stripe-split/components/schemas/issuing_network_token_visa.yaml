@@ -1,0 +1,28 @@
+description: ''
+properties:
+  card_reference_id:
+    description: A unique reference ID from Visa to represent the card account number.
+    maxLength: 5000
+    nullable: true
+    type: string
+  token_reference_id:
+    description: The network-unique identifier for the token.
+    maxLength: 5000
+    type: string
+  token_requestor_id:
+    description: The ID of the entity requesting tokenization, specific to Visa.
+    maxLength: 5000
+    type: string
+  token_risk_score:
+    description: >-
+      Degree of risk associated with the token between `01` and `99`, with
+      higher number indicating higher risk. A `00` value indicates the token was
+      not scored by Visa.
+    maxLength: 5000
+    type: string
+required:
+  - token_reference_id
+  - token_requestor_id
+title: IssuingNetworkTokenVisa
+type: object
+x-expandableFields: []

@@ -1,0 +1,50 @@
+post:
+  description: >-
+    <p>Creates a login link for a connected account to access the Express
+    Dashboard.</p>
+
+
+    <p><strong>You can only create login links for accounts that use the <a
+    href="/connect/express-dashboard">Express Dashboard</a> and are connected to
+    your platform</strong>.</p>
+  operationId: PostAccountsAccountLoginLinks
+  parameters:
+    - in: path
+      name: account
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/login_link.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Create a login link

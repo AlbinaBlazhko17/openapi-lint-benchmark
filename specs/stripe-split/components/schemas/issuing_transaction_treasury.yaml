@@ -1,0 +1,21 @@
+description: ''
+properties:
+  received_credit:
+    description: >-
+      The Treasury
+      [ReceivedCredit](https://docs.stripe.com/api/treasury/received_credits)
+      representing this Issuing transaction if it is a refund
+    maxLength: 5000
+    nullable: true
+    type: string
+  received_debit:
+    description: >-
+      The Treasury
+      [ReceivedDebit](https://docs.stripe.com/api/treasury/received_debits)
+      representing this Issuing transaction if it is a capture
+    maxLength: 5000
+    nullable: true
+    type: string
+title: IssuingTransactionTreasury
+type: object
+x-expandableFields: []

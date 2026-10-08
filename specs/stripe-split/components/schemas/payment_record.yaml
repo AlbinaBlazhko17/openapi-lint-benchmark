@@ -1,0 +1,138 @@
+description: >-
+  A Payment Record is a resource that allows you to represent payments that
+  occur on- or off-Stripe.
+
+  For example, you can create a Payment Record to model a payment made on a
+  different payment processor,
+
+  in order to mark an Invoice as paid and a Subscription as active. Payment
+  Records consist of one or
+
+  more Payment Attempt Records, which represent individual attempts made on a
+  payment network.
+properties:
+  amount:
+    $ref: ./payments_primitives_payment_records_resource_amount.yaml
+  amount_authorized:
+    $ref: ./payments_primitives_payment_records_resource_amount.yaml
+  amount_canceled:
+    $ref: ./payments_primitives_payment_records_resource_amount.yaml
+  amount_failed:
+    $ref: ./payments_primitives_payment_records_resource_amount.yaml
+  amount_guaranteed:
+    $ref: ./payments_primitives_payment_records_resource_amount.yaml
+  amount_refunded:
+    $ref: ./payments_primitives_payment_records_resource_amount.yaml
+  amount_requested:
+    $ref: ./payments_primitives_payment_records_resource_amount.yaml
+  application:
+    description: ID of the Connect application that created the PaymentRecord.
+    maxLength: 5000
+    nullable: true
+    type: string
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  customer_details:
+    anyOf:
+      - $ref: ./payments_primitives_payment_records_resource_customer_details.yaml
+    description: Customer information for this payment.
+    nullable: true
+  customer_presence:
+    description: >-
+      Indicates whether the customer was present in your checkout flow during
+      this payment.
+    enum:
+      - off_session
+      - on_session
+    nullable: true
+    type: string
+  description:
+    description: >-
+      An arbitrary string attached to the object. Often useful for displaying to
+      users.
+    maxLength: 5000
+    nullable: true
+    type: string
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  latest_payment_attempt_record:
+    description: ID of the latest Payment Attempt Record attached to this Payment Record.
+    maxLength: 5000
+    nullable: true
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    type: object
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - payment_record
+    type: string
+  payment_method_details:
+    anyOf:
+      - $ref: >-
+          ./payments_primitives_payment_records_resource_payment_method_details.yaml
+    description: Information about the Payment Method debited for this payment.
+    nullable: true
+  processor_details:
+    $ref: ./payments_primitives_payment_records_resource_processor_details.yaml
+  reported_by:
+    description: Indicates who reported the payment.
+    enum:
+      - self
+      - stripe
+    type: string
+  shipping_details:
+    anyOf:
+      - $ref: ./payments_primitives_payment_records_resource_shipping_details.yaml
+    description: Shipping information for this payment.
+    nullable: true
+required:
+  - amount
+  - amount_authorized
+  - amount_canceled
+  - amount_failed
+  - amount_guaranteed
+  - amount_refunded
+  - amount_requested
+  - created
+  - id
+  - livemode
+  - metadata
+  - object
+  - processor_details
+  - reported_by
+title: Payment Record
+type: object
+x-expandableFields:
+  - amount
+  - amount_authorized
+  - amount_canceled
+  - amount_failed
+  - amount_guaranteed
+  - amount_refunded
+  - amount_requested
+  - customer_details
+  - payment_method_details
+  - processor_details
+  - shipping_details
+x-resourceId: payment_record

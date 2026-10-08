@@ -1,0 +1,25 @@
+description: ''
+properties:
+  canceled_at:
+    description: Timestamp describing when an OutboundTransfer changed status to `canceled`
+    format: unix-time
+    nullable: true
+    type: integer
+  failed_at:
+    description: Timestamp describing when an OutboundTransfer changed status to `failed`
+    format: unix-time
+    nullable: true
+    type: integer
+  posted_at:
+    description: Timestamp describing when an OutboundTransfer changed status to `posted`
+    format: unix-time
+    nullable: true
+    type: integer
+  returned_at:
+    description: Timestamp describing when an OutboundTransfer changed status to `returned`
+    format: unix-time
+    nullable: true
+    type: integer
+title: TreasuryOutboundTransfersResourceStatusTransitions
+type: object
+x-expandableFields: []

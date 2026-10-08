@@ -1,0 +1,14 @@
+description: ''
+properties:
+  enabled:
+    description: Whether the embedded component is enabled.
+    type: boolean
+  features:
+    $ref: ./connect_embedded_account_features_claim.yaml
+required:
+  - enabled
+  - features
+title: ConnectEmbeddedAccountConfigClaim
+type: object
+x-expandableFields:
+  - features

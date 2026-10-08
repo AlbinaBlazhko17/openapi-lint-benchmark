@@ -1,0 +1,57 @@
+post:
+  description: <p>Update an existing Sigma query that previously exists</p>
+  operationId: PostSigmaSavedQueriesId
+  parameters:
+    - description: >-
+        The `id` of the saved query to update. This should be a valid `id` that
+        was previously created.
+      in: path
+      name: id
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            name:
+              description: The name of the query to update.
+              maxLength: 5000
+              type: string
+            sql:
+              description: >-
+                The sql statement to update the specified query statement with.
+                This should be a valid Trino SQL statement that can be run in
+                Sigma.
+              maxLength: 100000
+              type: string
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/sigma.sigma_api_query.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Update an existing Sigma Query

@@ -1,0 +1,19 @@
+description: User Intervention Resolved Event details attached to this payment evaluation
+properties:
+  key:
+    description: Unique ID of this intervention. Use this to provide the result.
+    maxLength: 5000
+    type: string
+  outcome:
+    description: Result of the intervention if it has been completed.
+    enum:
+      - abandoned
+      - failed
+      - passed
+    nullable: true
+    type: string
+required:
+  - key
+title: InsightsResourcesPaymentEvaluationUserInterventionResolved
+type: object
+x-expandableFields: []

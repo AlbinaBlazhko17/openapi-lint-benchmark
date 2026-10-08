@@ -1,0 +1,264 @@
+description: >-
+  PaymentMethodConfigurations control which payment methods are displayed to
+  your customers when you don't explicitly specify payment method types. You can
+  have multiple configurations with different sets of payment methods for
+  different scenarios.
+
+
+  There are two types of PaymentMethodConfigurations. Which is used depends on
+  the [charge type](https://docs.stripe.com/connect/charges):
+
+
+  **Direct** configurations apply to payments created on your account, including
+  Connect destination charges, Connect separate charges and transfers, and
+  payments not involving Connect.
+
+
+  **Child** configurations apply to payments created on your connected accounts
+  using direct charges, and charges with the on_behalf_of parameter.
+
+
+  Child configurations have a `parent` that sets default values and controls
+  which settings connected accounts may override. You can specify a parent ID at
+  payment time, and Stripe will automatically resolve the connected account’s
+  associated child configuration. Parent configurations are [managed in the
+  dashboard](https://dashboard.stripe.com/settings/payment_methods/connected_accounts)
+  and are not available in this API.
+
+
+  Related guides:
+
+  - [Payment Method Configurations
+  API](https://docs.stripe.com/connect/payment-method-configurations)
+
+  - [Multiple configurations on dynamic payment
+  methods](https://docs.stripe.com/payments/multiple-payment-method-configs)
+
+  - [Multiple configurations for your Connect
+  accounts](https://docs.stripe.com/connect/multiple-payment-method-configurations)
+properties:
+  acss_debit:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  active:
+    description: Whether the configuration can be used for new payments.
+    type: boolean
+  affirm:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  afterpay_clearpay:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  alipay:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  alma:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  amazon_pay:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  apple_pay:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  application:
+    description: >-
+      For child configs, the Connect application associated with the
+      configuration.
+    maxLength: 5000
+    nullable: true
+    type: string
+  au_becs_debit:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  bacs_debit:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  bancontact:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  billie:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  bizum:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  blik:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  boleto:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  card:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  cartes_bancaires:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  cashapp:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  crypto:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  customer_balance:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  eps:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  fpx:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  giropay:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  google_pay:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  grabpay:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  ideal:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  is_default:
+    description: >-
+      The default configuration is used whenever a payment method configuration
+      is not specified.
+    type: boolean
+  jcb:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  kakao_pay:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  klarna:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  konbini:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  kr_card:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  link:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  mb_way:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  mobilepay:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  multibanco:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  name:
+    description: The configuration's name.
+    maxLength: 5000
+    type: string
+  naver_pay:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  nz_bank_account:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - payment_method_configuration
+    type: string
+  oxxo:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  p24:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  parent:
+    description: For child configs, the configuration's parent configuration.
+    maxLength: 5000
+    nullable: true
+    type: string
+  pay_by_bank:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  payco:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  paynow:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  paypal:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  payto:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  pix:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  promptpay:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  revolut_pay:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  samsung_pay:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  satispay:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  scalapay:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  sepa_debit:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  sofort:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  sunbit:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  swish:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  twint:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  upi:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  us_bank_account:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  wechat_pay:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+  zip:
+    $ref: ./payment_method_config_resource_payment_method_properties.yaml
+required:
+  - active
+  - id
+  - is_default
+  - livemode
+  - name
+  - object
+title: Payment Method Configuration
+type: object
+x-expandableFields:
+  - acss_debit
+  - affirm
+  - afterpay_clearpay
+  - alipay
+  - alma
+  - amazon_pay
+  - apple_pay
+  - au_becs_debit
+  - bacs_debit
+  - bancontact
+  - billie
+  - bizum
+  - blik
+  - boleto
+  - card
+  - cartes_bancaires
+  - cashapp
+  - crypto
+  - customer_balance
+  - eps
+  - fpx
+  - giropay
+  - google_pay
+  - grabpay
+  - ideal
+  - jcb
+  - kakao_pay
+  - klarna
+  - konbini
+  - kr_card
+  - link
+  - mb_way
+  - mobilepay
+  - multibanco
+  - naver_pay
+  - nz_bank_account
+  - oxxo
+  - p24
+  - pay_by_bank
+  - payco
+  - paynow
+  - paypal
+  - payto
+  - pix
+  - promptpay
+  - revolut_pay
+  - samsung_pay
+  - satispay
+  - scalapay
+  - sepa_debit
+  - sofort
+  - sunbit
+  - swish
+  - twint
+  - upi
+  - us_bank_account
+  - wechat_pay
+  - zip
+x-resourceId: payment_method_configuration

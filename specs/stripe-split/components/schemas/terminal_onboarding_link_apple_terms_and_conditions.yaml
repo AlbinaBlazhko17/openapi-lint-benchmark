@@ -1,0 +1,15 @@
+description: Options associated with the Apple Terms and Conditions link type.
+properties:
+  allow_relinking:
+    description: Whether the link should also support users relinking their Apple account.
+    nullable: true
+    type: boolean
+  merchant_display_name:
+    description: The business name of the merchant accepting Apple's Terms and Conditions.
+    maxLength: 5000
+    type: string
+required:
+  - merchant_display_name
+title: TerminalOnboardingLinkAppleTermsAndConditions
+type: object
+x-expandableFields: []

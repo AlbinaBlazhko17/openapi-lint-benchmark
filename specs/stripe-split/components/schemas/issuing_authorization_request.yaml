@@ -1,0 +1,119 @@
+description: ''
+properties:
+  amount:
+    description: >-
+      The `pending_request.amount` at the time of the request, presented in your
+      card's currency and in the [smallest currency
+      unit](https://docs.stripe.com/currencies#zero-decimal). Stripe held this
+      amount from your account to fund the authorization if the request was
+      approved.
+    type: integer
+  amount_details:
+    anyOf:
+      - $ref: ./issuing_authorization_amount_details.yaml
+    description: >-
+      Detailed breakdown of amount components. These amounts are denominated in
+      `currency` and in the [smallest currency
+      unit](https://docs.stripe.com/currencies#zero-decimal).
+    nullable: true
+  approved:
+    description: Whether this request was approved.
+    type: boolean
+  authorization_code:
+    description: >-
+      A code created by Stripe which is shared with the merchant to validate the
+      authorization. This field will be populated if the authorization message
+      was approved. The code typically starts with the letter "S", followed by a
+      six-digit number. For example, "S498162". Please note that the code is not
+      guaranteed to be unique across authorizations.
+    maxLength: 5000
+    nullable: true
+    type: string
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    maxLength: 5000
+    type: string
+  merchant_amount:
+    description: >-
+      The `pending_request.merchant_amount` at the time of the request,
+      presented in the `merchant_currency` and in the [smallest currency
+      unit](https://docs.stripe.com/currencies#zero-decimal).
+    type: integer
+  merchant_currency:
+    description: >-
+      The currency that was collected by the merchant and presented to the
+      cardholder for the authorization. Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    maxLength: 5000
+    type: string
+  network_risk_score:
+    description: >-
+      The card network's estimate of the likelihood that an authorization is
+      fraudulent. Takes on values between 1 and 99.
+    nullable: true
+    type: integer
+  reason:
+    description: >-
+      When an authorization is approved or declined by you or by Stripe, this
+      field provides additional detail on the reason for the outcome.
+    enum:
+      - account_disabled
+      - card_active
+      - card_canceled
+      - card_expired
+      - card_inactive
+      - cardholder_blocked
+      - cardholder_inactive
+      - cardholder_verification_required
+      - insecure_authorization_method
+      - insufficient_funds
+      - network_fallback
+      - not_allowed
+      - pin_blocked
+      - spending_controls
+      - stripe_internal_error
+      - suspected_fraud
+      - verification_failed
+      - webhook_approved
+      - webhook_declined
+      - webhook_error
+      - webhook_timeout
+    type: string
+    x-stripeBypassValidation: true
+  reason_message:
+    description: >-
+      If the `request_history.reason` is `webhook_error` because the direct
+      webhook response is invalid (for example, parsing errors or missing
+      parameters), we surface a more detailed error message via this field.
+    maxLength: 5000
+    nullable: true
+    type: string
+  requested_at:
+    description: >-
+      Time when the card network received an authorization request from the
+      acquirer in UTC. Referred to by networks as transmission time.
+    format: unix-time
+    nullable: true
+    type: integer
+required:
+  - amount
+  - approved
+  - created
+  - currency
+  - merchant_amount
+  - merchant_currency
+  - reason
+title: IssuingAuthorizationRequest
+type: object
+x-expandableFields:
+  - amount_details

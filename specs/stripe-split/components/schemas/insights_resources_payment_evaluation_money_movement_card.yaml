@@ -1,0 +1,21 @@
+description: Money Movement card details attached to this payment.
+properties:
+  customer_presence:
+    description: Describes the presence of the customer during the payment.
+    enum:
+      - off_session
+      - on_session
+    nullable: true
+    type: string
+  payment_type:
+    description: Describes the type of payment.
+    enum:
+      - one_off
+      - recurring
+      - setup_one_off
+      - setup_recurring
+    nullable: true
+    type: string
+title: InsightsResourcesPaymentEvaluationMoneyMovementCard
+type: object
+x-expandableFields: []

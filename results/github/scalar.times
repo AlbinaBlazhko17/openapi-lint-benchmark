@@ -1,0 +1,2 @@
+/home/runner/work/_temp/0dc17e00-9edc-452f-bf0a-4d85c1c74d4b.sh: line 3:  4003 Killed                  timeout -s KILL 300 scalar document lint api.github.com.yaml > $RESULTS/github/scalar.$run.txt 2>&1
+300.002

@@ -1,0 +1,15 @@
+description: ''
+properties:
+  account_subcategories:
+    description: >-
+      The account subcategories to use to filter for possible accounts to link.
+      Valid subcategories are `checking` and `savings`.
+    items:
+      enum:
+        - checking
+        - savings
+      type: string
+    type: array
+title: CheckoutFinancialConnectionsPaymentMethodOptionsFilters
+type: object
+x-expandableFields: []

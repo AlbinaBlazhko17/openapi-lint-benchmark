@@ -1,0 +1,39 @@
+description: ''
+properties:
+  billing_address:
+    anyOf:
+      - $ref: ./address.yaml
+    description: >-
+      Owner's verified billing address. Values are verified or provided by the
+      wallet directly (if supported) at the time of authorization or settlement.
+      They cannot be set or mutated.
+    nullable: true
+  email:
+    description: >-
+      Owner's verified email. Values are verified or provided by the wallet
+      directly (if supported) at the time of authorization or settlement. They
+      cannot be set or mutated.
+    maxLength: 5000
+    nullable: true
+    type: string
+  name:
+    description: >-
+      Owner's verified full name. Values are verified or provided by the wallet
+      directly (if supported) at the time of authorization or settlement. They
+      cannot be set or mutated.
+    maxLength: 5000
+    nullable: true
+    type: string
+  shipping_address:
+    anyOf:
+      - $ref: ./address.yaml
+    description: >-
+      Owner's verified shipping address. Values are verified or provided by the
+      wallet directly (if supported) at the time of authorization or settlement.
+      They cannot be set or mutated.
+    nullable: true
+title: payment_method_details_card_wallet_visa_checkout
+type: object
+x-expandableFields:
+  - billing_address
+  - shipping_address

@@ -1,0 +1,16 @@
+description: ''
+properties:
+  eu_bank_transfer:
+    $ref: >-
+      ./invoice_payment_method_options_customer_balance_bank_transfer_eu_bank_transfer.yaml
+  type:
+    description: >-
+      The bank transfer type that can be used for funding. Permitted values
+      include: `eu_bank_transfer`, `gb_bank_transfer`, `jp_bank_transfer`,
+      `mx_bank_transfer`, or `us_bank_transfer`.
+    nullable: true
+    type: string
+title: invoice_payment_method_options_customer_balance_bank_transfer
+type: object
+x-expandableFields:
+  - eu_bank_transfer

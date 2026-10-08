@@ -1,0 +1,10 @@
+description: Information about a signature being collected using a reader
+properties:
+  value:
+    description: The File ID of a collected signature image
+    maxLength: 5000
+    nullable: true
+    type: string
+title: TerminalReaderReaderResourceSignature
+type: object
+x-expandableFields: []

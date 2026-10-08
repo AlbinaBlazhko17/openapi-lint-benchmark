@@ -1,0 +1,70 @@
+post:
+  description: >-
+    <p>Transitions a test mode created InboundTransfer to the
+    <code>failed</code> status. The InboundTransfer must already be in the
+    <code>processing</code> state.</p>
+  operationId: PostTestHelpersTreasuryInboundTransfersIdFail
+  parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+          failure_details:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            failure_details:
+              description: Details about a failed InboundTransfer.
+              properties:
+                code:
+                  enum:
+                    - account_closed
+                    - account_frozen
+                    - bank_account_restricted
+                    - bank_ownership_changed
+                    - debit_not_authorized
+                    - incorrect_account_holder_address
+                    - incorrect_account_holder_name
+                    - incorrect_account_holder_tax_id
+                    - insufficient_funds
+                    - invalid_account_number
+                    - invalid_currency
+                    - no_account
+                    - other
+                  type: string
+              title: failure_details_param
+              type: object
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/treasury.inbound_transfer.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: 'Test mode: Fail an InboundTransfer'

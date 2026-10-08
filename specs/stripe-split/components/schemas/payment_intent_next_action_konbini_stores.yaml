@@ -1,0 +1,29 @@
+description: ''
+properties:
+  familymart:
+    anyOf:
+      - $ref: ./payment_intent_next_action_konbini_familymart.yaml
+    description: FamilyMart instruction details.
+    nullable: true
+  lawson:
+    anyOf:
+      - $ref: ./payment_intent_next_action_konbini_lawson.yaml
+    description: Lawson instruction details.
+    nullable: true
+  ministop:
+    anyOf:
+      - $ref: ./payment_intent_next_action_konbini_ministop.yaml
+    description: Ministop instruction details.
+    nullable: true
+  seicomart:
+    anyOf:
+      - $ref: ./payment_intent_next_action_konbini_seicomart.yaml
+    description: Seicomart instruction details.
+    nullable: true
+title: payment_intent_next_action_konbini_stores
+type: object
+x-expandableFields:
+  - familymart
+  - lawson
+  - ministop
+  - seicomart

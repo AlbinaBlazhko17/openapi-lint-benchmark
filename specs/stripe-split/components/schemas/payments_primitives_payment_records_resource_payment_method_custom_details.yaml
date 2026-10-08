@@ -1,0 +1,24 @@
+description: >-
+  Custom Payment Methods represent Payment Method types not modeled directly in
+
+  the Stripe API. This resource consists of details about the custom payment
+  method
+
+  used for this payment attempt.
+properties:
+  display_name:
+    description: >-
+      Display name for the custom (user-defined) payment method type used to
+      make this payment.
+    maxLength: 5000
+    type: string
+  type:
+    description: The custom payment method type associated with this payment.
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - display_name
+title: PaymentsPrimitivesPaymentRecordsResourcePaymentMethodCustomDetails
+type: object
+x-expandableFields: []

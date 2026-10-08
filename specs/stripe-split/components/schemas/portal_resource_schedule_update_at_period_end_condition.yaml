@@ -1,0 +1,13 @@
+description: ''
+properties:
+  type:
+    description: The type of condition.
+    enum:
+      - decreasing_item_amount
+      - shortening_interval
+    type: string
+required:
+  - type
+title: PortalResourceScheduleUpdateAtPeriodEndCondition
+type: object
+x-expandableFields: []

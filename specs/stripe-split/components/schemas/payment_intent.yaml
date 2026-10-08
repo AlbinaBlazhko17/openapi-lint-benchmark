@@ -1,0 +1,628 @@
+description: >-
+  A PaymentIntent guides you through the process of collecting a payment from
+  your customer.
+
+  We recommend that you create exactly one PaymentIntent for each order or
+
+  customer session in your system. You can reference the PaymentIntent later to
+
+  see the history of payment attempts for a particular session.
+
+
+  A PaymentIntent transitions through
+
+  [multiple statuses](/payments/paymentintents/lifecycle)
+
+  throughout its lifetime as it interfaces with Stripe.js to perform
+
+  authentication flows and ultimately creates at most one successful charge.
+
+
+  Related guide: [Payment Intents
+  API](https://docs.stripe.com/payments/payment-intents)
+properties:
+  allowed_payment_method_types:
+    description: >-
+      The list of payment method types allowed for use with this payment. Stripe
+      automatically returns compatible payment methods from this list in the
+      `payment_method_types` field of the response, based on the other
+      PaymentIntent parameters, such as `currency`, `amount`, and `customer`.
+    items:
+      enum:
+        - acss_debit
+        - affirm
+        - afterpay_clearpay
+        - alipay
+        - alma
+        - amazon_pay
+        - au_becs_debit
+        - bacs_debit
+        - bancontact
+        - billie
+        - bizum
+        - blik
+        - boku_promptpay
+        - boleto
+        - capchase_pay
+        - card
+        - cashapp
+        - check_scan
+        - click_to_pay
+        - crypto
+        - customer_balance
+        - demo_pay
+        - duitnow
+        - dummy_auth_push
+        - dummy_passthrough_card
+        - edenred
+        - eps
+        - fpx
+        - gcash
+        - getbalance
+        - gift_card
+        - giropay
+        - gopay
+        - grabpay
+        - id_bank_transfer
+        - ideal
+        - kakao_pay
+        - klarna
+        - knet
+        - konbini
+        - kr_card
+        - kr_market
+        - kriya
+        - link
+        - mb_way
+        - mobilepay
+        - momo
+        - mondu
+        - multibanco
+        - naver_pay
+        - netbanking
+        - ng_bank
+        - ng_bank_transfer
+        - ng_card
+        - ng_market
+        - ng_ussd
+        - ng_wallet
+        - nz_bank_account
+        - octopus
+        - oxxo
+        - p24
+        - paper_check
+        - pay_by_bank
+        - payco
+        - paynow
+        - paypal
+        - paypay
+        - payto
+        - pix
+        - promptpay
+        - qris
+        - rechnung
+        - revolut_pay
+        - samsung_pay
+        - satispay
+        - scalapay
+        - sepa_debit
+        - sequra
+        - shop_pay
+        - shopeepay
+        - sofort
+        - south_korea_market
+        - stripe_balance
+        - sunbit
+        - swish
+        - tamara
+        - test_pay
+        - touch_n_go
+        - truemoney
+        - twint
+        - upi
+        - us_bank_account
+        - us_cash_voucher
+        - vipps
+        - wechat_pay
+        - wero
+        - zip
+      type: string
+      x-stripeBypassValidation: true
+    nullable: true
+    type: array
+  amount:
+    description: >-
+      Amount intended to be collected by this PaymentIntent. A positive integer
+      representing how much to charge in the [smallest currency
+      unit](https://docs.stripe.com/currencies#zero-decimal) (e.g., 100 cents to
+      charge $1.00 or 100 to charge ¥100, a zero-decimal currency). The minimum
+      amount is $0.50 US or [equivalent in charge
+      currency](https://docs.stripe.com/currencies#minimum-and-maximum-charge-amounts).
+      The amount value supports up to eight digits (e.g., a value of 99999999
+      for a USD charge of $999,999.99).
+    type: integer
+  amount_capturable:
+    description: Amount that can be captured from this PaymentIntent.
+    type: integer
+  amount_details:
+    anyOf:
+      - $ref: ./payment_flows_amount_details.yaml
+      - $ref: ./payment_flows_amount_details_client.yaml
+  amount_received:
+    description: Amount that this PaymentIntent collects.
+    type: integer
+  application:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./application.yaml
+    description: ID of the Connect application that created the PaymentIntent.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./application.yaml
+  application_fee_amount:
+    description: >-
+      The amount of the application fee (if any) that will be requested to be
+      applied to the payment and transferred to the application owner's Stripe
+      account. The amount of the application fee collected will be capped at the
+      total amount captured. For more information, see the PaymentIntents [use
+      case for connected
+      accounts](https://docs.stripe.com/payments/connected-accounts).
+    nullable: true
+    type: integer
+  automatic_payment_methods:
+    anyOf:
+      - $ref: ./payment_flows_automatic_payment_methods_payment_intent.yaml
+    description: >-
+      Settings to configure compatible payment methods from the [Stripe
+      Dashboard](https://dashboard.stripe.com/settings/payment_methods)
+    nullable: true
+  canceled_at:
+    description: >-
+      Populated when `status` is `canceled`, this is the time at which the
+      PaymentIntent was canceled. Measured in seconds since the Unix epoch.
+    format: unix-time
+    nullable: true
+    type: integer
+  cancellation_reason:
+    description: >-
+      Reason for cancellation of this PaymentIntent, either user-provided
+      (`duplicate`, `fraudulent`, `requested_by_customer`, or `abandoned`) or
+      generated by Stripe internally (`failed_invoice`, `void_invoice`,
+      `automatic`, or `expired`).
+    enum:
+      - abandoned
+      - automatic
+      - duplicate
+      - expired
+      - failed_invoice
+      - fraudulent
+      - requested_by_customer
+      - void_invoice
+    nullable: true
+    type: string
+  capture_method:
+    description: Controls when the funds will be captured from the customer's account.
+    enum:
+      - automatic
+      - automatic_async
+      - manual
+    type: string
+  client_secret:
+    description: >-
+      The client secret of this PaymentIntent. Used for client-side retrieval
+      using a publishable key. 
+
+
+      The client secret can be used to complete a payment from your frontend. It
+      should not be stored, logged, or exposed to anyone other than the
+      customer. Make sure that you have TLS enabled on any page that includes
+      the client secret.
+
+
+      Refer to our docs to [accept a
+      payment](https://docs.stripe.com/payments/accept-a-payment?ui=elements)
+      and learn about how `client_secret` should be handled.
+    maxLength: 5000
+    nullable: true
+    type: string
+  confirmation_method:
+    description: >-
+      Describes whether we can confirm this PaymentIntent automatically, or if
+      it requires customer action to confirm the payment.
+    enum:
+      - automatic
+      - manual
+    type: string
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    format: currency
+    type: string
+  customer:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./customer.yaml
+      - $ref: ./deleted_customer.yaml
+    description: >-
+      ID of the Customer this PaymentIntent belongs to, if one exists.
+
+
+      Payment methods attached to other Customers cannot be used with this
+      PaymentIntent.
+
+
+      If
+      [setup_future_usage](https://api.stripe.com#payment_intent_object-setup_future_usage)
+      is set and this PaymentIntent's payment method is not `card_present`, then
+      the payment method attaches to the Customer after the PaymentIntent has
+      been confirmed and any required actions from the user are complete. If the
+      payment method is `card_present` and isn't a digital wallet, then a
+      [generated_card](https://docs.stripe.com/api/charges/object#charge_object-payment_method_details-card_present-generated_card)
+      payment method representing the card is created and attached to the
+      Customer instead.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./customer.yaml
+        - $ref: ./deleted_customer.yaml
+  customer_account:
+    description: >-
+      ID of the Account representing the customer that this PaymentIntent
+      belongs to, if one exists.
+
+
+      Payment methods attached to other Accounts cannot be used with this
+      PaymentIntent.
+
+
+      If
+      [setup_future_usage](https://api.stripe.com#payment_intent_object-setup_future_usage)
+      is set and this PaymentIntent's payment method is not `card_present`, then
+      the payment method attaches to the Account after the PaymentIntent has
+      been confirmed and any required actions from the user are complete. If the
+      payment method is `card_present` and isn't a digital wallet, then a
+      [generated_card](https://docs.stripe.com/api/charges/object#charge_object-payment_method_details-card_present-generated_card)
+      payment method representing the card is created and attached to the
+      Account instead.
+    maxLength: 5000
+    nullable: true
+    type: string
+  description:
+    description: >-
+      An arbitrary string attached to the object. Often useful for displaying to
+      users.
+    maxLength: 5000
+    nullable: true
+    type: string
+  excluded_payment_method_types:
+    description: The list of payment method types to exclude from use with this payment.
+    items:
+      enum:
+        - acss_debit
+        - affirm
+        - afterpay_clearpay
+        - alipay
+        - alma
+        - amazon_pay
+        - au_becs_debit
+        - bacs_debit
+        - bancontact
+        - billie
+        - bizum
+        - blik
+        - boleto
+        - card
+        - cashapp
+        - crypto
+        - customer_balance
+        - eps
+        - fpx
+        - giropay
+        - grabpay
+        - ideal
+        - kakao_pay
+        - klarna
+        - konbini
+        - kr_card
+        - mb_way
+        - mobilepay
+        - multibanco
+        - naver_pay
+        - nz_bank_account
+        - oxxo
+        - p24
+        - pay_by_bank
+        - payco
+        - paynow
+        - paypal
+        - payto
+        - pix
+        - promptpay
+        - revolut_pay
+        - samsung_pay
+        - satispay
+        - scalapay
+        - sepa_debit
+        - sofort
+        - sunbit
+        - swish
+        - twint
+        - upi
+        - us_bank_account
+        - wechat_pay
+        - zip
+      type: string
+      x-stripeBypassValidation: true
+    nullable: true
+    type: array
+  hooks:
+    $ref: ./payment_flows_payment_intent_async_workflows.yaml
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  last_payment_error:
+    anyOf:
+      - $ref: ./api_errors.yaml
+    description: >-
+      The payment error encountered in the previous PaymentIntent confirmation.
+      It will be cleared if the PaymentIntent is later updated for any reason.
+    nullable: true
+  latest_charge:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./charge.yaml
+    description: >-
+      ID of the latest [Charge object](https://docs.stripe.com/api/charges)
+      created by this PaymentIntent. This property is `null` until PaymentIntent
+      confirmation is attempted.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./charge.yaml
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  managed_payments:
+    anyOf:
+      - $ref: ./smor_resource_managed_payments.yaml
+    description: Settings for Managed Payments.
+    nullable: true
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format. Learn more about
+      [storing information in
+      metadata](https://docs.stripe.com/payments/payment-intents/creating-payment-intents#storing-information-in-metadata).
+    type: object
+  next_action:
+    anyOf:
+      - $ref: ./payment_intent_next_action.yaml
+    description: >-
+      If present, this property tells you what actions you need to take in order
+      for your customer to fulfill a payment using the provided source.
+    nullable: true
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - payment_intent
+    type: string
+  on_behalf_of:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./account.yaml
+    description: >-
+      You can specify the settlement merchant as the
+
+      connected account using the `on_behalf_of` attribute on the charge. See
+      the PaymentIntents [use case for connected
+      accounts](/payments/connected-accounts) for details.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./account.yaml
+  payment_details:
+    $ref: ./payment_flows_payment_details.yaml
+  payment_method:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./payment_method.yaml
+    description: ID of the payment method used in this PaymentIntent.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./payment_method.yaml
+  payment_method_configuration_details:
+    anyOf:
+      - $ref: ./payment_method_config_biz_payment_method_configuration_details.yaml
+    description: >-
+      Information about the [payment method
+      configuration](https://docs.stripe.com/api/payment_method_configurations)
+      used for this PaymentIntent.
+    nullable: true
+  payment_method_options:
+    anyOf:
+      - $ref: ./payment_intent_payment_method_options.yaml
+    description: Payment-method-specific configuration for this PaymentIntent.
+    nullable: true
+  payment_method_types:
+    description: >-
+      The list of payment method types (e.g. card) that this PaymentIntent is
+      allowed to use. A comprehensive list of valid payment method types can be
+      found
+      [here](https://docs.stripe.com/api/payment_methods/object#payment_method_object-type).
+    items:
+      maxLength: 5000
+      type: string
+    type: array
+  presentment_details:
+    $ref: ./payment_flows_payment_intent_presentment_details.yaml
+  processing:
+    anyOf:
+      - $ref: ./payment_intent_processing.yaml
+    description: >-
+      If present, this property tells you about the processing state of the
+      payment.
+    nullable: true
+  receipt_email:
+    description: >-
+      Email address that the receipt for the resulting payment will be sent to.
+      If `receipt_email` is specified for a payment in live mode, a receipt will
+      be sent regardless of your [email
+      settings](https://dashboard.stripe.com/account/emails).
+    maxLength: 5000
+    nullable: true
+    type: string
+  review:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./review.yaml
+    description: ID of the review associated with this PaymentIntent, if any.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./review.yaml
+  setup_future_usage:
+    description: >-
+      Indicates that you intend to make future payments with this
+      PaymentIntent's payment method.
+
+
+      If you provide a Customer with the PaymentIntent, you can use this
+      parameter to [attach the payment method](/payments/save-during-payment) to
+      the Customer after the PaymentIntent is confirmed and the customer
+      completes any required actions. If you don't provide a Customer, you can
+      still [attach](/api/payment_methods/attach) the payment method to a
+      Customer after the transaction completes.
+
+
+      If the payment method is `card_present` and isn't a digital wallet, Stripe
+      creates and attaches a
+      [generated_card](/api/charges/object#charge_object-payment_method_details-card_present-generated_card)
+      payment method representing the card to the Customer instead.
+
+
+      When processing card payments, Stripe uses `setup_future_usage` to help
+      you comply with regional legislation and network rules, such as
+      [SCA](/strong-customer-authentication).
+    enum:
+      - off_session
+      - on_session
+    nullable: true
+    type: string
+  shipping:
+    anyOf:
+      - $ref: ./shipping.yaml
+    description: Shipping information for this PaymentIntent.
+    nullable: true
+  statement_descriptor:
+    description: >-
+      Text that appears on the customer's statement as the statement descriptor
+      for a non-card charge. This value overrides the account's default
+      statement descriptor. For information about requirements, including the
+      22-character limit, see [the Statement Descriptor
+      docs](https://docs.stripe.com/get-started/account/statement-descriptors).
+
+
+      Setting this value for a card charge returns an error. For card charges,
+      set the
+      [statement_descriptor_suffix](https://docs.stripe.com/get-started/account/statement-descriptors#dynamic)
+      instead.
+    maxLength: 5000
+    nullable: true
+    type: string
+  statement_descriptor_suffix:
+    description: >-
+      Provides information about a card charge. Concatenated to the account's
+      [statement descriptor
+      prefix](https://docs.stripe.com/get-started/account/statement-descriptors#static)
+      to form the complete statement descriptor that appears on the customer's
+      statement.
+    maxLength: 5000
+    nullable: true
+    type: string
+  status:
+    description: >-
+      Status of this PaymentIntent, one of `requires_payment_method`,
+      `requires_confirmation`, `requires_action`, `processing`,
+      `requires_capture`, `canceled`, or `succeeded`. Read more about each
+      PaymentIntent
+      [status](https://docs.stripe.com/payments/intents#intent-statuses).
+    enum:
+      - canceled
+      - processing
+      - requires_action
+      - requires_capture
+      - requires_confirmation
+      - requires_payment_method
+      - succeeded
+    type: string
+    x-stripeBypassValidation: true
+  transfer_data:
+    anyOf:
+      - $ref: ./transfer_data.yaml
+    description: >-
+      The data that automatically creates a Transfer after the payment
+      finalizes. Learn more about the [use case for connected
+      accounts](https://docs.stripe.com/payments/connected-accounts).
+    nullable: true
+  transfer_group:
+    description: >-
+      A string that identifies the resulting payment as part of a group. Learn
+      more about the [use case for connected
+      accounts](https://docs.stripe.com/connect/separate-charges-and-transfers).
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - created
+  - id
+  - livemode
+  - object
+  - status
+title: PaymentIntent
+type: object
+x-expandableFields:
+  - amount_details
+  - application
+  - automatic_payment_methods
+  - customer
+  - hooks
+  - last_payment_error
+  - latest_charge
+  - managed_payments
+  - next_action
+  - on_behalf_of
+  - payment_details
+  - payment_method
+  - payment_method_configuration_details
+  - payment_method_options
+  - presentment_details
+  - processing
+  - review
+  - shipping
+  - transfer_data
+x-resourceId: payment_intent

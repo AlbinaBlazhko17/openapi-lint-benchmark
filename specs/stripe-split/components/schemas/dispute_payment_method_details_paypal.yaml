@@ -1,0 +1,15 @@
+description: ''
+properties:
+  case_id:
+    description: The ID of the dispute in PayPal.
+    maxLength: 5000
+    nullable: true
+    type: string
+  reason_code:
+    description: The reason for the dispute as defined by PayPal
+    maxLength: 5000
+    nullable: true
+    type: string
+title: DisputePaymentMethodDetailsPaypal
+type: object
+x-expandableFields: []

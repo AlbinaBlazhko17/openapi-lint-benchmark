@@ -1,0 +1,10 @@
+description: ''
+properties:
+  capture_method:
+    description: Controls when the funds will be captured from the customer's account.
+    enum:
+      - manual
+    type: string
+title: CheckoutAlmaPaymentMethodOptions
+type: object
+x-expandableFields: []

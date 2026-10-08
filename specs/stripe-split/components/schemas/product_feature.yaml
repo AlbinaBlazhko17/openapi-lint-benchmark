@@ -1,0 +1,34 @@
+description: >-
+  A product_feature represents an attachment between a feature and a product.
+
+  When a product is purchased that has a feature attached, Stripe will create an
+  entitlement to the feature for the purchasing customer.
+properties:
+  entitlement_feature:
+    $ref: ./entitlements.feature.yaml
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - product_feature
+    type: string
+required:
+  - entitlement_feature
+  - id
+  - livemode
+  - object
+title: ProductFeature
+type: object
+x-expandableFields:
+  - entitlement_feature
+x-resourceId: product_feature

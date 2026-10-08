@@ -1,0 +1,29 @@
+description: Sort Code Records contain U.K. bank account details per the sort code format.
+properties:
+  account_holder_address:
+    $ref: ./address.yaml
+  account_holder_name:
+    description: The name of the person or business that owns the bank account
+    maxLength: 5000
+    type: string
+  account_number:
+    description: The account number
+    maxLength: 5000
+    type: string
+  bank_address:
+    $ref: ./address.yaml
+  sort_code:
+    description: The six-digit sort code
+    maxLength: 5000
+    type: string
+required:
+  - account_holder_address
+  - account_holder_name
+  - account_number
+  - bank_address
+  - sort_code
+title: FundingInstructionsBankTransferSortCodeRecord
+type: object
+x-expandableFields:
+  - account_holder_address
+  - bank_address

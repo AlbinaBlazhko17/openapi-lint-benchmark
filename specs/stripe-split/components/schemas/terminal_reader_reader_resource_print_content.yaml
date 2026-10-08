@@ -1,0 +1,15 @@
+description: Represents a reader action to print content
+properties:
+  image:
+    $ref: ./terminal_reader_reader_resource_file_metadata.yaml
+  type:
+    description: The type of content to print. Currently supports `image`.
+    enum:
+      - image
+    type: string
+required:
+  - type
+title: TerminalReaderReaderResourcePrintContent
+type: object
+x-expandableFields:
+  - image

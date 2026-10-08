@@ -1,0 +1,13 @@
+description: ''
+properties:
+  email:
+    description: Email of user being verified
+    maxLength: 5000
+    type: string
+  phone:
+    description: Phone number of user being verified
+    maxLength: 5000
+    type: string
+title: GelatoProvidedDetails
+type: object
+x-expandableFields: []

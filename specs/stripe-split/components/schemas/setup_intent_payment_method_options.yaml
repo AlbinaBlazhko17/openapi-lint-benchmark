@@ -1,0 +1,75 @@
+description: ''
+properties:
+  acss_debit:
+    anyOf:
+      - $ref: ./setup_intent_payment_method_options_acss_debit.yaml
+      - $ref: ./setup_intent_type_specific_payment_method_options_client.yaml
+  amazon_pay:
+    anyOf:
+      - $ref: ./setup_intent_payment_method_options_amazon_pay.yaml
+      - $ref: ./setup_intent_type_specific_payment_method_options_client.yaml
+  bacs_debit:
+    anyOf:
+      - $ref: ./setup_intent_payment_method_options_bacs_debit.yaml
+      - $ref: ./setup_intent_type_specific_payment_method_options_client.yaml
+  bizum:
+    anyOf:
+      - $ref: ./setup_intent_payment_method_options_bizum.yaml
+      - $ref: ./setup_intent_type_specific_payment_method_options_client.yaml
+  card:
+    anyOf:
+      - $ref: ./setup_intent_payment_method_options_card.yaml
+      - $ref: ./setup_intent_type_specific_payment_method_options_client.yaml
+  card_present:
+    anyOf:
+      - $ref: ./setup_intent_payment_method_options_card_present.yaml
+      - $ref: ./setup_intent_type_specific_payment_method_options_client.yaml
+  klarna:
+    anyOf:
+      - $ref: ./setup_intent_payment_method_options_klarna.yaml
+      - $ref: ./setup_intent_type_specific_payment_method_options_client.yaml
+  link:
+    anyOf:
+      - $ref: ./setup_intent_payment_method_options_link.yaml
+      - $ref: ./setup_intent_type_specific_payment_method_options_client.yaml
+  paypal:
+    anyOf:
+      - $ref: ./setup_intent_payment_method_options_paypal.yaml
+      - $ref: ./setup_intent_type_specific_payment_method_options_client.yaml
+  payto:
+    anyOf:
+      - $ref: ./setup_intent_payment_method_options_payto.yaml
+      - $ref: ./setup_intent_type_specific_payment_method_options_client.yaml
+  pix:
+    anyOf:
+      - $ref: ./setup_intent_payment_method_options_pix.yaml
+      - $ref: ./setup_intent_type_specific_payment_method_options_client.yaml
+  sepa_debit:
+    anyOf:
+      - $ref: ./setup_intent_payment_method_options_sepa_debit.yaml
+      - $ref: ./setup_intent_type_specific_payment_method_options_client.yaml
+  upi:
+    anyOf:
+      - $ref: ./setup_intent_payment_method_options_upi.yaml
+      - $ref: ./setup_intent_type_specific_payment_method_options_client.yaml
+  us_bank_account:
+    anyOf:
+      - $ref: ./setup_intent_payment_method_options_us_bank_account.yaml
+      - $ref: ./setup_intent_type_specific_payment_method_options_client.yaml
+title: SetupIntentPaymentMethodOptions
+type: object
+x-expandableFields:
+  - acss_debit
+  - amazon_pay
+  - bacs_debit
+  - bizum
+  - card
+  - card_present
+  - klarna
+  - link
+  - paypal
+  - payto
+  - pix
+  - sepa_debit
+  - upi
+  - us_bank_account

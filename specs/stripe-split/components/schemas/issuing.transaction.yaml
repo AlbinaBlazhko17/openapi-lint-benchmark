@@ -1,0 +1,211 @@
+description: >-
+  Any use of an [issued card](https://docs.stripe.com/issuing) that results in
+  funds entering or leaving
+
+  your Stripe account, such as a completed purchase or refund, is represented by
+  an Issuing
+
+  `Transaction` object.
+
+
+  Related guide: [Issued card
+  transactions](https://docs.stripe.com/issuing/purchases/transactions)
+properties:
+  amount:
+    description: >-
+      The transaction amount, which will be reflected in your balance. This
+      amount is in your currency and in the [smallest currency
+      unit](https://docs.stripe.com/currencies#zero-decimal).
+    type: integer
+  amount_details:
+    anyOf:
+      - $ref: ./issuing_transaction_amount_details.yaml
+    description: >-
+      Detailed breakdown of amount components. These amounts are denominated in
+      `currency` and in the [smallest currency
+      unit](https://docs.stripe.com/currencies#zero-decimal).
+    nullable: true
+  authorization:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./issuing.authorization.yaml
+    description: The `Authorization` object that led to this transaction.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./issuing.authorization.yaml
+  balance_transaction:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./balance_transaction.yaml
+    description: >-
+      ID of the [balance
+      transaction](https://docs.stripe.com/api/balance_transactions) associated
+      with this transaction.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./balance_transaction.yaml
+  card:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./issuing.card.yaml
+    description: The card used to make this transaction.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./issuing.card.yaml
+  cardholder:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./issuing.cardholder.yaml
+    description: The cardholder to whom this transaction belongs.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./issuing.cardholder.yaml
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    format: currency
+    type: string
+  dispute:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./issuing.dispute.yaml
+    description: If you've disputed the transaction, the ID of the dispute.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./issuing.dispute.yaml
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  merchant_amount:
+    description: >-
+      The amount that the merchant will receive, denominated in
+      `merchant_currency` and in the [smallest currency
+      unit](https://docs.stripe.com/currencies#zero-decimal). It will be
+      different from `amount` if the merchant is taking payment in a different
+      currency.
+    type: integer
+  merchant_currency:
+    description: The currency with which the merchant is taking payment.
+    format: currency
+    type: string
+  merchant_data:
+    $ref: ./issuing_authorization_merchant_data.yaml
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    type: object
+  network_data:
+    anyOf:
+      - $ref: ./issuing_transaction_network_data.yaml
+    description: >-
+      Details about the transaction, such as processing dates, set by the card
+      network.
+    nullable: true
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - issuing.transaction
+    type: string
+  purchase_details:
+    anyOf:
+      - $ref: ./issuing_transaction_purchase_details.yaml
+    description: >-
+      Additional purchase information that is optionally provided by the
+      merchant.
+    nullable: true
+  token:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./issuing.token.yaml
+    description: >-
+      [Token](https://docs.stripe.com/api/issuing/tokens/object) object used for
+      this transaction. If a network token was not used for this transaction,
+      this field will be null.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./issuing.token.yaml
+  treasury:
+    anyOf:
+      - $ref: ./issuing_transaction_treasury.yaml
+    description: >-
+      [Treasury](https://docs.stripe.com/api/treasury) details related to this
+      transaction if it was created on a
+      [FinancialAccount](/docs/api/treasury/financial_accounts
+    nullable: true
+  type:
+    description: The nature of the transaction.
+    enum:
+      - capture
+      - refund
+    type: string
+    x-stripeBypassValidation: true
+  wallet:
+    description: >-
+      The digital wallet used for this transaction. One of `apple_pay`,
+      `google_pay`, or `samsung_pay`.
+    enum:
+      - apple_pay
+      - google_pay
+      - samsung_pay
+    nullable: true
+    type: string
+required:
+  - amount
+  - card
+  - created
+  - currency
+  - id
+  - livemode
+  - merchant_amount
+  - merchant_currency
+  - merchant_data
+  - metadata
+  - object
+  - type
+title: Transaction
+type: object
+x-expandableFields:
+  - amount_details
+  - authorization
+  - balance_transaction
+  - card
+  - cardholder
+  - dispute
+  - merchant_data
+  - network_data
+  - purchase_details
+  - token
+  - treasury
+x-resourceId: issuing.transaction

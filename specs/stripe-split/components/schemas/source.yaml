@@ -1,0 +1,226 @@
+description: >-
+  `Source` objects allow you to accept a variety of payment methods. They
+
+  represent a customer's payment instrument, and can be used with the Stripe API
+
+  just like a `Card` object: once chargeable, they can be charged, or can be
+
+  attached to customers.
+
+
+  Stripe doesn't recommend using the deprecated [Sources
+  API](https://docs.stripe.com/api/sources).
+
+  We recommend that you adopt the [PaymentMethods
+  API](https://docs.stripe.com/api/payment_methods).
+
+  This newer API provides access to our latest features and payment method
+  types.
+
+
+  Related guides: [Sources API](https://docs.stripe.com/sources) and [Sources &
+  Customers](https://docs.stripe.com/sources/customers).
+properties:
+  ach_credit_transfer:
+    $ref: ./source_type_ach_credit_transfer.yaml
+  ach_debit:
+    $ref: ./source_type_ach_debit.yaml
+  acss_debit:
+    $ref: ./source_type_acss_debit.yaml
+  alipay:
+    $ref: ./source_type_alipay.yaml
+  allow_redisplay:
+    description: >-
+      This field indicates whether this payment method can be shown again to its
+      customer in a checkout flow. Stripe products such as Checkout and Elements
+      use this field to determine whether a payment method can be shown as a
+      saved payment method in a checkout flow. The field defaults to
+      “unspecified”.
+    enum:
+      - always
+      - limited
+      - unspecified
+    nullable: true
+    type: string
+  amount:
+    description: >-
+      A positive integer in the smallest currency unit (that is, 100 cents for
+      $1.00, or 1 for ¥1, Japanese Yen being a zero-decimal currency)
+      representing the total amount associated with the source. This is the
+      amount for which the source will be chargeable once ready. Required for
+      `single_use` sources.
+    nullable: true
+    type: integer
+  au_becs_debit:
+    $ref: ./source_type_au_becs_debit.yaml
+  bancontact:
+    $ref: ./source_type_bancontact.yaml
+  card:
+    $ref: ./source_type_card.yaml
+  card_present:
+    $ref: ./source_type_card_present.yaml
+  client_secret:
+    description: >-
+      The client secret of the source. Used for client-side retrieval using a
+      publishable key.
+    maxLength: 5000
+    type: string
+  code_verification:
+    $ref: ./source_code_verification_flow.yaml
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  currency:
+    description: >-
+      Three-letter [ISO code for the
+      currency](https://stripe.com/docs/currencies) associated with the source.
+      This is the currency for which the source will be chargeable once ready.
+      Required for `single_use` sources.
+    format: currency
+    nullable: true
+    type: string
+  customer:
+    description: >-
+      The ID of the customer to which this source is attached. This will not be
+      present when the source has not been attached to a customer.
+    maxLength: 5000
+    type: string
+  eps:
+    $ref: ./source_type_eps.yaml
+  flow:
+    description: >-
+      The authentication `flow` of the source. `flow` is one of `redirect`,
+      `receiver`, `code_verification`, `none`.
+    maxLength: 5000
+    type: string
+  giropay:
+    $ref: ./source_type_giropay.yaml
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  ideal:
+    $ref: ./source_type_ideal.yaml
+  klarna:
+    $ref: ./source_type_klarna.yaml
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    nullable: true
+    type: object
+  multibanco:
+    $ref: ./source_type_multibanco.yaml
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - source
+    type: string
+  owner:
+    anyOf:
+      - $ref: ./source_owner.yaml
+    description: >-
+      Information about the owner of the payment instrument that may be used or
+      required by particular source types.
+    nullable: true
+  p24:
+    $ref: ./source_type_p24.yaml
+  receiver:
+    $ref: ./source_receiver_flow.yaml
+  redirect:
+    $ref: ./source_redirect_flow.yaml
+  sepa_debit:
+    $ref: ./source_type_sepa_debit.yaml
+  sofort:
+    $ref: ./source_type_sofort.yaml
+  source_order:
+    $ref: ./source_order.yaml
+  statement_descriptor:
+    description: >-
+      Extra information about a source. This will appear on your customer's
+      statement every time you charge the source.
+    maxLength: 5000
+    nullable: true
+    type: string
+  status:
+    description: >-
+      The status of the source, one of `canceled`, `chargeable`, `consumed`,
+      `failed`, or `pending`. Only `chargeable` sources can be used to create a
+      charge.
+    maxLength: 5000
+    type: string
+  three_d_secure:
+    $ref: ./source_type_three_d_secure.yaml
+  type:
+    description: >-
+      The `type` of the source. The `type` is a payment method, one of
+      `ach_credit_transfer`, `ach_debit`, `alipay`, `bancontact`, `card`,
+      `card_present`, `eps`, `giropay`, `ideal`, `multibanco`, `klarna`, `p24`,
+      `sepa_debit`, `sofort`, `three_d_secure`, or `wechat`. An additional hash
+      is included on the source with a name matching this value. It contains
+      additional information specific to the [payment
+      method](https://docs.stripe.com/sources) used.
+    enum:
+      - ach_credit_transfer
+      - ach_debit
+      - acss_debit
+      - alipay
+      - au_becs_debit
+      - bancontact
+      - card
+      - card_present
+      - eps
+      - giropay
+      - ideal
+      - klarna
+      - multibanco
+      - p24
+      - sepa_debit
+      - sofort
+      - three_d_secure
+      - wechat
+    type: string
+    x-stripeBypassValidation: true
+  usage:
+    description: >-
+      Either `reusable` or `single_use`. Whether this source should be reusable
+      or not. Some source types may or may not be reusable by construction,
+      while others may leave the option at creation. If an incompatible value is
+      passed, an error will be returned.
+    maxLength: 5000
+    nullable: true
+    type: string
+  wechat:
+    $ref: ./source_type_wechat.yaml
+required:
+  - client_secret
+  - created
+  - flow
+  - id
+  - livemode
+  - object
+  - status
+  - type
+title: Source
+type: object
+x-expandableFields:
+  - code_verification
+  - owner
+  - receiver
+  - redirect
+  - source_order
+x-resourceId: source

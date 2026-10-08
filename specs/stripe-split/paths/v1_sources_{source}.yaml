@@ -1,0 +1,333 @@
+get:
+  description: >-
+    <p>Retrieves an existing source object. Supply the unique source ID from a
+    source creation request and Stripe will return the corresponding up-to-date
+    source object information.</p>
+  operationId: GetSourcesSource
+  parameters:
+    - description: >-
+        The client secret of the source. Required if a publishable key is used
+        to retrieve the source.
+      in: query
+      name: client_secret
+      required: false
+      schema:
+        maxLength: 5000
+        type: string
+      style: form
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+    - in: path
+      name: source
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/source.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Retrieve a source
+post:
+  description: >-
+    <p>Updates the specified source by setting the values of the parameters
+    passed. Any parameters not provided will be left unchanged.</p>
+
+
+    <p>This request accepts the <code>metadata</code> and <code>owner</code> as
+    arguments. It is also possible to update type specific information for
+    selected payment methods. Please refer to our <a
+    href="/docs/sources">payment method guides</a> for more detail.</p>
+  operationId: PostSourcesSource
+  parameters:
+    - in: path
+      name: source
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+          mandate:
+            explode: true
+            style: deepObject
+          metadata:
+            explode: true
+            style: deepObject
+          owner:
+            explode: true
+            style: deepObject
+          source_order:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            amount:
+              description: Amount associated with the source.
+              type: integer
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            mandate:
+              description: >-
+                Information about a mandate possibility attached to a source
+                object (generally for bank debits) as well as its acceptance
+                status.
+              properties:
+                acceptance:
+                  properties:
+                    date:
+                      format: unix-time
+                      type: integer
+                    ip:
+                      type: string
+                    offline:
+                      properties:
+                        contact_email:
+                          type: string
+                      required:
+                        - contact_email
+                      title: mandate_offline_acceptance_params
+                      type: object
+                    online:
+                      properties:
+                        date:
+                          format: unix-time
+                          type: integer
+                        ip:
+                          type: string
+                        user_agent:
+                          maxLength: 5000
+                          type: string
+                      title: mandate_online_acceptance_params
+                      type: object
+                    status:
+                      enum:
+                        - accepted
+                        - pending
+                        - refused
+                        - revoked
+                      maxLength: 5000
+                      type: string
+                    type:
+                      enum:
+                        - offline
+                        - online
+                      maxLength: 5000
+                      type: string
+                    user_agent:
+                      maxLength: 5000
+                      type: string
+                  required:
+                    - status
+                  title: mandate_acceptance_params
+                  type: object
+                amount:
+                  anyOf:
+                    - type: integer
+                    - enum:
+                        - ''
+                      type: string
+                currency:
+                  format: currency
+                  type: string
+                interval:
+                  enum:
+                    - one_time
+                    - scheduled
+                    - variable
+                  maxLength: 5000
+                  type: string
+                notification_method:
+                  enum:
+                    - deprecated_none
+                    - email
+                    - manual
+                    - none
+                    - stripe_email
+                  maxLength: 5000
+                  type: string
+              title: mandate_params
+              type: object
+            metadata:
+              anyOf:
+                - additionalProperties:
+                    type: string
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                Set of [key-value pairs](https://docs.stripe.com/api/metadata)
+                that you can attach to an object. This can be useful for storing
+                additional information about the object in a structured format.
+                Individual keys can be unset by posting an empty value to them.
+                All keys can be unset by posting an empty value to `metadata`.
+            owner:
+              description: >-
+                Information about the owner of the payment instrument that may
+                be used or required by particular source types.
+              properties:
+                address:
+                  properties:
+                    city:
+                      maxLength: 5000
+                      type: string
+                    country:
+                      maxLength: 5000
+                      type: string
+                    line1:
+                      maxLength: 5000
+                      type: string
+                    line2:
+                      maxLength: 5000
+                      type: string
+                    postal_code:
+                      maxLength: 5000
+                      type: string
+                    state:
+                      maxLength: 5000
+                      type: string
+                  title: source_address
+                  type: object
+                email:
+                  type: string
+                name:
+                  maxLength: 5000
+                  type: string
+                phone:
+                  maxLength: 5000
+                  type: string
+              title: owner
+              type: object
+            source_order:
+              description: >-
+                Information about the items and shipping associated with the
+                source. Required for transactional credit (for example Klarna)
+                sources before you can charge it.
+              properties:
+                items:
+                  items:
+                    properties:
+                      amount:
+                        type: integer
+                      currency:
+                        format: currency
+                        type: string
+                      description:
+                        maxLength: 1000
+                        type: string
+                      parent:
+                        maxLength: 5000
+                        type: string
+                      quantity:
+                        type: integer
+                      type:
+                        enum:
+                          - discount
+                          - shipping
+                          - sku
+                          - tax
+                        maxLength: 5000
+                        type: string
+                    title: order_item_specs
+                    type: object
+                  type: array
+                shipping:
+                  properties:
+                    address:
+                      properties:
+                        city:
+                          maxLength: 5000
+                          type: string
+                        country:
+                          maxLength: 5000
+                          type: string
+                        line1:
+                          maxLength: 5000
+                          type: string
+                        line2:
+                          maxLength: 5000
+                          type: string
+                        postal_code:
+                          maxLength: 5000
+                          type: string
+                        state:
+                          maxLength: 5000
+                          type: string
+                      required:
+                        - line1
+                      title: address
+                      type: object
+                    carrier:
+                      maxLength: 5000
+                      type: string
+                    name:
+                      maxLength: 5000
+                      type: string
+                    phone:
+                      maxLength: 5000
+                      type: string
+                    tracking_number:
+                      maxLength: 5000
+                      type: string
+                  required:
+                    - address
+                  title: order_shipping
+                  type: object
+              title: order_params
+              type: object
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/source.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Update a source

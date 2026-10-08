@@ -1,0 +1,18 @@
+description: ''
+properties:
+  enabled:
+    description: If true, the quantity can be adjusted to any non-negative integer.
+    type: boolean
+  maximum:
+    description: The maximum quantity that can be set for the product.
+    nullable: true
+    type: integer
+  minimum:
+    description: The minimum quantity that can be set for the product.
+    type: integer
+required:
+  - enabled
+  - minimum
+title: PortalSubscriptionUpdateProductAdjustableQuantity
+type: object
+x-expandableFields: []

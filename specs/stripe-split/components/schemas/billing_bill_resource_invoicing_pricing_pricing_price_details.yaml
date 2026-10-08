@@ -1,0 +1,22 @@
+description: ''
+properties:
+  price:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./price.yaml
+    description: The ID of the price this item is associated with.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./price.yaml
+  product:
+    description: The ID of the product this item is associated with.
+    maxLength: 5000
+    type: string
+required:
+  - price
+  - product
+title: BillingBillResourceInvoicingPricingPricingPriceDetails
+type: object
+x-expandableFields:
+  - price

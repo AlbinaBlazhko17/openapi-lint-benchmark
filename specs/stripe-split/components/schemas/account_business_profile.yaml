@@ -1,0 +1,80 @@
+description: ''
+properties:
+  annual_revenue:
+    anyOf:
+      - $ref: ./account_annual_revenue.yaml
+    description: The applicant's gross annual revenue for its preceding fiscal year.
+    nullable: true
+  estimated_worker_count:
+    description: >-
+      An estimated upper bound of employees, contractors, vendors, etc.
+      currently working for the business.
+    nullable: true
+    type: integer
+  mcc:
+    description: >-
+      [The merchant category code for the account](/connect/setting-mcc). MCCs
+      are used to classify businesses based on the goods or services they
+      provide.
+    maxLength: 5000
+    nullable: true
+    type: string
+  minority_owned_business_designation:
+    description: >-
+      Whether the business is a minority-owned, women-owned, and/or LGBTQI+
+      -owned business.
+    items:
+      enum:
+        - lgbtqi_owned_business
+        - minority_owned_business
+        - none_of_these_apply
+        - prefer_not_to_answer
+        - women_owned_business
+      type: string
+    nullable: true
+    type: array
+  monthly_estimated_revenue:
+    $ref: ./account_monthly_estimated_revenue.yaml
+  name:
+    description: The customer-facing business name.
+    maxLength: 5000
+    nullable: true
+    type: string
+  product_description:
+    description: >-
+      Internal-only description of the product sold or service provided by the
+      business. It's used by Stripe for risk and underwriting purposes.
+    maxLength: 40000
+    nullable: true
+    type: string
+  support_address:
+    anyOf:
+      - $ref: ./address.yaml
+    description: A publicly available mailing address for sending support issues to.
+    nullable: true
+  support_email:
+    description: A publicly available email address for sending support issues to.
+    maxLength: 5000
+    nullable: true
+    type: string
+  support_phone:
+    description: A publicly available phone number to call with support issues.
+    maxLength: 5000
+    nullable: true
+    type: string
+  support_url:
+    description: A publicly available website for handling support issues.
+    maxLength: 5000
+    nullable: true
+    type: string
+  url:
+    description: The business's publicly available website.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: AccountBusinessProfile
+type: object
+x-expandableFields:
+  - annual_revenue
+  - monthly_estimated_revenue
+  - support_address

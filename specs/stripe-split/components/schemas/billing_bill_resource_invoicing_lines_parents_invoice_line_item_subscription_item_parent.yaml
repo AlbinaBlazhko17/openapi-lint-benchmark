@@ -1,0 +1,31 @@
+description: ''
+properties:
+  invoice_item:
+    description: The invoice item that generated this line item
+    maxLength: 5000
+    nullable: true
+    type: string
+  proration:
+    description: Whether this is a proration
+    type: boolean
+  proration_details:
+    anyOf:
+      - $ref: ./billing_bill_resource_invoicing_lines_common_proration_details.yaml
+    description: Additional details for proration line items
+    nullable: true
+  subscription:
+    description: The subscription that the subscription item belongs to
+    maxLength: 5000
+    nullable: true
+    type: string
+  subscription_item:
+    description: The subscription item that generated this line item
+    maxLength: 5000
+    type: string
+required:
+  - proration
+  - subscription_item
+title: BillingBillResourceInvoicingLinesParentsInvoiceLineItemSubscriptionItemParent
+type: object
+x-expandableFields:
+  - proration_details

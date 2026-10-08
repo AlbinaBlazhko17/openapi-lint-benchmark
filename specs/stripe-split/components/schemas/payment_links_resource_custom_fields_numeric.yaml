@@ -1,0 +1,18 @@
+description: ''
+properties:
+  default_value:
+    description: The value that pre-fills the field on the payment page.
+    maxLength: 5000
+    nullable: true
+    type: string
+  maximum_length:
+    description: The maximum character length constraint for the customer's input.
+    nullable: true
+    type: integer
+  minimum_length:
+    description: The minimum character length requirement for the customer's input.
+    nullable: true
+    type: integer
+title: PaymentLinksResourceCustomFieldsNumeric
+type: object
+x-expandableFields: []

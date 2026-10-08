@@ -1,0 +1,23 @@
+description: User intervention raised event details attached to this payment evaluation
+properties:
+  custom:
+    $ref: >-
+      ./insights_resources_payment_evaluation_user_intervention_raised_custom.yaml
+  key:
+    description: Unique identifier for the user intervention event.
+    maxLength: 5000
+    type: string
+  type:
+    description: Type of user intervention raised.
+    enum:
+      - 3ds
+      - captcha
+      - custom
+    type: string
+required:
+  - key
+  - type
+title: InsightsResourcesPaymentEvaluationUserInterventionRaised
+type: object
+x-expandableFields:
+  - custom

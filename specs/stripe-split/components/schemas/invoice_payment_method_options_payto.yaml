@@ -1,0 +1,8 @@
+description: ''
+properties:
+  mandate_options:
+    $ref: ./invoice_mandate_options_payto.yaml
+title: invoice_payment_method_options_payto
+type: object
+x-expandableFields:
+  - mandate_options

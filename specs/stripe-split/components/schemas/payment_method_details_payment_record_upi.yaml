@@ -1,0 +1,10 @@
+description: ''
+properties:
+  vpa:
+    description: Customer's unique Virtual Payment Address.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: payment_method_details_payment_record_upi
+type: object
+x-expandableFields: []

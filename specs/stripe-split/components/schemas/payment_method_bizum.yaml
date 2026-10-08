@@ -1,0 +1,12 @@
+description: ''
+properties:
+  buyer_id:
+    description: >-
+      A unique identifier for the buyer as determined by the local payment
+      processor.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: payment_method_bizum
+type: object
+x-expandableFields: []

@@ -1,0 +1,35 @@
+description: ''
+properties:
+  balance_transaction:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./balance_transaction.yaml
+    description: >-
+      The [Balance
+      Transaction](https://docs.stripe.com/api/balance_transactions/object) that
+      corresponds to funds taken out of your Stripe balance.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./balance_transaction.yaml
+  linked_transaction:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./customer_cash_balance_transaction.yaml
+    description: >-
+      The [Cash Balance
+      Transaction](https://docs.stripe.com/api/cash_balance_transactions/object)
+      that brought the customer balance negative, triggering the clawback of
+      funds.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./customer_cash_balance_transaction.yaml
+required:
+  - balance_transaction
+  - linked_transaction
+title: CustomerBalanceResourceCashBalanceTransactionResourceAdjustedForOverdraft
+type: object
+x-expandableFields:
+  - balance_transaction
+  - linked_transaction

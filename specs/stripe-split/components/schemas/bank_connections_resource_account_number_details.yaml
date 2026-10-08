@@ -1,0 +1,36 @@
+description: ''
+properties:
+  expected_expiry_date:
+    description: When the account number is expected to expire, if applicable.
+    format: unix-time
+    nullable: true
+    type: integer
+  identifier_type:
+    description: The type of account number associated with the account.
+    enum:
+      - account_number
+      - tokenized_account_number
+    type: string
+  status:
+    description: >-
+      Whether the account number is currently active and usable for
+      transactions.
+    enum:
+      - deactivated
+      - transactable
+    type: string
+  supported_networks:
+    description: The payment networks that the account number can be used for.
+    items:
+      enum:
+        - ach
+      type: string
+      x-stripeBypassValidation: true
+    type: array
+required:
+  - identifier_type
+  - status
+  - supported_networks
+title: BankConnectionsResourceAccountNumberDetails
+type: object
+x-expandableFields: []

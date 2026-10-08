@@ -1,0 +1,57 @@
+post:
+  description: <p>Increment a test-mode Authorization.</p>
+  operationId: PostTestHelpersIssuingAuthorizationsAuthorizationIncrement
+  parameters:
+    - in: path
+      name: authorization
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            increment_amount:
+              description: >-
+                The amount to increment the authorization by. This amount is in
+                the authorization currency and in the [smallest currency
+                unit](https://docs.stripe.com/currencies#zero-decimal).
+              type: integer
+            is_amount_controllable:
+              description: >-
+                If set `true`, you may provide
+                [amount](https://docs.stripe.com/api/issuing/authorizations/approve#approve_issuing_authorization-amount)
+                to control how much to hold for the authorization.
+              type: boolean
+          required:
+            - increment_amount
+          type: object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/issuing.authorization.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Increment a test-mode authorization

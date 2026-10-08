@@ -1,0 +1,48 @@
+get:
+  description: <p>Finds a tax association object by PaymentIntent id.</p>
+  operationId: GetTaxAssociationsFind
+  parameters:
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+    - description: >-
+        Valid
+        [PaymentIntent](https://docs.stripe.com/api/payment_intents/object) id
+      in: query
+      name: payment_intent
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: form
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/tax.association.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Find a Tax Association

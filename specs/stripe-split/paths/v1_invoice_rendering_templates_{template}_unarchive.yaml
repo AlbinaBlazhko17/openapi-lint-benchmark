@@ -1,0 +1,45 @@
+post:
+  description: >-
+    <p>Unarchive an invoice rendering template so it can be used on new Stripe
+    objects again.</p>
+  operationId: PostInvoiceRenderingTemplatesTemplateUnarchive
+  parameters:
+    - in: path
+      name: template
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/invoice_rendering_template.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Unarchive an invoice rendering template

@@ -1,0 +1,20 @@
+description: ''
+properties:
+  address:
+    $ref: ./address.yaml
+  name:
+    description: Recipient name.
+    maxLength: 5000
+    type: string
+  phone:
+    description: Recipient phone (including extension).
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - address
+  - name
+title: ConfirmationTokensResourceShipping
+type: object
+x-expandableFields:
+  - address

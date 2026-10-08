@@ -1,0 +1,20 @@
+description: The customer's shipping information associated with this payment.
+properties:
+  address:
+    $ref: ./payments_primitives_payment_records_resource_address.yaml
+  name:
+    description: The shipping recipient's name.
+    maxLength: 5000
+    nullable: true
+    type: string
+  phone:
+    description: The shipping recipient's phone number.
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - address
+title: PaymentsPrimitivesPaymentRecordsResourceShippingDetails
+type: object
+x-expandableFields:
+  - address

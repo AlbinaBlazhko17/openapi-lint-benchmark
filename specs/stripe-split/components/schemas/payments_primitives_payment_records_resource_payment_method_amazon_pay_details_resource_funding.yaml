@@ -1,0 +1,16 @@
+description: ''
+properties:
+  card:
+    $ref: >-
+      ./payments_primitives_payment_records_resource_payment_method_amazon_pay_details_resource_funding_resource_funding_card.yaml
+  type:
+    description: funding type of the underlying payment method.
+    enum:
+      - card
+    nullable: true
+    type: string
+title: >-
+  PaymentsPrimitivesPaymentRecordsResourcePaymentMethodAmazonPayDetailsResourceFunding
+type: object
+x-expandableFields:
+  - card

@@ -1,0 +1,55 @@
+description: ''
+properties:
+  background_color:
+    description: >-
+      A hex color value starting with `#` representing the background color for
+      the Checkout Session.
+    maxLength: 5000
+    type: string
+  border_style:
+    description: >-
+      The border style for the Checkout Session. Must be one of `rounded`,
+      `rectangular`, or `pill`.
+    enum:
+      - pill
+      - rectangular
+      - rounded
+    type: string
+  button_color:
+    description: >-
+      A hex color value starting with `#` representing the button color for the
+      Checkout Session.
+    maxLength: 5000
+    type: string
+  display_name:
+    description: The display name shown on the Checkout Session.
+    maxLength: 5000
+    type: string
+  font_family:
+    description: >-
+      The font family for the Checkout Session. Must be one of the [supported
+      font
+      families](https://docs.stripe.com/payments/checkout/customization/appearance?payment-ui=stripe-hosted#font-compatibility).
+    maxLength: 5000
+    type: string
+  icon:
+    anyOf:
+      - $ref: ./payment_pages_checkout_session_branding_settings_icon.yaml
+    description: The icon for the Checkout Session. You cannot set both `logo` and `icon`.
+    nullable: true
+  logo:
+    anyOf:
+      - $ref: ./payment_pages_checkout_session_branding_settings_logo.yaml
+    description: The logo for the Checkout Session. You cannot set both `logo` and `icon`.
+    nullable: true
+required:
+  - background_color
+  - border_style
+  - button_color
+  - display_name
+  - font_family
+title: PaymentPagesCheckoutSessionBrandingSettings
+type: object
+x-expandableFields:
+  - icon
+  - logo

@@ -1,0 +1,90 @@
+description: A line item.
+properties:
+  adjustable_quantity:
+    anyOf:
+      - $ref: ./line_items_adjustable_quantity.yaml
+    nullable: true
+  amount_discount:
+    description: >-
+      Total discount amount applied. If no discounts were applied, defaults to
+      0.
+    type: integer
+  amount_subtotal:
+    description: Total before any discounts or taxes are applied.
+    type: integer
+  amount_tax:
+    description: Total tax amount applied. If no tax was applied, defaults to 0.
+    type: integer
+  amount_total:
+    description: Total after discounts and taxes.
+    type: integer
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    format: currency
+    type: string
+  description:
+    description: >-
+      An arbitrary string attached to the object. Often useful for displaying to
+      users. Defaults to product name.
+    maxLength: 5000
+    nullable: true
+    type: string
+  discounts:
+    description: The discounts applied to the line item.
+    items:
+      $ref: ./line_items_discount_amount.yaml
+    type: array
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    nullable: true
+    type: object
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - item
+    type: string
+  price:
+    anyOf:
+      - $ref: ./price.yaml
+    description: The price used to generate the line item.
+    nullable: true
+  quantity:
+    description: The quantity of products being purchased.
+    nullable: true
+    type: integer
+  taxes:
+    description: The taxes applied to the line item.
+    items:
+      $ref: ./line_items_tax_amount.yaml
+    type: array
+required:
+  - amount_discount
+  - amount_subtotal
+  - amount_tax
+  - amount_total
+  - currency
+  - id
+  - object
+title: LineItem
+type: object
+x-expandableFields:
+  - adjustable_quantity
+  - discounts
+  - price
+  - taxes
+x-resourceId: item

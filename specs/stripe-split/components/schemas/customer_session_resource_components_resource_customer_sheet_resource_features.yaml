@@ -1,0 +1,41 @@
+description: This hash contains the features the customer sheet supports.
+properties:
+  payment_method_allow_redisplay_filters:
+    description: >-
+      A list of
+      [`allow_redisplay`](https://docs.stripe.com/api/payment_methods/object#payment_method_object-allow_redisplay)
+      values that controls which saved payment methods the customer sheet
+      displays by filtering to only show payment methods with an
+      `allow_redisplay` value that is present in this list.
+
+
+      If not specified, defaults to ["always"]. In order to display all saved
+      payment methods, specify ["always", "limited", "unspecified"].
+    items:
+      enum:
+        - always
+        - limited
+        - unspecified
+      type: string
+    nullable: true
+    type: array
+  payment_method_remove:
+    description: >-
+      Controls whether the customer sheet displays the option to remove a saved
+      payment method."
+
+
+      Allowing buyers to remove their saved payment methods impacts
+      subscriptions that depend on that payment method. Removing the payment
+      method detaches the [`customer`
+      object](https://docs.stripe.com/api/payment_methods/object#payment_method_object-customer)
+      from that [PaymentMethod](https://docs.stripe.com/api/payment_methods).
+    enum:
+      - disabled
+      - enabled
+    nullable: true
+    type: string
+    x-stripeBypassValidation: true
+title: CustomerSessionResourceComponentsResourceCustomerSheetResourceFeatures
+type: object
+x-expandableFields: []

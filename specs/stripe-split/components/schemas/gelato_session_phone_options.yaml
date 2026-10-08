@@ -1,0 +1,8 @@
+description: ''
+properties:
+  require_verification:
+    description: Request one time password verification of `provided_details.phone`.
+    type: boolean
+title: GelatoSessionPhoneOptions
+type: object
+x-expandableFields: []

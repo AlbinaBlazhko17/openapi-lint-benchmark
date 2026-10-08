@@ -1,0 +1,11 @@
+description: OutboundTransfers contains outbound transfers features for a FinancialAccount.
+properties:
+  ach:
+    $ref: ./treasury_financial_accounts_resource_outbound_ach_toggle_settings.yaml
+  us_domestic_wire:
+    $ref: ./treasury_financial_accounts_resource_toggle_settings.yaml
+title: TreasuryFinancialAccountsResourceOutboundTransfers
+type: object
+x-expandableFields:
+  - ach
+  - us_domestic_wire

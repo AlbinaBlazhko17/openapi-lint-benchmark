@@ -1,0 +1,128 @@
+description: >-
+  Customers with certain payments enabled have a cash balance, representing
+  funds that were paid
+
+  by the customer to a merchant, but have not yet been allocated to a payment.
+  Cash Balance Transactions
+
+  represent when funds are moved into or out of this balance. This includes
+  funding by the customer, allocation
+
+  to payments, and refunds to the customer.
+properties:
+  adjusted_for_overdraft:
+    $ref: >-
+      ./customer_balance_resource_cash_balance_transaction_resource_adjusted_for_overdraft.yaml
+  applied_to_payment:
+    $ref: >-
+      ./customer_balance_resource_cash_balance_transaction_resource_applied_to_payment_transaction.yaml
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    maxLength: 5000
+    type: string
+  customer:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./customer.yaml
+    description: >-
+      The customer whose available cash balance changed as a result of this
+      transaction.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./customer.yaml
+  customer_account:
+    description: >-
+      The ID of an Account representing a customer whose available cash balance
+      changed as a result of this transaction.
+    maxLength: 5000
+    nullable: true
+    type: string
+  ending_balance:
+    description: >-
+      The total available cash balance for the specified currency after this
+      transaction was applied. Represented in the [smallest currency
+      unit](https://docs.stripe.com/currencies#zero-decimal).
+    type: integer
+  funded:
+    $ref: >-
+      ./customer_balance_resource_cash_balance_transaction_resource_funded_transaction.yaml
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  net_amount:
+    description: >-
+      The amount by which the cash balance changed, represented in the [smallest
+      currency unit](https://docs.stripe.com/currencies#zero-decimal). A
+      positive value represents funds being added to the cash balance, a
+      negative value represents funds being removed from the cash balance.
+    type: integer
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - customer_cash_balance_transaction
+    type: string
+  refunded_from_payment:
+    $ref: >-
+      ./customer_balance_resource_cash_balance_transaction_resource_refunded_from_payment_transaction.yaml
+  transferred_to_balance:
+    $ref: >-
+      ./customer_balance_resource_cash_balance_transaction_resource_transferred_to_balance.yaml
+  type:
+    description: >-
+      The type of the cash balance transaction. New types may be added in
+      future. See [Customer
+      Balance](https://docs.stripe.com/payments/customer-balance#types) to learn
+      more about these types.
+    enum:
+      - adjusted_for_overdraft
+      - applied_to_payment
+      - funded
+      - funding_reversed
+      - refunded_from_payment
+      - return_canceled
+      - return_initiated
+      - transferred_to_balance
+      - unapplied_from_payment
+    type: string
+  unapplied_from_payment:
+    $ref: >-
+      ./customer_balance_resource_cash_balance_transaction_resource_unapplied_from_payment_transaction.yaml
+required:
+  - created
+  - currency
+  - customer
+  - ending_balance
+  - id
+  - livemode
+  - net_amount
+  - object
+  - type
+title: Cash Balance Transaction
+type: object
+x-expandableFields:
+  - adjusted_for_overdraft
+  - applied_to_payment
+  - customer
+  - funded
+  - refunded_from_payment
+  - transferred_to_balance
+  - unapplied_from_payment
+x-resourceId: customer_cash_balance_transaction

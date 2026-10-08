@@ -1,0 +1,10 @@
+description: ''
+properties:
+  posted_at:
+    description: Timestamp describing when the CreditReversal changed status to `posted`
+    format: unix-time
+    nullable: true
+    type: integer
+title: TreasuryReceivedCreditsResourceStatusTransitions
+type: object
+x-expandableFields: []

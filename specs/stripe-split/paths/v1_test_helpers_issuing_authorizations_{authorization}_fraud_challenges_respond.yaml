@@ -1,0 +1,53 @@
+post:
+  description: >-
+    <p>Respond to a fraud challenge on a testmode Issuing authorization,
+    simulating either a confirmation of fraud or a correction of legitimacy.</p>
+  operationId: PostTestHelpersIssuingAuthorizationsAuthorizationFraudChallengesRespond
+  parameters:
+    - in: path
+      name: authorization
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            confirmed:
+              description: >-
+                Whether to simulate the user confirming that the transaction was
+                legitimate (true) or telling Stripe that it was fraudulent
+                (false).
+              type: boolean
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+          required:
+            - confirmed
+          type: object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/issuing.authorization.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Respond to fraud challenge

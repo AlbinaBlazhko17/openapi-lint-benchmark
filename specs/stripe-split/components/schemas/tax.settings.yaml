@@ -1,0 +1,48 @@
+description: >-
+  You can use Tax `Settings` to manage configurations used by Stripe Tax
+  calculations.
+
+
+  Related guide: [Using the Settings
+  API](https://docs.stripe.com/tax/settings-api)
+properties:
+  defaults:
+    $ref: ./tax_product_resource_tax_settings_defaults.yaml
+  head_office:
+    anyOf:
+      - $ref: ./tax_product_resource_tax_settings_head_office.yaml
+    description: The place where your business is located.
+    nullable: true
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - tax.settings
+    type: string
+  status:
+    description: The status of the Tax `Settings`.
+    enum:
+      - active
+      - pending
+    type: string
+  status_details:
+    $ref: ./tax_product_resource_tax_settings_status_details.yaml
+required:
+  - defaults
+  - livemode
+  - object
+  - status
+  - status_details
+title: Tax Setting
+type: object
+x-expandableFields:
+  - defaults
+  - head_office
+  - status_details
+x-resourceId: tax.settings

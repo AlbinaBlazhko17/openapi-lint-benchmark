@@ -1,0 +1,43 @@
+description: ''
+properties:
+  brand:
+    description: >-
+      Card brand. Can be `amex`, `cartes_bancaires`, `diners`, `discover`,
+      `eftpos_au`, `jcb`, `link`, `mastercard`, `unionpay`, `visa` or `unknown`.
+    maxLength: 5000
+    type: string
+  case_type:
+    description: >-
+      The type of dispute opened. Different case types may have varying fees and
+      financial impact.
+    enum:
+      - block
+      - chargeback
+      - compliance
+      - inquiry
+      - resolution
+    type: string
+  network:
+    description: >-
+      Identifies which network this charge was processed on. Can be `amex`,
+      `cartes_bancaires`, `diners`, `discover`, `eftpos_au`, `interac`, `jcb`,
+      `link`, `mastercard`, `unionpay`, `visa`, or `unknown`.
+    maxLength: 5000
+    type: string
+  network_reason_code:
+    description: >-
+      The card network's specific dispute reason code, which maps to one of
+      Stripe's primary dispute categories to simplify response guidance. The
+      [Network code
+      map](https://stripe.com/docs/disputes/categories#network-code-map) lists
+      all available dispute reason codes by network.
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - brand
+  - case_type
+  - network
+title: DisputePaymentMethodDetailsCard
+type: object
+x-expandableFields: []

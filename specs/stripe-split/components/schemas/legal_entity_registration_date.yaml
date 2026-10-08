@@ -1,0 +1,17 @@
+description: ''
+properties:
+  day:
+    description: The day of registration, between 1 and 31.
+    nullable: true
+    type: integer
+  month:
+    description: The month of registration, between 1 and 12.
+    nullable: true
+    type: integer
+  year:
+    description: The four-digit year of registration.
+    nullable: true
+    type: integer
+title: LegalEntityRegistrationDate
+type: object
+x-expandableFields: []

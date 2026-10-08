@@ -1,0 +1,86 @@
+post:
+  description: <p>Allows the user to create an Issuing settlement.</p>
+  operationId: PostTestHelpersIssuingSettlements
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            bin:
+              description: >-
+                The Bank Identification Number reflecting this settlement
+                record.
+              maxLength: 5000
+              type: string
+            clearing_date:
+              description: >-
+                The date that the transactions are cleared and posted to user's
+                accounts.
+              type: integer
+            currency:
+              description: >-
+                Three-letter [ISO currency
+                code](https://www.iso.org/iso-4217-currency-codes.html), in
+                lowercase. Must be a [supported
+                currency](https://stripe.com/docs/currencies).
+              format: currency
+              type: string
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            interchange_fees_amount:
+              description: >-
+                The total interchange received as reimbursement for the
+                transactions.
+              type: integer
+            net_total_amount:
+              description: The total net amount required to settle with the network.
+              type: integer
+            network:
+              description: >-
+                The card network for this settlement. One of ["visa", "maestro",
+                "mastercard"]
+              enum:
+                - maestro
+                - visa
+              type: string
+              x-stripeBypassValidation: true
+            network_settlement_identifier:
+              description: The Settlement Identification Number assigned by the network.
+              maxLength: 5000
+              type: string
+            transaction_amount:
+              description: The total transaction amount reflected in this settlement.
+              type: integer
+            transaction_count:
+              description: The total number of transactions reflected in this settlement.
+              type: integer
+          required:
+            - bin
+            - clearing_date
+            - currency
+            - net_total_amount
+          type: object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/issuing.settlement.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Create a test-mode settlement

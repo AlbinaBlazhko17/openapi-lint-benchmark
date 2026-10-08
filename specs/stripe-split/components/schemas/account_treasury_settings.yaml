@@ -1,0 +1,8 @@
+description: ''
+properties:
+  tos_acceptance:
+    $ref: ./account_terms_of_service.yaml
+title: AccountTreasurySettings
+type: object
+x-expandableFields:
+  - tos_acceptance

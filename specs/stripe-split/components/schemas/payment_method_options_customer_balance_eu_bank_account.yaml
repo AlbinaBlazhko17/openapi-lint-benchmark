@@ -1,0 +1,19 @@
+description: ''
+properties:
+  country:
+    description: >-
+      The desired country code of the bank account information. Permitted values
+      include: `DE`, `FR`, `IE`, or `NL`.
+    enum:
+      - BE
+      - DE
+      - ES
+      - FR
+      - IE
+      - NL
+    type: string
+required:
+  - country
+title: payment_method_options_customer_balance_eu_bank_account
+type: object
+x-expandableFields: []

@@ -1,0 +1,16 @@
+description: ''
+properties:
+  payment_record:
+    description: ID of the payment record.
+    maxLength: 5000
+    type: string
+  refund_group:
+    description: ID of the refund group.
+    maxLength: 5000
+    type: string
+required:
+  - payment_record
+  - refund_group
+title: CreditNotesPaymentRecordRefund
+type: object
+x-expandableFields: []

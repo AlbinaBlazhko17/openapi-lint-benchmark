@@ -1,0 +1,15 @@
+description: ''
+properties:
+  standard:
+    $ref: ./tax_product_registrations_resource_country_options_default_standard.yaml
+  type:
+    description: Type of registration in `country`.
+    enum:
+      - standard
+    type: string
+required:
+  - type
+title: TaxProductRegistrationsResourceCountryOptionsDefaultInboundGoods
+type: object
+x-expandableFields:
+  - standard

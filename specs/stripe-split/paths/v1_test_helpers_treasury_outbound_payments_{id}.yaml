@@ -1,0 +1,85 @@
+post:
+  description: >-
+    <p>Updates a test mode created OutboundPayment with tracking details. The
+    OutboundPayment must not be cancelable, and cannot be in the
+    <code>canceled</code> or <code>failed</code> states.</p>
+  operationId: PostTestHelpersTreasuryOutboundPaymentsId
+  parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+          tracking_details:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            tracking_details:
+              description: Details about network-specific tracking information.
+              properties:
+                ach:
+                  properties:
+                    trace_id:
+                      maxLength: 5000
+                      type: string
+                  required:
+                    - trace_id
+                  title: ach_tracking_details_params
+                  type: object
+                type:
+                  enum:
+                    - ach
+                    - us_domestic_wire
+                  type: string
+                us_domestic_wire:
+                  properties:
+                    chips:
+                      maxLength: 5000
+                      type: string
+                    imad:
+                      maxLength: 5000
+                      type: string
+                    omad:
+                      maxLength: 5000
+                      type: string
+                  title: us_domestic_wire_tracking_details_params
+                  type: object
+              required:
+                - type
+              title: tracking_details_params
+              type: object
+          required:
+            - tracking_details
+          type: object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/treasury.outbound_payment.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: 'Test mode: Update an OutboundPayment'

@@ -1,0 +1,22 @@
+description: Represents a reader action to set the reader display
+properties:
+  cart:
+    anyOf:
+      - $ref: ./terminal_reader_reader_resource_cart.yaml
+    description: >-
+      Cart object to be displayed by the reader, including line items, amounts,
+      and currency.
+    nullable: true
+  type:
+    description: >-
+      Type of information to be displayed by the reader. Only `cart` is
+      currently supported.
+    enum:
+      - cart
+    type: string
+required:
+  - type
+title: TerminalReaderReaderResourceSetReaderDisplayAction
+type: object
+x-expandableFields:
+  - cart

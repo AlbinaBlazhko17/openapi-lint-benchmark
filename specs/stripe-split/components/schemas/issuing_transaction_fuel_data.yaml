@@ -1,0 +1,43 @@
+description: ''
+properties:
+  industry_product_code:
+    description: >-
+      [Conexxus Payment System Product
+      Code](https://www.conexxus.org/conexxus-payment-system-product-codes)
+      identifying the primary fuel product purchased.
+    maxLength: 5000
+    nullable: true
+    type: string
+  quantity_decimal:
+    description: >-
+      The quantity of `unit`s of fuel that was dispensed, represented as a
+      decimal string with at most 12 decimal places.
+    format: decimal
+    nullable: true
+    type: string
+  type:
+    description: >-
+      The type of fuel that was purchased. One of `diesel`, `unleaded_plus`,
+      `unleaded_regular`, `unleaded_super`, or `other`.
+    maxLength: 5000
+    type: string
+  unit:
+    description: >-
+      The units for `quantity_decimal`. One of `charging_minute`,
+      `imperial_gallon`, `kilogram`, `kilowatt_hour`, `liter`, `pound`,
+      `us_gallon`, or `other`.
+    maxLength: 5000
+    type: string
+  unit_cost_decimal:
+    description: >-
+      The cost in cents per each unit of fuel, represented as a decimal string
+      with at most 12 decimal places.
+    format: decimal
+    type: string
+required:
+  - type
+  - unit
+  - unit_cost_decimal
+title: IssuingTransactionFuelData
+type: object
+x-expandableFields: []

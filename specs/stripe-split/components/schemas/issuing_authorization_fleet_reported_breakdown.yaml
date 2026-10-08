@@ -1,0 +1,23 @@
+description: ''
+properties:
+  fuel:
+    anyOf:
+      - $ref: ./issuing_authorization_fleet_fuel_price_data.yaml
+    description: Breakdown of fuel portion of the purchase.
+    nullable: true
+  non_fuel:
+    anyOf:
+      - $ref: ./issuing_authorization_fleet_non_fuel_price_data.yaml
+    description: Breakdown of non-fuel portion of the purchase.
+    nullable: true
+  tax:
+    anyOf:
+      - $ref: ./issuing_authorization_fleet_tax_data.yaml
+    description: Information about tax included in this transaction.
+    nullable: true
+title: IssuingAuthorizationFleetReportedBreakdown
+type: object
+x-expandableFields:
+  - fuel
+  - non_fuel
+  - tax

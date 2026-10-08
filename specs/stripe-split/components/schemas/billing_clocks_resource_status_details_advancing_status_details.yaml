@@ -1,0 +1,11 @@
+description: ''
+properties:
+  target_frozen_time:
+    description: The `frozen_time` that the Test Clock is advancing towards.
+    format: unix-time
+    type: integer
+required:
+  - target_frozen_time
+title: BillingClocksResourceStatusDetailsAdvancingStatusDetails
+type: object
+x-expandableFields: []

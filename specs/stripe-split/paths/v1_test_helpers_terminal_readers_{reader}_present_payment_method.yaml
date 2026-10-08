@@ -1,0 +1,100 @@
+post:
+  description: >-
+    <p>Presents a payment method on a simulated reader. Can be used to simulate
+    accepting a payment, saving a card or refunding a transaction.</p>
+  operationId: PostTestHelpersTerminalReadersReaderPresentPaymentMethod
+  parameters:
+    - in: path
+      name: reader
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          card:
+            explode: true
+            style: deepObject
+          card_present:
+            explode: true
+            style: deepObject
+          expand:
+            explode: true
+            style: deepObject
+          interac_present:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            amount_tip:
+              description: Simulated on-reader tip amount.
+              type: integer
+            card:
+              description: Simulated data for the card payment method.
+              properties:
+                cvc:
+                  maxLength: 5000
+                  type: string
+                exp_month:
+                  type: integer
+                exp_year:
+                  type: integer
+                number:
+                  maxLength: 5000
+                  type: string
+              required:
+                - exp_month
+                - exp_year
+                - number
+              title: card
+              type: object
+            card_present:
+              description: Simulated data for the card_present payment method.
+              properties:
+                number:
+                  maxLength: 5000
+                  type: string
+              title: card_present
+              type: object
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            interac_present:
+              description: Simulated data for the interac_present payment method.
+              properties:
+                number:
+                  maxLength: 5000
+                  type: string
+              title: interac_present
+              type: object
+            type:
+              description: Simulated payment type.
+              enum:
+                - card
+                - card_present
+                - interac_present
+              type: string
+              x-stripeBypassValidation: true
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/terminal.reader.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Simulate presenting a payment method

@@ -1,0 +1,40 @@
+description: ''
+properties:
+  description:
+    description: >-
+      The subscription's description, meant to be displayable to the customer.
+      Use this field to optionally store an explanation of the subscription for
+      rendering in Stripe surfaces and certain local payment methods UIs.
+    maxLength: 5000
+    nullable: true
+    type: string
+  invoice_settings:
+    $ref: ./payment_links_resource_subscription_data_invoice_settings.yaml
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that will
+      set metadata on [Subscriptions](https://docs.stripe.com/api/subscriptions)
+      generated from this payment link.
+    type: object
+  trial_period_days:
+    description: >-
+      Integer representing the number of trial period days before the customer
+      is charged for the first time.
+    nullable: true
+    type: integer
+  trial_settings:
+    anyOf:
+      - $ref: ./subscriptions_trials_resource_trial_settings.yaml
+    description: Settings related to subscription trials.
+    nullable: true
+required:
+  - invoice_settings
+  - metadata
+title: PaymentLinksResourceSubscriptionData
+type: object
+x-expandableFields:
+  - invoice_settings
+  - trial_settings

@@ -1,0 +1,14 @@
+description: ''
+properties:
+  amount:
+    description: The amount discounted.
+    type: integer
+  discount:
+    $ref: ./discount.yaml
+required:
+  - amount
+  - discount
+title: LineItemsDiscountAmount
+type: object
+x-expandableFields:
+  - discount

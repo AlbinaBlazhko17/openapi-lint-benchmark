@@ -1,0 +1,13 @@
+description: ''
+properties:
+  status:
+    description: Indicates whether or not multiple captures are supported.
+    enum:
+      - available
+      - unavailable
+    type: string
+required:
+  - status
+title: PaymentFlowsPrivatePaymentMethodsCardDetailsAPIResourceMulticapture
+type: object
+x-expandableFields: []

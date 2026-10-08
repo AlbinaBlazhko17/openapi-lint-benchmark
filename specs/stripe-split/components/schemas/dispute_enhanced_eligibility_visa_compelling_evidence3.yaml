@@ -1,0 +1,28 @@
+description: ''
+properties:
+  required_actions:
+    description: >-
+      List of actions required to qualify dispute for Visa Compelling Evidence
+      3.0 evidence submission.
+    items:
+      enum:
+        - missing_customer_identifiers
+        - missing_disputed_transaction_description
+        - missing_merchandise_or_services
+        - missing_prior_undisputed_transaction_description
+        - missing_prior_undisputed_transactions
+      type: string
+    type: array
+  status:
+    description: Visa Compelling Evidence 3.0 eligibility status.
+    enum:
+      - not_qualified
+      - qualified
+      - requires_action
+    type: string
+required:
+  - required_actions
+  - status
+title: DisputeEnhancedEligibilityVisaCompellingEvidence3
+type: object
+x-expandableFields: []

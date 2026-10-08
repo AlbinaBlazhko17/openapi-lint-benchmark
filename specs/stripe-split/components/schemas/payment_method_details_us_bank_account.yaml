@@ -1,0 +1,62 @@
+description: ''
+properties:
+  account_holder_type:
+    description: 'Account holder type: individual or company.'
+    enum:
+      - company
+      - individual
+    nullable: true
+    type: string
+  account_type:
+    description: 'Account type: checkings or savings. Defaults to checking if omitted.'
+    enum:
+      - checking
+      - savings
+    nullable: true
+    type: string
+  bank_name:
+    description: Name of the bank associated with the bank account.
+    maxLength: 5000
+    nullable: true
+    type: string
+  expected_debit_date:
+    description: >-
+      Estimated date to debit the customer's bank account. A date string in
+      YYYY-MM-DD format.
+    maxLength: 5000
+    type: string
+  fingerprint:
+    description: >-
+      Uniquely identifies this particular bank account. You can use this
+      attribute to check whether two bank accounts are the same.
+    maxLength: 5000
+    nullable: true
+    type: string
+  last4:
+    description: Last four digits of the bank account number.
+    maxLength: 5000
+    nullable: true
+    type: string
+  mandate:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./mandate.yaml
+    description: ID of the mandate used to make this payment.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./mandate.yaml
+  payment_reference:
+    description: Reference number to locate ACH payments with customer's bank.
+    maxLength: 5000
+    nullable: true
+    type: string
+  routing_number:
+    description: Routing number of the bank account.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: payment_method_details_us_bank_account
+type: object
+x-expandableFields:
+  - mandate

@@ -1,0 +1,134 @@
+description: >-
+  A credit grant is an API resource that documents the allocation of some
+  billing credits to a customer.
+
+
+  Related guide: [Billing
+  credits](https://docs.stripe.com/billing/subscriptions/usage-based/billing-credits)
+properties:
+  amount:
+    $ref: ./billing_credit_grants_resource_amount.yaml
+  applicability_config:
+    $ref: ./billing_credit_grants_resource_applicability_config.yaml
+  category:
+    description: >-
+      The category of this credit grant. This is for tracking purposes and isn't
+      displayed to the customer.
+    enum:
+      - paid
+      - promotional
+    type: string
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  customer:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./customer.yaml
+      - $ref: ./deleted_customer.yaml
+    description: ID of the customer receiving the billing credits.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./customer.yaml
+        - $ref: ./deleted_customer.yaml
+  customer_account:
+    description: ID of the account representing the customer receiving the billing credits
+    maxLength: 5000
+    nullable: true
+    type: string
+  effective_at:
+    description: >-
+      The time when the billing credits become effective-when they're eligible
+      for use.
+    format: unix-time
+    nullable: true
+    type: integer
+  expires_at:
+    description: >-
+      The time when the billing credits expire. If not present, the billing
+      credits don't expire.
+    format: unix-time
+    nullable: true
+    type: integer
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    type: object
+  name:
+    description: A descriptive name shown in dashboard.
+    maxLength: 5000
+    nullable: true
+    type: string
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - billing.credit_grant
+    type: string
+  priority:
+    description: >-
+      The priority for applying this credit grant. The highest priority is 0 and
+      the lowest is 100.
+    nullable: true
+    type: integer
+  test_clock:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./test_helpers.test_clock.yaml
+    description: ID of the test clock this credit grant belongs to.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./test_helpers.test_clock.yaml
+  updated:
+    description: >-
+      Time at which the object was last updated. Measured in seconds since the
+      Unix epoch.
+    format: unix-time
+    type: integer
+  voided_at:
+    description: >-
+      The time when this credit grant was voided. If not present, the credit
+      grant hasn't been voided.
+    format: unix-time
+    nullable: true
+    type: integer
+required:
+  - amount
+  - applicability_config
+  - category
+  - created
+  - customer
+  - id
+  - livemode
+  - metadata
+  - object
+  - updated
+title: Credit Grant
+type: object
+x-expandableFields:
+  - amount
+  - applicability_config
+  - customer
+  - test_clock
+x-resourceId: billing.credit_grant

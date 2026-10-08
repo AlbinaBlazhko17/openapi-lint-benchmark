@@ -1,0 +1,36 @@
+description: ''
+properties:
+  amount:
+    description: >-
+      The maximum amount that can be collected in a single invoice. If you don't
+      specify a maximum, then there is no limit.
+    nullable: true
+    type: integer
+  amount_type:
+    description: Only `maximum` is supported.
+    enum:
+      - fixed
+      - maximum
+    nullable: true
+    type: string
+  purpose:
+    description: >-
+      The purpose for which payments are made. Has a default value based on your
+      merchant category code.
+    enum:
+      - dependant_support
+      - government
+      - loan
+      - mortgage
+      - other
+      - pension
+      - personal
+      - retail
+      - salary
+      - tax
+      - utility
+    nullable: true
+    type: string
+title: invoice_mandate_options_payto
+type: object
+x-expandableFields: []

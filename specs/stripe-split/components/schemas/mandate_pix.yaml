@@ -1,0 +1,40 @@
+description: ''
+properties:
+  amount_includes_iof:
+    description: Determines if the amount includes the IOF tax.
+    enum:
+      - always
+      - never
+    type: string
+  amount_type:
+    description: Type of amount.
+    enum:
+      - fixed
+      - maximum
+    type: string
+  end_date:
+    description: >-
+      Date when the mandate expires and no further payments will be charged, in
+      `YYYY-MM-DD`.
+    maxLength: 5000
+    type: string
+  payment_schedule:
+    description: Schedule at which the future payments will be charged.
+    enum:
+      - halfyearly
+      - monthly
+      - quarterly
+      - weekly
+      - yearly
+    type: string
+  reference:
+    description: Subscription name displayed to buyers in their bank app.
+    maxLength: 5000
+    type: string
+  start_date:
+    description: Start date of the mandate, in `YYYY-MM-DD`.
+    maxLength: 5000
+    type: string
+title: mandate_pix
+type: object
+x-expandableFields: []

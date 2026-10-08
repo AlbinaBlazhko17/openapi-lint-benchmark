@@ -1,0 +1,143 @@
+description: ''
+properties:
+  acss_debit:
+    $ref: ./checkout_acss_debit_payment_method_options.yaml
+  affirm:
+    $ref: ./checkout_affirm_payment_method_options.yaml
+  afterpay_clearpay:
+    $ref: ./checkout_afterpay_clearpay_payment_method_options.yaml
+  alipay:
+    $ref: ./checkout_alipay_payment_method_options.yaml
+  alma:
+    $ref: ./checkout_alma_payment_method_options.yaml
+  amazon_pay:
+    $ref: ./checkout_amazon_pay_payment_method_options.yaml
+  au_becs_debit:
+    $ref: ./checkout_au_becs_debit_payment_method_options.yaml
+  bacs_debit:
+    $ref: ./checkout_bacs_debit_payment_method_options.yaml
+  bancontact:
+    $ref: ./checkout_bancontact_payment_method_options.yaml
+  billie:
+    $ref: ./checkout_billie_payment_method_options.yaml
+  boleto:
+    $ref: ./checkout_boleto_payment_method_options.yaml
+  card:
+    $ref: ./checkout_card_payment_method_options.yaml
+  cashapp:
+    $ref: ./checkout_cashapp_payment_method_options.yaml
+  customer_balance:
+    $ref: ./checkout_customer_balance_payment_method_options.yaml
+  eps:
+    $ref: ./checkout_eps_payment_method_options.yaml
+  fpx:
+    $ref: ./checkout_fpx_payment_method_options.yaml
+  giropay:
+    $ref: ./checkout_giropay_payment_method_options.yaml
+  grabpay:
+    $ref: ./checkout_grab_pay_payment_method_options.yaml
+  ideal:
+    $ref: ./checkout_ideal_payment_method_options.yaml
+  kakao_pay:
+    $ref: ./checkout_kakao_pay_payment_method_options.yaml
+  klarna:
+    $ref: ./checkout_klarna_payment_method_options.yaml
+  konbini:
+    $ref: ./checkout_konbini_payment_method_options.yaml
+  kr_card:
+    $ref: ./checkout_kr_card_payment_method_options.yaml
+  link:
+    $ref: ./checkout_link_payment_method_options.yaml
+  mobilepay:
+    $ref: ./checkout_mobilepay_payment_method_options.yaml
+  multibanco:
+    $ref: ./checkout_multibanco_payment_method_options.yaml
+  naver_pay:
+    $ref: ./checkout_naver_pay_payment_method_options.yaml
+  oxxo:
+    $ref: ./checkout_oxxo_payment_method_options.yaml
+  p24:
+    $ref: ./checkout_p24_payment_method_options.yaml
+  payco:
+    $ref: ./checkout_payco_payment_method_options.yaml
+  paynow:
+    $ref: ./checkout_paynow_payment_method_options.yaml
+  paypal:
+    $ref: ./checkout_paypal_payment_method_options.yaml
+  payto:
+    $ref: ./checkout_payto_payment_method_options.yaml
+  pix:
+    $ref: ./checkout_pix_payment_method_options.yaml
+  revolut_pay:
+    $ref: ./checkout_revolut_pay_payment_method_options.yaml
+  samsung_pay:
+    $ref: ./checkout_samsung_pay_payment_method_options.yaml
+  satispay:
+    $ref: ./checkout_satispay_payment_method_options.yaml
+  scalapay:
+    $ref: ./checkout_scalapay_payment_method_options.yaml
+  sepa_debit:
+    $ref: ./checkout_sepa_debit_payment_method_options.yaml
+  sofort:
+    $ref: ./checkout_sofort_payment_method_options.yaml
+  sunbit:
+    $ref: ./checkout_sunbit_payment_method_options.yaml
+  swish:
+    $ref: ./checkout_swish_payment_method_options.yaml
+  twint:
+    $ref: ./checkout_twint_payment_method_options.yaml
+  upi:
+    $ref: ./checkout_upi_payment_method_options.yaml
+  us_bank_account:
+    $ref: ./checkout_us_bank_account_payment_method_options.yaml
+  wechat_pay:
+    $ref: ./checkout_wechat_pay_payment_method_options.yaml
+title: CheckoutSessionPaymentMethodOptions
+type: object
+x-expandableFields:
+  - acss_debit
+  - affirm
+  - afterpay_clearpay
+  - alipay
+  - alma
+  - amazon_pay
+  - au_becs_debit
+  - bacs_debit
+  - bancontact
+  - billie
+  - boleto
+  - card
+  - cashapp
+  - customer_balance
+  - eps
+  - fpx
+  - giropay
+  - grabpay
+  - ideal
+  - kakao_pay
+  - klarna
+  - konbini
+  - kr_card
+  - link
+  - mobilepay
+  - multibanco
+  - naver_pay
+  - oxxo
+  - p24
+  - payco
+  - paynow
+  - paypal
+  - payto
+  - pix
+  - revolut_pay
+  - samsung_pay
+  - satispay
+  - scalapay
+  - sepa_debit
+  - sofort
+  - sunbit
+  - swish
+  - twint
+  - upi
+  - us_bank_account
+  - wechat_pay

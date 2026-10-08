@@ -1,0 +1,20 @@
+description: ''
+properties:
+  deadline:
+    description: Time before which a ReceivedDebit can be reversed.
+    format: unix-time
+    nullable: true
+    type: integer
+  restricted_reason:
+    description: Set if a ReceivedDebit can't be reversed.
+    enum:
+      - already_reversed
+      - deadline_passed
+      - network_restricted
+      - other
+      - source_flow_restricted
+    nullable: true
+    type: string
+title: TreasuryReceivedDebitsResourceReversalDetails
+type: object
+x-expandableFields: []

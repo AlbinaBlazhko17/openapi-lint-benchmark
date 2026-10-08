@@ -1,0 +1,41 @@
+   
+ ██╗   ██╗ █████╗  ██████╗██╗   ██╗██╗   ██╗███╗   ███╗ 《《《─═─═── ·* · ˙*
+ ██║   ██║██╔══██╗██╔════╝██║   ██║██║   ██║████╗ ████║《《《──═─═──· ··* ˙˙
+ ██║   ██║███████║██║     ██║   ██║██║   ██║██╔████╔██║《《《───═─═─··· ˙˙ ˙
+ ╚██╗ ██╔╝██╔══██║██║     ██║   ██║██║   ██║██║╚██╔╝██║《《──═─═──·* ·· ˙˙
+  ╚████╔╝ ██║  ██║╚██████╗╚██████╔╝╚██████╔╝██║ ╚═╝ ██║ 《《─═─═──* · · ˙
+   ╚═══╝  ╚═╝  ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝ ╚═╝     ╚═╝ 《───═─═─· ··* ˙˙ ˙
+
+ version: 0.32.0 | compiled: Wed, 07 Oct 2026 22:36:45 UTC
+ https://quobix.com/vacuum/ | https://github.com/daveshanley/vacuum
+
+ vacuuming file 'azure.yaml' against 55 rules: https://quobix.com/vacuum/rulesets/recommended
+
+ category              ✗ errors      ▲ warnings    ● info                                                  
+ ────────────────────  ────────────  ────────────  ────────────────────────────────────────────────────────
+ Operations            0             1             0                                                       
+ Schemas               301           14            0                                                       
+ Descriptions          0             10            1,369                                                   
+ ────────────────────  ────────────  ────────────  ────────────────────────────────────────────────────────
+ total                 301           25            1,369                                                   
+
+ rule                                      violations    quality impact                                    
+ ────────────────────────────────────────  ────────────  ──────────────────────────────────────────────────
+ description-duplication                   1,369         ██████████████████████████████████████████████████
+ no-$ref-siblings                          301           ██████████                                        
+ oas2-unused-definition                    13                                                              
+ oas2-parameter-description                10                                                              
+ circular-references                       1                                                               
+ no-http-verbs-in-path                     1                                                               
+ ────────────────────────────────────────  ────────────  ──────────────────────────────────────────────────
+ total                                     1,695       
+
+ --> use the <dashboard> command to be able to navigate results interactively <--
+
+ | Quality Score: 10/100 [🥵]
+
+ | ✗ Failed with 301 errors, 25 warnings and 1,369 informs.
+
+ use --debug if you want to enable developer logging
+
+exit 1

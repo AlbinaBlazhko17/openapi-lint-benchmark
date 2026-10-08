@@ -1,0 +1,20 @@
+description: ''
+properties:
+  document:
+    $ref: ./gelato_session_document_options.yaml
+  email:
+    $ref: ./gelato_session_email_options.yaml
+  id_number:
+    $ref: ./gelato_session_id_number_options.yaml
+  matching:
+    $ref: ./gelato_session_matching_options.yaml
+  phone:
+    $ref: ./gelato_session_phone_options.yaml
+title: GelatoVerificationSessionOptions
+type: object
+x-expandableFields:
+  - document
+  - email
+  - id_number
+  - matching
+  - phone

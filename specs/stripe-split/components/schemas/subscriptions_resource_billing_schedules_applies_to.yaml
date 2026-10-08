@@ -1,0 +1,25 @@
+description: Represents the entities that the billing schedule applies to.
+properties:
+  price:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./price.yaml
+    description: >-
+      The billing schedule will apply to the subscription item with the given
+      price ID.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./price.yaml
+  type:
+    description: Controls which subscription items the billing schedule applies to.
+    enum:
+      - price
+    type: string
+required:
+  - type
+title: SubscriptionsResourceBillingSchedulesAppliesTo
+type: object
+x-expandableFields:
+  - price

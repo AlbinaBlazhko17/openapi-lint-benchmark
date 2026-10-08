@@ -1,0 +1,45 @@
+description: ''
+properties:
+  as_of:
+    description: >-
+      The time that the external institution calculated this balance. Measured
+      in seconds since the Unix epoch.
+    format: unix-time
+    type: integer
+  cash:
+    $ref: ./bank_connections_resource_balance_api_resource_cash_balance.yaml
+  credit:
+    $ref: ./bank_connections_resource_balance_api_resource_credit_balance.yaml
+  current:
+    additionalProperties:
+      type: integer
+    description: >-
+      The balances owed to (or by) the account holder, before subtracting any
+      outbound pending transactions or adding any inbound pending transactions.
+
+
+      Each key is a three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+
+
+      Each value is a integer amount. A positive amount indicates money owed to
+      the account holder. A negative amount indicates money owed by the account
+      holder.
+    type: object
+  type:
+    description: >-
+      The `type` of the balance. An additional hash is included on the balance
+      with a name matching this value.
+    enum:
+      - cash
+      - credit
+    type: string
+required:
+  - as_of
+  - current
+  - type
+title: BankConnectionsResourceBalance
+type: object
+x-expandableFields:
+  - cash
+  - credit

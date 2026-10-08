@@ -1,0 +1,12 @@
+description: ''
+properties:
+  enabled:
+    type: boolean
+  plan:
+    $ref: ./payment_method_details_card_installments_plan.yaml
+required:
+  - enabled
+title: PaymentFlowsInstallmentOptions
+type: object
+x-expandableFields:
+  - plan

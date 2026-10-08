@@ -1,0 +1,12 @@
+description: ''
+properties:
+  gross_amount_decimal:
+    description: >-
+      Gross non-fuel amount that should equal the sum of the line items,
+      inclusive of taxes.
+    format: decimal
+    nullable: true
+    type: string
+title: IssuingTransactionFleetNonFuelPriceData
+type: object
+x-expandableFields: []

@@ -1,0 +1,37 @@
+description: ''
+properties:
+  payment_method_reuse_agreement:
+    anyOf:
+      - $ref: ./payment_pages_checkout_session_payment_method_reuse_agreement.yaml
+    description: >-
+      If set to `hidden`, it will hide legal text related to the reuse of a
+      payment method.
+    nullable: true
+  promotions:
+    description: >-
+      If set to `auto`, enables the collection of customer consent for
+      promotional communications. The Checkout
+
+      Session will determine whether to display an option to opt into
+      promotional communication
+
+      from the merchant depending on the customer's locale. Only available to US
+      merchants and US customers.
+    enum:
+      - auto
+      - none
+    nullable: true
+    type: string
+  terms_of_service:
+    description: >-
+      If set to `required`, it requires customers to accept the terms of service
+      before being able to pay.
+    enum:
+      - none
+      - required
+    nullable: true
+    type: string
+title: PaymentPagesCheckoutSessionConsentCollection
+type: object
+x-expandableFields:
+  - payment_method_reuse_agreement

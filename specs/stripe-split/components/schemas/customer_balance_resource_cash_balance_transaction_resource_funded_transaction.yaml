@@ -1,0 +1,11 @@
+description: ''
+properties:
+  bank_transfer:
+    $ref: >-
+      ./customer_balance_resource_cash_balance_transaction_resource_funded_transaction_resource_bank_transfer.yaml
+required:
+  - bank_transfer
+title: CustomerBalanceResourceCashBalanceTransactionResourceFundedTransaction
+type: object
+x-expandableFields:
+  - bank_transfer

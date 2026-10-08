@@ -1,0 +1,311 @@
+get:
+  deprecated: true
+  description: >-
+    <p>You can see a list of the cards belonging to a customer.
+
+    Note that the 10 most recent sources are always available on the
+    <code>Customer</code> object.
+
+    If you need more than those 10, you can use this API method and the
+    <code>limit</code> and <code>starting_after</code> parameters to page
+    through additional cards.</p>
+  operationId: GetCustomersCustomerCards
+  parameters:
+    - in: path
+      name: customer
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+    - description: >-
+        A cursor for use in pagination. `ending_before` is an object ID that
+        defines your place in the list. For instance, if you make a list request
+        and receive 100 objects, starting with `obj_bar`, your subsequent call
+        can include `ending_before=obj_bar` in order to fetch the previous page
+        of the list.
+      in: query
+      name: ending_before
+      required: false
+      schema:
+        type: string
+      style: form
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+    - description: >-
+        A limit on the number of objects to be returned. Limit can range between
+        1 and 100, and the default is 10.
+      in: query
+      name: limit
+      required: false
+      schema:
+        type: integer
+      style: form
+    - description: >-
+        A cursor for use in pagination. `starting_after` is an object ID that
+        defines your place in the list. For instance, if you make a list request
+        and receive 100 objects, ending with `obj_foo`, your subsequent call can
+        include `starting_after=obj_foo` in order to fetch the next page of the
+        list.
+      in: query
+      name: starting_after
+      required: false
+      schema:
+        type: string
+      style: form
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            description: ''
+            properties:
+              data:
+                items:
+                  $ref: ../components/schemas/card.yaml
+                type: array
+              has_more:
+                description: >-
+                  True if this list has another page of items after this one
+                  that can be fetched.
+                type: boolean
+              object:
+                description: >-
+                  String representing the object's type. Objects of the same
+                  type share the same value. Always has the value `list`.
+                enum:
+                  - list
+                type: string
+              url:
+                description: The URL where this list can be accessed.
+                maxLength: 5000
+                type: string
+            required:
+              - data
+              - has_more
+              - object
+              - url
+            title: CardList
+            type: object
+            x-expandableFields:
+              - data
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: List all cards
+post:
+  description: >-
+    <p>When you create a new credit card, you must specify a customer or
+    recipient on which to create it.</p>
+
+
+    <p>If the card’s owner has no default card, then the new card will become
+    the default.
+
+    However, if the owner already has a default, then it will not change.
+
+    To change the default, you should <a href="/api/customers/update">update the
+    customer</a> to have a new <code>default_source</code>.</p>
+  operationId: PostCustomersCustomerCards
+  parameters:
+    - in: path
+      name: customer
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          bank_account:
+            explode: true
+            style: deepObject
+          card:
+            explode: true
+            style: deepObject
+          expand:
+            explode: true
+            style: deepObject
+          metadata:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            alipay_account:
+              description: >-
+                A token returned by [Stripe.js](https://stripe.com/docs/js)
+                representing the user’s Alipay account details.
+              maxLength: 5000
+              type: string
+            bank_account:
+              anyOf:
+                - properties:
+                    account_holder_name:
+                      maxLength: 5000
+                      type: string
+                    account_holder_type:
+                      enum:
+                        - company
+                        - individual
+                      maxLength: 5000
+                      type: string
+                    account_number:
+                      maxLength: 5000
+                      type: string
+                    country:
+                      maxLength: 5000
+                      type: string
+                    currency:
+                      format: currency
+                      type: string
+                    object:
+                      enum:
+                        - bank_account
+                      maxLength: 5000
+                      type: string
+                    routing_number:
+                      maxLength: 5000
+                      type: string
+                  required:
+                    - account_number
+                    - country
+                  title: customer_payment_source_bank_account
+                  type: object
+                - maxLength: 5000
+                  type: string
+              description: >-
+                Either a token, like the ones returned by
+                [Stripe.js](https://stripe.com/docs/js), or a dictionary
+                containing a user's bank account details.
+            card:
+              anyOf:
+                - properties:
+                    address_city:
+                      maxLength: 5000
+                      type: string
+                    address_country:
+                      maxLength: 5000
+                      type: string
+                    address_line1:
+                      maxLength: 5000
+                      type: string
+                    address_line2:
+                      maxLength: 5000
+                      type: string
+                    address_state:
+                      maxLength: 5000
+                      type: string
+                    address_zip:
+                      maxLength: 5000
+                      type: string
+                    cvc:
+                      maxLength: 5000
+                      type: string
+                    encrypted:
+                      maxLength: 5000
+                      type: string
+                    exp_month:
+                      type: integer
+                    exp_year:
+                      type: integer
+                    metadata:
+                      additionalProperties:
+                        type: string
+                      type: object
+                    name:
+                      maxLength: 5000
+                      type: string
+                    network_token:
+                      properties:
+                        number:
+                          maxLength: 5000
+                          type: string
+                      title: source_deprecated_card_network_token
+                      type: object
+                    number:
+                      maxLength: 5000
+                      type: string
+                    object:
+                      enum:
+                        - card
+                      maxLength: 5000
+                      type: string
+                    swipe_data:
+                      maxLength: 5000
+                      type: string
+                  required:
+                    - exp_month
+                    - exp_year
+                    - number
+                  title: customer_payment_source_card
+                  type: object
+                - maxLength: 5000
+                  type: string
+              description: >-
+                A token, like the ones returned by
+                [Stripe.js](https://stripe.com/docs/js).
+              x-stripeBypassValidation: true
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            metadata:
+              additionalProperties:
+                type: string
+              description: >-
+                Set of [key-value pairs](https://docs.stripe.com/api/metadata)
+                that you can attach to an object. This can be useful for storing
+                additional information about the object in a structured format.
+                Individual keys can be unset by posting an empty value to them.
+                All keys can be unset by posting an empty value to `metadata`.
+              type: object
+            source:
+              description: >-
+                Please refer to full [documentation](https://api.stripe.com)
+                instead.
+              maxLength: 5000
+              type: string
+              x-stripeBypassValidation: true
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/payment_source.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Create a card

@@ -1,0 +1,39 @@
+description: >-
+  The usage threshold alert configuration enables setting up alerts for when a
+  certain usage threshold on a specific meter is crossed.
+properties:
+  filters:
+    description: >-
+      The filters allow limiting the scope of this usage alert. You can only
+      specify up to one filter at this time.
+    items:
+      $ref: ./thresholds_resource_usage_alert_filter.yaml
+    nullable: true
+    type: array
+  gte:
+    description: The value at which this alert will trigger.
+    type: integer
+  meter:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./billing.meter.yaml
+    description: The [Billing Meter](/api/billing/meter) ID whose usage is monitored.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./billing.meter.yaml
+  recurrence:
+    description: Defines how the alert will behave.
+    enum:
+      - one_time
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - gte
+  - meter
+  - recurrence
+title: Usage threshold alert configuration
+type: object
+x-expandableFields:
+  - filters
+  - meter

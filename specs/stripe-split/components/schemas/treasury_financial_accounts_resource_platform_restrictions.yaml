@@ -1,0 +1,19 @@
+description: Restrictions that a Connect Platform has placed on this FinancialAccount.
+properties:
+  inbound_flows:
+    description: Restricts all inbound money movement.
+    enum:
+      - restricted
+      - unrestricted
+    nullable: true
+    type: string
+  outbound_flows:
+    description: Restricts all outbound money movement.
+    enum:
+      - restricted
+      - unrestricted
+    nullable: true
+    type: string
+title: TreasuryFinancialAccountsResourcePlatformRestrictions
+type: object
+x-expandableFields: []

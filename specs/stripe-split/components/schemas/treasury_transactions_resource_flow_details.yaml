@@ -1,0 +1,47 @@
+description: ''
+properties:
+  credit_reversal:
+    $ref: ./treasury.credit_reversal.yaml
+  debit_reversal:
+    $ref: ./treasury.debit_reversal.yaml
+  inbound_transfer:
+    $ref: ./treasury.inbound_transfer.yaml
+  issuing_authorization:
+    $ref: ./issuing.authorization.yaml
+  outbound_payment:
+    $ref: ./treasury.outbound_payment.yaml
+  outbound_transfer:
+    $ref: ./treasury.outbound_transfer.yaml
+  received_credit:
+    $ref: ./treasury.received_credit.yaml
+  received_debit:
+    $ref: ./treasury.received_debit.yaml
+  type:
+    description: >-
+      Type of the flow that created the Transaction. Set to the same value as
+      `flow_type`.
+    enum:
+      - credit_reversal
+      - debit_reversal
+      - inbound_transfer
+      - issuing_authorization
+      - other
+      - outbound_payment
+      - outbound_transfer
+      - received_credit
+      - received_debit
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - type
+title: TreasuryTransactionsResourceFlowDetails
+type: object
+x-expandableFields:
+  - credit_reversal
+  - debit_reversal
+  - inbound_transfer
+  - issuing_authorization
+  - outbound_payment
+  - outbound_transfer
+  - received_credit
+  - received_debit

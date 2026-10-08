@@ -1,0 +1,26 @@
+description: ''
+properties:
+  amount:
+    description: >-
+      A non-negative integer representing the amount in the [smallest currency
+      unit](/currencies#zero-decimal).
+    nullable: true
+    type: integer
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    format: currency
+    nullable: true
+    type: string
+  fiscal_year_end:
+    description: >-
+      The close-out date of the preceding fiscal year in ISO 8601 format. E.g.
+      2023-12-31 for the 31st of December, 2023.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: AccountAnnualRevenue
+type: object
+x-expandableFields: []

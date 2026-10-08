@@ -1,0 +1,12 @@
+description: ''
+properties:
+  enabled:
+    description: >-
+      If enabled, Adaptive Pricing is available on [eligible
+      sessions](https://docs.stripe.com/payments/currencies/localize-prices/adaptive-pricing?payment-ui=stripe-hosted#restrictions).
+    type: boolean
+required:
+  - enabled
+title: PaymentPagesCheckoutSessionAdaptivePricing
+type: object
+x-expandableFields: []

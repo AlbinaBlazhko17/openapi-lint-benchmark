@@ -1,0 +1,26 @@
+description: Balance information for the FinancialAccount
+properties:
+  cash:
+    additionalProperties:
+      type: integer
+    description: Funds the user can spend right now.
+    type: object
+  inbound_pending:
+    additionalProperties:
+      type: integer
+    description: Funds not spendable yet, but will become available at a later time.
+    type: object
+  outbound_pending:
+    additionalProperties:
+      type: integer
+    description: >-
+      Funds in the account, but not spendable because they are being held for
+      pending outbound flows.
+    type: object
+required:
+  - cash
+  - inbound_pending
+  - outbound_pending
+title: TreasuryFinancialAccountsResourceBalance
+type: object
+x-expandableFields: []

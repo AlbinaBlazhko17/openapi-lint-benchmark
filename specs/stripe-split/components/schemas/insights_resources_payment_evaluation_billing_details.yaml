@@ -1,0 +1,25 @@
+description: Billing details attached to this payment evaluation.
+properties:
+  address:
+    $ref: ./insights_resources_payment_evaluation_address.yaml
+  email:
+    description: Email address.
+    maxLength: 5000
+    nullable: true
+    type: string
+  name:
+    description: Full name.
+    maxLength: 5000
+    nullable: true
+    type: string
+  phone:
+    description: Billing phone number (including extension).
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - address
+title: InsightsResourcesPaymentEvaluationBillingDetails
+type: object
+x-expandableFields:
+  - address

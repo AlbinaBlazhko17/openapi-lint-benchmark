@@ -1,0 +1,34 @@
+description: SPEI Records contain Mexico bank account details per the SPEI format.
+properties:
+  account_holder_address:
+    $ref: ./address.yaml
+  account_holder_name:
+    description: The account holder name
+    maxLength: 5000
+    type: string
+  bank_address:
+    $ref: ./address.yaml
+  bank_code:
+    description: The three-digit bank code
+    maxLength: 5000
+    type: string
+  bank_name:
+    description: The short banking institution name
+    maxLength: 5000
+    type: string
+  clabe:
+    description: The CLABE number
+    maxLength: 5000
+    type: string
+required:
+  - account_holder_address
+  - account_holder_name
+  - bank_address
+  - bank_code
+  - bank_name
+  - clabe
+title: FundingInstructionsBankTransferSpeiRecord
+type: object
+x-expandableFields:
+  - account_holder_address
+  - bank_address

@@ -1,0 +1,723 @@
+get:
+  description: <p>Returns a list of <code>Configuration</code> objects.</p>
+  operationId: GetTerminalConfigurations
+  parameters:
+    - description: >-
+        A cursor for use in pagination. `ending_before` is an object ID that
+        defines your place in the list. For instance, if you make a list request
+        and receive 100 objects, starting with `obj_bar`, your subsequent call
+        can include `ending_before=obj_bar` in order to fetch the previous page
+        of the list.
+      in: query
+      name: ending_before
+      required: false
+      schema:
+        maxLength: 5000
+        type: string
+      style: form
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+    - description: >-
+        if present, only return the account default or non-default
+        configurations.
+      in: query
+      name: is_account_default
+      required: false
+      schema:
+        type: boolean
+      style: form
+    - description: >-
+        A limit on the number of objects to be returned. Limit can range between
+        1 and 100, and the default is 10.
+      in: query
+      name: limit
+      required: false
+      schema:
+        type: integer
+      style: form
+    - description: >-
+        A cursor for use in pagination. `starting_after` is an object ID that
+        defines your place in the list. For instance, if you make a list request
+        and receive 100 objects, ending with `obj_foo`, your subsequent call can
+        include `starting_after=obj_foo` in order to fetch the next page of the
+        list.
+      in: query
+      name: starting_after
+      required: false
+      schema:
+        maxLength: 5000
+        type: string
+      style: form
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            description: ''
+            properties:
+              data:
+                items:
+                  $ref: ../components/schemas/terminal.configuration.yaml
+                type: array
+              has_more:
+                description: >-
+                  True if this list has another page of items after this one
+                  that can be fetched.
+                type: boolean
+              object:
+                description: >-
+                  String representing the object's type. Objects of the same
+                  type share the same value. Always has the value `list`.
+                enum:
+                  - list
+                type: string
+              url:
+                description: The URL where this list can be accessed.
+                maxLength: 5000
+                pattern: ^/v1/terminal/configurations
+                type: string
+            required:
+              - data
+              - has_more
+              - object
+              - url
+            title: TerminalConfigurationConfigurationList
+            type: object
+            x-expandableFields:
+              - data
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: List all Configurations
+post:
+  description: <p>Creates a new <code>Configuration</code> object.</p>
+  operationId: PostTerminalConfigurations
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          bbpos_wisepad3:
+            explode: true
+            style: deepObject
+          bbpos_wisepos_e:
+            explode: true
+            style: deepObject
+          cellular:
+            explode: true
+            style: deepObject
+          expand:
+            explode: true
+            style: deepObject
+          offline:
+            explode: true
+            style: deepObject
+          reboot_window:
+            explode: true
+            style: deepObject
+          stripe_s700:
+            explode: true
+            style: deepObject
+          stripe_s710:
+            explode: true
+            style: deepObject
+          tipping:
+            explode: true
+            style: deepObject
+          verifone_m425:
+            explode: true
+            style: deepObject
+          verifone_p400:
+            explode: true
+            style: deepObject
+          verifone_p630:
+            explode: true
+            style: deepObject
+          verifone_ux700:
+            explode: true
+            style: deepObject
+          verifone_v660p:
+            explode: true
+            style: deepObject
+          wifi:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            bbpos_wisepad3:
+              description: >-
+                An object containing device type specific settings for BBPOS
+                WisePad 3 readers.
+              properties:
+                splashscreen:
+                  anyOf:
+                    - type: string
+                    - enum:
+                        - ''
+                      type: string
+              title: bbpos_wise_pad3
+              type: object
+            bbpos_wisepos_e:
+              description: >-
+                An object containing device type specific settings for BBPOS
+                WisePOS E readers.
+              properties:
+                splashscreen:
+                  anyOf:
+                    - type: string
+                    - enum:
+                        - ''
+                      type: string
+              title: bbpos_wise_pose
+              type: object
+            cellular:
+              anyOf:
+                - properties:
+                    enabled:
+                      type: boolean
+                  required:
+                    - enabled
+                  title: cellular
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: Configuration for cellular connectivity.
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            name:
+              description: Name of the configuration
+              maxLength: 100
+              type: string
+            offline:
+              anyOf:
+                - properties:
+                    enabled:
+                      type: boolean
+                  required:
+                    - enabled
+                  title: offline
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: Configurations for collecting transactions offline.
+            reboot_window:
+              description: >-
+                Reboot time settings for readers. that support customized reboot
+                time configuration.
+              properties:
+                end_hour:
+                  type: integer
+                start_hour:
+                  type: integer
+              required:
+                - end_hour
+                - start_hour
+              title: reboot_window
+              type: object
+            stripe_s700:
+              description: >-
+                An object containing device type specific settings for Stripe
+                S700 readers.
+              properties:
+                splashscreen:
+                  anyOf:
+                    - type: string
+                    - enum:
+                        - ''
+                      type: string
+              title: stripe_s700
+              type: object
+            stripe_s710:
+              description: >-
+                An object containing device type specific settings for Stripe
+                S710 readers.
+              properties:
+                splashscreen:
+                  anyOf:
+                    - type: string
+                    - enum:
+                        - ''
+                      type: string
+              title: stripe_s710
+              type: object
+            tipping:
+              anyOf:
+                - properties:
+                    aed:
+                      properties:
+                        fixed_amounts:
+                          items:
+                            type: integer
+                          type: array
+                        percentages:
+                          items:
+                            type: integer
+                          type: array
+                        smart_tip_threshold:
+                          type: integer
+                      title: currency_specific_config
+                      type: object
+                    aud:
+                      properties:
+                        fixed_amounts:
+                          items:
+                            type: integer
+                          type: array
+                        percentages:
+                          items:
+                            type: integer
+                          type: array
+                        smart_tip_threshold:
+                          type: integer
+                      title: currency_specific_config
+                      type: object
+                    cad:
+                      properties:
+                        fixed_amounts:
+                          items:
+                            type: integer
+                          type: array
+                        percentages:
+                          items:
+                            type: integer
+                          type: array
+                        smart_tip_threshold:
+                          type: integer
+                      title: currency_specific_config
+                      type: object
+                    chf:
+                      properties:
+                        fixed_amounts:
+                          items:
+                            type: integer
+                          type: array
+                        percentages:
+                          items:
+                            type: integer
+                          type: array
+                        smart_tip_threshold:
+                          type: integer
+                      title: currency_specific_config
+                      type: object
+                    czk:
+                      properties:
+                        fixed_amounts:
+                          items:
+                            type: integer
+                          type: array
+                        percentages:
+                          items:
+                            type: integer
+                          type: array
+                        smart_tip_threshold:
+                          type: integer
+                      title: currency_specific_config
+                      type: object
+                    dkk:
+                      properties:
+                        fixed_amounts:
+                          items:
+                            type: integer
+                          type: array
+                        percentages:
+                          items:
+                            type: integer
+                          type: array
+                        smart_tip_threshold:
+                          type: integer
+                      title: currency_specific_config
+                      type: object
+                    eur:
+                      properties:
+                        fixed_amounts:
+                          items:
+                            type: integer
+                          type: array
+                        percentages:
+                          items:
+                            type: integer
+                          type: array
+                        smart_tip_threshold:
+                          type: integer
+                      title: currency_specific_config
+                      type: object
+                    gbp:
+                      properties:
+                        fixed_amounts:
+                          items:
+                            type: integer
+                          type: array
+                        percentages:
+                          items:
+                            type: integer
+                          type: array
+                        smart_tip_threshold:
+                          type: integer
+                      title: currency_specific_config
+                      type: object
+                    gip:
+                      properties:
+                        fixed_amounts:
+                          items:
+                            type: integer
+                          type: array
+                        percentages:
+                          items:
+                            type: integer
+                          type: array
+                        smart_tip_threshold:
+                          type: integer
+                      title: currency_specific_config
+                      type: object
+                    hkd:
+                      properties:
+                        fixed_amounts:
+                          items:
+                            type: integer
+                          type: array
+                        percentages:
+                          items:
+                            type: integer
+                          type: array
+                        smart_tip_threshold:
+                          type: integer
+                      title: currency_specific_config
+                      type: object
+                    huf:
+                      properties:
+                        fixed_amounts:
+                          items:
+                            type: integer
+                          type: array
+                        percentages:
+                          items:
+                            type: integer
+                          type: array
+                        smart_tip_threshold:
+                          type: integer
+                      title: currency_specific_config
+                      type: object
+                    jpy:
+                      properties:
+                        fixed_amounts:
+                          items:
+                            type: integer
+                          type: array
+                        percentages:
+                          items:
+                            type: integer
+                          type: array
+                        smart_tip_threshold:
+                          type: integer
+                      title: currency_specific_config
+                      type: object
+                    mxn:
+                      properties:
+                        fixed_amounts:
+                          items:
+                            type: integer
+                          type: array
+                        percentages:
+                          items:
+                            type: integer
+                          type: array
+                        smart_tip_threshold:
+                          type: integer
+                      title: currency_specific_config
+                      type: object
+                    myr:
+                      properties:
+                        fixed_amounts:
+                          items:
+                            type: integer
+                          type: array
+                        percentages:
+                          items:
+                            type: integer
+                          type: array
+                        smart_tip_threshold:
+                          type: integer
+                      title: currency_specific_config
+                      type: object
+                    nok:
+                      properties:
+                        fixed_amounts:
+                          items:
+                            type: integer
+                          type: array
+                        percentages:
+                          items:
+                            type: integer
+                          type: array
+                        smart_tip_threshold:
+                          type: integer
+                      title: currency_specific_config
+                      type: object
+                    nzd:
+                      properties:
+                        fixed_amounts:
+                          items:
+                            type: integer
+                          type: array
+                        percentages:
+                          items:
+                            type: integer
+                          type: array
+                        smart_tip_threshold:
+                          type: integer
+                      title: currency_specific_config
+                      type: object
+                    pln:
+                      properties:
+                        fixed_amounts:
+                          items:
+                            type: integer
+                          type: array
+                        percentages:
+                          items:
+                            type: integer
+                          type: array
+                        smart_tip_threshold:
+                          type: integer
+                      title: currency_specific_config
+                      type: object
+                    ron:
+                      properties:
+                        fixed_amounts:
+                          items:
+                            type: integer
+                          type: array
+                        percentages:
+                          items:
+                            type: integer
+                          type: array
+                        smart_tip_threshold:
+                          type: integer
+                      title: currency_specific_config
+                      type: object
+                    sek:
+                      properties:
+                        fixed_amounts:
+                          items:
+                            type: integer
+                          type: array
+                        percentages:
+                          items:
+                            type: integer
+                          type: array
+                        smart_tip_threshold:
+                          type: integer
+                      title: currency_specific_config
+                      type: object
+                    sgd:
+                      properties:
+                        fixed_amounts:
+                          items:
+                            type: integer
+                          type: array
+                        percentages:
+                          items:
+                            type: integer
+                          type: array
+                        smart_tip_threshold:
+                          type: integer
+                      title: currency_specific_config
+                      type: object
+                    usd:
+                      properties:
+                        fixed_amounts:
+                          items:
+                            type: integer
+                          type: array
+                        percentages:
+                          items:
+                            type: integer
+                          type: array
+                        smart_tip_threshold:
+                          type: integer
+                      title: currency_specific_config
+                      type: object
+                  title: tipping
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: Tipping configurations for readers that support on-reader tips.
+            verifone_m425:
+              description: >-
+                An object containing device type specific settings for Verifone
+                M425 readers.
+              properties:
+                splashscreen:
+                  anyOf:
+                    - type: string
+                    - enum:
+                        - ''
+                      type: string
+              title: verifone_m425
+              type: object
+            verifone_p400:
+              description: >-
+                An object containing device type specific settings for Verifone
+                P400 readers.
+              properties:
+                splashscreen:
+                  anyOf:
+                    - type: string
+                    - enum:
+                        - ''
+                      type: string
+              title: verifone_p400
+              type: object
+            verifone_p630:
+              description: >-
+                An object containing device type specific settings for Verifone
+                P630 readers.
+              properties:
+                splashscreen:
+                  anyOf:
+                    - type: string
+                    - enum:
+                        - ''
+                      type: string
+              title: verifone_p630
+              type: object
+            verifone_ux700:
+              description: >-
+                An object containing device type specific settings for Verifone
+                UX700 readers.
+              properties:
+                splashscreen:
+                  anyOf:
+                    - type: string
+                    - enum:
+                        - ''
+                      type: string
+              title: verifone_ux700
+              type: object
+            verifone_v660p:
+              description: >-
+                An object containing device type specific settings for Verifone
+                V660p readers.
+              properties:
+                splashscreen:
+                  anyOf:
+                    - type: string
+                    - enum:
+                        - ''
+                      type: string
+              title: verifone_v660p
+              type: object
+            wifi:
+              anyOf:
+                - properties:
+                    enterprise_eap_peap:
+                      properties:
+                        ca_certificate_file:
+                          type: string
+                        password:
+                          maxLength: 5000
+                          type: string
+                        ssid:
+                          maxLength: 5000
+                          type: string
+                        username:
+                          maxLength: 5000
+                          type: string
+                      required:
+                        - password
+                        - ssid
+                        - username
+                      title: enterprise_peap_config
+                      type: object
+                    enterprise_eap_tls:
+                      properties:
+                        ca_certificate_file:
+                          type: string
+                        client_certificate_file:
+                          type: string
+                        private_key_file:
+                          type: string
+                        private_key_file_password:
+                          maxLength: 5000
+                          type: string
+                        ssid:
+                          maxLength: 5000
+                          type: string
+                      required:
+                        - client_certificate_file
+                        - private_key_file
+                        - ssid
+                      title: enterprise_tls_config
+                      type: object
+                    personal_psk:
+                      properties:
+                        password:
+                          maxLength: 63
+                          type: string
+                        ssid:
+                          maxLength: 5000
+                          type: string
+                      required:
+                        - password
+                        - ssid
+                      title: personal_psk_config
+                      type: object
+                    type:
+                      enum:
+                        - enterprise_eap_peap
+                        - enterprise_eap_tls
+                        - personal_psk
+                      type: string
+                  required:
+                    - type
+                  title: wifi
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: Configurations for connecting to a WiFi network.
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/terminal.configuration.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Create a Configuration

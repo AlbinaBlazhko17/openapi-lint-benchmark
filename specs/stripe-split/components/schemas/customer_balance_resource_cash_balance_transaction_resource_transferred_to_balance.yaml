@@ -1,0 +1,20 @@
+description: ''
+properties:
+  balance_transaction:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./balance_transaction.yaml
+    description: >-
+      The [Balance
+      Transaction](https://docs.stripe.com/api/balance_transactions/object) that
+      corresponds to funds transferred to your Stripe balance.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./balance_transaction.yaml
+required:
+  - balance_transaction
+title: CustomerBalanceResourceCashBalanceTransactionResourceTransferredToBalance
+type: object
+x-expandableFields:
+  - balance_transaction

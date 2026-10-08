@@ -1,0 +1,98 @@
+description: |-
+  Some payment methods have no required amount that a customer must send.
+  Customers can be instructed to send any amount, and it can be made up of
+  multiple transactions. As such, sources can have multiple associated
+  transactions.
+properties:
+  ach_credit_transfer:
+    $ref: ./source_transaction_ach_credit_transfer_data.yaml
+  amount:
+    description: >-
+      A positive integer in the smallest currency unit (that is, 100 cents for
+      $1.00, or 1 for ¥1, Japanese Yen being a zero-decimal currency)
+      representing the amount your customer has pushed to the receiver.
+    type: integer
+  chf_credit_transfer:
+    $ref: ./source_transaction_chf_credit_transfer_data.yaml
+  created:
+    description: >-
+      Time at which the object was created. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    type: integer
+  currency:
+    description: >-
+      Three-letter [ISO currency
+      code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase.
+      Must be a [supported currency](https://stripe.com/docs/currencies).
+    format: currency
+    type: string
+  gbp_credit_transfer:
+    $ref: ./source_transaction_gbp_credit_transfer_data.yaml
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - source_transaction
+    type: string
+  paper_check:
+    $ref: ./source_transaction_paper_check_data.yaml
+  sepa_credit_transfer:
+    $ref: ./source_transaction_sepa_credit_transfer_data.yaml
+  source:
+    description: The ID of the source this transaction is attached to.
+    maxLength: 5000
+    type: string
+  status:
+    description: The status of the transaction, one of `succeeded`, `pending`, or `failed`.
+    maxLength: 5000
+    type: string
+  type:
+    description: The type of source this transaction is attached to.
+    enum:
+      - ach_credit_transfer
+      - ach_debit
+      - alipay
+      - bancontact
+      - card
+      - card_present
+      - eps
+      - giropay
+      - ideal
+      - klarna
+      - multibanco
+      - p24
+      - sepa_debit
+      - sofort
+      - three_d_secure
+      - wechat
+    type: string
+required:
+  - amount
+  - created
+  - currency
+  - id
+  - livemode
+  - object
+  - source
+  - status
+  - type
+title: Source Transaction
+type: object
+x-expandableFields:
+  - ach_credit_transfer
+  - chf_credit_transfer
+  - gbp_credit_transfer
+  - paper_check
+  - sepa_credit_transfer
+x-resourceId: source_transaction

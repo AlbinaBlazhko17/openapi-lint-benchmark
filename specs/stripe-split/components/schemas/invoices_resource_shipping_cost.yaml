@@ -1,0 +1,37 @@
+description: ''
+properties:
+  amount_subtotal:
+    description: Total shipping cost before any taxes are applied.
+    type: integer
+  amount_tax:
+    description: >-
+      Total tax amount applied due to shipping costs. If no tax was applied,
+      defaults to 0.
+    type: integer
+  amount_total:
+    description: Total shipping cost after taxes are applied.
+    type: integer
+  shipping_rate:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./shipping_rate.yaml
+    description: The ID of the ShippingRate for this invoice.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./shipping_rate.yaml
+  taxes:
+    description: The taxes applied to the shipping rate.
+    items:
+      $ref: ./line_items_tax_amount.yaml
+    type: array
+required:
+  - amount_subtotal
+  - amount_tax
+  - amount_total
+title: InvoicesResourceShippingCost
+type: object
+x-expandableFields:
+  - shipping_rate
+  - taxes

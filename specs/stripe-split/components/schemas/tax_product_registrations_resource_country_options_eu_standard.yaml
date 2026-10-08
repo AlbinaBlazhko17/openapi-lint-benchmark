@@ -1,0 +1,14 @@
+description: ''
+properties:
+  place_of_supply_scheme:
+    description: Place of supply scheme used in an EU standard registration.
+    enum:
+      - inbound_goods
+      - small_seller
+      - standard
+    type: string
+required:
+  - place_of_supply_scheme
+title: TaxProductRegistrationsResourceCountryOptionsEuStandard
+type: object
+x-expandableFields: []

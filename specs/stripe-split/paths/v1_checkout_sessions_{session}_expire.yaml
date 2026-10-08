@@ -1,0 +1,50 @@
+post:
+  description: >-
+    <p>A Checkout Session can be expired when it is in one of these statuses:
+    <code>open</code> </p>
+
+
+    <p>After it expires, a customer can’t complete a Checkout Session and
+    customers loading the Checkout Session see a message saying the Checkout
+    Session is expired.</p>
+  operationId: PostCheckoutSessionsSessionExpire
+  parameters:
+    - in: path
+      name: session
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/checkout.session.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Expire a Checkout Session

@@ -1,0 +1,32 @@
+description: ''
+properties:
+  payment_method_reuse_agreement:
+    anyOf:
+      - $ref: ./payment_links_resource_payment_method_reuse_agreement.yaml
+    description: >-
+      Settings related to the payment method reuse text shown in the Checkout
+      UI.
+    nullable: true
+  promotions:
+    description: >-
+      If set to `auto`, enables the collection of customer consent for
+      promotional communications.
+    enum:
+      - auto
+      - none
+    nullable: true
+    type: string
+  terms_of_service:
+    description: >-
+      If set to `required`, it requires cutomers to accept the terms of service
+      before being able to pay. If set to `none`, customers won't be shown a
+      checkbox to accept the terms of service.
+    enum:
+      - none
+      - required
+    nullable: true
+    type: string
+title: PaymentLinksResourceConsentCollection
+type: object
+x-expandableFields:
+  - payment_method_reuse_agreement

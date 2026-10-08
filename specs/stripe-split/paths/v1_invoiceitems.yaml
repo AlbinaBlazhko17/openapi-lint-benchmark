@@ -1,0 +1,434 @@
+get:
+  description: >-
+    <p>Returns a list of your invoice items. Invoice items are returned sorted
+    by creation date, with the most recently created invoice items appearing
+    first.</p>
+  operationId: GetInvoiceitems
+  parameters:
+    - description: >-
+        Only return invoice items that were created during the given date
+        interval.
+      explode: true
+      in: query
+      name: created
+      required: false
+      schema:
+        anyOf:
+          - properties:
+              gt:
+                type: integer
+              gte:
+                type: integer
+              lt:
+                type: integer
+              lte:
+                type: integer
+            title: range_query_specs
+            type: object
+          - type: integer
+      style: deepObject
+    - description: >-
+        The identifier of the customer whose invoice items to return. If none is
+        provided, returns all invoice items.
+      in: query
+      name: customer
+      required: false
+      schema:
+        maxLength: 5000
+        type: string
+      style: form
+    - description: >-
+        The identifier of the account representing the customer whose invoice
+        items to return. If none is provided, returns all invoice items.
+      in: query
+      name: customer_account
+      required: false
+      schema:
+        maxLength: 5000
+        type: string
+      style: form
+    - description: >-
+        A cursor for use in pagination. `ending_before` is an object ID that
+        defines your place in the list. For instance, if you make a list request
+        and receive 100 objects, starting with `obj_bar`, your subsequent call
+        can include `ending_before=obj_bar` in order to fetch the previous page
+        of the list.
+      in: query
+      name: ending_before
+      required: false
+      schema:
+        maxLength: 5000
+        type: string
+      style: form
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+    - description: >-
+        Only return invoice items belonging to this invoice. If none is
+        provided, all invoice items will be returned. If specifying an invoice,
+        no customer identifier is needed.
+      in: query
+      name: invoice
+      required: false
+      schema:
+        maxLength: 5000
+        type: string
+      style: form
+    - description: >-
+        A limit on the number of objects to be returned. Limit can range between
+        1 and 100, and the default is 10.
+      in: query
+      name: limit
+      required: false
+      schema:
+        type: integer
+      style: form
+    - description: >-
+        Set to `true` to only show pending invoice items, which are not yet
+        attached to any invoices. Set to `false` to only show invoice items
+        already attached to invoices. If unspecified, no filter is applied.
+      in: query
+      name: pending
+      required: false
+      schema:
+        type: boolean
+      style: form
+    - description: >-
+        A cursor for use in pagination. `starting_after` is an object ID that
+        defines your place in the list. For instance, if you make a list request
+        and receive 100 objects, ending with `obj_foo`, your subsequent call can
+        include `starting_after=obj_foo` in order to fetch the next page of the
+        list.
+      in: query
+      name: starting_after
+      required: false
+      schema:
+        maxLength: 5000
+        type: string
+      style: form
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            description: ''
+            properties:
+              data:
+                items:
+                  $ref: ../components/schemas/invoiceitem.yaml
+                type: array
+              has_more:
+                description: >-
+                  True if this list has another page of items after this one
+                  that can be fetched.
+                type: boolean
+              object:
+                description: >-
+                  String representing the object's type. Objects of the same
+                  type share the same value. Always has the value `list`.
+                enum:
+                  - list
+                type: string
+              url:
+                description: The URL where this list can be accessed.
+                maxLength: 5000
+                pattern: ^/v1/invoiceitems
+                type: string
+            required:
+              - data
+              - has_more
+              - object
+              - url
+            title: InvoicesItemsList
+            type: object
+            x-expandableFields:
+              - data
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: List all invoice items
+post:
+  description: >-
+    <p>Creates an item to be added to a draft invoice (up to 250 items per
+    invoice). If no invoice is specified, the item will be on the next invoice
+    created for the customer specified.</p>
+  operationId: PostInvoiceitems
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          discounts:
+            explode: true
+            style: deepObject
+          expand:
+            explode: true
+            style: deepObject
+          metadata:
+            explode: true
+            style: deepObject
+          period:
+            explode: true
+            style: deepObject
+          price_data:
+            explode: true
+            style: deepObject
+          pricing:
+            explode: true
+            style: deepObject
+          tax_code:
+            explode: true
+            style: deepObject
+          tax_rates:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            amount:
+              description: >-
+                The integer amount in cents (or local equivalent) of the charge
+                to be applied to the upcoming invoice. Passing in a negative
+                `amount` will reduce the `amount_due` on the invoice.
+              type: integer
+            currency:
+              description: >-
+                Three-letter [ISO currency
+                code](https://www.iso.org/iso-4217-currency-codes.html), in
+                lowercase. Must be a [supported
+                currency](https://stripe.com/docs/currencies).
+              format: currency
+              type: string
+            customer:
+              description: The ID of the customer to bill for this invoice item.
+              maxLength: 5000
+              type: string
+            customer_account:
+              description: >-
+                The ID of the account representing the customer to bill for this
+                invoice item.
+              maxLength: 5000
+              type: string
+            description:
+              description: >-
+                An arbitrary string which you can attach to the invoice item.
+                The description is displayed in the invoice for easy tracking.
+              maxLength: 5000
+              type: string
+            discountable:
+              description: >-
+                Controls whether discounts apply to this invoice item. Defaults
+                to false for prorations or negative invoice items, and true for
+                all other invoice items.
+              type: boolean
+            discounts:
+              anyOf:
+                - items:
+                    properties:
+                      coupon:
+                        maxLength: 5000
+                        type: string
+                      discount:
+                        maxLength: 5000
+                        type: string
+                      promotion_code:
+                        maxLength: 5000
+                        type: string
+                    title: discounts_data_param
+                    type: object
+                  type: array
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                The coupons and promotion codes to redeem into discounts for the
+                invoice item or invoice line item.
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            invoice:
+              description: >-
+                The ID of an existing invoice to add this invoice item to. For
+                subscription invoices, when left blank, the invoice item will be
+                added to the next upcoming scheduled invoice. For standalone
+                invoices, the invoice item won't be automatically added unless
+                you pass `pending_invoice_item_behavior: 'include'` when
+                creating the invoice. This is useful when adding invoice items
+                in response to an invoice.created webhook. You can only add
+                invoice items to draft invoices and there is a maximum of 250
+                items per invoice.
+              maxLength: 5000
+              type: string
+            metadata:
+              anyOf:
+                - additionalProperties:
+                    type: string
+                  type: object
+                - enum:
+                    - ''
+                  type: string
+              description: >-
+                Set of [key-value pairs](https://docs.stripe.com/api/metadata)
+                that you can attach to an object. This can be useful for storing
+                additional information about the object in a structured format.
+                Individual keys can be unset by posting an empty value to them.
+                All keys can be unset by posting an empty value to `metadata`.
+            period:
+              description: >-
+                The period associated with this invoice item. When set to
+                different values, the period will be rendered on the invoice. If
+                you have [Stripe Revenue
+                Recognition](https://docs.stripe.com/revenue-recognition)
+                enabled, the period will be used to recognize and defer revenue.
+                See the [Revenue Recognition
+                documentation](https://docs.stripe.com/revenue-recognition/methodology/subscriptions-and-invoicing)
+                for details.
+              properties:
+                end:
+                  format: unix-time
+                  type: integer
+                start:
+                  format: unix-time
+                  type: integer
+              required:
+                - end
+                - start
+              title: period
+              type: object
+            price_data:
+              description: >-
+                Data used to generate a new
+                [Price](https://docs.stripe.com/api/prices) object inline.
+              properties:
+                currency:
+                  format: currency
+                  type: string
+                product:
+                  maxLength: 5000
+                  type: string
+                tax_behavior:
+                  enum:
+                    - exclusive
+                    - inclusive
+                    - unspecified
+                  type: string
+                unit_amount:
+                  type: integer
+                unit_amount_decimal:
+                  format: decimal
+                  type: string
+              required:
+                - currency
+                - product
+              title: one_time_price_data
+              type: object
+            pricing:
+              description: The pricing information for the invoice item.
+              properties:
+                price:
+                  maxLength: 5000
+                  type: string
+              title: pricing_param
+              type: object
+            quantity:
+              description: >-
+                Non-negative integer. The quantity of units for the invoice
+                item. Use `quantity_decimal` instead to provide decimal
+                precision. This field will be deprecated in favor of
+                `quantity_decimal` in a future version.
+              type: integer
+            quantity_decimal:
+              description: >-
+                Non-negative decimal with at most 12 decimal places. The
+                quantity of units for the invoice item.
+              format: decimal
+              type: string
+            subscription:
+              description: >-
+                The ID of a subscription to add this invoice item to. When left
+                blank, the invoice item is added to the next upcoming scheduled
+                invoice. When set, scheduled invoices for subscriptions other
+                than the specified subscription will ignore the invoice item.
+                Use this when you want to express that an invoice item has been
+                accrued within the context of a particular subscription.
+              maxLength: 5000
+              type: string
+            tax_behavior:
+              description: >-
+                Only required if a [default tax
+                behavior](https://docs.stripe.com/tax/products-prices-tax-categories-tax-behavior#setting-a-default-tax-behavior-(recommended))
+                was not provided in the Stripe Tax settings. Specifies whether
+                the price is considered inclusive of taxes or exclusive of
+                taxes. One of `inclusive`, `exclusive`, or `unspecified`. Once
+                specified as either `inclusive` or `exclusive`, it cannot be
+                changed.
+              enum:
+                - exclusive
+                - inclusive
+                - unspecified
+              type: string
+            tax_code:
+              anyOf:
+                - type: string
+                - enum:
+                    - ''
+                  type: string
+              description: A [tax code](https://docs.stripe.com/tax/tax-categories) ID.
+            tax_rates:
+              description: >-
+                The tax rates which apply to the invoice item. When set, the
+                `default_tax_rates` on the invoice do not apply to this invoice
+                item.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            unit_amount_decimal:
+              description: >-
+                The decimal unit amount in cents (or local equivalent) of the
+                charge to be applied to the upcoming invoice. This
+                `unit_amount_decimal` will be multiplied by the quantity to get
+                the full amount. Passing in a negative `unit_amount_decimal`
+                will reduce the `amount_due` on the invoice. Accepts at most 12
+                decimal places.
+              format: decimal
+              type: string
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/invoiceitem.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Create an invoice item

@@ -1,0 +1,11 @@
+description: ''
+properties:
+  country:
+    description: The payer address country
+    maxLength: 5000
+    nullable: true
+    type: string
+title: >-
+  PaymentsPrimitivesPaymentRecordsResourcePaymentMethodKlarnaDetailsResourcePayerDetailsResourcePayerDetailsAddress
+type: object
+x-expandableFields: []

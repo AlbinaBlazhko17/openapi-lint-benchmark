@@ -1,0 +1,14 @@
+description: ''
+properties:
+  mode:
+    description: >-
+      Controls how manual entry of bank account details is presented to the
+      user.
+    enum:
+      - automatic
+      - disabled
+    type: string
+    x-stripeBypassValidation: true
+title: BankConnectionsResourceLinkAccountSessionManualEntry
+type: object
+x-expandableFields: []

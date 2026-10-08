@@ -1,0 +1,15 @@
+description: >-
+  Contains additional details about the status of a payment method for a
+  specific payment method domain.
+properties:
+  error_message:
+    description: >-
+      The error message associated with the status of the payment method on the
+      domain.
+    maxLength: 5000
+    type: string
+required:
+  - error_message
+title: PaymentMethodDomainResourcePaymentMethodStatusDetails
+type: object
+x-expandableFields: []

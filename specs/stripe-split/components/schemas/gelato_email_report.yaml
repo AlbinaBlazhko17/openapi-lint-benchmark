@@ -1,0 +1,25 @@
+description: Result from a email check
+properties:
+  email:
+    description: Email to be verified.
+    maxLength: 5000
+    nullable: true
+    type: string
+  error:
+    anyOf:
+      - $ref: ./gelato_email_report_error.yaml
+    description: Details on the verification error. Present when status is `unverified`.
+    nullable: true
+  status:
+    description: Status of this `email` check.
+    enum:
+      - unverified
+      - verified
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - status
+title: GelatoEmailReport
+type: object
+x-expandableFields:
+  - error

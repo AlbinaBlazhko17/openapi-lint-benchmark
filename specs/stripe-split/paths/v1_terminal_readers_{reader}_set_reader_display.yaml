@@ -1,0 +1,92 @@
+post:
+  description: >-
+    <p>Sets the reader display to show <a
+    href="/docs/terminal/features/display">cart details</a>.</p>
+  operationId: PostTerminalReadersReaderSetReaderDisplay
+  parameters:
+    - in: path
+      name: reader
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          cart:
+            explode: true
+            style: deepObject
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            cart:
+              description: >-
+                Cart details to display on the reader screen, including line
+                items, amounts, and currency.
+              properties:
+                currency:
+                  format: currency
+                  type: string
+                line_items:
+                  items:
+                    properties:
+                      amount:
+                        type: integer
+                      description:
+                        maxLength: 5000
+                        type: string
+                      quantity:
+                        type: integer
+                    required:
+                      - amount
+                      - description
+                      - quantity
+                    title: line_item
+                    type: object
+                  type: array
+                tax:
+                  type: integer
+                total:
+                  type: integer
+              required:
+                - currency
+                - line_items
+                - total
+              title: cart
+              type: object
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            type:
+              description: >-
+                Type of information to display. Only `cart` is currently
+                supported.
+              enum:
+                - cart
+              type: string
+          required:
+            - type
+          type: object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/terminal.reader.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Set reader display

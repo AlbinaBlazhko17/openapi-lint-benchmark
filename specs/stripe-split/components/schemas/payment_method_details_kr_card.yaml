@@ -1,0 +1,51 @@
+description: ''
+properties:
+  brand:
+    description: The local credit or debit card brand.
+    enum:
+      - bc
+      - citi
+      - hana
+      - hyundai
+      - jeju
+      - jeonbuk
+      - kakaobank
+      - kbank
+      - kdbbank
+      - kookmin
+      - kwangju
+      - lotte
+      - mg
+      - nh
+      - post
+      - samsung
+      - savingsbank
+      - shinhan
+      - shinhyup
+      - suhyup
+      - tossbank
+      - woori
+    nullable: true
+    type: string
+  buyer_id:
+    description: >-
+      A unique identifier for the buyer as determined by the local payment
+      processor.
+    maxLength: 5000
+    nullable: true
+    type: string
+  last4:
+    description: >-
+      The last four digits of the card. This may not be present for American
+      Express cards.
+    maxLength: 4
+    nullable: true
+    type: string
+  transaction_id:
+    description: The Korean Card transaction ID associated with this payment.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: payment_method_details_kr_card
+type: object
+x-expandableFields: []

@@ -1,0 +1,12 @@
+description: ''
+properties:
+  deactivated_at:
+    description: >-
+      The time the feedback option was deactivated, if any. Measured in seconds
+      since Unix epoch.
+    format: unix-time
+    nullable: true
+    type: integer
+title: FeedbackOptionsStatusTransitions
+type: object
+x-expandableFields: []

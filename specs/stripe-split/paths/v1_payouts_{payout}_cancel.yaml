@@ -1,0 +1,46 @@
+post:
+  description: >-
+    <p>You can cancel a previously created payout if its status is
+    <code>pending</code>. Stripe refunds the funds to your available balance.
+    You can’t cancel automatic Stripe payouts.</p>
+  operationId: PostPayoutsPayoutCancel
+  parameters:
+    - in: path
+      name: payout
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/payout.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Cancel a payout

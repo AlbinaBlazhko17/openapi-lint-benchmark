@@ -1,0 +1,10 @@
+description: ''
+properties:
+  issuing_dispute:
+    description: Set if there is an Issuing dispute associated with the DebitReversal.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: TreasuryReceivedDebitsResourceDebitReversalLinkedFlows
+type: object
+x-expandableFields: []

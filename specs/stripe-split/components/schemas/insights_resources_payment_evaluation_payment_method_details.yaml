@@ -1,0 +1,23 @@
+description: Payment method details attached to this payment evaluation.
+properties:
+  billing_details:
+    anyOf:
+      - $ref: ./insights_resources_payment_evaluation_billing_details.yaml
+    description: Billing information associated with the payment evaluation.
+    nullable: true
+  payment_method:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./payment_method.yaml
+    description: The payment method used in this payment evaluation.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./payment_method.yaml
+required:
+  - payment_method
+title: InsightsResourcesPaymentEvaluationPaymentMethodDetails
+type: object
+x-expandableFields:
+  - billing_details
+  - payment_method

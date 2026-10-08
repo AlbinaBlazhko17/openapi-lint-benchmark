@@ -1,0 +1,12 @@
+description: ''
+properties:
+  deactivated_at:
+    description: >-
+      The time the meter was deactivated, if any. Measured in seconds since Unix
+      epoch.
+    format: unix-time
+    nullable: true
+    type: integer
+title: BillingMeterResourceBillingMeterStatusTransitions
+type: object
+x-expandableFields: []

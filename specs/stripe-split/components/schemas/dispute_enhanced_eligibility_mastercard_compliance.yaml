@@ -1,0 +1,13 @@
+description: ''
+properties:
+  status:
+    description: Mastercard compliance eligibility status.
+    enum:
+      - fee_acknowledged
+      - requires_fee_acknowledgement
+    type: string
+required:
+  - status
+title: DisputeEnhancedEligibilityMastercardCompliance
+type: object
+x-expandableFields: []

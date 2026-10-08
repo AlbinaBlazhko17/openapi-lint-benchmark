@@ -1,0 +1,8 @@
+description: ''
+properties:
+  amount:
+    description: Portion of the amount that corresponds to a tip.
+    type: integer
+title: PaymentFlowsAmountDetailsClientResourceTip
+type: object
+x-expandableFields: []

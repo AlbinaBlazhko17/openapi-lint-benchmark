@@ -1,0 +1,28 @@
+description: ''
+properties:
+  credit_reversal:
+    $ref: ./treasury.credit_reversal.yaml
+  outbound_payment:
+    $ref: ./treasury.outbound_payment.yaml
+  outbound_transfer:
+    $ref: ./treasury.outbound_transfer.yaml
+  payout:
+    $ref: ./payout.yaml
+  type:
+    description: The type of the source flow that originated the ReceivedCredit.
+    enum:
+      - credit_reversal
+      - other
+      - outbound_payment
+      - outbound_transfer
+      - payout
+    type: string
+required:
+  - type
+title: TreasuryReceivedCreditsResourceSourceFlowsDetails
+type: object
+x-expandableFields:
+  - credit_reversal
+  - outbound_payment
+  - outbound_transfer
+  - payout

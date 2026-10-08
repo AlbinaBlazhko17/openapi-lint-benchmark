@@ -1,0 +1,11 @@
+description: ''
+properties:
+  count:
+    description: The number of installments.
+    type: integer
+required:
+  - count
+title: >-
+  PaymentsPrimitivesPaymentRecordsResourcePaymentMethodAlmaDetailsResourceInstallments
+type: object
+x-expandableFields: []

@@ -1,0 +1,15 @@
+description: >-
+  User intervention raised custom event details attached to this payment
+  evaluation
+properties:
+  type:
+    description: >-
+      Custom type of user intervention raised. The string must use a snake case
+      description for the type of intervention performed.
+    maxLength: 5000
+    type: string
+required:
+  - type
+title: InsightsResourcesPaymentEvaluationUserInterventionRaisedCustom
+type: object
+x-expandableFields: []

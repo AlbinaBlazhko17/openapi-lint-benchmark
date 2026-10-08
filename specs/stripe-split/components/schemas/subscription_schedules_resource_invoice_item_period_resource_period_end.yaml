@@ -1,0 +1,21 @@
+description: ''
+properties:
+  timestamp:
+    description: >-
+      A precise Unix timestamp for the end of the invoice item period. Must be
+      greater than or equal to `period.start`.
+    format: unix-time
+    type: integer
+  type:
+    description: Select how to calculate the end of the invoice item period.
+    enum:
+      - min_item_period_end
+      - phase_end
+      - timestamp
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - type
+title: SubscriptionSchedulesResourceInvoiceItemPeriodResourcePeriodEnd
+type: object
+x-expandableFields: []

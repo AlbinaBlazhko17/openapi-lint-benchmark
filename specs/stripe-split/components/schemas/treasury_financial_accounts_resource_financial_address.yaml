@@ -1,0 +1,27 @@
+description: >-
+  FinancialAddresses contain identifying information that resolves to a
+  FinancialAccount.
+properties:
+  aba:
+    $ref: ./treasury_financial_accounts_resource_aba_record.yaml
+  supported_networks:
+    description: The list of networks that the address supports
+    items:
+      enum:
+        - ach
+        - us_domestic_wire
+      type: string
+      x-stripeBypassValidation: true
+    type: array
+  type:
+    description: The type of financial address
+    enum:
+      - aba
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - type
+title: TreasuryFinancialAccountsResourceFinancialAddress
+type: object
+x-expandableFields:
+  - aba

@@ -1,0 +1,159 @@
+description: Details of the card used for this payment attempt.
+properties:
+  authorization_code:
+    description: The authorization code of the payment.
+    maxLength: 5000
+    nullable: true
+    type: string
+  brand:
+    description: >-
+      Card brand. Can be `amex`, `cartes_bancaires`, `diners`, `discover`,
+      `eftpos_au`, `jcb`, `link`, `mastercard`, `unionpay`, `visa` or `unknown`.
+    enum:
+      - amex
+      - cartes_bancaires
+      - diners
+      - discover
+      - eftpos_au
+      - interac
+      - jcb
+      - link
+      - mastercard
+      - unionpay
+      - unknown
+      - visa
+    nullable: true
+    type: string
+  capture_before:
+    description: >-
+      When using manual capture, a future timestamp at which the charge will be
+      automatically refunded if uncaptured.
+    format: unix-time
+    type: integer
+  checks:
+    anyOf:
+      - $ref: >-
+          ./payments_primitives_payment_records_resource_payment_method_card_details_resource_checks.yaml
+    description: Check results by Card networks on Card address and CVC at time of payment.
+    nullable: true
+  country:
+    description: >-
+      Two-letter ISO code representing the country of the card. You could use
+      this attribute to get a sense of the international breakdown of cards
+      you've collected.
+    maxLength: 5000
+    nullable: true
+    type: string
+  exp_month:
+    description: Two-digit number representing the card's expiration month.
+    nullable: true
+    type: integer
+  exp_year:
+    description: Four-digit number representing the card's expiration year.
+    nullable: true
+    type: integer
+  fingerprint:
+    description: >-
+      Uniquely identifies this particular card number. You can use this
+      attribute to check whether two customers who’ve signed up with you are
+      using the same card number, for example. For payment methods that tokenize
+      card information (Apple Pay, Google Pay), the tokenized number might be
+      provided instead of the underlying card number.
+
+
+      *As of May 1, 2021, card fingerprint in India for Connect changed to allow
+      two fingerprints for the same card---one for India and one for the rest of
+      the world.*
+    maxLength: 5000
+    nullable: true
+    type: string
+  funding:
+    description: Card funding type. Can be `credit`, `debit`, `prepaid`, or `unknown`.
+    enum:
+      - credit
+      - debit
+      - prepaid
+      - unknown
+    nullable: true
+    type: string
+  installments:
+    anyOf:
+      - $ref: >-
+          ./payments_primitives_payment_records_resource_payment_method_card_details_resource_installments.yaml
+    description: Installment details for this payment.
+    nullable: true
+  last4:
+    description: The last four digits of the card.
+    maxLength: 5000
+    nullable: true
+    type: string
+  network:
+    description: >-
+      Identifies which network this charge was processed on. Can be `amex`,
+      `cartes_bancaires`, `diners`, `discover`, `eftpos_au`, `interac`, `jcb`,
+      `link`, `mastercard`, `unionpay`, `visa`, or `unknown`.
+    enum:
+      - amex
+      - cartes_bancaires
+      - diners
+      - discover
+      - eftpos_au
+      - interac
+      - jcb
+      - link
+      - mastercard
+      - unionpay
+      - unknown
+      - visa
+    nullable: true
+    type: string
+  network_advice_code:
+    description: Advice code from the card network for the failed payment.
+    maxLength: 5000
+    nullable: true
+    type: string
+  network_decline_code:
+    description: Decline code from the card network for the failed payment.
+    maxLength: 5000
+    nullable: true
+    type: string
+  network_token:
+    anyOf:
+      - $ref: >-
+          ./payments_primitives_payment_records_resource_payment_method_card_details_resource_network_token.yaml
+    description: >-
+      If this card has network token credentials, this contains the details of
+      the network token credentials.
+    nullable: true
+  network_transaction_id:
+    description: >-
+      This is used by the financial networks to identify a transaction. Visa
+      calls this the Transaction ID, Mastercard calls this the Trace ID, and
+      American Express calls this the Acquirer Reference Data. This value will
+      be present if it is returned by the financial network in the authorization
+      response, and null otherwise.
+    maxLength: 5000
+    nullable: true
+    type: string
+  three_d_secure:
+    anyOf:
+      - $ref: >-
+          ./payments_primitives_payment_records_resource_payment_method_card_details_resource_three_d_secure.yaml
+    description: Populated if this transaction used 3D Secure authentication.
+    nullable: true
+  wallet:
+    anyOf:
+      - $ref: >-
+          ./payments_primitives_payment_records_resource_payment_method_card_details_resource_wallet.yaml
+    description: >-
+      If this Card is part of a card wallet, this contains the details of the
+      card wallet.
+    nullable: true
+title: PaymentsPrimitivesPaymentRecordsResourcePaymentMethodCardDetails
+type: object
+x-expandableFields:
+  - checks
+  - installments
+  - network_token
+  - three_d_secure
+  - wallet

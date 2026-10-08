@@ -1,0 +1,23 @@
+description: ''
+properties:
+  price_details:
+    $ref: ./billing_bill_resource_invoicing_pricing_pricing_price_details.yaml
+  type:
+    description: The type of the pricing details.
+    enum:
+      - price_details
+    type: string
+    x-stripeBypassValidation: true
+  unit_amount_decimal:
+    description: >-
+      The unit amount (in the `currency` specified) of the item which contains a
+      decimal value with at most 12 decimal places.
+    format: decimal
+    nullable: true
+    type: string
+required:
+  - type
+title: BillingBillResourceInvoicingPricingPricing
+type: object
+x-expandableFields:
+  - price_details

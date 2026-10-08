@@ -1,0 +1,22 @@
+description: ''
+properties:
+  invoice:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./invoice.yaml
+    description: The invoice to which the billing credits were applied.
+    x-expansionResources:
+      oneOf:
+        - $ref: ./invoice.yaml
+  invoice_line_item:
+    description: The invoice line item to which the billing credits were applied.
+    maxLength: 5000
+    type: string
+required:
+  - invoice
+  - invoice_line_item
+title: BillingCreditGrantsResourceBalanceCreditsApplied
+type: object
+x-expandableFields:
+  - invoice

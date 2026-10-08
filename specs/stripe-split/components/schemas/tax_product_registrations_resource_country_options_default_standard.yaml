@@ -1,0 +1,13 @@
+description: ''
+properties:
+  place_of_supply_scheme:
+    description: Place of supply scheme used in an Default standard registration.
+    enum:
+      - inbound_goods
+      - standard
+    type: string
+required:
+  - place_of_supply_scheme
+title: TaxProductRegistrationsResourceCountryOptionsDefaultStandard
+type: object
+x-expandableFields: []

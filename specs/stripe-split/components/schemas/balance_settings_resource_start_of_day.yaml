@@ -1,0 +1,27 @@
+description: ''
+properties:
+  hour:
+    description: >-
+      Hour at which the customized start of day begins according to the given
+      timezone. Must be a [supported customized start of day
+      hour](/connect/customized-start-of-day#available-timezones-and-cutoffs).
+    type: integer
+  minutes:
+    description: >-
+      Minutes at which the customized start of day begins according to the given
+      timezone. Must be either 0 or 30.
+    type: integer
+  timezone:
+    description: >-
+      Timezone for the customized start of day. Must be a [supported customized
+      start of day
+      timezone](/connect/customized-start-of-day#available-timezones-and-cutoffs).
+    maxLength: 5000
+    type: string
+required:
+  - hour
+  - minutes
+  - timezone
+title: BalanceSettingsResourceStartOfDay
+type: object
+x-expandableFields: []

@@ -1,0 +1,110 @@
+description: ''
+properties:
+  address:
+    $ref: ./address.yaml
+  address_validation:
+    anyOf:
+      - $ref: ./issuing_card_shipping_address_validation.yaml
+    description: Address validation details for the shipment.
+    nullable: true
+  business_name:
+    description: >-
+      The name of the business at the shipping address, used on the shipping
+      label to ensure delivery when the card is shipped to a cardholder's
+      workplace.
+    maxLength: 5000
+    nullable: true
+    type: string
+  carrier:
+    description: The delivery company that shipped a card.
+    enum:
+      - correos
+      - dhl
+      - fedex
+      - royal_mail
+      - usps
+    nullable: true
+    type: string
+  customs:
+    anyOf:
+      - $ref: ./issuing_card_shipping_customs.yaml
+    description: Additional information that may be required for clearing customs.
+    nullable: true
+  eta:
+    description: >-
+      A unix timestamp representing a best estimate of when the card will be
+      delivered.
+    format: unix-time
+    nullable: true
+    type: integer
+  name:
+    description: Recipient name.
+    maxLength: 5000
+    type: string
+  phone_number:
+    description: >-
+      The phone number of the receiver of the shipment. Our courier partners
+      will use this number to contact you in the event of card delivery issues.
+      For individual shipments to the EU/UK, if this field is empty, we will
+      provide them with the phone number provided when the cardholder was
+      initially created.
+    maxLength: 5000
+    nullable: true
+    type: string
+  require_signature:
+    description: >-
+      Whether a signature is required for card delivery. This feature is only
+      supported for US users. Standard shipping service does not support
+      signature on delivery. The default value for standard shipping service is
+      false and for express and priority services is true.
+    nullable: true
+    type: boolean
+  service:
+    description: Shipment service, such as `standard` or `express`.
+    enum:
+      - express
+      - priority
+      - standard
+    type: string
+    x-stripeBypassValidation: true
+  status:
+    description: The delivery status of the card.
+    enum:
+      - canceled
+      - delivered
+      - failure
+      - pending
+      - returned
+      - shipped
+      - submitted
+    nullable: true
+    type: string
+  tracking_number:
+    description: A tracking number for a card shipment.
+    maxLength: 5000
+    nullable: true
+    type: string
+  tracking_url:
+    description: >-
+      A link to the shipping carrier's site where you can view detailed
+      information about a card shipment.
+    maxLength: 5000
+    nullable: true
+    type: string
+  type:
+    description: Packaging options.
+    enum:
+      - bulk
+      - individual
+    type: string
+required:
+  - address
+  - name
+  - service
+  - type
+title: IssuingCardShipping
+type: object
+x-expandableFields:
+  - address
+  - address_validation
+  - customs

@@ -1,0 +1,51 @@
+get:
+  description: >-
+    <p>Retrieves the details of an early fraud warning that has previously been
+    created. </p>
+
+
+    <p>Please refer to the <a href="#early_fraud_warning_object">early fraud
+    warning</a> object reference for more details.</p>
+  operationId: GetRadarEarlyFraudWarningsEarlyFraudWarning
+  parameters:
+    - in: path
+      name: early_fraud_warning
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+    - description: Specifies which fields in the response should be expanded.
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        items:
+          maxLength: 5000
+          type: string
+        type: array
+      style: deepObject
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding: {}
+        schema:
+          additionalProperties: false
+          properties: {}
+          type: object
+    required: false
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/radar.early_fraud_warning.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Retrieve an early fraud warning

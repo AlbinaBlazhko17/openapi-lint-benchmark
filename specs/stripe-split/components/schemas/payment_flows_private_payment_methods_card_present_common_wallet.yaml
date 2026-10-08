@@ -1,0 +1,17 @@
+description: ''
+properties:
+  type:
+    description: >-
+      The type of mobile wallet, one of `apple_pay`, `google_pay`,
+      `samsung_pay`, or `unknown`.
+    enum:
+      - apple_pay
+      - google_pay
+      - samsung_pay
+      - unknown
+    type: string
+required:
+  - type
+title: PaymentFlowsPrivatePaymentMethodsCardPresentCommonWallet
+type: object
+x-expandableFields: []

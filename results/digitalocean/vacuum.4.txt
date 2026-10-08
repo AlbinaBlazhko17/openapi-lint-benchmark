@@ -1,0 +1,48 @@
+   
+ ██╗   ██╗ █████╗  ██████╗██╗   ██╗██╗   ██╗███╗   ███╗ 《《《─═─═── ·* · ˙*
+ ██║   ██║██╔══██╗██╔════╝██║   ██║██║   ██║████╗ ████║《《《──═─═──· ··* ˙˙
+ ██║   ██║███████║██║     ██║   ██║██║   ██║██╔████╔██║《《《───═─═─··· ˙˙ ˙
+ ╚██╗ ██╔╝██╔══██║██║     ██║   ██║██║   ██║██║╚██╔╝██║《《──═─═──·* ·· ˙˙
+  ╚████╔╝ ██║  ██║╚██████╗╚██████╔╝╚██████╔╝██║ ╚═╝ ██║ 《《─═─═──* · · ˙
+   ╚═══╝  ╚═╝  ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝ ╚═╝     ╚═╝ 《───═─═─· ··* ˙˙ ˙
+
+ version: 0.32.0 | compiled: Wed, 07 Oct 2026 22:36:45 UTC
+ https://quobix.com/vacuum/ | https://github.com/daveshanley/vacuum
+
+ vacuuming file 'DigitalOcean-public.v2.yaml' against 55 rules: https://quobix.com/vacuum/rulesets/recommended
+
+ category              ✗ errors      ▲ warnings    ● info                                                  
+ ────────────────────  ────────────  ────────────  ────────────────────────────────────────────────────────
+ Contract Information  1             0             0                                                       
+ Operations            0             842           0                                                       
+ Schemas               674           278           14                                                      
+ Descriptions          0             209           0                                                       
+ Examples              0             264           0                                                       
+ ────────────────────  ────────────  ────────────  ────────────────────────────────────────────────────────
+ total                 675           1,593         14                                                      
+
+ rule                                      violations    quality impact                                    
+ ────────────────────────────────────────  ────────────  ──────────────────────────────────────────────────
+ oas3-schema                               661           ██████████████████████████████████████████████████
+ path-item-refs                            659           █████████████████████████████████████████████████ 
+ camel-case-properties                     247           ██████████████████                                
+ oas3-missing-example                      233           █████████████████                                 
+ operation-description                     206           ███████████████                                   
+ paths-kebab-case                          167           ████████████                                      
+ oas3-valid-schema-example                 31            ██                                                
+ no-unnecessary-combinator                 29            ██                                                
+ oas-missing-type                          14            █                                                 
+ oas-schema-check                          13                                                              
+ ────────────────────────────────────────  ────────────  ──────────────────────────────────────────────────
+ total                                     2,282       
+ ... and 6 more rules
+
+ --> use the <dashboard> command to be able to navigate results interactively <--
+
+ | Quality Score: 10/100 [🥵]
+
+ | ✗ Failed with 675 errors, 1,593 warnings and 14 informs.
+
+ use --debug if you want to enable developer logging
+
+exit 1

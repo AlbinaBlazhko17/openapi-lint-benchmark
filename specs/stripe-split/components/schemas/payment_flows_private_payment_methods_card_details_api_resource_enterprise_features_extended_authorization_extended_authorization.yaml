@@ -1,0 +1,16 @@
+description: ''
+properties:
+  status:
+    description: >-
+      Indicates whether or not the capture window is extended beyond the
+      standard authorization.
+    enum:
+      - disabled
+      - enabled
+    type: string
+required:
+  - status
+title: >-
+  PaymentFlowsPrivatePaymentMethodsCardDetailsAPIResourceEnterpriseFeaturesExtendedAuthorizationExtendedAuthorization
+type: object
+x-expandableFields: []

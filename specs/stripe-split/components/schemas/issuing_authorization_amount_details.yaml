@@ -1,0 +1,13 @@
+description: ''
+properties:
+  atm_fee:
+    description: The fee charged by the ATM for the cash withdrawal.
+    nullable: true
+    type: integer
+  cashback_amount:
+    description: The amount of cash requested by the cardholder.
+    nullable: true
+    type: integer
+title: IssuingAuthorizationAmountDetails
+type: object
+x-expandableFields: []

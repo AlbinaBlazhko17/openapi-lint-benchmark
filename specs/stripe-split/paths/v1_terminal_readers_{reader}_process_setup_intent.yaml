@@ -1,0 +1,77 @@
+post:
+  description: >-
+    <p>Initiates a SetupIntent flow on a Reader. See <a
+    href="/docs/terminal/features/saving-payment-details/save-directly">Save
+    directly without charging</a> for more details.</p>
+  operationId: PostTerminalReadersReaderProcessSetupIntent
+  parameters:
+    - in: path
+      name: reader
+      required: true
+      schema:
+        maxLength: 5000
+        type: string
+      style: simple
+  requestBody:
+    content:
+      application/x-www-form-urlencoded:
+        encoding:
+          expand:
+            explode: true
+            style: deepObject
+          process_config:
+            explode: true
+            style: deepObject
+        schema:
+          additionalProperties: false
+          properties:
+            allow_redisplay:
+              description: >-
+                This field indicates whether this payment method can be shown
+                again to its customer in a checkout flow. Stripe products such
+                as Checkout and Elements use this field to determine whether a
+                payment method can be shown as a saved payment method in a
+                checkout flow.
+              enum:
+                - always
+                - limited
+                - unspecified
+              type: string
+            expand:
+              description: Specifies which fields in the response should be expanded.
+              items:
+                maxLength: 5000
+                type: string
+              type: array
+            process_config:
+              description: >-
+                Configuration overrides for this setup, such as MOTO and
+                customer cancellation settings.
+              properties:
+                enable_customer_cancellation:
+                  type: boolean
+              title: process_setup_config
+              type: object
+            setup_intent:
+              description: The ID of the SetupIntent to process on the reader.
+              maxLength: 5000
+              type: string
+          required:
+            - allow_redisplay
+            - setup_intent
+          type: object
+    required: true
+  responses:
+    '200':
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/terminal.reader.yaml
+      description: Successful response.
+    default:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/error.yaml
+      description: Error response.
+  summary: Hand-off a SetupIntent to a Reader

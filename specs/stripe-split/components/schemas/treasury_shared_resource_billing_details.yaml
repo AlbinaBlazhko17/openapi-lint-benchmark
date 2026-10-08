@@ -1,0 +1,20 @@
+description: ''
+properties:
+  address:
+    $ref: ./address.yaml
+  email:
+    description: Email address.
+    maxLength: 5000
+    nullable: true
+    type: string
+  name:
+    description: Full name.
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - address
+title: TreasurySharedResourceBillingDetails
+type: object
+x-expandableFields:
+  - address

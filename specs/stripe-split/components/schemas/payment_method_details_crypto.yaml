@@ -1,0 +1,35 @@
+description: ''
+properties:
+  buyer_address:
+    description: The wallet address of the customer.
+    maxLength: 5000
+    type: string
+  network:
+    description: The blockchain network that the transaction was sent on.
+    enum:
+      - base
+      - ethereum
+      - polygon
+      - solana
+      - sui
+      - tempo
+    type: string
+    x-stripeBypassValidation: true
+  token_currency:
+    description: The token currency that the transaction was sent with.
+    enum:
+      - phantom_cash
+      - usdc
+      - usdg
+      - usdp
+      - usdsui
+      - usdt
+    type: string
+    x-stripeBypassValidation: true
+  transaction_hash:
+    description: The blockchain transaction hash of the crypto payment.
+    maxLength: 5000
+    type: string
+title: payment_method_details_crypto
+type: object
+x-expandableFields: []

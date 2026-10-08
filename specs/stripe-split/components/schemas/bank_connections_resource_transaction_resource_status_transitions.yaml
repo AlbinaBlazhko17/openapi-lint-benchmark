@@ -1,0 +1,19 @@
+description: ''
+properties:
+  posted_at:
+    description: >-
+      Time at which this transaction posted. Measured in seconds since the Unix
+      epoch.
+    format: unix-time
+    nullable: true
+    type: integer
+  void_at:
+    description: >-
+      Time at which this transaction was voided. Measured in seconds since the
+      Unix epoch.
+    format: unix-time
+    nullable: true
+    type: integer
+title: BankConnectionsResourceTransactionResourceStatusTransitions
+type: object
+x-expandableFields: []

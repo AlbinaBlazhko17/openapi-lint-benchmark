@@ -1,0 +1,12 @@
+description: ''
+properties:
+  amount:
+    description: The amount of the payment on a multi use mandate.
+    type: integer
+  currency:
+    description: The currency of the payment on a multi use mandate.
+    format: currency
+    type: string
+title: mandate_multi_use
+type: object
+x-expandableFields: []

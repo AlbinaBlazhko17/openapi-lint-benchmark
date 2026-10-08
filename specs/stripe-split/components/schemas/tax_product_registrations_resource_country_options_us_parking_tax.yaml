@@ -1,0 +1,14 @@
+description: ''
+properties:
+  jurisdiction:
+    description: >-
+      A [jurisdiction
+      code](https://docs.stripe.com/tax/registering?type=parking_tax#registration-types)
+      representing the local jurisdiction.
+    maxLength: 5000
+    type: string
+required:
+  - jurisdiction
+title: TaxProductRegistrationsResourceCountryOptionsUsParkingTax
+type: object
+x-expandableFields: []

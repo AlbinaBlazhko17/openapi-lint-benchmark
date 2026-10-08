@@ -1,0 +1,17 @@
+description: This hash contains details about the online acceptance.
+properties:
+  ip_address:
+    description: The IP address from which the Mandate was accepted by the customer.
+    maxLength: 5000
+    nullable: true
+    type: string
+  user_agent:
+    description: >-
+      The user agent of the browser from which the Mandate was accepted by the
+      customer.
+    maxLength: 5000
+    nullable: true
+    type: string
+title: ConfirmationTokensResourceMandateDataResourceCustomerAcceptanceResourceOnline
+type: object
+x-expandableFields: []

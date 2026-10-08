@@ -1,0 +1,28 @@
+description: ''
+properties:
+  invoice_item_details:
+    anyOf:
+      - $ref: >-
+          ./billing_bill_resource_invoicing_lines_parents_invoice_line_item_invoice_item_parent.yaml
+    description: Details about the invoice item that generated this line item
+    nullable: true
+  subscription_item_details:
+    anyOf:
+      - $ref: >-
+          ./billing_bill_resource_invoicing_lines_parents_invoice_line_item_subscription_item_parent.yaml
+    description: Details about the subscription item that generated this line item
+    nullable: true
+  type:
+    description: The type of parent that generated this line item
+    enum:
+      - invoice_item_details
+      - subscription_item_details
+    type: string
+    x-stripeBypassValidation: true
+required:
+  - type
+title: BillingBillResourceInvoicingLinesParentsInvoiceLineItemParent
+type: object
+x-expandableFields:
+  - invoice_item_details
+  - subscription_item_details

@@ -1,0 +1,97 @@
+description: ''
+properties:
+  acss_debit:
+    anyOf:
+      - $ref: ./invoice_payment_method_options_acss_debit.yaml
+    description: >-
+      If paying by `acss_debit`, this sub-hash contains details about the
+      Canadian pre-authorized debit payment method options to pass to the
+      invoice’s PaymentIntent.
+    nullable: true
+  bancontact:
+    anyOf:
+      - $ref: ./invoice_payment_method_options_bancontact.yaml
+    description: >-
+      If paying by `bancontact`, this sub-hash contains details about the
+      Bancontact payment method options to pass to the invoice’s PaymentIntent.
+    nullable: true
+  billie:
+    anyOf:
+      - $ref: ./invoice_payment_method_options_billie.yaml
+    description: >-
+      If paying by `billie`, this sub-hash contains details about the Billie
+      payment method options to pass to the invoice’s PaymentIntent.
+    nullable: true
+  card:
+    anyOf:
+      - $ref: ./invoice_payment_method_options_card.yaml
+    description: >-
+      If paying by `card`, this sub-hash contains details about the Card payment
+      method options to pass to the invoice’s PaymentIntent.
+    nullable: true
+  customer_balance:
+    anyOf:
+      - $ref: ./invoice_payment_method_options_customer_balance.yaml
+    description: >-
+      If paying by `customer_balance`, this sub-hash contains details about the
+      Bank transfer payment method options to pass to the invoice’s
+      PaymentIntent.
+    nullable: true
+  konbini:
+    anyOf:
+      - $ref: ./invoice_payment_method_options_konbini.yaml
+    description: >-
+      If paying by `konbini`, this sub-hash contains details about the Konbini
+      payment method options to pass to the invoice’s PaymentIntent.
+    nullable: true
+  payto:
+    anyOf:
+      - $ref: ./invoice_payment_method_options_payto.yaml
+    description: >-
+      If paying by `payto`, this sub-hash contains details about the PayTo
+      payment method options to pass to the invoice’s PaymentIntent.
+    nullable: true
+  pix:
+    anyOf:
+      - $ref: ./invoice_payment_method_options_pix.yaml
+    description: >-
+      If paying by `pix`, this sub-hash contains details about the Pix payment
+      method options to pass to the invoice’s PaymentIntent.
+    nullable: true
+  sepa_debit:
+    anyOf:
+      - $ref: ./invoice_payment_method_options_sepa_debit.yaml
+    description: >-
+      If paying by `sepa_debit`, this sub-hash contains details about the SEPA
+      Direct Debit payment method options to pass to the invoice’s
+      PaymentIntent.
+    nullable: true
+  upi:
+    anyOf:
+      - $ref: ./invoice_payment_method_options_upi.yaml
+    description: >-
+      If paying by `upi`, this sub-hash contains details about the UPI payment
+      method options to pass to the invoice’s PaymentIntent.
+    nullable: true
+  us_bank_account:
+    anyOf:
+      - $ref: ./invoice_payment_method_options_us_bank_account.yaml
+    description: >-
+      If paying by `us_bank_account`, this sub-hash contains details about the
+      ACH direct debit payment method options to pass to the invoice’s
+      PaymentIntent.
+    nullable: true
+title: InvoicesPaymentMethodOptions
+type: object
+x-expandableFields:
+  - acss_debit
+  - bancontact
+  - billie
+  - card
+  - customer_balance
+  - konbini
+  - payto
+  - pix
+  - sepa_debit
+  - upi
+  - us_bank_account

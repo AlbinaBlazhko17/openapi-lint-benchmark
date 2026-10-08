@@ -1,0 +1,25 @@
+description: Billing details used by the customer for this payment.
+properties:
+  address:
+    $ref: ./payments_primitives_payment_records_resource_address.yaml
+  email:
+    description: The billing email associated with the method of payment.
+    maxLength: 5000
+    nullable: true
+    type: string
+  name:
+    description: The billing name associated with the method of payment.
+    maxLength: 5000
+    nullable: true
+    type: string
+  phone:
+    description: The billing phone number associated with the method of payment.
+    maxLength: 5000
+    nullable: true
+    type: string
+required:
+  - address
+title: PaymentsPrimitivesPaymentRecordsResourceBillingDetails
+type: object
+x-expandableFields:
+  - address

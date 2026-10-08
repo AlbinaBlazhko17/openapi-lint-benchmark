@@ -1,0 +1,11 @@
+description: Link type options associated with the current onboarding link object.
+properties:
+  apple_terms_and_conditions:
+    anyOf:
+      - $ref: ./terminal_onboarding_link_apple_terms_and_conditions.yaml
+    description: The options associated with the Apple Terms and Conditions link type.
+    nullable: true
+title: TerminalOnboardingLinkLinkOptions
+type: object
+x-expandableFields:
+  - apple_terms_and_conditions

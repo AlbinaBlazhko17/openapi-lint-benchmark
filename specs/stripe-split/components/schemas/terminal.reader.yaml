@@ -1,0 +1,120 @@
+description: >-
+  A Reader represents a physical device for accepting payment details.
+
+
+  Related guide: [Connecting to a
+  reader](https://docs.stripe.com/terminal/payments/connect-reader)
+properties:
+  action:
+    anyOf:
+      - $ref: ./terminal_reader_reader_resource_reader_action.yaml
+    description: The most recent action performed by the reader.
+    nullable: true
+  device_sw_version:
+    description: The current software version of the reader.
+    maxLength: 5000
+    nullable: true
+    type: string
+  device_type:
+    description: Device type of the reader.
+    enum:
+      - bbpos_chipper2x
+      - bbpos_wisepad3
+      - bbpos_wisepos_e
+      - mobile_phone_reader
+      - simulated_stripe_s700
+      - simulated_stripe_s710
+      - simulated_verifone_m425
+      - simulated_verifone_p630
+      - simulated_verifone_ux700
+      - simulated_verifone_v660p
+      - simulated_wisepos_e
+      - stripe_m2
+      - stripe_s700
+      - stripe_s710
+      - verifone_P400
+      - verifone_m425
+      - verifone_p630
+      - verifone_ux700
+      - verifone_v660p
+    type: string
+    x-stripeBypassValidation: true
+  id:
+    description: Unique identifier for the object.
+    maxLength: 5000
+    type: string
+  ip_address:
+    description: The local IP address of the reader.
+    maxLength: 5000
+    nullable: true
+    type: string
+  label:
+    description: Custom label given to the reader for easier identification.
+    maxLength: 5000
+    type: string
+  last_seen_at:
+    description: >-
+      The last time this reader reported to Stripe backend. Timestamp is
+      measured in milliseconds since the Unix epoch. Unlike most other Stripe
+      timestamp fields which use seconds, this field uses milliseconds.
+    format: unix-time
+    nullable: true
+    type: integer
+  livemode:
+    description: >-
+      If the object exists in live mode, the value is `true`. If the object
+      exists in test mode, the value is `false`.
+    type: boolean
+  location:
+    anyOf:
+      - maxLength: 5000
+        type: string
+      - $ref: ./terminal.location.yaml
+    description: The location identifier of the reader.
+    nullable: true
+    x-expansionResources:
+      oneOf:
+        - $ref: ./terminal.location.yaml
+  metadata:
+    additionalProperties:
+      maxLength: 500
+      type: string
+    description: >-
+      Set of [key-value pairs](https://docs.stripe.com/api/metadata) that you
+      can attach to an object. This can be useful for storing additional
+      information about the object in a structured format.
+    type: object
+  object:
+    description: >-
+      String representing the object's type. Objects of the same type share the
+      same value.
+    enum:
+      - terminal.reader
+    type: string
+  serial_number:
+    description: Serial number of the reader.
+    maxLength: 5000
+    type: string
+  status:
+    description: >-
+      The networking status of the reader. We do not recommend using this field
+      in flows that may block taking payments.
+    enum:
+      - offline
+      - online
+    nullable: true
+    type: string
+required:
+  - device_type
+  - id
+  - label
+  - livemode
+  - metadata
+  - object
+  - serial_number
+title: Reader
+type: object
+x-expandableFields:
+  - action
+  - location
+x-resourceId: terminal.reader

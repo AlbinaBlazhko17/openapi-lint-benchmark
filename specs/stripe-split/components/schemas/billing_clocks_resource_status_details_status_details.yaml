@@ -1,0 +1,8 @@
+description: ''
+properties:
+  advancing:
+    $ref: ./billing_clocks_resource_status_details_advancing_status_details.yaml
+title: BillingClocksResourceStatusDetailsStatusDetails
+type: object
+x-expandableFields:
+  - advancing
