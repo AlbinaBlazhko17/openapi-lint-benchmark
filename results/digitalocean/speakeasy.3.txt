@@ -1,6 +1,6 @@
 Linting OpenAPI document...
                            
-Lint report written to: /home/runner/.speakeasy/temp/lint-report-b129f2c058e2328bf4bd716d8daa2c2c-339624542.html
+Lint report written to: /home/runner/.speakeasy/temp/lint-report-b129f2c058e2328bf4bd716d8daa2c2c-3580092588.html
 INFO    validation hint: generator-missing-error-response - an error response should be defined for all operations
 INFO    validation hint: generator-missing-error-response - an error response should be defined for all operations
 INFO    validation hint: generator-missing-error-response - an error response should be defined for all operations

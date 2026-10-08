@@ -18,7 +18,7 @@ The same four multi-file inputs, bundled into one file each with `redocly bundle
 ## Results
 
 <!-- BENCHMARK:START -->
-Generated 2026-10-08 13:50 UTC by [this workflow run](https://github.com/AlbinaBlazhko17/openapi-lint-benchmark/actions/runs/37787491916) on AMD EPYC 9V45 96-Core Processor, 4 cores, 15 GB RAM, Linux 6.17.0-1022-azure, Node v24.21.0
+Generated 2026-10-08 16:18 UTC by [this workflow run](https://github.com/AlbinaBlazhko17/openapi-lint-benchmark/actions/runs/37807615330) on AMD EPYC 9V45 96-Core Processor, 4 cores, 15 GB RAM, Linux 6.17.0-1022-azure, Node v24.21.0
 Latest releases at run time: vacuum 0.32.0, Spectral 6.17.0, Redocly CLI 2.60.0, Scalar CLI 2.10.0, Speakeasy CLI 1.801.0.
 Each command ran 5 times, one after another, after a 5 s pause; the time is wall-clock from process start to exit, as `time` reports it, and the table shows the median. A command that did not finish within 5 minutes was killed and not repeated. 💥 marks a command that crashed; its output has the error.
 
@@ -28,10 +28,10 @@ Input: `specs/stripe/spec3.yaml`
 
 | Tool | Time (median) | Errors | Warnings<br>+ info |
 | --- | --- | ---: | ---: |
-| [Redocly CLI](results/stripe/redocly.1.txt) | 1.18 s<br>▓ | 641 | 1,012 |
-| [vacuum](results/stripe/vacuum.1.txt) | 1.53 s<br>▓ | 2 | 23,086 |
-| [Speakeasy CLI](results/stripe/speakeasy.1.txt) | 3.29 s<br>▓▓ | 2 | 5,873 |
-| [Spectral](results/stripe/spectral.1.txt) | 11.79 s<br>▓▓▓▓▓▓▓▓ | 0 | 600 |
+| [Redocly CLI](results/stripe/redocly.1.txt) | 1.26 s<br>▓ | 641 | 1,012 |
+| [vacuum](results/stripe/vacuum.1.txt) | 1.59 s<br>▓ | 2 | 23,086 |
+| [Speakeasy CLI](results/stripe/speakeasy.1.txt) | 3.28 s<br>▓▓ | 2 | 5,873 |
+| [Spectral](results/stripe/spectral.1.txt) | 12.20 s<br>▓▓▓▓▓▓▓▓ | 0 | 600 |
 | [Scalar CLI](results/stripe/scalar.1.txt) | 💥 crashed |  |  |
 
 ### Stripe, split into files
@@ -40,8 +40,8 @@ Input: `specs/stripe-split/openapi.yaml`
 
 | Tool | Time (median) | Errors | Warnings<br>+ info |
 | --- | --- | ---: | ---: |
-| [Redocly CLI](results/stripe-split/redocly.1.txt) | 1.03 s<br>▓ | 641 | 1,012 |
-| [Speakeasy CLI](results/stripe-split/speakeasy.1.txt) | 2.92 s<br>▓▓ | 2 | 4,345 |
+| [Redocly CLI](results/stripe-split/redocly.1.txt) | 1.12 s<br>▓ | 641 | 1,012 |
+| [Speakeasy CLI](results/stripe-split/speakeasy.1.txt) | 3.17 s<br>▓▓ | 2 | 4,345 |
 | [vacuum](results/stripe-split/vacuum.1.txt) | ☠️ > 5 min |  |  |
 | [Spectral](results/stripe-split/spectral.1.txt) | ☠️ > 5 min |  |  |
 | [Scalar CLI](results/stripe-split/scalar.1.txt) | ☠️ > 5 min |  |  |
@@ -52,11 +52,11 @@ Input: `specs/digitalocean/DigitalOcean-public.v2.yaml`
 
 | Tool | Time (median) | Errors | Warnings<br>+ info |
 | --- | --- | ---: | ---: |
-| [Speakeasy CLI](results/digitalocean/speakeasy.1.txt) | 0.39 s<br>▓ | 1,000 | 1,659 |
-| [Redocly CLI](results/digitalocean/redocly.1.txt) | 1.69 s<br>▓ | 7 | 122 |
-| [vacuum](results/digitalocean/vacuum.1.txt) | 2.94 s<br>▓▓ | 675 | 1,607 |
-| [Scalar CLI](results/digitalocean/scalar.1.txt) | 6.70 s<br>▓▓▓▓▓ | 833 | 1,162 |
-| [Spectral](results/digitalocean/spectral.1.txt) | 9.27 s<br>▓▓▓▓▓▓ | 1,320 | 682 |
+| [Speakeasy CLI](results/digitalocean/speakeasy.1.txt) | 0.40 s<br>▓ | 1,000 | 1,659 |
+| [Redocly CLI](results/digitalocean/redocly.1.txt) | 1.74 s<br>▓ | 7 | 122 |
+| [vacuum](results/digitalocean/vacuum.1.txt) | 3.19 s<br>▓▓ | 675 | 1,607 |
+| [Scalar CLI](results/digitalocean/scalar.1.txt) | 7.17 s<br>▓▓▓▓▓ | 833 | 1,162 |
+| [Spectral](results/digitalocean/spectral.1.txt) | 9.61 s<br>▓▓▓▓▓▓ | 1,320 | 682 |
 
 ### GitHub, single file
 
@@ -64,10 +64,10 @@ Input: `specs/github/api.github.com.yaml`
 
 | Tool | Time (median) | Errors | Warnings<br>+ info |
 | --- | --- | ---: | ---: |
-| [Redocly CLI](results/github/redocly.1.txt) | 2.93 s<br>▓▓ | 1,648 | 2,268 |
-| [vacuum](results/github/vacuum.1.txt) | 4.51 s<br>▓▓▓ | 1 | 33,338 |
-| [Speakeasy CLI](results/github/speakeasy.1.txt) | 5.49 s<br>▓▓▓▓ | 0 | 3,498 |
-| [Spectral](results/github/spectral.1.txt) | 36.44 s<br>▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ | 795 | 50 |
+| [Redocly CLI](results/github/redocly.1.txt) | 3.08 s<br>▓▓ | 1,648 | 2,268 |
+| [vacuum](results/github/vacuum.1.txt) | 4.47 s<br>▓▓▓ | 1 | 33,338 |
+| [Speakeasy CLI](results/github/speakeasy.1.txt) | 5.72 s<br>▓▓▓▓ | 0 | 3,498 |
+| [Spectral](results/github/spectral.1.txt) | 35.88 s<br>▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ | 795 | 50 |
 | [Scalar CLI](results/github/scalar.1.txt) | ☠️ > 5 min |  |  |
 
 ### Cloudflare, single file
@@ -76,10 +76,10 @@ Input: `specs/cloudflare/openapi.yaml`
 
 | Tool | Time (median) | Errors | Warnings<br>+ info |
 | --- | --- | ---: | ---: |
-| [Redocly CLI](results/cloudflare/redocly.1.txt) | 4.99 s<br>▓▓▓ | 16 | 4,995 |
-| [vacuum](results/cloudflare/vacuum.1.txt) | 6.51 s<br>▓▓▓▓ | 397 | 62,664 |
-| [Speakeasy CLI](results/cloudflare/speakeasy.1.txt) | 9.52 s<br>▓▓▓▓▓▓ | 43 | 24,217 |
-| [Spectral](results/cloudflare/spectral.1.txt) | 59.39 s<br>▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ | 2,257 | 3,797 |
+| [Redocly CLI](results/cloudflare/redocly.1.txt) | 4.91 s<br>▓▓▓ | 16 | 4,995 |
+| [vacuum](results/cloudflare/vacuum.1.txt) | 6.61 s<br>▓▓▓▓ | 397 | 62,664 |
+| [Speakeasy CLI](results/cloudflare/speakeasy.1.txt) | 8.72 s<br>▓▓▓▓▓▓ | 43 | 24,217 |
+| [Spectral](results/cloudflare/spectral.1.txt) | 60.41 s<br>▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ | 2,257 | 3,797 |
 | [Scalar CLI](results/cloudflare/scalar.1.txt) | ☠️ > 5 min |  |  |
 
 ### Azure Compute, split into files as published (Swagger 2.0)
@@ -88,11 +88,11 @@ Input: `specs/azure/specification/compute/resource-manager/Microsoft.Compute/Com
 
 | Tool | Time (median) | Errors | Warnings<br>+ info |
 | --- | --- | ---: | ---: |
-| [vacuum](results/azure/vacuum.1.txt) | 0.20 s<br>▓ | 302 | 1,388 |
-| [Speakeasy CLI](results/azure/speakeasy.1.txt) | 0.53 s<br>▓ | 219 | 1,277 |
-| [Redocly CLI](results/azure/redocly.1.txt) | 0.63 s<br>▓ | 205 | 893 |
-| [Spectral](results/azure/spectral.1.txt) | 2.87 s<br>▓▓ | 651 | 17 |
-| [Scalar CLI](results/azure/scalar.1.txt) | 8.69 s<br>▓▓▓▓▓▓ | 302 | 26 |
+| [vacuum](results/azure/vacuum.1.txt) | 0.18 s<br>▓ | 302 | 1,388 |
+| [Speakeasy CLI](results/azure/speakeasy.1.txt) | 0.57 s<br>▓ | 219 | 1,277 |
+| [Redocly CLI](results/azure/redocly.1.txt) | 0.66 s<br>▓ | 205 | 893 |
+| [Spectral](results/azure/spectral.1.txt) | 2.95 s<br>▓▓ | 651 | 17 |
+| [Scalar CLI](results/azure/scalar.1.txt) | 9.34 s<br>▓▓▓▓▓▓ | 302 | 26 |
 
 ### AWS EC2, single file (third-party conversion)
 
@@ -100,10 +100,10 @@ Input: `specs/aws-ec2/openapi.yaml`
 
 | Tool | Time (median) | Errors | Warnings<br>+ info |
 | --- | --- | ---: | ---: |
-| [Redocly CLI](results/aws-ec2/redocly.1.txt) | 1.52 s<br>▓ | 1,188 | 1,191 |
-| [vacuum](results/aws-ec2/vacuum.1.txt) | 1.90 s<br>▓ | 0 | 26,400 |
-| [Spectral](results/aws-ec2/spectral.1.txt) | 5.04 s<br>▓▓▓ | 3 | 1,188 |
-| [Speakeasy CLI](results/aws-ec2/speakeasy.1.txt) | 7.41 s<br>▓▓▓▓▓ | 0 | 12,312 |
+| [Redocly CLI](results/aws-ec2/redocly.1.txt) | 1.60 s<br>▓ | 1,188 | 1,191 |
+| [vacuum](results/aws-ec2/vacuum.1.txt) | 1.97 s<br>▓ | 0 | 26,400 |
+| [Spectral](results/aws-ec2/spectral.1.txt) | 5.29 s<br>▓▓▓ | 3 | 1,188 |
+| [Speakeasy CLI](results/aws-ec2/speakeasy.1.txt) | 7.39 s<br>▓▓▓▓▓ | 0 | 12,312 |
 | [Scalar CLI](results/aws-ec2/scalar.1.txt) | ☠️ > 5 min |  |  |
 
 <!-- BENCHMARK:END -->

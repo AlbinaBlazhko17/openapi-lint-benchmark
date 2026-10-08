@@ -14,7 +14,7 @@
 
 [2] [1mDigitalOcean-public.v2.yaml:20:3[22m [90mat #/paths/~1api~1v1~1chat~1completions/post/parameters/0/schema[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m18 |[39m     description: production
 [90m19 |[39m 
@@ -27,7 +27,7 @@
 
 [3] [1mDigitalOcean-public.v2.yaml:24:7[22m [90mat #/paths/~1api~1v1~1chat~1completions/post/requestBody[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m22 |[39m     x-displayName: Introduction
 [90m23 |[39m     x-traitTag: true
@@ -40,7 +40,7 @@
 
 [4] [1mDigitalOcean-public.v2.yaml:632:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m630 |[39m     x-displayName: Introduction
 [90m631 |[39m     x-traitTag: true
@@ -53,7 +53,7 @@
 
 [5] [1mDigitalOcean-public.v2.yaml:730:3[22m [90mat #/paths/~1v2~11-clicks[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m728 |[39m       - Serverless Inference
 [90m729 |[39m 
@@ -66,7 +66,7 @@
 
 [6] [1mDigitalOcean-public.v2.yaml:732:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m730 |[39m paths:
 [90m731 |[39m   /v2/1-clicks:
@@ -79,7 +79,7 @@
 
 [7] [1mDigitalOcean-public.v2.yaml:736:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m734 |[39m 
 [90m735 |[39m   /v2/1-clicks/kubernetes:
@@ -92,7 +92,7 @@
 
 [8] [1mDigitalOcean-public.v2.yaml:740:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m738 |[39m 
 [90m739 |[39m   /v2/account:
@@ -105,7 +105,7 @@
 
 [9] [1mDigitalOcean-public.v2.yaml:743:5[22m [90mat #/paths/~1v2~1account~1keys[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m741 |[39m       $ref: "resources/account/account_get.yml"
 [90m742 |[39m 
@@ -118,7 +118,7 @@
 
 [10] [1mDigitalOcean-public.v2.yaml:744:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m742 |[39m 
 [90m743 |[39m   /v2/account/keys:
@@ -131,7 +131,7 @@
 
 [11] [1mDigitalOcean-public.v2.yaml:747:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m745 |[39m       $ref: "resources/ssh_keys/sshKeys_list.yml"
 [90m746 |[39m 
@@ -144,7 +144,7 @@
 
 [12] [1mDigitalOcean-public.v2.yaml:750:5[22m [90mat #/paths/~1v2~1account~1keys~1{ssh_key_identifier}[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m748 |[39m       $ref: "resources/ssh_keys/sshKeys_create.yml"
 [90m749 |[39m 
@@ -157,7 +157,7 @@
 
 [13] [1mDigitalOcean-public.v2.yaml:751:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m749 |[39m 
 [90m750 |[39m   /v2/account/keys/{ssh_key_identifier}:
@@ -170,7 +170,7 @@
 
 [14] [1mDigitalOcean-public.v2.yaml:754:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m752 |[39m       $ref: "resources/ssh_keys/sshKeys_get.yml"
 [90m753 |[39m 
@@ -183,7 +183,7 @@
 
 [15] [1mDigitalOcean-public.v2.yaml:757:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m755 |[39m       $ref: "resources/ssh_keys/sshKeys_update.yml"
 [90m756 |[39m 
@@ -196,7 +196,7 @@
 
 [16] [1mDigitalOcean-public.v2.yaml:761:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m759 |[39m 
 [90m760 |[39m   /v2/actions:
@@ -209,7 +209,7 @@
 
 [17] [1mDigitalOcean-public.v2.yaml:765:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m763 |[39m 
 [90m764 |[39m   /v2/actions/{action_id}:
@@ -222,7 +222,7 @@
 
 [18] [1mDigitalOcean-public.v2.yaml:769:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m767 |[39m 
 [90m768 |[39m   /v2/add-ons/apps:
@@ -235,7 +235,7 @@
 
 [19] [1mDigitalOcean-public.v2.yaml:773:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m771 |[39m 
 [90m772 |[39m   /v2/add-ons/apps/{app_slug}/metadata:
@@ -248,7 +248,7 @@
 
 [20] [1mDigitalOcean-public.v2.yaml:776:5[22m [90mat #/paths/~1v2~1add-ons~1saas[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m774 |[39m       $ref: "resources/addons/addons_get_app_metadata.yml"
 [90m775 |[39m 
@@ -261,7 +261,7 @@
 
 [21] [1mDigitalOcean-public.v2.yaml:777:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m775 |[39m 
 [90m776 |[39m   /v2/add-ons/saas:
@@ -274,7 +274,7 @@
 
 [22] [1mDigitalOcean-public.v2.yaml:779:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m777 |[39m     get:
 [90m778 |[39m       $ref: "resources/addons/addons_list.yml"
@@ -287,7 +287,7 @@
 
 [23] [1mDigitalOcean-public.v2.yaml:782:5[22m [90mat #/paths/~1v2~1add-ons~1saas~1{resource_uuid}[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m780 |[39m       $ref: "resources/addons/addons_create.yml"
 [90m781 |[39m 
@@ -300,7 +300,7 @@
 
 [24] [1mDigitalOcean-public.v2.yaml:783:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m781 |[39m 
 [90m782 |[39m   /v2/add-ons/saas/{resource_uuid}:
@@ -313,7 +313,7 @@
 
 [25] [1mDigitalOcean-public.v2.yaml:785:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m783 |[39m     get:
 [90m784 |[39m       $ref: "resources/addons/addons_get.yml"
@@ -326,7 +326,7 @@
 
 [26] [1mDigitalOcean-public.v2.yaml:787:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m785 |[39m     delete:
 [90m786 |[39m       $ref: "resources/addons/addons_delete.yml"
@@ -339,7 +339,7 @@
 
 [27] [1mDigitalOcean-public.v2.yaml:791:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m789 |[39m 
 [90m790 |[39m   /v2/add-ons/saas/{resource_uuid}/plan:
@@ -352,7 +352,7 @@
 
 [28] [1mDigitalOcean-public.v2.yaml:794:5[22m [90mat #/paths/~1v2~1apps[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m792 |[39m       $ref: "resources/addons/addons_update_plan.yml"
 [90m793 |[39m 
@@ -365,7 +365,7 @@
 
 [29] [1mDigitalOcean-public.v2.yaml:795:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m793 |[39m 
 [90m794 |[39m   /v2/apps:
@@ -378,7 +378,7 @@
 
 [30] [1mDigitalOcean-public.v2.yaml:797:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m795 |[39m     get:
 [90m796 |[39m       $ref: "resources/apps/apps_list.yml"
@@ -391,7 +391,7 @@
 
 [31] [1mDigitalOcean-public.v2.yaml:800:5[22m [90mat #/paths/~1v2~1apps~1{id}[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m798 |[39m       $ref: "resources/apps/apps_create.yml"
 [90m799 |[39m 
@@ -404,7 +404,7 @@
 
 [32] [1mDigitalOcean-public.v2.yaml:801:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m799 |[39m 
 [90m800 |[39m   /v2/apps/{id}:
@@ -417,7 +417,7 @@
 
 [33] [1mDigitalOcean-public.v2.yaml:803:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m801 |[39m     delete:
 [90m802 |[39m       $ref: "resources/apps/apps_delete.yml"
@@ -430,7 +430,7 @@
 
 [34] [1mDigitalOcean-public.v2.yaml:805:7[22m [90mat #/paths/~1v2~1databases~1options/get/responses/200/content/application~1json[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m803 |[39m     get:
 [90m804 |[39m       $ref: "resources/apps/apps_get.yml"
@@ -443,7 +443,7 @@
 
 [35] [1mDigitalOcean-public.v2.yaml:809:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/route_name[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m807 |[39m 
 [90m808 |[39m   /v2/apps/{app_id}/restart:
@@ -456,7 +456,7 @@
 
 [36] [1mDigitalOcean-public.v2.yaml:813:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/route_uuid[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m811 |[39m 
 [90m812 |[39m   /v2/apps/{app_id}/components/{component_name}/logs:
@@ -469,7 +469,7 @@
 
 [37] [1mDigitalOcean-public.v2.yaml:817:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/tags[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m815 |[39m 
 [90m816 |[39m   /v2/apps/{app_id}/components/{component_name}/exec:
@@ -482,7 +482,7 @@
 
 [38] [1mDigitalOcean-public.v2.yaml:821:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/tags/items[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m819 |[39m 
 [90m820 |[39m   /v2/apps/{app_id}/instances:
@@ -495,7 +495,7 @@
 
 [39] [1mDigitalOcean-public.v2.yaml:824:5[22m [90mat #/paths/~1v2~1apps~1{app_id}~1deployments[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m822 |[39m       $ref: "resources/apps/apps_get_instances.yml"
 [90m823 |[39m 
@@ -508,7 +508,7 @@
 
 [40] [1mDigitalOcean-public.v2.yaml:825:7[22m [90mat #/properties/paths['$ref']/patternProperties['^\~1']['$ref']/patternProperties['^(get|put|post|delete|options|head|patch|trace)$']['$ref'][39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m823 |[39m 
 [90m824 |[39m   /v2/apps/{app_id}/deployments:
@@ -521,7 +521,7 @@
 
 [41] [1mDigitalOcean-public.v2.yaml:827:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/temperature[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m825 |[39m     get:
 [90m826 |[39m       $ref: "resources/apps/apps_list_deployments.yml"
@@ -534,7 +534,7 @@
 
 [42] [1mDigitalOcean-public.v2.yaml:831:7[22m [90mat #/properties/paths['$ref']/patternProperties['^\~1']['$ref']/patternProperties['^(get|put|post|delete|options|head|patch|trace)$']['$ref'][39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m829 |[39m 
 [90m830 |[39m   /v2/apps/{app_id}/deployments/{deployment_id}:
@@ -547,7 +547,7 @@
 
 [43] [1mDigitalOcean-public.v2.yaml:835:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/thinking_token_budget[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m833 |[39m 
 [90m834 |[39m   /v2/apps/{app_id}/deployments/{deployment_id}/cancel:
@@ -560,7 +560,7 @@
 
 [44] [1mDigitalOcean-public.v2.yaml:839:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/top_p[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m837 |[39m 
 [90m838 |[39m   /v2/apps/{app_id}/deployments/{deployment_id}/components/{component_name}/logs:
@@ -573,7 +573,7 @@
 
 [45] [1mDigitalOcean-public.v2.yaml:843:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/top_p[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m841 |[39m 
 [90m842 |[39m   /v2/apps/{app_id}/deployments/{deployment_id}/logs:
@@ -586,7 +586,7 @@
 
 [46] [1mDigitalOcean-public.v2.yaml:847:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/updated_at[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m845 |[39m 
 [90m846 |[39m   /v2/apps/{app_id}/deployments/{deployment_id}/components/{component_name}/exec:
@@ -599,7 +599,7 @@
 
 [47] [1mDigitalOcean-public.v2.yaml:851:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/url[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m849 |[39m 
 [90m850 |[39m   /v2/apps/{app_id}/logs:
@@ -612,7 +612,7 @@
 
 [48] [1mDigitalOcean-public.v2.yaml:855:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/user_id[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m853 |[39m 
 [90m854 |[39m   /v2/apps/{app_id}/job-invocations:
@@ -625,7 +625,7 @@
 
 [49] [1mDigitalOcean-public.v2.yaml:859:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m857 |[39m 
 [90m858 |[39m   /v2/apps/{app_id}/job-invocations/{job_invocation_id}:
@@ -638,7 +638,7 @@
 
 [50] [1mDigitalOcean-public.v2.yaml:863:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m861 |[39m 
 [90m862 |[39m   /v2/apps/{app_id}/job-invocations/{job_invocation_id}/cancel:
@@ -651,7 +651,7 @@
 
 [51] [1mDigitalOcean-public.v2.yaml:867:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m865 |[39m 
 [90m866 |[39m   /v2/apps/{app_id}/jobs/{job_name}/invocations/{job_invocation_id}/logs:
@@ -664,7 +664,7 @@
 
 [52] [1mDigitalOcean-public.v2.yaml:871:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/web_fetch_enabled[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m869 |[39m 
 [90m870 |[39m   /v2/apps/{app_id}/events:
@@ -677,7 +677,7 @@
 
 [53] [1mDigitalOcean-public.v2.yaml:875:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/web_search_enabled[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m873 |[39m 
 [90m874 |[39m   /v2/apps/{app_id}/events/{event_id}:
@@ -690,7 +690,7 @@
 
 [54] [1mDigitalOcean-public.v2.yaml:879:7[22m [90mat #/properties/paths['$ref']/patternProperties['^\~1']['$ref']/patternProperties['^(get|put|post|delete|options|head|patch|trace)$']['$ref'][39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m877 |[39m 
 [90m878 |[39m   /v2/apps/{app_id}/events/{event_id}/cancel:
@@ -703,7 +703,7 @@
 
 [55] [1mDigitalOcean-public.v2.yaml:883:7[22m [90mat #/properties/paths['$ref']/patternProperties['^\~1']['$ref']/patternProperties['^(get|put|post|delete|options|head|patch|trace)$']['$ref'][39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m881 |[39m 
 [90m882 |[39m   /v2/apps/{app_id}/events/{event_id}/logs:
@@ -716,7 +716,7 @@
 
 [56] [1mDigitalOcean-public.v2.yaml:887:7[22m [90mat #/properties/paths['$ref']/patternProperties['^\~1']['$ref']/patternProperties['^(get|put|post|delete|options|head|patch|trace)$']['$ref'][39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m885 |[39m 
 [90m886 |[39m   /v2/apps/tiers/instance_sizes:
@@ -729,7 +729,7 @@
 
 [57] [1mDigitalOcean-public.v2.yaml:891:7[22m [90mat #/properties/paths['$ref']/patternProperties['^\~1']['$ref']/patternProperties['^(get|put|post|delete|options|head|patch|trace)$']['$ref'][39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m889 |[39m 
 [90m890 |[39m   /v2/apps/tiers/instance_sizes/{slug}:
@@ -742,7 +742,7 @@
 
 [58] [1mDigitalOcean-public.v2.yaml:895:7[22m [90mat #/properties/paths['$ref']/patternProperties['^\~1']['$ref']/patternProperties['^(get|put|post|delete|options|head|patch|trace)$']['$ref'][39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m893 |[39m 
 [90m894 |[39m   /v2/apps/regions:
@@ -755,7 +755,7 @@
 
 [59] [1mDigitalOcean-public.v2.yaml:899:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m897 |[39m 
 [90m898 |[39m   /v2/apps/propose:
@@ -768,7 +768,7 @@
 
 [60] [1mDigitalOcean-public.v2.yaml:903:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template/properties/created_at[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m901 |[39m 
 [90m902 |[39m   /v2/apps/{app_id}/alerts:
@@ -781,7 +781,7 @@
 
 [61] [1mDigitalOcean-public.v2.yaml:907:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template/properties/description[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m905 |[39m 
 [90m906 |[39m   /v2/apps/{app_id}/alerts/{alert_id}/destinations:
@@ -794,7 +794,7 @@
 
 [62] [1mDigitalOcean-public.v2.yaml:911:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template/properties/guardrails[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m909 |[39m 
 [90m910 |[39m   /v2/apps/{app_id}/rollback:
@@ -807,7 +807,7 @@
 
 [63] [1mDigitalOcean-public.v2.yaml:915:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m913 |[39m 
 [90m914 |[39m   /v2/apps/{app_id}/rollback/validate:
@@ -820,7 +820,7 @@
 
 [64] [1mDigitalOcean-public.v2.yaml:919:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m917 |[39m 
 [90m918 |[39m   /v2/apps/{app_id}/rollback/commit:
@@ -833,7 +833,7 @@
 
 [65] [1mDigitalOcean-public.v2.yaml:923:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template/properties/k[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m921 |[39m 
 [90m922 |[39m   /v2/apps/{app_id}/rollback/revert:
@@ -846,7 +846,7 @@
 
 [66] [1mDigitalOcean-public.v2.yaml:927:7[22m [90mat #/properties/paths['$ref']/patternProperties['^\~1']['$ref']/patternProperties['^(get|put|post|delete|options|head|patch|trace)$']['$ref'][39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m925 |[39m 
 [90m926 |[39m   /v2/apps/{app_id}/metrics/bandwidth_daily:
@@ -859,7 +859,7 @@
 
 [67] [1mDigitalOcean-public.v2.yaml:931:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template/properties/long_description[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m929 |[39m 
 [90m930 |[39m   /v2/apps/metrics/bandwidth_daily:
@@ -872,7 +872,7 @@
 
 [68] [1mDigitalOcean-public.v2.yaml:935:7[22m [90mat #/properties/paths['$ref']/patternProperties['^\~1']['$ref']/patternProperties['^(get|put|post|delete|options|head|patch|trace)$']['$ref'][39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m933 |[39m 
 [90m934 |[39m   /v2/apps/{app_id}/health:
@@ -885,7 +885,7 @@
 
 [69] [1mDigitalOcean-public.v2.yaml:938:5[22m [90mat #/paths/~1v2~1cdn~1endpoints[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m936 |[39m       $ref: "resources/apps/apps_get_health.yml"
 [90m937 |[39m 
@@ -898,7 +898,7 @@
 
 [70] [1mDigitalOcean-public.v2.yaml:939:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template/properties/max_tokens[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m937 |[39m 
 [90m938 |[39m   /v2/cdn/endpoints:
@@ -911,7 +911,7 @@
 
 [71] [1mDigitalOcean-public.v2.yaml:942:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template/properties/max_tokens[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m940 |[39m       $ref: "resources/cdn/cdn_list_endpoints.yml"
 [90m941 |[39m 
@@ -924,7 +924,7 @@
 
 [72] [1mDigitalOcean-public.v2.yaml:945:5[22m [90mat #/paths/~1v2~1cdn~1endpoints~1{cdn_id}[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m943 |[39m       $ref: "resources/cdn/cdn_create_endpoint.yml"
 [90m944 |[39m 
@@ -937,7 +937,7 @@
 
 [73] [1mDigitalOcean-public.v2.yaml:946:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template/properties/name[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m944 |[39m 
 [90m945 |[39m   /v2/cdn/endpoints/{cdn_id}:
@@ -950,7 +950,7 @@
 
 [74] [1mDigitalOcean-public.v2.yaml:949:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m947 |[39m       $ref: "resources/cdn/cdn_get_endpoint.yml"
 [90m948 |[39m 
@@ -963,7 +963,7 @@
 
 [75] [1mDigitalOcean-public.v2.yaml:952:7[22m [90mat #/properties/paths['$ref']/patternProperties['^\~1']['$ref']/patternProperties['^(get|put|post|delete|options|head|patch|trace)$']['$ref'][39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m950 |[39m       $ref: "resources/cdn/cdn_update_endpoint.yml"
 [90m951 |[39m 
@@ -976,7 +976,7 @@
 
 [76] [1mDigitalOcean-public.v2.yaml:956:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m954 |[39m 
 [90m955 |[39m   /v2/cdn/endpoints/{cdn_id}/cache:
@@ -989,7 +989,7 @@
 
 [77] [1mDigitalOcean-public.v2.yaml:959:5[22m [90mat #/paths/~1v2~1certificates[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m957 |[39m       $ref: "resources/cdn/cdn_purge_cache.yml"
 [90m958 |[39m 
@@ -1002,7 +1002,7 @@
 
 [78] [1mDigitalOcean-public.v2.yaml:960:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m958 |[39m 
 [90m959 |[39m   /v2/certificates:
@@ -1015,7 +1015,7 @@
 
 [79] [1mDigitalOcean-public.v2.yaml:963:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template/properties/tags[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m961 |[39m       $ref: "resources/certificates/certificates_list.yml"
 [90m962 |[39m 
@@ -1028,7 +1028,7 @@
 
 [80] [1mDigitalOcean-public.v2.yaml:966:5[22m [90mat #/paths/~1v2~1certificates~1{certificate_id}[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m964 |[39m       $ref: "resources/certificates/certificates_create.yml"
 [90m965 |[39m 
@@ -1041,7 +1041,7 @@
 
 [81] [1mDigitalOcean-public.v2.yaml:967:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template/properties/tags[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m965 |[39m 
 [90m966 |[39m   /v2/certificates/{certificate_id}:
@@ -1054,7 +1054,7 @@
 
 [82] [1mDigitalOcean-public.v2.yaml:970:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template/properties/temperature[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m968 |[39m       $ref: "resources/certificates/certificates_get.yml"
 [90m969 |[39m 
@@ -1067,7 +1067,7 @@
 
 [83] [1mDigitalOcean-public.v2.yaml:974:7[22m [90mat #/properties/paths['$ref']/patternProperties['^\~1']['$ref']/patternProperties['^(get|put|post|delete|options|head|patch|trace)$']['$ref'][39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m972 |[39m 
 [90m973 |[39m   /v2/customers/my/balance:
@@ -1080,7 +1080,7 @@
 
 [84] [1mDigitalOcean-public.v2.yaml:978:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template/properties/top_p[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m976 |[39m 
 [90m977 |[39m   /v2/customers/my/billing_history:
@@ -1093,7 +1093,7 @@
 
 [85] [1mDigitalOcean-public.v2.yaml:982:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template/properties/updated_at[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m980 |[39m 
 [90m981 |[39m   /v2/customers/my/invoices:
@@ -1106,7 +1106,7 @@
 
 [86] [1mDigitalOcean-public.v2.yaml:986:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template/properties/uuid[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m984 |[39m 
 [90m985 |[39m   /v2/customers/my/invoices/{invoice_uuid}:
@@ -1119,7 +1119,7 @@
 
 [87] [1mDigitalOcean-public.v2.yaml:990:7[22m [90mat #/properties/paths['$ref']/patternProperties['^\~1']['$ref']/patternProperties['^(get|put|post|delete|options|head|patch|trace)$']['$ref'][39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m988 |[39m 
 [90m989 |[39m   /v2/customers/my/invoices/{invoice_uuid}/csv:
@@ -1132,7 +1132,7 @@
 
 [88] [1mDigitalOcean-public.v2.yaml:994:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template/properties/guardrails/items/properties/priority[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m992 |[39m 
 [90m993 |[39m   /v2/customers/my/invoices/{invoice_uuid}/pdf:
@@ -1145,7 +1145,7 @@
 
 [89] [1mDigitalOcean-public.v2.yaml:998:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template/properties/guardrails/items/properties/uuid[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m 996 |[39m 
 [90m 997 |[39m   /v2/customers/my/invoices/{invoice_uuid}/summary:
@@ -1158,7 +1158,7 @@
 
 [90] [1mDigitalOcean-public.v2.yaml:1002:7[22m [90mat #/properties/paths['$ref']/patternProperties['^\~1']['$ref']/patternProperties['^(get|put|post|delete|options|head|patch|trace)$']['$ref'][39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m1000 |[39m 
 [90m1001 |[39m   /v2/billing/{account_urn}/insights/{start_date}/{end_date}:
@@ -1171,7 +1171,7 @@
 
 [91] [1mDigitalOcean-public.v2.yaml:1006:7[22m [90mat #/properties/paths['$ref']/patternProperties['^\~1']['$ref']/patternProperties['^(get|put|post|delete|options|head|patch|trace)$']['$ref'][39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m1004 |[39m 
 [90m1005 |[39m   /v2/databases/options:
@@ -1184,7 +1184,7 @@
 
 [92] [1mDigitalOcean-public.v2.yaml:1009:5[22m [90mat #/paths/~1v2~1databases[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m1007 |[39m       $ref: "resources/databases/databases_list_options.yml"
 [90m1008 |[39m 
@@ -1197,7 +1197,7 @@
 
 [93] [1mDigitalOcean-public.v2.yaml:1010:7[22m [90mat #/paths/~1v2~1gen-ai~1agents/get/responses/200/content/application~1json/schema/properties/agents/items/properties/template/properties/template_type[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m1008 |[39m 
 [90m1009 |[39m   /v2/databases:
@@ -1210,7 +1210,7 @@
 
 [94] [1mDigitalOcean-public.v2.yaml:1012:7[22m [90mat #/properties/paths['$ref']/patternProperties['^\~1']['$ref']/patternProperties['^(get|put|post|delete|options|head|patch|trace)$']['$ref'][39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m1010 |[39m     get:
 [90m1011 |[39m       $ref: "resources/databases/databases_list_clusters.yml"
@@ -1223,7 +1223,7 @@
 
 [95] [1mDigitalOcean-public.v2.yaml:1015:5[22m [90mat #/paths/~1v2~1databases~1{database_cluster_uuid}[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m1013 |[39m       $ref: "resources/databases/databases_create_cluster.yml"
 [90m1014 |[39m 
@@ -1236,7 +1236,7 @@
 
 [96] [1mDigitalOcean-public.v2.yaml:1016:7[22m [90mat #/properties/paths['$ref']/patternProperties['^\~1']['$ref']/patternProperties['^(get|put|post|delete|options|head|patch|trace)$']['$ref'][39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m1014 |[39m 
 [90m1015 |[39m   /v2/databases/{database_cluster_uuid}:
@@ -1249,7 +1249,7 @@
 
 [97] [1mDigitalOcean-public.v2.yaml:1018:7[22m [90mat #/properties/paths['$ref']/patternProperties['^\~1']['$ref']/patternProperties['^(get|put|post|delete|options|head|patch|trace)$']['$ref'][39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m1016 |[39m     get:
 [90m1017 |[39m       $ref: "resources/databases/databases_get_cluster.yml"
@@ -1262,7 +1262,7 @@
 
 [98] [1mDigitalOcean-public.v2.yaml:1021:5[22m [90mat #/paths/~1v2~1databases~1{database_cluster_uuid}~1config[39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m1019 |[39m       $ref: "resources/databases/databases_destroy_cluster.yml"
 [90m1020 |[39m 
@@ -1275,7 +1275,7 @@
 
 [99] [1mDigitalOcean-public.v2.yaml:1022:7[22m [90mat #/properties/paths['$ref']/patternProperties['^\~1']['$ref']/patternProperties['^(get|put|post|delete|options|head|patch|trace)$']['$ref'][39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m1020 |[39m 
 [90m1021 |[39m   /v2/databases/{database_cluster_uuid}/config:
@@ -1288,7 +1288,7 @@
 
 [100] [1mDigitalOcean-public.v2.yaml:1024:7[22m [90mat #/properties/paths['$ref']/patternProperties['^\~1']['$ref']/patternProperties['^(get|put|post|delete|options|head|patch|trace)$']['$ref'][39m
 
-[31mschema invalid: `/paths//v2/monitoring/sinks/destinations/post` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/get` missing properties: `[responses]`; `/paths//v2/partner_network_connect/attachments/{pa_id}/service_key/post` missing properties: `[responses]`[39m
+[31mschema invalid: `/paths//v2/account/keys/{ssh_key_identifier}/delete` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/get` missing properties: `[responses]`; `/paths//v2/account/keys/{ssh_key_identifier}/put` missing properties: `[responses]`[39m
 
 [90m1022 |[39m     get:
 [90m1023 |[39m       $ref: "resources/databases/databases_get_config.yml"

@@ -1502,7 +1502,7 @@ Reference: [34mhttps://redocly.com/docs/cli/rules/oas/nullable-type-sibling[39
 
 
 < ... 3816 more problems hidden > [90mincrease with `--max-problems N`[39m
-[90mapi.github.com.yaml: validated in 2515ms
+[90mapi.github.com.yaml: validated in 2644ms
 
 [39m[31m❌ Validation failed with 1648 errors and 2268 warnings.
 [39m[90mrun `redocly lint --generate-ignore-file` to add all problems to the ignore file.

@@ -1,6 +1,6 @@
 Linting OpenAPI document...
                            
-Lint report written to: /home/runner/.speakeasy/temp/lint-report-ba1627ca5c7482ed02688dc8ffc20b13-276761878.html
+Lint report written to: /home/runner/.speakeasy/temp/lint-report-514483730d63427a65bb4391d35fde7a-1784412539.html
 INFO    validation hint: [line 1:1] generator-retries - retries should be configured - consider adding x-speakeasy-retries[0m extension globally or per-operation
 INFO    validation hint: [line 4:7] generator-missing-examples - missing example for component. Consider adding an example
 INFO    validation hint: [line 47:11] generator-validate-enums - enum is nullable but does not contain a null[0m value
